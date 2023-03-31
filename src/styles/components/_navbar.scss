@@ -1,0 +1,14 @@
+.nav-container {
+  background-color: black;
+  width: 100%;
+  img {
+    width: 100px;
+    filter: invert(100%);
+    margin-left: 2%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.06);
+    }
+  }
+}

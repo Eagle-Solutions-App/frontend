@@ -1,8 +1,9 @@
 .container {
   background-color: $main;
   @include centerCol;
+  height: 100vh;
   h2 {
-    color: blue;
+    color: gray;
     font-size: 30px;
   }
 
