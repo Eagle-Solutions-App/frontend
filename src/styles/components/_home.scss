@@ -1,0 +1,14 @@
+.container {
+  background-color: $main;
+  @include centerCol;
+  h2 {
+    color: blue;
+    font-size: 30px;
+  }
+
+  .prueba {
+    border: 2px solid black;
+    height: 200px;
+    width: 400px;
+  }
+}
