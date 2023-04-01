@@ -7,7 +7,7 @@ axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Home />
     </div>
   );
