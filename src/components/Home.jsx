@@ -3,6 +3,7 @@ import Card from "./Card.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar.jsx";
 import { getProductos } from "../redux/actions/actions.js";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -17,6 +18,11 @@ export default function Home() {
       <Navbar />
       <div className="container">
         <h2>Bienvenido! Usted es Responsable de Compra</h2>
+
+        <Link>
+          <button>Crear Producto</button>
+        </Link>
+
         <div className="cards">
           {todosLosProds.map((card) => (
             <div key={card.id}>
