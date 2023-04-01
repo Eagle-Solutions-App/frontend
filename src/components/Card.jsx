@@ -1,6 +1,7 @@
 import React from "react";
 import borrar from "../img/trash.png";
 import editar from "../img/edit.png";
+import { Link } from "react-router-dom";
 
 export default function Card({ nombre, categoria, subcategoria }) {
   return (
@@ -28,9 +29,11 @@ export default function Card({ nombre, categoria, subcategoria }) {
         </div>
       </div>
       <div className="imagenes">
-        <button>
-          <img src={editar} alt="editar" />
-        </button>
+        <Link to="/editarProd" style={{ textDecoration: "none" }}>
+          <button>
+            <img src={editar} alt="editar" />
+          </button>
+        </Link>
         <button>
           <img src={borrar} alt="borrar" />
         </button>

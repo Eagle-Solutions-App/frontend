@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-export default function CreacionProducto() {
+export default function EditarProducto() {
   return (
     <div>
       <Navbar />
@@ -10,7 +10,7 @@ export default function CreacionProducto() {
         <Link to="/" style={{ textDecoration: "none" }}>
           <button>Home</button>
         </Link>
-        <h2>Creación de Producto</h2>
+        <h1>Editar Producto</h1>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const SEARCHxNAME = "SEARCHxNAME";
 /* import productos from "../../../productos.json"; */
