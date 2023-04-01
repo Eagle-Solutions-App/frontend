@@ -113,8 +113,16 @@ const initialState = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
   ],
-  categorias: ["Bienes de consumo", "Bienes de uso"],
-  subCategorias: ["Equipos", "Máquinas", "Materiales", "Repuestos"],
+  categorias: [
+    { id: 1, nombre: "Bienes de consumo" },
+    { id: 2, nombre: "Bienes de uso" },
+  ],
+  subCategorias: [
+    { id: 1, nombre: "Equipos" },
+    { id: 2, nombre: "Máquinas" },
+    { id: 3, nombre: "Materiales" },
+    { id: 4, nombre: "Repuestos" },
+  ],
 };
 
 function rootReducer(state = initialState, action) {

@@ -13,8 +13,8 @@ export default function Filtros() {
         <option value="todas">Todas</option>
         {categs?.map((c) => {
           return (
-            <option value={c} key={categs.indexOf(c)}>
-              {c}
+            <option value={c.nombre} key={c.id}>
+              {c.nombre}
             </option>
           );
         })}
@@ -24,8 +24,8 @@ export default function Filtros() {
         <option value="todas">Todas</option>
         {subCategs?.map((c) => {
           return (
-            <option value={c} key={subCategs.indexOf(c)}>
-              {c}
+            <option value={c.nombre} key={c.id}>
+              {c.nombre}
             </option>
           );
         })}
