@@ -15,7 +15,7 @@ export default function Card({ nombre, categoria, subcategoria }) {
 
         <div className="cadaInfo">
           <p className="categoria">
-            <b>Categoría: </b>
+            <b>Categoría:</b>
             {categoria}
           </p>
         </div>
