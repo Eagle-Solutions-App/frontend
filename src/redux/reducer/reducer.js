@@ -7,36 +7,54 @@ const initialState = {
       nombre: "Cemento",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#6531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 2,
       nombre: "Taladro",
       categoria: "Bien de Uso",
       subcategoria: "Equipos",
+      codigo: "#8631",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 3,
       nombre: "Piedra",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 4,
       nombre: "Excavadora",
       categoria: "Bien de Uso",
       subcategoria: "Máquinas",
+      codigo: "#9131",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 5,
       nombre: "Arena",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#1231",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 6,
       nombre: "Pala",
       categoria: "Bien de Uso",
       subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
   ],
   productosHome: [
@@ -45,36 +63,54 @@ const initialState = {
       nombre: "Cemento",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#6531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 2,
       nombre: "Taladro",
       categoria: "Bien de Uso",
       subcategoria: "Equipos",
+      codigo: "#8631",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 3,
       nombre: "Piedra",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 4,
       nombre: "Excavadora",
       categoria: "Bien de Uso",
       subcategoria: "Máquinas",
+      codigo: "#9131",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 5,
       nombre: "Arena",
       categoria: "Bien de Consumo",
       subcategoria: "Materiales",
+      codigo: "#1231",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
     {
       id: 6,
       nombre: "Pala",
       categoria: "Bien de Uso",
       subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
   ],
 };
