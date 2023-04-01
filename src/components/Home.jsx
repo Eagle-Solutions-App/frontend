@@ -17,7 +17,7 @@ export default function Home() {
       <Navbar />
       <div className="container">
         <h2>Bienvenido! Usted es Responsable de Compra</h2>
-        <div className="cards">
+        {/* <div className="cards">
           {todosLosProds.map((card) => (
             <div key={card.id}>
               <Card
@@ -27,7 +27,7 @@ export default function Home() {
               />
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
