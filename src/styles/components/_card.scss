@@ -1,0 +1,27 @@
+.card {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  .info {
+    /* border: 1px solid red; */
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .imagenes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border: 3px solid green; */
+    width: 10%;
+    height: 10%;
+  }
+
+  img {
+    width: 35%;
+    height: 35%;
+  }
+}
