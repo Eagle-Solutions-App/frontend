@@ -9,10 +9,10 @@
     width: 90%;
     display: flex;
     justify-content: space-evenly;
-    border: 1px red solid;
-
-    p {
-      border: 1px red solid;
+    margin-left: 45px;
+    .cadaInfo {
+      display: flex;
+      width: 20%;
     }
   }
 
@@ -25,7 +25,7 @@
   }
 
   img {
-    width: 35%;
-    height: 35%;
+    width: 25%;
+    height: 25%;
   }
 }
