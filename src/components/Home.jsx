@@ -6,7 +6,7 @@ import { getProductos } from "../redux/actions/actions.js";
 
 export default function Home() {
   const dispatch = useDispatch();
-  let todosLosProds = useSelector((state) => state.productos);
+  let todosLosProds = useSelector((state) => state.productosHome);
 
   useEffect(() => {
     dispatch(getProductos());

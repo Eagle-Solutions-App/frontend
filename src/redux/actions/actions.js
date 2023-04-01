@@ -1,5 +1,6 @@
 import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
+export const SEARCHxNAME = "SEARCHxNAME";
 /* import productos from "../../../productos.json"; */
 
 export const getProductos = () => {
@@ -10,5 +11,12 @@ export const getProductos = () => {
       type: GET_PRODUCTOS,
       payload: [response.data],
     }); */
+  };
+};
+
+export const searchXname = (nombre) => {
+  return {
+    type: SEARCHxNAME,
+    payload: nombre,
   };
 };

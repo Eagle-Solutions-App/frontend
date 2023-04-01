@@ -28,8 +28,12 @@ export default function Card({ nombre, categoria, subcategoria }) {
         </div>
       </div>
       <div className="imagenes">
-        <img src={editar} alt="editar" />
-        <img src={borrar} alt="borrar" />
+        <button>
+          <img src={editar} alt="editar" />
+        </button>
+        <button>
+          <img src={borrar} alt="borrar" />
+        </button>
       </div>
     </div>
   );

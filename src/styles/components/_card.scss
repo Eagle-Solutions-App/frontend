@@ -25,7 +25,13 @@
   }
 
   img {
-    width: 25%;
-    height: 25%;
+    width: 60%;
+    height: 60%;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
   }
 }
