@@ -7,6 +7,11 @@ export default function Navbar() {
     <div className="nav-container">
       <img src={logo} alt="logo" />
       <SearchBar />
+      <div className="btns">
+        <button className="user">
+          <i class="fa-regular fa-user fa-2xl"></i>
+        </button>
+      </div>
     </div>
   );
 }
