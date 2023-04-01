@@ -1,0 +1,37 @@
+.card {
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  .info {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 45px;
+    .cadaInfo {
+      display: flex;
+      width: 20%;
+    }
+  }
+
+  .imagenes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    height: 10%;
+  }
+
+  img {
+    width: 60%;
+    height: 60%;
+    cursor: pointer;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+}
