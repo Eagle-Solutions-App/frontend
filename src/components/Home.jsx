@@ -20,7 +20,7 @@ export default function Home() {
         <h2>Bienvenido! Usted es Responsable de Compra</h2>
 
         <Link to="/producto" style={{ textDecoration: "none" }}>
-          <button>Crear Producto</button>
+          <button className="crear">Crear Producto</button>
         </Link>
 
         <div className="cards">

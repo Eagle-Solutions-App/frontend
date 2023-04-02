@@ -13,7 +13,7 @@ export default function Navbar() {
       <SearchBar />
       <div className="btns">
         <button className="user">
-          <i class="fa-regular fa-user fa-2xl"></i>
+          <i className="fa-regular fa-user fa-2xl"></i>
         </button>
       </div>
       <Filtros />

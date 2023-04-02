@@ -21,12 +21,12 @@ export default function CreacionProducto() {
       <Navbar />
       <div className="container">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <button>Inicio</button>
+          <button className="inicioBtn">Inicio</button>
         </Link>
         <h2>Creación de Producto</h2>
 
         {/* creacion de categoría */}
-        <form>
+        <form className="formCat">
           <div>
             <label>Nueva Categoría: </label>
             <input type="text" name="nombre" value={nombreCateg}></input>
@@ -40,7 +40,7 @@ export default function CreacionProducto() {
         </form>
 
         {/* creación de subcategoría */}
-        <form>
+        <form className="formSub">
           <div>
             <label>Nueva Subcategoría: </label>
             <input type="text" name="nombre" value={nombreSubC}></input>
@@ -54,13 +54,17 @@ export default function CreacionProducto() {
         </form>
 
         {/* selección de categoría */}
-        <form>
+        <form className="formSelect">
           <p>Selecciona una categoría!</p>
-          <div>
+          <div className="selectCat">
             {categs?.map((obj) => {
               return (
                 <div key={obj.id}>
-                  <label htmlFor={obj.nombre} key={obj.id}>
+                  <label
+                    className="containerr"
+                    htmlFor={obj.nombre}
+                    key={obj.id}
+                  >
                     {obj.nombre}
                     <div>
                       <input
@@ -69,6 +73,7 @@ export default function CreacionProducto() {
                         id={obj.id}
                         value={obj.nombre}
                       />
+
                       <button value={obj.id}>x</button>
                     </div>
                   </label>
@@ -79,7 +84,7 @@ export default function CreacionProducto() {
 
           {/* selección de subcategoría */}
           <p>Selecciona una Subcategoría!</p>
-          <div>
+          <div className="selectSub">
             {subCategs?.map((obj) => {
               return (
                 <div key={obj.id}>
@@ -101,25 +106,33 @@ export default function CreacionProducto() {
           </div>
 
           {/* creación del producto */}
-          <div>
-            <label>Nombre del producto: </label>
-            <input type="text" name="title" value={input.title}></input>
-            <br></br>
-            <label>Código (ej: #3524): </label>
-            <input type="text" name="title" value={input.title}></input>
-          </div>
+          <div className="createProd">
+            <div className="namecodedesc">
+              <div className="nameProd">
+                <label>Nombre del producto: </label>
+                <input type="text" name="title" value={input.title}></input>
+              </div>
 
-          <div>
-            <label>Descripción: </label>
-            <textarea
-              type="text"
-              name="content"
-              value={input.content}
-            ></textarea>
-          </div>
+              <div className="codeProd">
+                <label>Código (ej: #3524): </label>
+                <input type="text" name="title" value={input.title}></input>
+              </div>
 
-          <div>
-            <button type="submit">Create!</button>
+              <div className="descProd">
+                <label>Descripción: </label>
+                <textarea
+                  type="text"
+                  name="content"
+                  cols="20"
+                  rows="4"
+                  value={input.content}
+                ></textarea>
+              </div>
+            </div>
+
+            <div>
+              <button type="submit">Create!</button>
+            </div>
           </div>
         </form>
       </div>

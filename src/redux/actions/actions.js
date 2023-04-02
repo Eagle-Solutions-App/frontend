@@ -1,5 +1,7 @@
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const SEARCHxNAME = "SEARCHxNAME";
+export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
+export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 /* import productos from "../../../productos.json"; */
 
 export const getProductos = () => {
@@ -17,5 +19,19 @@ export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
     payload: nombre,
+  };
+};
+
+export const searchXcategoria = (categoria) => {
+  return {
+    type: SEARCHxCATEGORIA,
+    payload: categoria,
+  };
+};
+
+export const searchXsubcategoria = (subcategoria) => {
+  return {
+    type: SEARCHxSUBCATEGORIA,
+    payload: subcategoria,
   };
 };

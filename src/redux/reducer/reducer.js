@@ -1,4 +1,9 @@
-import { GET_PRODUCTOS, SEARCHxNAME } from "../actions/actions";
+import {
+  GET_PRODUCTOS,
+  SEARCHxNAME,
+  SEARCHxCATEGORIA,
+  SEARCHxSUBCATEGORIA,
+} from "../actions/actions";
 
 const initialState = {
   productos: [
@@ -33,7 +38,7 @@ const initialState = {
       id: 4,
       nombre: "Excavadora",
       categoria: "Bien de Uso",
-      subcategoria: "Máquinas",
+      subcategoria: "Maquinas",
       codigo: "#9131",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
@@ -89,7 +94,7 @@ const initialState = {
       id: 4,
       nombre: "Excavadora",
       categoria: "Bien de Uso",
-      subcategoria: "Máquinas",
+      subcategoria: "Maquinas",
       codigo: "#9131",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
@@ -114,12 +119,12 @@ const initialState = {
     },
   ],
   categorias: [
-    { id: 1, nombre: "Bienes de consumo" },
-    { id: 2, nombre: "Bienes de uso" },
+    { id: 1, nombre: "Bien de Consumo" },
+    { id: 2, nombre: "Bien de Uso" },
   ],
   subCategorias: [
     { id: 1, nombre: "Equipos" },
-    { id: 2, nombre: "Máquinas" },
+    { id: 2, nombre: "Maquinas" },
     { id: 3, nombre: "Materiales" },
     { id: 4, nombre: "Repuestos" },
   ],
@@ -143,6 +148,18 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         productosHome: [...productsFilter],
+      };
+    }
+
+    case SEARCHxCATEGORIA: {
+      let prodFilter = state.productos.filter(
+        (e) => e.categoria === action.payload
+      );
+      console.log(prodFilter);
+      console.log(state.productosHome);
+      return {
+        ...state,
+        productosHome: prodFilter,
       };
     }
 
