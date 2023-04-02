@@ -141,6 +141,23 @@ const initialState = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
   ],
+  permisos: [
+    "Administrador",
+    "Gerente",
+    "Responsable de Compra",
+    "Responsable de Logística",
+    "Responsable de Depósito",
+    "Responsable de Administración",
+    "Jefe de Obra",
+    "Responsable de Transporte",
+    "Recursos Humanos",
+  ],
+  usuarios: [
+    { nombre: "joaquin", permisoActual: "Administrador", id: 1 },
+    { nombre: "jorge", permisoActual: "Jefe de Obra", id: 2 },
+    { nombre: "tomi", permisoActual: "Responsable de Logística", id: 3 },
+    { nombre: "cesar", permisoActual: "Recursos Humanos", id: 4 },
+  ],
 };
 
 function rootReducer(state = initialState, action) {

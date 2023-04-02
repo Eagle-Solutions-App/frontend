@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { searchXcategoria } from "../redux/actions/actions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Filtros() {
   const categs = useSelector((state) => state.categorias);
@@ -15,6 +16,10 @@ export default function Filtros() {
 
   return (
     <div className="filtCont">
+      <Link to="/usuarios">
+        <button>Panel de Usuarios</button>
+      </Link>
+
       <button>Recargar Todos los Productos</button>
       <div className="select-container">
         <select className="select-box" onChange={(e) => fn(e)}>
