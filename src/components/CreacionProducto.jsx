@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 
 export default function CreacionProducto() {
   const categs = useSelector((state) => state.categorias);
-  const subCategs = useSelector((state) => state.subCategorias);
+  const subCategs = useSelector((state) => state.subcategorias);
   const [input, setInput] = useState({
     id: "",
     nombre: "",
@@ -110,12 +110,12 @@ export default function CreacionProducto() {
             <div className="namecodedesc">
               <div className="nameProd">
                 <label>Nombre del producto: </label>
-                <input type="text" name="title" value={input.title}></input>
+                <input type="text" name="title" value={input.nombre}></input>
               </div>
 
               <div className="codeProd">
                 <label>Código (ej: #3524): </label>
-                <input type="text" name="title" value={input.title}></input>
+                <input type="text" name="title" value={input.codigo}></input>
               </div>
 
               <div className="descProd">
@@ -125,13 +125,13 @@ export default function CreacionProducto() {
                   name="content"
                   cols="20"
                   rows="4"
-                  value={input.content}
+                  value={input.descripcion}
                 ></textarea>
               </div>
             </div>
 
             <div>
-              <button type="submit">Create!</button>
+              <button type="submit">Crear Producto</button>
             </div>
           </div>
         </form>

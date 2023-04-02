@@ -3,6 +3,8 @@ import {
   SEARCHxNAME,
   SEARCHxCATEGORIA,
   SEARCHxSUBCATEGORIA,
+  GET_DETAIL,
+  CLEAN_DETAIL,
 } from "../actions/actions";
 
 const initialState = {
@@ -122,11 +124,22 @@ const initialState = {
     { id: 1, nombre: "Bien de Consumo" },
     { id: 2, nombre: "Bien de Uso" },
   ],
-  subCategorias: [
+  subcategorias: [
     { id: 1, nombre: "Equipos" },
     { id: 2, nombre: "Maquinas" },
     { id: 3, nombre: "Materiales" },
     { id: 4, nombre: "Repuestos" },
+  ],
+  detail: [
+    {
+      id: 1,
+      nombre: "Cemento",
+      categoria: "Bien de Consumo",
+      subcategoria: "Materiales",
+      codigo: "#6531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
   ],
 };
 
@@ -162,6 +175,17 @@ function rootReducer(state = initialState, action) {
         productosHome: prodFilter,
       };
     }
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
+      };
 
     default:
       return {

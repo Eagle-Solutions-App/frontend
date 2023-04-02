@@ -30,6 +30,7 @@ export default function Home() {
                 nombre={card.nombre}
                 categoria={card.categoria}
                 subcategoria={card.subcategoria}
+                id={card.id}
               />
             </div>
           ))}
