@@ -1,11 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
 export default function CreacionProducto() {
-  const dispatch = useDispatch();
   const categs = useSelector((state) => state.categorias);
   const subCategs = useSelector((state) => state.subcategorias);
 

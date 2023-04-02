@@ -4,6 +4,13 @@ import editar from "../img/edit.png";
 import { Link } from "react-router-dom";
 
 export default function Card({ nombre, categoria, subcategoria, id }) {
+  const onClose = (id) => {
+    let res = window.confirm(`Estás seguro de querere borrar "${nombre}"?`);
+    if (res === true) {
+      /* dispatch(borrarProd(id)); */
+    }
+  };
+
   return (
     <div className="card">
       <div className="info">
@@ -34,7 +41,8 @@ export default function Card({ nombre, categoria, subcategoria, id }) {
             <img src={editar} alt="editar" />
           </button>
         </Link>
-        <button>
+
+        <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
         </button>
       </div>
