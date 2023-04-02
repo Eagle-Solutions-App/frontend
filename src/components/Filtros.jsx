@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export default function Filtros() {
   const categs = useSelector((state) => state.categorias);
-  const subCategs = useSelector((state) => state.subCategorias);
+  const subCategs = useSelector((state) => state.subcategorias);
 
   return (
     <div>

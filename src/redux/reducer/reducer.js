@@ -1,4 +1,9 @@
-import { GET_PRODUCTOS, SEARCHxNAME } from "../actions/actions";
+import {
+  GET_PRODUCTOS,
+  SEARCHxNAME,
+  GET_DETAIL,
+  CLEAN_DETAIL,
+} from "../actions/actions";
 
 const initialState = {
   productos: [
@@ -114,14 +119,25 @@ const initialState = {
     },
   ],
   categorias: [
-    { id: 1, nombre: "Bienes de consumo" },
-    { id: 2, nombre: "Bienes de uso" },
+    { id: 1, nombre: "Bien de consumo" },
+    { id: 2, nombre: "Bien de uso" },
   ],
-  subCategorias: [
+  subcategorias: [
     { id: 1, nombre: "Equipos" },
     { id: 2, nombre: "Máquinas" },
     { id: 3, nombre: "Materiales" },
     { id: 4, nombre: "Repuestos" },
+  ],
+  detail: [
+    {
+      id: 1,
+      nombre: "Cemento",
+      categoria: "Bien de consumo",
+      subcategoria: "Materiales",
+      codigo: "#6531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
   ],
 };
 
@@ -145,6 +161,18 @@ function rootReducer(state = initialState, action) {
         productosHome: [...productsFilter],
       };
     }
+
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
+      };
 
     default:
       return {
