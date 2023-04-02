@@ -6,7 +6,13 @@ import { Link } from "react-router-dom";
 
 export default function Card({ nombre, categoria, subcategoria, id }) {
   const onClose = (id) => {
-    let res = window.confirm(`Estás seguro de querere borrar "${nombre}"?`);
+    let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
+    if (res === true) {
+      /* dispatch(borrarProd(id)); */
+    }
+  };
+  const onBlock = (id) => {
+    let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
       /* dispatch(borrarProd(id)); */
     }
@@ -75,7 +81,7 @@ export default function Card({ nombre, categoria, subcategoria, id }) {
                 </button>
               </Link>
 
-              <button onClick={() => onClose(id)}>
+              <button onClick={() => onBlock(id)}>
                 <img src={bloqueo} alt="bloqueo" />
               </button>
             </div>
