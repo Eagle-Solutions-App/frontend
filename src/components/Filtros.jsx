@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { searchXcategoria } from "../redux/actions/actions";
+import {
+  searchXcategoria,
+  searchXsubcategoria,
+} from "../redux/actions/actions";
 import { useDispatch } from "react-redux";
 
 export default function Filtros() {
@@ -11,6 +14,10 @@ export default function Filtros() {
 
   const fn = (e) => {
     dispatch(searchXcategoria(e.target.value));
+  };
+
+  const fn2 = (e) => {
+    dispatch(searchXsubcategoria(e.target.value));
   };
 
   return (
@@ -31,7 +38,7 @@ export default function Filtros() {
       </div>
 
       <div className="select-container">
-        <select className="select-box">
+        <select className="select-box" onChange={(e) => fn2(e)}>
           <option hidden>Subcategorías</option>
           <option value="todas">Todas</option>
           {subCategs?.map((c) => {

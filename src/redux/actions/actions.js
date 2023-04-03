@@ -6,6 +6,7 @@ export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 /* import productos from "../../../productos.json"; */
 export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const ADD_PAGINATE = "ADD_PAGINATE";
 
 export const getProductos = () => {
   return async function (dispatch) {
@@ -50,4 +51,11 @@ export const getDetail = (id) => {
 
 export const cleanDetail = () => {
   return { type: CLEAN_DETAIL };
+};
+
+export const addPaginate = (num) => {
+  return {
+    type: ADD_PAGINATE,
+    payload: num,
+  };
 };

@@ -1,6 +1,6 @@
 .container {
   color: white;
-  .inicioBtn {
+  .inicioBtn2 {
     font-family: "Poppins", sans-serif;
     border-radius: 5px;
     height: 40px;
@@ -9,7 +9,7 @@
     cursor: pointer;
   }
 
-  .formCat {
+  .formCat2 {
     width: 30%;
     position: relative;
     padding: 10px;
@@ -61,7 +61,7 @@
     }
   }
 
-  .formSub {
+  .formSub2 {
     width: 30%;
     position: relative;
     padding: 10px;
@@ -112,23 +112,23 @@
     }
   }
 
-  .formSelect {
+  .formEdit {
     width: 30%;
     position: relative;
     padding: 10px;
-    .selectCat {
+    .editCat {
       background-color: $azul3;
       border-radius: 10px;
       padding: 10px;
     }
 
-    .selectSub {
+    .editSub {
       background-color: $azul3;
       border-radius: 10px;
       padding: 10px;
     }
 
-    .createProd {
+    .editProd {
       .namecodedesc {
         padding: 10px;
         margin-top: 20px;
@@ -236,7 +236,7 @@
         }
       }
 
-      .createSubmit {
+      .editSubmit {
         padding: 10px;
         display: flex;
         justify-content: center;
@@ -246,6 +246,7 @@
           border-radius: 5px;
           height: 40px;
           padding: 5px 12px;
+
           cursor: pointer;
         }
       }

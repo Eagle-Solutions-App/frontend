@@ -23,8 +23,8 @@ export default function CreacionProducto() {
         <Link to="/" style={{ textDecoration: "none" }}>
           <button className="inicioBtn">Inicio</button>
         </Link>
-        <h2>Creación de Producto</h2>
 
+        <h2>Creación de Producto</h2>
         {/* creacion de categoría */}
         <form className="formCat">
           <div>
@@ -130,7 +130,7 @@ export default function CreacionProducto() {
               </div>
             </div>
 
-            <div>
+            <div className="createSubmit">
               <button type="submit">Crear Producto</button>
             </div>
           </div>

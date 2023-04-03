@@ -5,6 +5,7 @@ import {
   SEARCHxSUBCATEGORIA,
   GET_DETAIL,
   CLEAN_DETAIL,
+  ADD_PAGINATE,
 } from "../actions/actions";
 
 const initialState = {
@@ -57,6 +58,60 @@ const initialState = {
     {
       id: 6,
       nombre: "Pala",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 7,
+      nombre: "Producto 7",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 8,
+      nombre: "Producto 8",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 9,
+      nombre: "Producto 9",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 10,
+      nombre: "Producto 10",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 11,
+      nombre: "Producto 11",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 12,
+      nombre: "Producto 12",
       categoria: "Bien de Uso",
       subcategoria: "Equipos",
       codigo: "#3531",
@@ -119,6 +174,60 @@ const initialState = {
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
+    {
+      id: 7,
+      nombre: "Producto 7",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 8,
+      nombre: "Producto 8",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 9,
+      nombre: "Producto 9",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 10,
+      nombre: "Producto 10",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 11,
+      nombre: "Producto 11",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
+    {
+      id: 12,
+      nombre: "Producto 12",
+      categoria: "Bien de Uso",
+      subcategoria: "Equipos",
+      codigo: "#3531",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
+    },
   ],
   categorias: [
     { id: 1, nombre: "Bien de Consumo" },
@@ -141,6 +250,7 @@ const initialState = {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
     },
   ],
+  paginate: 1,
 };
 
 function rootReducer(state = initialState, action) {
@@ -175,6 +285,19 @@ function rootReducer(state = initialState, action) {
         productosHome: prodFilter,
       };
     }
+
+    case SEARCHxSUBCATEGORIA: {
+      let prodFilter = state.productos.filter(
+        (e) => e.subcategoria === action.payload
+      );
+      console.log(prodFilter);
+      console.log(state.productosHome);
+      return {
+        ...state,
+        productosHome: prodFilter,
+      };
+    }
+
     case GET_DETAIL:
       return {
         ...state,
@@ -185,6 +308,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: [],
+      };
+
+    case ADD_PAGINATE:
+      state = {
+        ...state,
+        paginate: action.payload,
       };
 
     default:
