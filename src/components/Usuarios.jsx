@@ -11,15 +11,16 @@ export default function PermisosAUsuarios() {
   const [input, setInput] = useState({
     id: "",
     nombre: "",
-    categoria: "",
-    subCategoria: "",
-    descripcion: "",
+    apellido: "",
+    email: "",
+    clave: "",
   });
 
   useEffect(() => {
     dispatch(getUsuarios());
   }, [dispatch]);
 
+  console.log(usuarios);
   return (
     <div>
       <Navbar />
@@ -28,18 +29,20 @@ export default function PermisosAUsuarios() {
           <button className="inicioBtn">Inicio</button>
         </Link>
         <h2>Panel de usuarios</h2>
+
         <div className="cards">
-          {usuarios?.map((user) => {
-            return (
-              <div key={user[0].id}>
+          {usuarios.map((user) =>
+            user.map((u) => (
+              <div key={u.id}>
                 <Card
-                  nombre={user[0].nombre}
-                  categoria={user.permisoActual}
-                  id={user.id}
+                  nombre={`${u.nombre} ${u.apellido}`}
+                  categoria={u.email}
+                  subcategoria={u.email}
+                  id={u.id}
                 />
               </div>
-            );
-          })}
+            ))
+          )}
         </div>
       </div>
     </div>

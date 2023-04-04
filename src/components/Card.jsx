@@ -2,6 +2,7 @@ import React from "react";
 import borrar from "../img/trash.png";
 import editar from "../img/edit.png";
 import bloqueo from "../img/bloqueo.png";
+import shopping from "../img/shopping.png";
 import { Link } from "react-router-dom";
 
 export default function Card({
@@ -61,6 +62,9 @@ export default function Card({
               <button onClick={() => onClose(id)}>
                 <img src={borrar} alt="borrar" />
               </button>
+              <button>
+                <img src={shopping} alt="shopping" />
+              </button>
             </div>
           </>
         ) : (
@@ -74,8 +78,14 @@ export default function Card({
             </div>
             <div className="cadaInfo">
               <p className="categoria">
-                <b>Permiso Actual: </b>
+                <b>Email: </b>
                 {categoria}
+              </p>
+            </div>
+            <div className="cadaInfo">
+              <p className="categoria">
+                <b>Permiso Actual: </b>
+                ADMIN
               </p>
             </div>
             <div className="imagenes">

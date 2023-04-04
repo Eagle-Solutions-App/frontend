@@ -56,6 +56,12 @@ export const updateProd = (data, id) => {
   };
 };
 
+export const updateUser = (data, id) => {
+  return async function () {
+    await axios.put(`/usuarios/${id}`, data);
+  };
+};
+
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
