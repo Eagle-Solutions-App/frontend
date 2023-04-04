@@ -30,8 +30,9 @@ export default function Navbar() {
         <button className="user">
           <i className="fa-regular fa-user fa-2xl"></i>
         </button>
-
-        <img src={shopping} alt="shopping" />
+        <button className="shopping">
+          <img src={shopping} alt="shopping" />
+        </button>
       </div>
     </div>
   );
