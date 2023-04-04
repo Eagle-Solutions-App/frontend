@@ -41,6 +41,20 @@ const initialState = {
       provincia: "cordoba",
       pais: "Argentina",
     },
+    {
+      nombre: "cargamento 2",
+      direccion: "chau 123",
+      ciudad: "La plata",
+      provincia: "Buenos Aires",
+      pais: "Argentina",
+    },
+    {
+      nombre: "cargamento depósito",
+      direccion: "buena vida 123",
+      ciudad: "Lima",
+      provincia: "Lima",
+      pais: "perú",
+    },
   ],
   paginate: 1,
 };
