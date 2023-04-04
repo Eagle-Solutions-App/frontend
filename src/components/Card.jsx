@@ -2,6 +2,7 @@ import React from "react";
 import borrar from "../img/trash.png";
 import editar from "../img/edit.png";
 import bloqueo from "../img/bloqueo.png";
+import shopping from "../img/shopping.png";
 import { Link } from "react-router-dom";
 
 export default function Card({
@@ -11,6 +12,9 @@ export default function Card({
   id,
   descripcion,
   codigo,
+  email,
+  pais,
+  ciudad,
 }) {
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
@@ -41,14 +45,14 @@ export default function Card({
             <div className="cadaInfo">
               <p className="categoria">
                 <b>Categoría: </b>
-                {categoria}
+                {categoria || "Bien de Uso"}
               </p>
             </div>
 
             <div className="cadaInfo">
               <p className="subcategoria">
                 <b>Subcategoría: </b>
-                {subcategoria}
+                {subcategoria || "Materiales"}
               </p>
             </div>
             <div className="imagenes">
@@ -61,9 +65,12 @@ export default function Card({
               <button onClick={() => onClose(id)}>
                 <img src={borrar} alt="borrar" />
               </button>
+              <button>
+                <img src={shopping} alt="shopping" />
+              </button>
             </div>
           </>
-        ) : (
+        ) : email ? (
           /* panel de usuarios */
           <>
             <div className="cadaInfo">
@@ -74,8 +81,14 @@ export default function Card({
             </div>
             <div className="cadaInfo">
               <p className="categoria">
+                <b>Email: </b>
+                {email}
+              </p>
+            </div>
+            <div className="cadaInfo">
+              <p className="categoria">
                 <b>Permiso Actual: </b>
-                {categoria}
+                ADMIN
               </p>
             </div>
             <div className="imagenes">
@@ -90,6 +103,41 @@ export default function Card({
 
               <button onClick={() => onBlock(id)}>
                 <img src={bloqueo} alt="bloqueo" />
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="cadaInfo">
+              <p className="nombre">
+                <b>Nombre: </b>
+                {nombre}
+              </p>
+            </div>
+            <div className="cadaInfo">
+              <p className="categoria">
+                <b>País: </b>
+                {pais}
+              </p>
+            </div>
+            <div className="cadaInfo">
+              <p className="categoria">
+                <b>Ciudad: </b>
+                {ciudad}
+              </p>
+            </div>
+            <div className="imagenes">
+              <Link
+                to={`/editarUsuario/${id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <button>
+                  <img src={editar} alt="editar" />
+                </button>
+              </Link>
+
+              <button onClick={() => onClose(id)}>
+                <img src={borrar} alt="borrar" />
               </button>
             </div>
           </>

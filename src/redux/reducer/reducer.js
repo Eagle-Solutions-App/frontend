@@ -21,17 +21,7 @@ const initialState = {
     { id: 3, nombre: "Materiales" },
     { id: 4, nombre: "Repuestos" },
   ],
-  detail: [
-    {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#6531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-  ],
+  detail: [],
   permisos: [
     "Administrador",
     "Gerente",
@@ -43,11 +33,15 @@ const initialState = {
     "Responsable de Transporte",
     "Recursos Humanos",
   ],
-  usuarios: [
-    { nombre: "joaquin", permisoActual: "Administrador", id: 1 },
-    { nombre: "jorge", permisoActual: "Jefe de Obra", id: 2 },
-    { nombre: "tomi", permisoActual: "Responsable de Logística", id: 3 },
-    { nombre: "cesar", permisoActual: "Recursos Humanos", id: 4 },
+  usuarios: [],
+  depositos: [
+    {
+      nombre: "Deposito1",
+      direccion: "holaa 123",
+      ciudad: "cordoba",
+      provincia: "cordoba",
+      pais: "Argentina",
+    },
   ],
   paginate: 1,
 };
@@ -97,7 +91,7 @@ function rootReducer(state = initialState, action) {
 
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
-        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+        e[0].nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,

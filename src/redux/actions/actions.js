@@ -62,6 +62,19 @@ export const postProd = (payload) => {
   };
 };
 
+export const updateProd = (data, id) => {
+  console.log(id);
+  return async function () {
+    await axios.put(`/productos/${id}`, data);
+  };
+};
+
+export const updateUser = (data, id) => {
+  return async function () {
+    await axios.put(`/usuarios/${id}`, data);
+  };
+};
+
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
@@ -82,13 +95,15 @@ export const searchXsubcategoria = (subcategoria) => {
     payload: subcategoria,
   };
 };
+
 export const getDetail = (id) => {
   return async function (dispatch) {
-    /* const response = await axios.get(`//${id}`);
+    const response = await axios.get(`/productos/${id}`);
+    console.log(id);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
-    }); */
+    });
   };
 };
 

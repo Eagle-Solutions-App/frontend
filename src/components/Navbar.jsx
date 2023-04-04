@@ -1,6 +1,7 @@
 import React /* useState */ from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
+import shopping from "../img/shopping.png";
 import Filtros from "./Filtros";
 import SearchBar from "./SearchBar";
 /* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,6 +30,8 @@ export default function Navbar() {
         <button className="user">
           <i className="fa-regular fa-user fa-2xl"></i>
         </button>
+
+        <img src={shopping} alt="shopping" />
       </div>
     </div>
   );
