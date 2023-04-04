@@ -39,9 +39,9 @@ export default function CreacionDeposito() {
     <div>
       <Navbar />
       <div className="container">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        {/* <Link to="/" style={{ textDecoration: "none" }}>
           <button className="inicioBtn">Inicio</button>
-        </Link>
+        </Link> */}
 
         <h2>Creación de Depósito</h2>
 

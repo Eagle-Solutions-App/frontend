@@ -49,9 +49,6 @@ export default function Home() {
         <Link to="/producto" style={{ textDecoration: "none" }}>
           <button className="crear">Crear Producto</button>
         </Link>
-        <Link to="/deposito" style={{ textDecoration: "none" }}>
-          <button className="crear">Crear Depósito</button>
-        </Link>
 
         <Paginado
           productsPerPage={productsPerPage}

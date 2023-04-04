@@ -27,6 +27,14 @@ export default function Filtros() {
         <button>Panel de Usuarios</button>
       </Link>
 
+      <Link to="/depositos">
+        <button>Panel de Depósitos</button>
+      </Link>
+
+      <Link to="/">
+        <button>Panel de Productos</button>
+      </Link>
+
       <button>Recargar Todos los Productos</button>
       <div className="select-container">
         <select className="select-box" onChange={(e) => fn(e)}>

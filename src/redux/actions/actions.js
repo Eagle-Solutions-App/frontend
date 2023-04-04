@@ -51,6 +51,7 @@ export const postProd = (payload) => {
 };
 
 export const updateProd = (data, id) => {
+  console.log(id);
   return async function () {
     await axios.put(`/productos/${id}`, data);
   };
@@ -82,9 +83,11 @@ export const searchXsubcategoria = (subcategoria) => {
     payload: subcategoria,
   };
 };
+
 export const getDetail = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/productos/${id}`);
+    console.log(id);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,

@@ -33,6 +33,15 @@ const initialState = {
     "Recursos Humanos",
   ],
   usuarios: [],
+  depositos: [
+    {
+      nombre: "Deposito1",
+      direccion: "holaa 123",
+      ciudad: "cordoba",
+      provincia: "cordoba",
+      pais: "Argentina",
+    },
+  ],
   paginate: 1,
 };
 
@@ -72,7 +81,7 @@ function rootReducer(state = initialState, action) {
 
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
-        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+        e[0].nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,

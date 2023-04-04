@@ -11,7 +11,7 @@ export default function CreacionProducto() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const detail = useSelector((state) => state.detail);
+  const detail = useSelector((state) => state.detail.resultado);
 
   const { id } = useParams();
 
@@ -47,7 +47,7 @@ export default function CreacionProducto() {
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
-    dispatch(updateProd(input));
+    dispatch(updateProd(input, id));
     alert("Producto editado satisfactoriamente! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
@@ -59,17 +59,19 @@ export default function CreacionProducto() {
     navigate("/");
   };
 
+  console.log(detail);
+
   return (
     <div>
       <Navbar />
       <div className="container">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        {/* <Link to="/" style={{ textDecoration: "none" }}>
           <button className="inicioBtn2">Inicio</button>
-        </Link>
+        </Link> */}
 
-        {detail.length && (
-          <div>
-            <h2>Editando: {detail[0].nombre}</h2>
+        {detail && (
+          <>
+            <h2>Editando: {detail.nombre}</h2>
 
             {/* creacion de categoría */}
             {/* <form className="formCat2">
@@ -101,8 +103,8 @@ export default function CreacionProducto() {
 
             {/* edición de categoría */}
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
-              {/* {detail[0].categoria ? (
-            <p>{`Categoría previa: ${detail[0].categoria}`}</p>
+              {/* {detail.categoria ? (
+            <p>{`Categoría previa: ${detail.categoria}`}</p>
           ) : (
             <p>Sin categoría previa! Seleccione una:</p>
           )}
@@ -117,7 +119,7 @@ export default function CreacionProducto() {
                         type="checkbox"
                         name="categ"
                         id={obj.id}
-                        value={[obj.nombre || detail[0].categoria]}
+                        value={[obj.nombre || detail.categoria]}
                       />
                       <button value={obj.id}>x</button>
                     </div>
@@ -128,8 +130,8 @@ export default function CreacionProducto() {
           </div> */}
 
               {/* edición de subcategoría */}
-              {detail[0].subcategoria ? (
-                <p>{`Subcategoría previa: ${detail[0].subcategoria}`}</p>
+              {detail.subcategoria ? (
+                <p>{`Subcategoría previa: ${detail.subcategoria}`}</p>
               ) : (
                 <p>Sin subcategoría previa! Seleccione una:</p>
               )}
@@ -144,7 +146,7 @@ export default function CreacionProducto() {
                             type="checkbox"
                             name="subCateg"
                             id={obj.id}
-                            value={[obj.nombre || detail[0].subcategoria]}
+                            value={[obj.nombre || detail.subcategoria]}
                             onChange={(e) => handlerSelectCateg(e)}
                           />
                           <button value={obj.id}>x</button>
@@ -163,7 +165,7 @@ export default function CreacionProducto() {
                     <input
                       type="text"
                       name="nombre"
-                      value={[input.nombre || detail[0].nombre]}
+                      value={[input.nombre || detail.nombre]}
                       onChange={(e) => handlerChange(e)}
                     ></input>
                   </div>
@@ -173,7 +175,7 @@ export default function CreacionProducto() {
                     <input
                       type="text"
                       name="codigo"
-                      value={[input.codigo || detail[0].codigo]}
+                      value={[input.codigo || detail.codigo]}
                       onChange={(e) => handlerChange(e)}
                     ></input>
                   </div>
@@ -183,7 +185,7 @@ export default function CreacionProducto() {
                     <textarea
                       type="text"
                       name="descripcion"
-                      value={[input.descripcion || detail[0].descripcion]}
+                      value={[input.descripcion || detail.descripcion]}
                       onChange={(e) => handlerChange(e)}
                     ></textarea>
                   </div>
@@ -194,7 +196,7 @@ export default function CreacionProducto() {
                 </div>
               </div>
             </form>
-          </div>
+          </>
         )}
       </div>
     </div>
