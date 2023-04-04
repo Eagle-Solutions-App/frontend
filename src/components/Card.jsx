@@ -4,7 +4,13 @@ import editar from "../img/edit.png";
 import bloqueo from "../img/bloqueo.png";
 import { Link } from "react-router-dom";
 
-export default function Card({ nombre, categoria, subcategoria, id }) {
+export default function Card({
+  nombre,
+  categoria,
+  subcategoria,
+  id,
+  informacion,
+}) {
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
@@ -21,7 +27,7 @@ export default function Card({ nombre, categoria, subcategoria, id }) {
   return (
     <div className="card">
       <div className="info">
-        {subcategoria ? (
+        {informacion ? (
           /* listado de productos */
           <>
             <div className="cadaInfo">

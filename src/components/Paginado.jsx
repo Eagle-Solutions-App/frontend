@@ -30,7 +30,7 @@ export default function Paginado({
             disabled={currentPage === 1}
             className="numberList"
           >
-            <i class="fa-solid fa-arrow-left"></i>
+            <i className="fa-solid fa-arrow-left"></i>
           </button>
           {numberOfPages.map((num) => {
             return (
@@ -48,7 +48,7 @@ export default function Paginado({
             disabled={currentPage === numberOfPages.length}
             className="numberList"
           >
-            <i class="fa-solid fa-arrow-right"></i>
+            <i className="fa-solid fa-arrow-right"></i>
           </button>
         </div>
       </div>

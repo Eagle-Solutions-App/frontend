@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Card from "./Card";
+import { getUsuarios } from "../redux/actions/actions";
 
 export default function PermisosAUsuarios() {
+  const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios);
   const [input, setInput] = useState({
     id: "",
@@ -13,6 +15,10 @@ export default function PermisosAUsuarios() {
     subCategoria: "",
     descripcion: "",
   });
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, [dispatch]);
 
   return (
     <div>
@@ -25,9 +31,9 @@ export default function PermisosAUsuarios() {
         <div className="cards">
           {usuarios?.map((user) => {
             return (
-              <div>
+              <div key={user[0].id}>
                 <Card
-                  nombre={user.nombre}
+                  nombre={user[0].nombre}
                   categoria={user.permisoActual}
                   id={user.id}
                 />

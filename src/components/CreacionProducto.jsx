@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCategorias } from "../redux/actions/actions";
 import Navbar from "./Navbar";
 
 export default function CreacionProducto() {
   const categs = useSelector((state) => state.categorias);
   const subCategs = useSelector((state) => state.subcategorias);
+  const dispatch = useDispatch();
   const [input, setInput] = useState({
     id: "",
     nombre: "",
@@ -13,6 +15,10 @@ export default function CreacionProducto() {
     subCategoria: "",
     descripcion: "",
   });
+
+  useEffect(() => {
+    dispatch(getCategorias());
+  }, [dispatch]);
 
   const [nombreCateg, setNombreCateg] = useState("");
   const [nombreSubC, setNombreSubC] = useState("");
@@ -26,7 +32,7 @@ export default function CreacionProducto() {
 
         <h2>Creación de Producto</h2>
         {/* creacion de categoría */}
-        <form className="formCat">
+        {/* <form className="formCat">
           <div>
             <label>Nueva Categoría: </label>
             <input type="text" name="nombre" value={nombreCateg}></input>
@@ -37,10 +43,10 @@ export default function CreacionProducto() {
               </button>
             </div>
           </div>
-        </form>
+        </form> */}
 
         {/* creación de subcategoría */}
-        <form className="formSub">
+        {/*  <form className="formSub">
           <div>
             <label>Nueva Subcategoría: </label>
             <input type="text" name="nombre" value={nombreSubC}></input>
@@ -51,36 +57,36 @@ export default function CreacionProducto() {
               </button>
             </div>
           </div>
-        </form>
+        </form> */}
 
         {/* selección de categoría */}
         <form className="formSelect">
-          <p>Selecciona una categoría!</p>
+          {/* <p>Selecciona una categoría!</p>
           <div className="selectCat">
             {categs?.map((obj) => {
               return (
-                <div key={obj.id}>
+                <div key={obj[0].id}>
                   <label
                     className="containerr"
-                    htmlFor={obj.nombre}
-                    key={obj.id}
+                    htmlFor={obj[0].nombre}
+                    key={obj[0].id}
                   >
-                    {obj.nombre}
+                    {obj[0].nombre}
                     <div>
                       <input
                         type="checkbox"
                         name="categ"
-                        id={obj.id}
-                        value={obj.nombre}
+                        id={obj[0].id}
+                        value={obj[0].nombre}
                       />
 
-                      <button value={obj.id}>x</button>
+                      <button value={obj[0].id}>x</button>
                     </div>
                   </label>
                 </div>
               );
             })}
-          </div>
+          </div> */}
 
           {/* selección de subcategoría */}
           <p>Selecciona una Subcategoría!</p>
@@ -95,7 +101,7 @@ export default function CreacionProducto() {
                         type="checkbox"
                         name="subCateg"
                         id={obj.id}
-                        value={obj.nombre}
+                        value={[obj.nombre]}
                       />
                       <button value={obj.id}>x</button>
                     </div>
@@ -103,6 +109,15 @@ export default function CreacionProducto() {
                 </div>
               );
             })}
+            <select>
+              {subCategs?.map((obj) => {
+                return (
+                  <option value={obj.nombre} key={obj.id}>
+                    {obj.nombre}
+                  </option>
+                );
+              })}
+            </select>
           </div>
 
           {/* creación del producto */}
