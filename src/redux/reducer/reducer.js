@@ -63,7 +63,6 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTOS: {
-      console.log(action.payload);
       return {
         ...state,
         productos: [...action.payload],
@@ -72,7 +71,6 @@ function rootReducer(state = initialState, action) {
     }
 
     case ALL_PRODUCTOS: {
-      console.log(action.payload);
       return {
         ...state,
         productos: [...action.payload],
@@ -81,7 +79,6 @@ function rootReducer(state = initialState, action) {
     }
 
     case GET_USUARIOS: {
-      console.log(action.payload);
       return {
         ...state,
         usuarios: [...action.payload],
@@ -89,7 +86,6 @@ function rootReducer(state = initialState, action) {
     }
 
     case GET_CATEGORIAS: {
-      console.log(action.payload);
       return {
         ...state,
         categorias: [...action.payload],
@@ -117,8 +113,6 @@ function rootReducer(state = initialState, action) {
       let prodFilter = state.productos.filter(
         (e) => e.categoria === action.payload
       );
-      console.log(prodFilter);
-      console.log(state.productosHome);
       return {
         ...state,
         productosHome: prodFilter,
@@ -129,8 +123,6 @@ function rootReducer(state = initialState, action) {
       let prodFilter = state.productos.filter(
         (e) => e.subcategoria === action.payload
       );
-      console.log(prodFilter);
-      console.log(state.productosHome);
       return {
         ...state,
         productosHome: prodFilter,

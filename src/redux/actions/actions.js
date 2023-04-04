@@ -14,7 +14,6 @@ export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const getProductos = () => {
   return async function (dispatch) {
     const response = await axios.get("/productos");
-    console.log(response);
     return dispatch({
       type: GET_PRODUCTOS,
       payload: [response.data],
@@ -25,7 +24,6 @@ export const getProductos = () => {
 export const allProductos = () => {
   return async function (dispatch) {
     const response = await axios.get("/productos");
-    console.log(response);
     return dispatch({
       type: ALL_PRODUCTOS,
       payload: [response.data],
@@ -36,7 +34,6 @@ export const allProductos = () => {
 export const getUsuarios = () => {
   return async function (dispatch) {
     const response = await axios.get("/usuarios");
-    console.log(response);
     return dispatch({
       type: GET_USUARIOS,
       payload: [response.data],
@@ -47,7 +44,6 @@ export const getUsuarios = () => {
 export const getCategorias = () => {
   return async function (dispatch) {
     const response = await axios.get("/categorias");
-    console.log(response);
     return dispatch({
       type: GET_CATEGORIAS,
       payload: [response.data],
@@ -63,7 +59,6 @@ export const postProd = (payload) => {
 };
 
 export const updateProd = (data, id) => {
-  console.log(id);
   return async function () {
     await axios.put(`/productos/${id}`, data);
   };
@@ -99,7 +94,6 @@ export const searchXsubcategoria = (subcategoria) => {
 export const getDetail = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/productos/${id}`);
-    console.log(id);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
