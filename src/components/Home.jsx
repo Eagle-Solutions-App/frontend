@@ -44,7 +44,7 @@ export default function Home() {
     <div>
       <Navbar />
       <div className="container">
-        <h2>Bienvenido! Usted es Responsable de Compra</h2>
+        <h2>Bienvenido! Usted es Administrador</h2>
 
         <Link to="/producto" style={{ textDecoration: "none" }}>
           <button className="crear">Crear Producto</button>
@@ -60,21 +60,23 @@ export default function Home() {
           key={todosLosProds.id}
         ></Paginado>
 
-        {todosLosProds.length > 0 ? (
+        {todosLosProds.length > 0 && (
           <div className="cards">
-            {currentProducts.map((card) => (
-              <div key={card.id}>
-                <Card
-                  nombre={card.nombre}
-                  categoria={card.categoria}
-                  subcategoria={card.subcategoria}
-                  id={card.id}
-                />
-              </div>
-            ))}
+            {currentProducts.map((card) =>
+              card.map((c) => (
+                <div key={c.id}>
+                  <Card
+                    nombre={c.nombre}
+                    categoria={c.categoria}
+                    subcategoria={c.subcategoria}
+                    descripcion={c.descripcion}
+                    codigo={c.codigo}
+                    id={c.id}
+                  />
+                </div>
+              ))
+            )}
           </div>
-        ) : (
-          ""
         )}
 
         <Paginado

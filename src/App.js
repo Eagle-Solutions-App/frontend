@@ -4,8 +4,9 @@ import CreacionProducto from "./components/CreacionProducto";
 import Usuarios from "./components/Usuarios";
 import EditarProducto from "./components/EditarProducto";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 
-/* axios.defaults.baseURL = "http://localhost:3001"; */
+axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
   return (

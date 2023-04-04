@@ -6,233 +6,14 @@ import {
   GET_DETAIL,
   CLEAN_DETAIL,
   ADD_PAGINATE,
+  GET_USUARIOS,
+  GET_CATEGORIAS,
 } from "../actions/actions";
 
 const initialState = {
-  productos: [
-    {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#6531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 2,
-      nombre: "Taladro",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#8631",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 3,
-      nombre: "Piedra",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 4,
-      nombre: "Excavadora",
-      categoria: "Bien de Uso",
-      subcategoria: "Maquinas",
-      codigo: "#9131",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 5,
-      nombre: "Arena",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#1231",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 6,
-      nombre: "Pala",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 7,
-      nombre: "Producto 7",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 8,
-      nombre: "Producto 8",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 9,
-      nombre: "Producto 9",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 10,
-      nombre: "Producto 10",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 11,
-      nombre: "Producto 11",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 12,
-      nombre: "Producto 12",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-  ],
-  productosHome: [
-    {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#6531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 2,
-      nombre: "Taladro",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#8631",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 3,
-      nombre: "Piedra",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 4,
-      nombre: "Excavadora",
-      categoria: "Bien de Uso",
-      subcategoria: "Maquinas",
-      codigo: "#9131",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 5,
-      nombre: "Arena",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#1231",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 6,
-      nombre: "Pala",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 7,
-      nombre: "Producto 7",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 8,
-      nombre: "Producto 8",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 9,
-      nombre: "Producto 9",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 10,
-      nombre: "Producto 10",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 11,
-      nombre: "Producto 11",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-    {
-      id: 12,
-      nombre: "Producto 12",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-      codigo: "#3531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-  ],
-  categorias: [
-    { id: 1, nombre: "Bien de Consumo" },
-    { id: 2, nombre: "Bien de Uso" },
-  ],
+  productos: [],
+  productosHome: [],
+  categorias: [],
   subcategorias: [
     { id: 1, nombre: "Equipos" },
     { id: 2, nombre: "Maquinas" },
@@ -278,6 +59,29 @@ function rootReducer(state = initialState, action) {
         ...state,
         productos: [...action.payload],
         productosHome: [...action.payload],
+      };
+    }
+
+    case GET_USUARIOS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        usuarios: [...action.payload],
+      };
+    }
+
+    case GET_CATEGORIAS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        categorias: [...action.payload],
+      };
+    }
+
+    case "POST_PROD": {
+      return {
+        ...state,
+        productos: action.payload,
       };
     }
 
@@ -328,7 +132,7 @@ function rootReducer(state = initialState, action) {
       };
 
     case ADD_PAGINATE:
-      state = {
+      return {
         ...state,
         paginate: action.payload,
       };
