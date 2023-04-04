@@ -1,5 +1,6 @@
 import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
+export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
@@ -16,6 +17,17 @@ export const getProductos = () => {
     console.log(response);
     return dispatch({
       type: GET_PRODUCTOS,
+      payload: [response.data],
+    });
+  };
+};
+
+export const allProductos = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/productos");
+    console.log(response);
+    return dispatch({
+      type: ALL_PRODUCTOS,
       payload: [response.data],
     });
   };

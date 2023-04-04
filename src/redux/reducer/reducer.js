@@ -1,5 +1,6 @@
 import {
   GET_PRODUCTOS,
+  ALL_PRODUCTOS,
   SEARCHxNAME,
   SEARCHxCATEGORIA,
   SEARCHxSUBCATEGORIA,
@@ -62,6 +63,15 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRODUCTOS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        productos: [...action.payload],
+        productosHome: [...action.payload],
+      };
+    }
+
+    case ALL_PRODUCTOS: {
       console.log(action.payload);
       return {
         ...state,

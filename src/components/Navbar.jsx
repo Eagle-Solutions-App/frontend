@@ -15,11 +15,17 @@ export default function Navbar() {
   }; */
   return (
     <div className="nav-container">
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <img src={logo} alt="logo" />
-      </Link>
+      <div className="logoNav">
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
 
-      <SearchBar />
+      <div className="searchFilters">
+        <SearchBar />
+        <Filtros />
+      </div>
+
       <div className="btns">
         <button className="user">
           <i className="fa-regular fa-user fa-2xl"></i>
@@ -27,8 +33,6 @@ export default function Navbar() {
 
         <img src={shopping} alt="shopping" />
       </div>
-
-      <Filtros />
     </div>
   );
 }

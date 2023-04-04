@@ -4,6 +4,7 @@ import CreacionProducto from "./components/CreacionProducto";
 import Usuarios from "./components/Usuarios";
 import Depositos from "./components/Depositos";
 import EditarProducto from "./components/EditarProducto";
+import Landing from "./components/Landing";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import CreacionDeposito from "./components/CreacionDeposito";
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        {/* <Route exact path="/" element={<Landing />} /> */}
         <Route exact path="/" element={<Home />} />
         <Route path="/producto" element={<CreacionProducto />} />
         <Route path="/editarProd/:id" element={<EditarProducto />} />
