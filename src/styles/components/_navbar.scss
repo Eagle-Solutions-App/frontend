@@ -3,22 +3,34 @@
   width: 100%;
   height: 120px;
   position: relative;
-  img {
-    width: 100px;
-    filter: invert(100%);
-    margin-left: 2%;
-    transition: all 0.3s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    &:hover {
-      transform: scale(1.06);
+  .logoNav {
+    display: inline-block;
+    img {
+      width: 100px;
+      filter: invert(100%);
+      margin-left: 2%;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.06);
+      }
     }
+  }
+
+  .searchFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
   }
   .btns {
     width: 100px;
     height: 40px;
-    position: absolute;
-    right: 5%;
-    top: 10%;
     @include center;
 
     .user {
