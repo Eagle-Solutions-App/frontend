@@ -50,6 +50,12 @@ export const postProd = (payload) => {
   };
 };
 
+export const updateProd = (data, id) => {
+  return async function () {
+    await axios.put(`/productos/${id}`, data);
+  };
+};
+
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
@@ -72,11 +78,11 @@ export const searchXsubcategoria = (subcategoria) => {
 };
 export const getDetail = (id) => {
   return async function (dispatch) {
-    /* const response = await axios.get(`//${id}`);
+    const response = await axios.get(`/productos/${id}`);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
-    }); */
+    });
   };
 };
 

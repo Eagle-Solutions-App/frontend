@@ -20,17 +20,7 @@ const initialState = {
     { id: 3, nombre: "Materiales" },
     { id: 4, nombre: "Repuestos" },
   ],
-  detail: [
-    {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-      codigo: "#6531",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quo aut animi quis in. Quisquam rerum porro temporibus, error impedit sed, sequi, dolores exercitationem nisi deleniti quod sit dicta maxime.",
-    },
-  ],
+  detail: [],
   permisos: [
     "Administrador",
     "Gerente",

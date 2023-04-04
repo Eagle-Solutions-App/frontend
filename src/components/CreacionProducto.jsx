@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
-import { getCategorias, postProd } from "../redux/actions/actions";
+import { postProd } from "../redux/actions/actions";
 import Navbar from "./Navbar";
 
 export default function CreacionProducto() {
-  const categs = useSelector((state) => state.categorias);
+  /*  const categs = useSelector((state) => state.categorias); */
   const subCategs = useSelector((state) => state.subcategorias);
   const navigate = useNavigate();
   const dispatch = useDispatch();
