@@ -32,7 +32,13 @@ const initialState = {
     "Responsable de Transporte",
     "Recursos Humanos",
   ],
-  usuarios: [],
+  usuarios: [
+    { nombre: "joaquin", permisoActual: "Administrador", id: 1 },
+    { nombre: "jorge", permisoActual: "Jefe de Obra", id: 2 },
+    { nombre: "tomi", permisoActual: "Responsable de Logística", id: 3 },
+    { nombre: "cesar", permisoActual: "Recursos Humanos", id: 4 },
+  ],
+  paginate: 1,
 };
 
 function rootReducer(state = initialState, action) {
