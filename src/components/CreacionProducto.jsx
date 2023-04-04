@@ -18,8 +18,8 @@ export default function CreacionProducto() {
     codigo: "",
   });
 
-  /*   const [nombreCateg, setNombreCateg] = useState("");
-  const [nombreSubC, setNombreSubC] = useState(""); */
+  /*   const [nombreCateg, setNombreCateg] = useState("");*/
+  /*  const [nombreSubC, setNombreSubC] = useState(""); */
 
   /*   useEffect(() => {
     dispatch(getCategorias());
@@ -27,6 +27,15 @@ export default function CreacionProducto() {
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handlerSelectCateg = (e) => {
+    if (!input.subcategoria.includes(e.target.value)) {
+      setInput({
+        ...input,
+        subcategoria: [...input.subcategoria, e.target.value],
+      });
+    }
   };
 
   const handlerSubmitForm = (e) => {
@@ -124,6 +133,7 @@ export default function CreacionProducto() {
                         name="subCateg"
                         id={obj.id}
                         value={[obj.nombre]}
+                        onChange={(e) => handlerSelectCateg(e)}
                       />
                       <button value={obj.id}>x</button>
                     </div>
@@ -131,7 +141,7 @@ export default function CreacionProducto() {
                 </div>
               );
             })}
-            <select>
+            <select onChange={(e) => handlerSelectCateg(e)}>
               {subCategs?.map((obj) => {
                 return (
                   <option value={obj.nombre} key={obj.id}>

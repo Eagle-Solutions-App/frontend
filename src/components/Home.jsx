@@ -60,7 +60,7 @@ export default function Home() {
           key={todosLosProds.id}
         ></Paginado>
 
-        {todosLosProds.length > 0 ? (
+        {todosLosProds.length > 0 && (
           <div className="cards">
             {currentProducts.map((card) =>
               card.map((c) => (
@@ -69,15 +69,14 @@ export default function Home() {
                     nombre={c.nombre}
                     categoria={c.categoria}
                     subcategoria={c.subcategoria}
-                    informacion={c.informacion}
+                    descripcion={c.descripcion}
+                    codigo={c.codigo}
                     id={c.id}
                   />
                 </div>
               ))
             )}
           </div>
-        ) : (
-          ""
         )}
 
         <Paginado

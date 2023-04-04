@@ -9,7 +9,8 @@ export default function Card({
   categoria,
   subcategoria,
   id,
-  informacion,
+  descripcion,
+  codigo,
 }) {
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
@@ -27,13 +28,13 @@ export default function Card({
   return (
     <div className="card">
       <div className="info">
-        {informacion ? (
+        {descripcion ? (
           /* listado de productos */
           <>
             <div className="cadaInfo">
               <p className="nombre">
                 <b>Producto: </b>
-                {nombre}
+                {nombre}({codigo})
               </p>
             </div>
 
