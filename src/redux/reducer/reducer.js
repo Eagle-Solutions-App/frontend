@@ -1,82 +1,48 @@
-import { GET_PRODUCTOS, SEARCHxNAME } from "../actions/actions";
+import {
+  GET_PRODUCTOS,
+  SEARCHxNAME,
+  SEARCHxCATEGORIA,
+  SEARCHxSUBCATEGORIA,
+  GET_DETAIL,
+  CLEAN_DETAIL,
+  ADD_PAGINATE,
+  GET_USUARIOS,
+  GET_CATEGORIAS,
+} from "../actions/actions";
 
 const initialState = {
-  productos: [
+  productos: [],
+  productosHome: [],
+  categorias: [],
+  subcategorias: [
+    { id: 1, nombre: "Equipos" },
+    { id: 2, nombre: "Maquinas" },
+    { id: 3, nombre: "Materiales" },
+    { id: 4, nombre: "Repuestos" },
+  ],
+  detail: [],
+  permisos: [
+    "Administrador",
+    "Gerente",
+    "Responsable de Compra",
+    "Responsable de Logística",
+    "Responsable de Depósito",
+    "Responsable de Administración",
+    "Jefe de Obra",
+    "Responsable de Transporte",
+    "Recursos Humanos",
+  ],
+  usuarios: [],
+  depositos: [
     {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 2,
-      nombre: "Taladro",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-    },
-    {
-      id: 3,
-      nombre: "Piedra",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 4,
-      nombre: "Excavadora",
-      categoria: "Bien de Uso",
-      subcategoria: "Máquinas",
-    },
-    {
-      id: 5,
-      nombre: "Arena",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 6,
-      nombre: "Pala",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
+      nombre: "Deposito1",
+      direccion: "holaa 123",
+      ciudad: "cordoba",
+      provincia: "cordoba",
+      pais: "Argentina",
     },
   ],
-  productosHome: [
-    {
-      id: 1,
-      nombre: "Cemento",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 2,
-      nombre: "Taladro",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-    },
-    {
-      id: 3,
-      nombre: "Piedra",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 4,
-      nombre: "Excavadora",
-      categoria: "Bien de Uso",
-      subcategoria: "Máquinas",
-    },
-    {
-      id: 5,
-      nombre: "Arena",
-      categoria: "Bien de Consumo",
-      subcategoria: "Materiales",
-    },
-    {
-      id: 6,
-      nombre: "Pala",
-      categoria: "Bien de Uso",
-      subcategoria: "Equipos",
-    },
-  ],
+  paginate: 1,
 };
 
 function rootReducer(state = initialState, action) {
@@ -90,15 +56,80 @@ function rootReducer(state = initialState, action) {
       };
     }
 
+    case GET_USUARIOS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        usuarios: [...action.payload],
+      };
+    }
+
+    case GET_CATEGORIAS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        categorias: [...action.payload],
+      };
+    }
+
+    case "POST_PROD": {
+      return {
+        ...state,
+        productos: action.payload,
+      };
+    }
+
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
-        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+        e[0].nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,
         productosHome: [...productsFilter],
       };
     }
+
+    case SEARCHxCATEGORIA: {
+      let prodFilter = state.productos.filter(
+        (e) => e.categoria === action.payload
+      );
+      console.log(prodFilter);
+      console.log(state.productosHome);
+      return {
+        ...state,
+        productosHome: prodFilter,
+      };
+    }
+
+    case SEARCHxSUBCATEGORIA: {
+      let prodFilter = state.productos.filter(
+        (e) => e.subcategoria === action.payload
+      );
+      console.log(prodFilter);
+      console.log(state.productosHome);
+      return {
+        ...state,
+        productosHome: prodFilter,
+      };
+    }
+
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
+      };
+
+    case ADD_PAGINATE:
+      return {
+        ...state,
+        paginate: action.payload,
+      };
 
     default:
       return {
