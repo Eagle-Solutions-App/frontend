@@ -43,6 +43,13 @@ export const getCategorias = () => {
   };
 };
 
+export const postProd = (payload) => {
+  return async function () {
+    const response = await axios.post("/productos", payload);
+    return response;
+  };
+};
+
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,

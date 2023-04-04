@@ -1,27 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getCategorias } from "../redux/actions/actions";
+import { useNavigate, Link } from "react-router-dom";
+import { getCategorias, postProd } from "../redux/actions/actions";
 import Navbar from "./Navbar";
 
 export default function CreacionProducto() {
   const categs = useSelector((state) => state.categorias);
   const subCategs = useSelector((state) => state.subcategorias);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [input, setInput] = useState({
     id: "",
     nombre: "",
     categoria: "",
-    subCategoria: "",
+    subcategoria: "",
     descripcion: "",
+    codigo: "",
   });
 
-  useEffect(() => {
-    dispatch(getCategorias());
-  }, [dispatch]);
+  /*   const [nombreCateg, setNombreCateg] = useState("");
+  const [nombreSubC, setNombreSubC] = useState(""); */
 
-  const [nombreCateg, setNombreCateg] = useState("");
-  const [nombreSubC, setNombreSubC] = useState("");
+  /*   useEffect(() => {
+    dispatch(getCategorias());
+  }, [dispatch]); */
+
+  const handlerChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const handlerSubmitForm = (e) => {
+    e.preventDefault();
+    console.log(input);
+    dispatch(postProd(input));
+    alert("Producto creado satisfactoriamente! Se lo redirigirá al inicio...");
+    setInput({
+      nombre: "",
+      categoria: "",
+      subcategora: "",
+      descripcion: "",
+      codigo: "",
+    });
+    navigate("/");
+  };
+
   return (
     <div>
       <Navbar />
@@ -60,7 +82,7 @@ export default function CreacionProducto() {
         </form> */}
 
         {/* selección de categoría */}
-        <form className="formSelect">
+        <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
           {/* <p>Selecciona una categoría!</p>
           <div className="selectCat">
             {categs?.map((obj) => {
@@ -125,22 +147,33 @@ export default function CreacionProducto() {
             <div className="namecodedesc">
               <div className="nameProd">
                 <label>Nombre del producto: </label>
-                <input type="text" name="title" value={input.nombre}></input>
+                <input
+                  type="text"
+                  name="nombre"
+                  value={input.nombre}
+                  onChange={(e) => handlerChange(e)}
+                ></input>
               </div>
 
               <div className="codeProd">
                 <label>Código (ej: #3524): </label>
-                <input type="text" name="title" value={input.codigo}></input>
+                <input
+                  type="text"
+                  name="codigo"
+                  value={input.codigo}
+                  onChange={(e) => handlerChange(e)}
+                ></input>
               </div>
 
               <div className="descProd">
                 <label>Descripción: </label>
                 <textarea
                   type="text"
-                  name="content"
+                  name="descripcion"
                   cols="20"
                   rows="4"
                   value={input.descripcion}
+                  onChange={(e) => handlerChange(e)}
                 ></textarea>
               </div>
             </div>
