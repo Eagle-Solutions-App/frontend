@@ -46,13 +46,13 @@ export default function CreacionProducto({ setShowModal }) {
             &times;
           </span>
           <h2>Editando: {detail[0].nombre}</h2>
-          <form>
-            <div className="editProd">
-              <div className="namecodedesc">
-                <div className="nameProd">
+          <form className="formModal">
+            <div className="editModal">
+              <div className="infoModal">
+                <div className="nameModal">
                   <p>Nombre del usuario: {detail[0].nombre}</p>
                   <p>Correo del usuario: {detail[0].email}</p>
-                  <div className="selectSub">
+                  <div className="selectModal">
                     <select>
                       {rol?.map((obj, i) => {
                         return (
