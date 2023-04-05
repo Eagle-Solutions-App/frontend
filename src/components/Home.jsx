@@ -62,20 +62,18 @@ export default function Home() {
 
         {todosLosProds.length > 0 && (
           <div className="cards">
-            {currentProducts.map((card) =>
-              card.map((c) => (
-                <div key={c.id}>
-                  <Card
-                    nombre={c.nombre}
-                    categoria={c.categoria}
-                    subcategoria={c.subcategoria}
-                    descripcion={c.descripcion}
-                    codigo={c.codigo}
-                    id={c.id}
-                  />
-                </div>
-              ))
-            )}
+            {currentProducts.map((card) => (
+              <div key={card.id}>
+                <Card
+                  nombre={card.nombre}
+                  categoria={card.categoria}
+                  subcategoria={card.subcategoria}
+                  descripcion={card.descripcion}
+                  codigo={card.codigo}
+                  id={card.id}
+                />
+              </div>
+            ))}
           </div>
         )}
 

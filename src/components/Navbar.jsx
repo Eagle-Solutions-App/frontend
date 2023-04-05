@@ -1,24 +1,25 @@
 import React /* useState */ from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import shopping from "../img/shopping.png";
+import { allProductos } from "../redux/actions/actions";
 import Filtros from "./Filtros";
 import SearchBar from "./SearchBar";
-/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-regular-svg-icons"; */
 
 export default function Navbar() {
-  /* const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch();
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  }; */
+  const recargaHandler = (e) => {
+    dispatch(allProductos());
+  };
+
   return (
     <div className="nav-container">
       <div className="logoNav">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <button onClick={(e) => recargaHandler(e)}>
           <img src={logo} alt="logo" />
-        </Link>
+        </button>
       </div>
 
       <div className="searchFilters">

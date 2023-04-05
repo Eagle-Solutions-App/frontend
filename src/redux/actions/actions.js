@@ -17,7 +17,7 @@ export const getProductos = () => {
     const response = await axios.get("/productos");
     return dispatch({
       type: GET_PRODUCTOS,
-      payload: [response.data],
+      payload: response.data,
     });
   };
 };
@@ -27,7 +27,7 @@ export const allProductos = () => {
     const response = await axios.get("/productos");
     return dispatch({
       type: ALL_PRODUCTOS,
-      payload: [response.data],
+      payload: response.data,
     });
   };
 };
@@ -37,7 +37,7 @@ export const getUsuarios = () => {
     const response = await axios.get("/usuarios");
     return dispatch({
       type: GET_USUARIOS,
-      payload: [response.data],
+      payload: response.data,
     });
   };
 };
@@ -47,7 +47,7 @@ export const getCategorias = () => {
     const response = await axios.get("/categorias");
     return dispatch({
       type: GET_CATEGORIAS,
-      payload: [response.data],
+      payload: response.data,
     });
   };
 };

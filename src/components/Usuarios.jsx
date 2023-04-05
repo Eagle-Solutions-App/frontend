@@ -22,17 +22,15 @@ export default function Usuarios() {
 
         <Paginado />
         <div className="cards">
-          {usuarios.map((user) =>
-            user.map((u) => (
-              <div key={u.id}>
-                <Card
-                  nombre={`${u.nombre} ${u.apellido}`}
-                  email={u.email}
-                  id={u.id}
-                />
-              </div>
-            ))
-          )}
+          {usuarios.map((u) => (
+            <div key={u.id}>
+              <Card
+                nombre={`${u.nombre} ${u.apellido}`}
+                email={u.email}
+                id={u.id}
+              />
+            </div>
+          ))}
         </div>
 
         <Paginado />

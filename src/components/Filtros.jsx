@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import {
+  allProductos,
   searchXcategoria,
   searchXsubcategoria,
 } from "../redux/actions/actions";
@@ -21,6 +22,10 @@ export default function Filtros() {
     dispatch(searchXsubcategoria(e.target.value));
   };
 
+  const recargaHandler = (e) => {
+    dispatch(allProductos());
+  };
+
   return (
     <div className="filtCont">
       <Link to="/usuarios">
@@ -35,7 +40,10 @@ export default function Filtros() {
         <button>Panel de Productos</button>
       </Link>
 
-      <button>Recargar Todos los Productos</button>
+      <button onClick={(e) => recargaHandler(e)}>
+        Recargar Todos los Productos
+      </button>
+
       <div className="select-container">
         <select className="select-box" onChange={(e) => fn(e)}>
           <option hidden>Categorias</option>
