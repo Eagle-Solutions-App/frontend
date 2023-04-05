@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { postProd } from "../redux/actions/actions";
-import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
+import { postProd } from "../../redux/actions/actions";
+import Navbar from "../Navbar";
 
 export default function CreacionProducto() {
   /*  const categs = useSelector((state) => state.categorias); */
@@ -50,7 +50,7 @@ export default function CreacionProducto() {
       descripcion: "",
       codigo: "",
     });
-    navigate("/");
+    navigate("/productos");
   };
 
   return (

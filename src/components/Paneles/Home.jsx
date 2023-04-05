@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card.jsx";
+import Card from "../Card.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "./Navbar.jsx";
-import { getProductos, addPaginate } from "../redux/actions/actions.js";
+import Navbar from "../Navbar.jsx";
+import { getProductos, addPaginate } from "../../redux/actions/actions.js";
 import { Link } from "react-router-dom";
-import Paginado from "./Paginado.jsx";
+import Paginado from "../Paginado.jsx";
 
 export default function Home() {
   const dispatch = useDispatch();

@@ -1,55 +1,61 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
-import { postProd } from "../redux/actions/actions";
-import Navbar from "./Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { postUser } from "../../redux/actions/actions";
+import Navbar from "../Navbar";
 
 export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const rol = useSelector((state) => state.roles);
+
+  const numeroAleatorio = Math.floor(Math.random() * Math.pow(10, 5))
+    .toString()
+    .padStart(5, "0");
+
   const [input, setInput] = useState({
-    id: "",
     nombre: "",
-    direccion: "",
-    ciudad: "",
-    provincia: "",
-    pais: "",
+    apellido: "",
+    email: "",
+    rol: "",
+    clave: numeroAleatorio,
   });
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const handlerSelectRol = (e) => {
+    if (!input.rol.includes(e.target.value)) {
+      setInput({ ...input, rol: e.target.value });
+    }
+  };
+
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
-    dispatch(postProd(input));
-    alert("Depósito creado con éxito! Se lo redirigirá al inicio...");
+    dispatch(postUser(input));
+    alert("Usuario creado con éxito! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
-      direccion: "",
-      ciudad: "",
-      provincia: "",
-      pais: "",
+      apellido: "",
+      email: "",
+      rol: "",
     });
-    navigate("/");
+    navigate("/usuarios");
   };
 
   return (
     <div>
       <Navbar />
       <div className="container">
-        {/* <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="inicioBtn">Inicio</button>
-        </Link> */}
-
-        <h2>Creación de Depósito</h2>
+        <h2>Creación de Usuario</h2>
 
         <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
           <div className="createProd">
             <div className="namecodedesc">
               <div className="nameProd">
-                <label>Nombre del depósito: </label>
+                <label>Nombre: </label>
                 <input
                   type="text"
                   name="nombre"
@@ -59,48 +65,40 @@ export default function CreacionDeposito() {
               </div>
 
               <div className="codeProd">
-                <label>Dirección (ej: Igualdad 2532): </label>
+                <label>Apellido: </label>
                 <input
                   type="text"
-                  name="direccion"
+                  name="apellido"
                   value={input.direccion}
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
 
               <div className="codeProd">
-                <label>Ciudad: </label>
+                <label>Email: </label>
                 <input
-                  type="text"
-                  name="ciudad"
+                  type="email"
+                  name="email"
                   value={input.ciudad}
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
 
-              <div className="codeProd">
-                <label>Provincia: </label>
-                <input
-                  type="text"
-                  name="provincia"
-                  value={input.provincia}
-                  onChange={(e) => handlerChange(e)}
-                ></input>
-              </div>
-
-              <div className="codeProd">
-                <label>País: </label>
-                <input
-                  type="text"
-                  name="pais"
-                  value={input.pais}
-                  onChange={(e) => handlerChange(e)}
-                ></input>
+              <div>
+                <select onSubmit={(e) => handlerSelectRol(e)}>
+                  {rol?.map((obj, i) => {
+                    return (
+                      <option value={obj} key={i}>
+                        {obj}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
             </div>
 
             <div className="createSubmit">
-              <button type="submit">Crear Depósito</button>
+              <button type="submit">Crear Usuario</button>
             </div>
           </div>
         </form>

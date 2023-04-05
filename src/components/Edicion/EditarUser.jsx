@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
-import { getDetail, updateProd } from "../redux/actions/actions";
+import { getDetail, updateProd } from "../../redux/actions/actions";
 
 export default function CreacionProducto({ setShowModal }) {
   const navigate = useNavigate();
