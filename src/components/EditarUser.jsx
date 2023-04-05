@@ -10,7 +10,7 @@ export default function CreacionProducto({ setShowModal }) {
   const dispatch = useDispatch();
 
   const detail = useSelector((state) => state.detailUser);
-  const rol = useSelector((state) => state.permisos);
+  const rol = useSelector((state) => state.roles);
 
   const { id } = useParams();
 
@@ -18,10 +18,6 @@ export default function CreacionProducto({ setShowModal }) {
     id,
     nombre: "",
   });
-
-  /*   useEffect(() => {
-    dispatch(getDetail(id));
-  }, [dispatch, id]); */
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -52,6 +48,7 @@ export default function CreacionProducto({ setShowModal }) {
                 <div className="nameModal">
                   <p>Nombre del usuario: {detail[0].nombre}</p>
                   <p>Correo del usuario: {detail[0].email}</p>
+                  <p>Rol actual: {detail[0].rol}</p>
                   <div className="selectModal">
                     <select>
                       {rol?.map((obj, i) => {

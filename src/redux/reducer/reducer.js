@@ -31,9 +31,10 @@ const initialState = {
       apellido: "dileo",
       email: "ada@sdfsadf.com",
       clave: "65446546",
+      rol: "ADMIN",
     },
   ],
-  permisos: [
+  roles: [
     "Administrador",
     "Gerente",
     "Responsable de Compra",
