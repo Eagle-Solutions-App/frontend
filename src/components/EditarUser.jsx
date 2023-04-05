@@ -39,42 +39,40 @@ export default function CreacionProducto({ setShowModal }) {
   };
 
   return (
-    <div>
-      <div className="container">
-        {detail && (
-          <>
-            <span className="close" onClick={() => setShowModal(false)}>
-              &times;
-            </span>
-            <h2>Editando: {detail[0].nombre}</h2>
-            <form>
-              <div className="editProd">
-                <div className="namecodedesc">
-                  <div className="nameProd">
-                    <p>Nombre del usuario: {detail[0].nombre}</p>
-                    <p>Correo del usuario: {detail[0].email}</p>
-                    <div className="selectSub">
-                      <select>
-                        {rol?.map((obj, i) => {
-                          return (
-                            <option value={obj} key={i}>
-                              {obj}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
+    <div className="containerModal">
+      {detail && (
+        <>
+          <span className="close" onClick={() => setShowModal(false)}>
+            &times;
+          </span>
+          <h2>Editando: {detail[0].nombre}</h2>
+          <form>
+            <div className="editProd">
+              <div className="namecodedesc">
+                <div className="nameProd">
+                  <p>Nombre del usuario: {detail[0].nombre}</p>
+                  <p>Correo del usuario: {detail[0].email}</p>
+                  <div className="selectSub">
+                    <select>
+                      {rol?.map((obj, i) => {
+                        return (
+                          <option value={obj} key={i}>
+                            {obj}
+                          </option>
+                        );
+                      })}
+                    </select>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div className="editSubmit">
-                <button type="submit">Actualizar Usuario!</button>
-              </div>
-            </form>
-          </>
-        )}
-      </div>
+            <div className="editSubmit">
+              <button type="submit">Actualizar Usuario!</button>
+            </div>
+          </form>
+        </>
+      )}
     </div>
   );
 }

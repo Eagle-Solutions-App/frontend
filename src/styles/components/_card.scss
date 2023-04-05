@@ -51,31 +51,9 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-  }
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    margin-top: 77px;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100%;
-    border: 2px red solid;
-    display: flex;
+    display: block;
+    justify-content: center;
     align-items: center;
-  }
-
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    align-content: center;
   }
 }
