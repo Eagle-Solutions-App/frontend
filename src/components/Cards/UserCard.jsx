@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import EditarUser from "../EditarUser";
 
 export default function UserCard({ nombre, email, editar, bloqueo, id }) {
-  const [showModal, setShowModal] = useState(false);
-  const [editedData, setEditedData] = useState({});
-  const handleEdit = () => {
-    setShowModal(true);
-    // Aquí debes pasar los datos que deseas editar al componente del modal
-  };
-
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
       /* dispatch(borrarProd(id)); */
     }
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleEditar = () => {
+    setShowModal(true);
   };
 
   return (
@@ -36,16 +35,24 @@ export default function UserCard({ nombre, email, editar, bloqueo, id }) {
           ADMIN
         </p>
       </div>
+
       <div className="imagenes">
-        <Link to={`/editarUsuario/${id}`} style={{ textDecoration: "none" }}>
-          <button onClick={handleEdit}>
-            <img src={editar} alt="editar" />
-          </button>
-        </Link>
+        <button onMouseDown={handleEditar}>
+          <img src={editar} alt="editar" />
+        </button>
 
         <button onClick={() => onBlock(id)}>
           <img src={bloqueo} alt="bloqueo" />
         </button>
+      </div>
+
+      <div
+        className="modal"
+        style={{
+          display: showModal ? "block" : "none",
+        }}
+      >
+        <EditarUser setShowModal={setShowModal} />
       </div>
     </>
   );

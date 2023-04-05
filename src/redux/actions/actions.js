@@ -4,12 +4,13 @@ export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
-/* import productos from "../../../productos.json"; */
 export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_PAGINATE = "ADD_PAGINATE";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_CATEGORIAS = "GET_CATEGORIAS";
+export const GET_DETAILUSER = "GET_DETAILUSER";
+export const CLEAN_DETAILUSER = "CLEAN_DETAILUSER";
 
 export const getProductos = () => {
   return async function (dispatch) {
@@ -52,6 +53,13 @@ export const getCategorias = () => {
 };
 
 export const postProd = (payload) => {
+  return async function () {
+    const response = await axios.post("/productos", payload);
+    return response;
+  };
+};
+
+export const postDeposito = (payload) => {
   return async function () {
     const response = await axios.post("/productos", payload);
     return response;
@@ -103,6 +111,20 @@ export const getDetail = (id) => {
 
 export const cleanDetail = () => {
   return { type: CLEAN_DETAIL };
+};
+
+export const getDetailUser = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/usuarios/${id}`);
+    return dispatch({
+      type: GET_DETAILUSER,
+      payload: response.data,
+    });
+  };
+};
+
+export const cleanDetailUser = () => {
+  return { type: CLEAN_DETAILUSER };
 };
 
 export const addPaginate = (num) => {

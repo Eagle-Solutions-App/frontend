@@ -4,7 +4,7 @@ import CreacionProducto from "./components/CreacionProducto";
 import Usuarios from "./components/Usuarios";
 import Depositos from "./components/Depositos";
 import EditarProducto from "./components/EditarProducto";
-import Landing from "./components/Landing";
+/* import Landing from "./components/Landing"; */
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import CreacionDeposito from "./components/CreacionDeposito";

@@ -13,7 +13,7 @@ export default function Usuarios() {
     dispatch(getUsuarios());
   }, [dispatch]);
 
-  console.log(usuarios);
+  /* console.log(usuarios); */
   return (
     <div>
       <Navbar />
