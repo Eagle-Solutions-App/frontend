@@ -113,7 +113,7 @@ function rootReducer(state = initialState, action) {
 
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
-        e[0].nombre.toLowerCase().includes(action.payload.toLowerCase())
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,
