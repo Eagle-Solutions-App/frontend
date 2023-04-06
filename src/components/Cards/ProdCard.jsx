@@ -54,11 +54,11 @@ export default function UserCard({
         </p>
       </div>
       <div className="imagenes">
-        <Link to={`/editarProd/${id}`} style={{ textDecoration: "none" }}>
+        {/* <Link to={`/editarProd/${id}`} style={{ textDecoration: "none" }}>
           <button>
             <img src={editar} alt="editar" />
           </button>
-        </Link>
+        </Link> */}
 
         <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
@@ -80,6 +80,7 @@ export default function UserCard({
           descripcion={descripcion}
           codigo={codigo}
           shopping={shopping}
+          editar={editar}
           setShowModal={setShowModal}
         />
       </div>

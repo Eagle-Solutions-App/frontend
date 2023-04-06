@@ -4,6 +4,13 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
+  .pagBtns {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
 }
 
 .numberList {
@@ -14,7 +21,6 @@
   font-size: 17px;
   font-weight: 700;
   color: white;
-  margin-left: 10px;
   cursor: pointer;
 
   &:hover {
@@ -24,8 +30,6 @@
 }
 
 .current {
-  margin-left: 10px;
-
   cursor: pointer;
   padding: 10px 20px;
   font-size: var(--size, 1rem);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ModalProd({
   setShowModal,
@@ -8,34 +9,42 @@ export default function ModalProd({
   descripcion,
   subcategoria,
   shopping,
+  editar,
 }) {
   return (
-    <div className="containerModal">
-      <>
-        <span className="close" onClick={() => setShowModal(false)}>
-          &times;
-        </span>
-        <h2>{nombre}</h2>
-        <form className="formModal">
-          <div className="editModal">
-            <div className="infoModal">
-              <div className="nameModal">
-                <p>
-                  Producto: {nombre}({codigo})
-                </p>
-                <p>Subcategoría: {subcategoria}</p>
-                <p>Descripción: {descripcion}</p>
-              </div>
-            </div>
+    <div className="modalProd">
+      <span className="close" onClick={() => setShowModal(false)}>
+        &times;
+      </span>
+      <h2>
+        {nombre}({codigo})
+      </h2>
+      <div className="formModal">
+        <div className="infoModal">
+          <div className="modalCats">
+            <p>Categoría: Bien de uso</p>
+            <p>Subcategoría: Materiales</p>
           </div>
+          <div className="modalDesc">
+            <p>Descripción:</p>
+            <div className="descBox">{descripcion}</div>
+          </div>
+        </div>
 
-          <div className="editSubmit">
-            <button>
-              <img src={shopping} alt="shopping" />
+        <div className="modalBtns">
+          <button className="btnCart">
+            Añadir al carrito
+            <img src={shopping} alt="shopping" />
+          </button>
+
+          <Link to={`/editarProd/${id}`} style={{ textDecoration: "none" }}>
+            <button className="btnEdit">
+              Editar Producto
+              <img src={editar} alt="editar" />
             </button>
-          </div>
-        </form>
-      </>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
