@@ -39,6 +39,51 @@
     height: 40px;
     @include center;
 
+    .menu {
+      z-index: 100;
+      width: 5rem;
+      height: 2.5rem;
+      background-color: #333;
+      color: white;
+      border-radius: 50px;
+      position: absolute;
+      text-align: left;
+      top: 30px;
+      border-radius: 4px 4px 0 0;
+      padding: 8px;
+
+      .menu-summary {
+        font-weight: bold;
+        cursor: pointer;
+        margin-left: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .menu-content {
+        margin-top: 0.95rem;
+
+        width: 6rem;
+        .menu-item {
+          margin-right: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          button {
+            width: 6rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px;
+
+            cursor: pointer;
+          }
+        }
+        .menu-item button:hover {
+          background-color: #666;
+        }
+      }
+    }
+
     .user {
       background-color: transparent;
       border: none;
