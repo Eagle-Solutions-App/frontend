@@ -9,8 +9,8 @@ import {
   ADD_PAGINATE,
   GET_USUARIOS,
   GET_CATEGORIAS,
-  GET_DETAILUSER,
-  CLEAN_DETAILUSER,
+  DELETE_PROD,
+  DELETE_USER,
 } from "../actions/actions";
 
 const initialState = {
@@ -93,6 +93,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+    /****************** GETS ******************/
     case GET_PRODUCTOS: {
       return {
         ...state,
@@ -123,6 +124,19 @@ function rootReducer(state = initialState, action) {
       };
     }
 
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        detail: [],
+      };
+
+    /****************** CREACIONES ******************/
     case "POST_PROD": {
       return {
         ...state,
@@ -134,6 +148,24 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: action.payload,
+      };
+    }
+
+    /****************** EDICIONES ******************/
+    case DELETE_PROD: {
+      return {
+        ...state,
+        productosHome: state.productosHome.filter(
+          (prod) => prod.id !== action.payload
+        ),
+        productos: state.productos.filter((prod) => prod.id !== action.payload),
+      };
+    }
+
+    case DELETE_USER: {
+      return {
+        ...state,
+        usuarios: state.usuarios.filter((user) => user.id !== action.payload),
       };
     }
 
@@ -166,18 +198,6 @@ function rootReducer(state = initialState, action) {
         productosHome: prodFilter,
       };
     }
-
-    case GET_DETAIL:
-      return {
-        ...state,
-        detail: action.payload,
-      };
-
-    case CLEAN_DETAIL:
-      return {
-        ...state,
-        detail: [],
-      };
 
     case ADD_PAGINATE:
       return {

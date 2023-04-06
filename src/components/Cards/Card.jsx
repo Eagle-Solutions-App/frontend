@@ -1,11 +1,11 @@
 import React from "react";
-import borrar from "../img/trash.png";
-import editar from "../img/edit.png";
-import bloqueo from "../img/bloqueo.png";
-import shopping from "../img/shopping.png";
-import UserCard from "./Cards/UserCard";
-import DepositoCard from "./Cards/DepositoCard";
-import ProdCard from "./Cards/ProdCard";
+import borrar from "../../img/trash.png";
+import editar from "../../img/edit.png";
+import bloqueo from "../../img/bloqueo.png";
+import shopping from "../../img/shopping.png";
+import UserCard from "./UserCard";
+import DepositoCard from "./DepositoCard";
+import ProdCard from "./ProdCard";
 
 export default function Card({
   nombre,
@@ -40,6 +40,7 @@ export default function Card({
             email={email}
             editar={editar}
             bloqueo={bloqueo}
+            borrar={borrar}
             id={id}
           />
         ) : (

@@ -1,4 +1,4 @@
-import React /* useState */ from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
@@ -17,9 +17,11 @@ export default function Navbar() {
   return (
     <div className="nav-container">
       <div className="logoNav">
-        <button onClick={(e) => recargaHandler(e)}>
-          <img src={logo} alt="logo" />
-        </button>
+        <Link to="/productos">
+          <button onClick={recargaHandler}>
+            <img src={logo} alt="logo" />
+          </button>
+        </Link>
       </div>
 
       <div className="searchFilters">

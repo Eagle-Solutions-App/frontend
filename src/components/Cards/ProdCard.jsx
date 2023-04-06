@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteProd } from "../../redux/actions/actions";
 
 export default function UserCard({
   nombre,
@@ -11,10 +13,12 @@ export default function UserCard({
   borrar,
   id,
 }) {
+  const dispatch = useDispatch();
+
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
-      /* dispatch(borrarProd(id)); */
+      dispatch(deleteProd(id));
     }
   };
 
