@@ -47,7 +47,12 @@ export default function UserCard({ nombre, email, editar, bloqueo, id }) {
       </div>
 
       <div className="modal" style={{ display: showModal ? "block" : "none" }}>
-        <EditarUser setShowModal={setShowModal} />
+        <EditarUser
+          id={id}
+          nombre={nombre}
+          email={email}
+          setShowModal={setShowModal}
+        />
       </div>
     </>
   );
