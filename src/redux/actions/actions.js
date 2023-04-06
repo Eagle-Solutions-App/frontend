@@ -37,7 +37,7 @@ export const getUsuarios = () => {
     const response = await axios.get("/usuarios");
     return dispatch({
       type: GET_USUARIOS,
-      payload: response.data,
+      payload: response.data.resultado,
     });
   };
 };
@@ -61,7 +61,15 @@ export const postProd = (payload) => {
 
 export const postDeposito = (payload) => {
   return async function () {
-    const response = await axios.post("/productos", payload);
+    const response = await axios.post("/depositos", payload);
+    return response;
+  };
+};
+
+export const postUser = (payload) => {
+  console.log(payload);
+  return async function () {
+    const response = await axios.post("/usuarios", payload);
     return response;
   };
 };

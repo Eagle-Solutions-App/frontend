@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import EditarUser from "../EditarUser";
+import EditarUser from "../Edicion/EditarUser";
 
 export default function UserCard({ nombre, email, editar, bloqueo, id }) {
   const onBlock = (id) => {
@@ -47,9 +47,7 @@ export default function UserCard({ nombre, email, editar, bloqueo, id }) {
       </div>
 
       <div className="modal" style={{ display: showModal ? "block" : "none" }}>
-        {/* <div className="modal-content"> */}
         <EditarUser setShowModal={setShowModal} />
-        {/* </div> */}
       </div>
     </>
   );

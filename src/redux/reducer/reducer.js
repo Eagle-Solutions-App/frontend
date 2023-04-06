@@ -111,6 +111,13 @@ function rootReducer(state = initialState, action) {
       };
     }
 
+    case "POST_USUARIOS": {
+      return {
+        ...state,
+        usuarios: action.payload,
+      };
+    }
+
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
         e.nombre.toLowerCase().includes(action.payload.toLowerCase())

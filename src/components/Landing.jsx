@@ -11,7 +11,7 @@ export default function Landing() {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
             consectetur animi, quia magni null.
           </p>
-          <NavLink to="/home">
+          <NavLink to="/productos">
             <button>Ingresar</button>
           </NavLink>
         </div>
