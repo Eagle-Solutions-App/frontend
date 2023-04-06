@@ -23,7 +23,7 @@ export default function Paginado({
   };
   return (
     <div className="paginadoContainer">
-      <div>
+      <div className="pagBtns">
         <button
           onClick={handlePrev}
           disabled={currentPage === 1}
