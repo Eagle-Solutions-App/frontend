@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
-import Card from "../Card";
+import Card from "../Cards/Card";
 import { getUsuarios, addPaginate } from "../../redux/actions/actions";
 import PaginadoUser from "../Paginados/PaginadoUsers";
 import { Link } from "react-router-dom";
