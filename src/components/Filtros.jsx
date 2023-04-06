@@ -36,7 +36,7 @@ export default function Filtros() {
         <button>Panel de Depósitos</button>
       </Link>
 
-      <Link to="/">
+      <Link to="/productos">
         <button>Panel de Productos</button>
       </Link>
 

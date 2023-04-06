@@ -56,7 +56,7 @@ export default function CreacionProducto() {
       descripcion: "",
       codigo: "",
     });
-    navigate("/");
+    navigate("/productos");
   };
 
   console.log(detail);

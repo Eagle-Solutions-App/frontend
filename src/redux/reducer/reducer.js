@@ -24,16 +24,7 @@ const initialState = {
     { id: 4, nombre: "Repuestos" },
   ],
   detail: [],
-  detailUser: [
-    {
-      id: 5,
-      nombre: "zcz",
-      apellido: "dileo",
-      email: "ada@sdfsadf.com",
-      clave: "65446546",
-      rol: "ADMIN",
-    },
-  ],
+  detailUser: [],
   roles: [
     "Administrador",
     "Gerente",
@@ -155,18 +146,6 @@ function rootReducer(state = initialState, action) {
       };
 
     case CLEAN_DETAIL:
-      return {
-        ...state,
-        detail: [],
-      };
-
-    case GET_DETAILUSER:
-      return {
-        ...state,
-        detailUser: action.payload,
-      };
-
-    case CLEAN_DETAILUSER:
       return {
         ...state,
         detail: [],
