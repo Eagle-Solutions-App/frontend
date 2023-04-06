@@ -6,11 +6,20 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+
   h2 {
     color: white;
     font-size: 30px;
     margin-bottom: 2rem;
   }
+
+  .btnCrear {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .cards {
     width: 75%;
   }

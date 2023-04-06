@@ -1,5 +1,5 @@
 import "./App.scss";
-import Home from "./components/Paneles/Home";
+import Productos from "./components/Paneles/Productos";
 import CreacionProducto from "./components/Creacion/CreacionProducto";
 import CreacionDeposito from "./components/Creacion/CreacionDeposito";
 import CreacionUsuario from "./components/Creacion/CreacionUsuario";
@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Landing />} />
-        <Route path="/productos" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
         <Route path="/producto" element={<CreacionProducto />} />
         <Route path="/editarProd/:id" element={<EditarProducto />} />
         <Route path="/createDepositos" element={<CreacionDeposito />} />
