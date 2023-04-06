@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteProd } from "../../redux/actions/actions";
+import ModalProd from "../Modals/ModalProd";
+import modal from "../../img/modal.png";
 
 export default function UserCard({
   nombre,
   categoria,
   editar,
   subcategoria,
+  descripcion,
   codigo,
   shopping,
   borrar,
@@ -20,6 +23,12 @@ export default function UserCard({
     if (res === true) {
       dispatch(deleteProd(id));
     }
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleEditar = () => {
+    setShowModal(true);
   };
 
   return (
@@ -54,9 +63,25 @@ export default function UserCard({
         <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
         </button>
-        <button>
+        {/* <button>
           <img src={shopping} alt="shopping" />
+        </button> */}
+
+        <button onClick={handleEditar}>
+          <img src={modal} alt="modal" />
         </button>
+      </div>
+
+      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
+        <ModalProd
+          id={id}
+          nombre={nombre}
+          subcategoria={subcategoria}
+          descripcion={descripcion}
+          codigo={codigo}
+          shopping={shopping}
+          setShowModal={setShowModal}
+        />
       </div>
     </>
   );

@@ -28,6 +28,7 @@ export default function Card({
             categoria={categoria}
             codigo={codigo}
             subcategoria={subcategoria}
+            descripcion={descripcion}
             borrar={borrar}
             editar={editar}
             shopping={shopping}
