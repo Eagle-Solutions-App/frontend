@@ -50,6 +50,7 @@ export default function CreacionDeposito() {
                   type="text"
                   name="nombre"
                   value={input.nombre}
+                  required
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
@@ -60,6 +61,7 @@ export default function CreacionDeposito() {
                   type="text"
                   name="direccion"
                   value={input.direccion}
+                  required
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
@@ -70,6 +72,7 @@ export default function CreacionDeposito() {
                   type="text"
                   name="ciudad"
                   value={input.ciudad}
+                  required
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
@@ -80,6 +83,7 @@ export default function CreacionDeposito() {
                   type="text"
                   name="provincia"
                   value={input.provincia}
+                  required
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>
@@ -90,6 +94,7 @@ export default function CreacionDeposito() {
                   type="text"
                   name="pais"
                   value={input.pais}
+                  required
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>

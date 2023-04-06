@@ -16,7 +16,10 @@ import {
 const initialState = {
   productos: [],
   productosHome: [],
-  categorias: [],
+  categorias: [
+    { id: 1, nombre: "Bien de uso" },
+    { id: 2, nombre: "Bien de consumo" },
+  ],
   subcategorias: [
     { id: 1, nombre: "Equipos" },
     { id: 2, nombre: "Maquinas" },
@@ -39,6 +42,7 @@ const initialState = {
   usuarios: [],
   depositos: [
     {
+      id: 1,
       nombre: "Deposito1",
       direccion: "holaa 123",
       ciudad: "cordoba",
@@ -46,6 +50,7 @@ const initialState = {
       pais: "Argentina",
     },
     {
+      id: 2,
       nombre: "cargamento 2",
       direccion: "chau 123",
       ciudad: "La plata",
@@ -53,6 +58,7 @@ const initialState = {
       pais: "Argentina",
     },
     {
+      id: 3,
       nombre: "cargamento depósito",
       direccion: "buena vida 123",
       ciudad: "Lima",
@@ -60,6 +66,7 @@ const initialState = {
       pais: "perú",
     },
     {
+      id: 4,
       nombre: "cargamento 2",
       direccion: "chau 123",
       ciudad: "La plata",
@@ -67,6 +74,7 @@ const initialState = {
       pais: "Argentina",
     },
     {
+      id: 5,
       nombre: "cargamento 2",
       direccion: "chau 123",
       ciudad: "La plata",
@@ -74,6 +82,7 @@ const initialState = {
       pais: "Argentina",
     },
     {
+      id: 6,
       nombre: "cargamento 2",
       direccion: "chau 123",
       ciudad: "La plata",
@@ -81,6 +90,7 @@ const initialState = {
       pais: "Argentina",
     },
     {
+      id: 7,
       nombre: "cargamento 2",
       direccion: "chau 123",
       ciudad: "La plata",

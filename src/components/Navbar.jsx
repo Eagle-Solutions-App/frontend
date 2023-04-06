@@ -30,12 +30,27 @@ export default function Navbar() {
       </div>
 
       <div className="btns">
-        <button className="user">
+        {/* <button className="user">
           <i className="fa-regular fa-user fa-2xl"></i>
-        </button>
-        <button className="shopping">
+        </button> */}
+
+        <details className="menu">
+          <summary className="menu-summary">
+            <i className="fa-regular fa-user fa-2xl"></i>
+          </summary>
+          <div className="menu-content">
+            <div className="menu-item">
+              <Link to="/profile">
+                <button>Perfil</button>
+              </Link>
+              <button>Cerrar sesión</button>
+            </div>
+          </div>
+        </details>
+
+        {/* <button className="shopping">
           <img src={shopping} alt="shopping" />
-        </button>
+        </button> */}
       </div>
     </div>
   );
