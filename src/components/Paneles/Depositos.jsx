@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
 import Card from "../Cards/Card";
-import { addPaginate } from "../../redux/actions/actions";
+import { addPaginate, getDepositos } from "../../redux/actions/actions";
 import PaginadoDepositos from "../Paginados/PaginadoDepositos";
 
 export default function Depósitos() {
@@ -16,6 +16,10 @@ export default function Depósitos() {
   const lastIndex = currentPage * depositosPerPage;
   const firstIndex = lastIndex - depositosPerPage;
   let currentDepositos = depositos.slice(firstIndex, lastIndex);
+
+  useEffect(() => {
+    dispatch(getDepositos());
+  }, [dispatch]);
 
   const fnPaginado = (page) => {
     setCurrentPage(page);

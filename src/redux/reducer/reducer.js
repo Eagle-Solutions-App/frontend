@@ -11,6 +11,7 @@ import {
   GET_CATEGORIAS,
   DELETE_PROD,
   DELETE_USER,
+  GET_DEPOSITOS,
 } from "../actions/actions";
 
 const initialState = {
@@ -41,7 +42,7 @@ const initialState = {
   ],
   usuarios: [],
   depositos: [
-    {
+    /* {
       id: 1,
       nombre: "Deposito1",
       direccion: "holaa 123",
@@ -96,7 +97,7 @@ const initialState = {
       ciudad: "La plata",
       provincia: "Buenos Aires",
       pais: "Argentina",
-    },
+    }, */
   ],
   paginate: 1,
 };
@@ -131,6 +132,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         categorias: [...action.payload],
+      };
+    }
+    case GET_DEPOSITOS: {
+      return {
+        ...state,
+        depositos: [...action.payload],
       };
     }
 

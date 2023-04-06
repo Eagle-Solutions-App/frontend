@@ -11,6 +11,7 @@ export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const DELETE_PROD = "DELETE_PROD";
 export const DELETE_USER = "DELETE_USER";
+export const GET_DEPOSITOS = "GET_DEPOSITOS";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -39,6 +40,16 @@ export const getUsuarios = () => {
     return dispatch({
       type: GET_USUARIOS,
       payload: response.data.resultado,
+    });
+  };
+};
+
+export const getDepositos = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/depositos");
+    return dispatch({
+      type: GET_DEPOSITOS,
+      payload: response.data,
     });
   };
 };

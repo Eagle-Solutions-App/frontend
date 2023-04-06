@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postProd } from "../../redux/actions/actions";
+import { postDeposito } from "../../redux/actions/actions";
 import Navbar from "../Navbar";
 
 export default function CreacionDeposito() {
@@ -10,7 +10,8 @@ export default function CreacionDeposito() {
   const [input, setInput] = useState({
     id: "",
     nombre: "",
-    direccion: "",
+    calle: "",
+    altura: "",
     ciudad: "",
     provincia: "",
     pais: "",
@@ -23,11 +24,12 @@ export default function CreacionDeposito() {
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
-    dispatch(postProd(input));
+    dispatch(postDeposito(input));
     alert("Depósito creado con éxito! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
-      direccion: "",
+      calle: "",
+      altura: "",
       ciudad: "",
       provincia: "",
       pais: "",
@@ -56,11 +58,21 @@ export default function CreacionDeposito() {
               </div>
 
               <div className="codeProd">
-                <label>Dirección (ej: Igualdad 2532): </label>
+                <label>Calle: </label>
                 <input
                   type="text"
-                  name="direccion"
-                  value={input.direccion}
+                  name="calle"
+                  value={input.calle}
+                  required
+                  onChange={(e) => handlerChange(e)}
+                ></input>
+              </div>
+              <div className="codeProd">
+                <label>Altura: </label>
+                <input
+                  type="text"
+                  name="altura"
+                  value={input.altura}
                   required
                   onChange={(e) => handlerChange(e)}
                 ></input>
