@@ -9,9 +9,10 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_PAGINATE = "ADD_PAGINATE";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_CATEGORIAS = "GET_CATEGORIAS";
-export const GET_DETAILUSER = "GET_DETAILUSER";
-export const CLEAN_DETAILUSER = "CLEAN_DETAILUSER";
+export const DELETE_PROD = "DELETE_PROD";
+export const DELETE_USER = "DELETE_USER";
 
+/****************** GETS ******************/
 export const getProductos = () => {
   return async function (dispatch) {
     const response = await axios.get("/productos");
@@ -52,6 +53,7 @@ export const getCategorias = () => {
   };
 };
 
+/****************** CREACIONES ******************/
 export const postProd = (payload) => {
   return async function () {
     const response = await axios.post("/productos", payload);
@@ -74,6 +76,8 @@ export const postUser = (payload) => {
   };
 };
 
+/****************** EDICIONES ******************/
+
 export const updateProd = (data, id) => {
   return async function () {
     await axios.put(`/productos/${id}`, data);
@@ -86,6 +90,23 @@ export const updateUser = (data, id) => {
   };
 };
 
+/****************** DELETES ******************/
+export const deleteProd = (id) => {
+  return async function (dispatch) {
+    const body = { id: id };
+    await axios.delete("/productos", { data: body });
+    dispatch({ type: DELETE_PROD, payload: id });
+  };
+};
+
+export const deleteUser = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/usuarios/${id}`);
+    dispatch({ type: DELETE_USER, payload: id });
+  };
+};
+
+/****************** EXTRAS ******************/
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
@@ -120,20 +141,6 @@ export const getDetail = (id) => {
 
 export const cleanDetail = () => {
   return { type: CLEAN_DETAIL };
-};
-
-export const getDetailUser = (id) => {
-  return async function (dispatch) {
-    const response = await axios.get(`/usuarios/${id}`);
-    return dispatch({
-      type: GET_DETAILUSER,
-      payload: response.data,
-    });
-  };
-};
-
-export const cleanDetailUser = () => {
-  return { type: CLEAN_DETAILUSER };
 };
 
 export const addPaginate = (num) => {

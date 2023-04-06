@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
-import Card from "../Card";
+import Card from "../Cards/Card";
 import { getUsuarios } from "../../redux/actions/actions";
 import Paginado from "../Paginado";
 import { Link } from "react-router-dom";

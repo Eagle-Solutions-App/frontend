@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Card.jsx";
+import Card from "../Cards/Card.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar.jsx";
 import { getProductos, addPaginate } from "../../redux/actions/actions.js";

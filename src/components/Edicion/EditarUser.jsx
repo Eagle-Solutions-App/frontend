@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { getDetail, updateProd } from "../../redux/actions/actions";
+import React, { useState } from "react";
+import { updateProd } from "../../redux/actions/actions";
 
 export default function CreacionProducto({ setShowModal, id, nombre, email }) {
   const navigate = useNavigate();
@@ -16,9 +15,9 @@ export default function CreacionProducto({ setShowModal, id, nombre, email }) {
     nombre: "",
   });
 
-  const handlerChange = (e) => {
+  /*   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
-  };
+  }; */
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
@@ -38,7 +37,7 @@ export default function CreacionProducto({ setShowModal, id, nombre, email }) {
           &times;
         </span>
         <h2>Editando: {nombre}</h2>
-        <form className="formModal">
+        <form className="formModal" onSubmit={(e) => handlerSubmitForm(e)}>
           <div className="editModal">
             <div className="infoModal">
               <div className="nameModal">
