@@ -9,8 +9,6 @@ import {
   ADD_PAGINATE,
   GET_USUARIOS,
   GET_CATEGORIAS,
-  GET_DETAILUSER,
-  CLEAN_DETAILUSER,
 } from "../actions/actions";
 
 const initialState = {
