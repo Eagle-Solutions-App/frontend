@@ -5,7 +5,8 @@
   background-image: url("../../img/background.jpg");
   background-position: center;
   background-size: cover;
-  border: 0.1px solid black;
+  position: absolute;
+  top: 0;
 
   .landingContainer {
     margin-top: 30vh;
