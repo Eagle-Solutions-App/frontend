@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar.jsx";
 import { getProductos, addPaginate } from "../../redux/actions/actions.js";
 import { Link } from "react-router-dom";
-import Paginado from "../Paginado.jsx";
+import Paginado from "../Paginados/PaginadoProductos.jsx";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -46,9 +46,11 @@ export default function Home() {
       <div className="container">
         <h2>Bienvenido! Usted es Administrador</h2>
 
-        <Link to="/producto" style={{ textDecoration: "none" }}>
-          <button className="crear">Crear Producto</button>
-        </Link>
+        <div className="btnCrear">
+          <Link to="/producto" style={{ textDecoration: "none" }}>
+            <button className="crear">Crear Producto</button>
+          </Link>
+        </div>
 
         <Paginado
           productsPerPage={productsPerPage}

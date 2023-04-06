@@ -38,7 +38,7 @@ const initialState = {
   ],
   usuarios: [],
   depositos: [
-    /*  {
+    {
       nombre: "Deposito1",
       direccion: "holaa 123",
       ciudad: "cordoba",
@@ -58,7 +58,35 @@ const initialState = {
       ciudad: "Lima",
       provincia: "Lima",
       pais: "perú",
-    }, */
+    },
+    {
+      nombre: "cargamento 2",
+      direccion: "chau 123",
+      ciudad: "La plata",
+      provincia: "Buenos Aires",
+      pais: "Argentina",
+    },
+    {
+      nombre: "cargamento 2",
+      direccion: "chau 123",
+      ciudad: "La plata",
+      provincia: "Buenos Aires",
+      pais: "Argentina",
+    },
+    {
+      nombre: "cargamento 2",
+      direccion: "chau 123",
+      ciudad: "La plata",
+      provincia: "Buenos Aires",
+      pais: "Argentina",
+    },
+    {
+      nombre: "cargamento 2",
+      direccion: "chau 123",
+      ciudad: "La plata",
+      provincia: "Buenos Aires",
+      pais: "Argentina",
+    },
   ],
   paginate: 1,
 };
