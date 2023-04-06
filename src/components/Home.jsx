@@ -46,7 +46,7 @@ export default function Home() {
       <div className="container">
         <h2>Bienvenido! Usted es Administrador</h2>
 
-        <Link to="/producto" style={{ textDecoration: "none" }}>
+        <Link to="/productos" style={{ textDecoration: "none" }}>
           <button className="crear">Crear Producto</button>
         </Link>
 
