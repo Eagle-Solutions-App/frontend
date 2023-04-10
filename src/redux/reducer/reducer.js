@@ -11,6 +11,7 @@ import {
   GET_CATEGORIAS,
   DELETE_PROD,
   DELETE_USER,
+  DELETE_DEPO,
   GET_DEPOSITOS,
 } from "../actions/actions";
 
@@ -41,64 +42,7 @@ const initialState = {
     "Recursos Humanos",
   ],
   usuarios: [],
-  depositos: [
-    /* {
-      id: 1,
-      nombre: "Deposito1",
-      direccion: "holaa 123",
-      ciudad: "cordoba",
-      provincia: "cordoba",
-      pais: "Argentina",
-    },
-    {
-      id: 2,
-      nombre: "cargamento 2",
-      direccion: "chau 123",
-      ciudad: "La plata",
-      provincia: "Buenos Aires",
-      pais: "Argentina",
-    },
-    {
-      id: 3,
-      nombre: "cargamento depósito",
-      direccion: "buena vida 123",
-      ciudad: "Lima",
-      provincia: "Lima",
-      pais: "perú",
-    },
-    {
-      id: 4,
-      nombre: "cargamento 2",
-      direccion: "chau 123",
-      ciudad: "La plata",
-      provincia: "Buenos Aires",
-      pais: "Argentina",
-    },
-    {
-      id: 5,
-      nombre: "cargamento 2",
-      direccion: "chau 123",
-      ciudad: "La plata",
-      provincia: "Buenos Aires",
-      pais: "Argentina",
-    },
-    {
-      id: 6,
-      nombre: "cargamento 2",
-      direccion: "chau 123",
-      ciudad: "La plata",
-      provincia: "Buenos Aires",
-      pais: "Argentina",
-    },
-    {
-      id: 7,
-      nombre: "cargamento 2",
-      direccion: "chau 123",
-      ciudad: "La plata",
-      provincia: "Buenos Aires",
-      pais: "Argentina",
-    }, */
-  ],
+  depositos: [],
   paginate: 1,
 };
 
@@ -168,7 +112,7 @@ function rootReducer(state = initialState, action) {
       };
     }
 
-    /****************** EDICIONES ******************/
+    /****************** DELETES ******************/
     case DELETE_PROD: {
       return {
         ...state,
@@ -185,7 +129,14 @@ function rootReducer(state = initialState, action) {
         usuarios: state.usuarios.filter((user) => user.id !== action.payload),
       };
     }
+    case DELETE_DEPO: {
+      return {
+        ...state,
+        depositos: state.depositos.filter((depo) => depo.id !== action.payload),
+      };
+    }
 
+    /****************** OTROS ******************/
     case SEARCHxNAME: {
       const productsFilter = state.productos.filter((e) =>
         e.nombre.toLowerCase().includes(action.payload.toLowerCase())

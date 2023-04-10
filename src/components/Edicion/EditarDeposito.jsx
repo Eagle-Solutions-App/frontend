@@ -70,34 +70,7 @@ export default function CreacionProducto() {
             <h2>Editando: {detail.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
-              {detail.subcategoria ? (
-                <p>{`Subcategoría previa: ${detail.subcategoria}`}</p>
-              ) : (
-                <p>Sin subcategoría previa! Seleccione una:</p>
-              )}
-              <div className="editSub">
-                {subCategs?.map((obj) => {
-                  return (
-                    <div key={obj.id}>
-                      <label htmlFor={obj.nombre} key={obj.id}>
-                        {obj.nombre}
-                        <div>
-                          <input
-                            type="checkbox"
-                            name="subCateg"
-                            id={obj.id}
-                            value={[obj.nombre || detail.subcategoria]}
-                            onChange={(e) => handlerSelectCateg(e)}
-                          />
-                          <button value={obj.id}>x</button>
-                        </div>
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* edición del producto */}
+              {/* edición del deposito */}
               <div className="editProd">
                 <div className="namecodedesc">
                   <div className="nameProd">

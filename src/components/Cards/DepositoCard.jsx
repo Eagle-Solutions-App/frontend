@@ -1,12 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteDepo } from "../../redux/actions/actions";
+import ModalDepo from "../Modals/ModalDepo";
+import modal from "../../img/modal.png";
 
-export default function UserCard({ nombre, pais, editar, ciudad, borrar, id }) {
+export default function UserCard({
+  nombre,
+  pais,
+  editar,
+  ciudad,
+  provincia,
+  borrar,
+  calle,
+  altura,
+  id,
+}) {
+  const dispatch = useDispatch();
+
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
-      /* dispatch(borrarProd(id)); */
+      dispatch(deleteDepo(id));
     }
+  };
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleEditar = () => {
+    setShowModal(true);
   };
 
   return (
@@ -30,15 +51,27 @@ export default function UserCard({ nombre, pais, editar, ciudad, borrar, id }) {
         </p>
       </div>
       <div className="imagenes">
-        <Link to={`/editarUsuario/${id}`} style={{ textDecoration: "none" }}>
-          <button>
-            <img src={editar} alt="editar" />
-          </button>
-        </Link>
-
         <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
         </button>
+
+        <button onClick={handleEditar}>
+          <img src={modal} alt="modal" />
+        </button>
+      </div>
+
+      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
+        <ModalDepo
+          id={id}
+          nombre={nombre}
+          pais={pais}
+          ciudad={ciudad}
+          calle={calle}
+          altura={altura}
+          provincia={provincia}
+          editar={editar}
+          setShowModal={setShowModal}
+        />
       </div>
     </>
   );

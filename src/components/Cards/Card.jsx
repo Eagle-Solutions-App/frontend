@@ -17,6 +17,9 @@ export default function Card({
   email,
   pais,
   ciudad,
+  provincia,
+  calle,
+  altura,
 }) {
   return (
     <div className="card">
@@ -49,6 +52,9 @@ export default function Card({
             nombre={nombre}
             pais={pais}
             ciudad={ciudad}
+            provincia={provincia}
+            calle={calle}
+            altura={altura}
             editar={editar}
             borrar={borrar}
             id={id}

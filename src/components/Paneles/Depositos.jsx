@@ -38,7 +38,7 @@ export default function Depósitos() {
 
     dispatch(addPaginate(nextPage));
   };
-
+  console.log(depositos);
   return (
     <div>
       <Navbar />
@@ -70,6 +70,9 @@ export default function Depósitos() {
                   pais={dep.pais}
                   ciudad={dep.ciudad}
                   id={dep.id}
+                  provincia={dep.provincia}
+                  calle={dep.calle}
+                  altura={dep.altura}
                 />
               </div>
             ))}

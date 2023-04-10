@@ -54,18 +54,9 @@ export default function UserCard({
         </p>
       </div>
       <div className="imagenes">
-        {/* <Link to={`/editarProd/${id}`} style={{ textDecoration: "none" }}>
-          <button>
-            <img src={editar} alt="editar" />
-          </button>
-        </Link> */}
-
         <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
         </button>
-        {/* <button>
-          <img src={shopping} alt="shopping" />
-        </button> */}
 
         <button onClick={handleEditar}>
           <img src={modal} alt="modal" />

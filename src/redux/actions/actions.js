@@ -1,17 +1,18 @@
 import axios from "axios";
+export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
+export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const GET_USUARIOS = "GET_USUARIOS";
+export const GET_DETAIL = "GET_DETAIL";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
-export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_PAGINATE = "ADD_PAGINATE";
-export const GET_USUARIOS = "GET_USUARIOS";
-export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const DELETE_PROD = "DELETE_PROD";
 export const DELETE_USER = "DELETE_USER";
-export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const DELETE_DEPO = "DELETE_DEPO";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -114,6 +115,13 @@ export const deleteUser = (id) => {
   return async function (dispatch) {
     await axios.delete(`/usuarios/${id}`);
     dispatch({ type: DELETE_USER, payload: id });
+  };
+};
+
+export const deleteDepo = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/depositos/${id}`);
+    dispatch({ type: DELETE_DEPO, payload: id });
   };
 };
 
