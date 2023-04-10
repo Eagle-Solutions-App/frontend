@@ -7,12 +7,12 @@ import {
   GET_DETAIL,
   ADD_PAGINATE,
   GET_USUARIOS,
-  GET_CATEGORIAS,
   DELETE_PROD,
   DELETE_USER,
   DELETE_DEPO,
   GET_DEPOSITOS,
   GET_DETAIL_DEPO,
+  GET_EMPRESAS,
 } from "../actions/actions";
 
 const initialState = {
@@ -43,6 +43,7 @@ const initialState = {
     "Recursos Humanos",
   ],
   usuarios: [],
+  empresas: [],
   depositos: [],
   paginate: 1,
 };
@@ -70,16 +71,16 @@ function rootReducer(state = initialState, action) {
         usuarios: [...action.payload],
       };
 
-    case GET_CATEGORIAS:
-      return {
-        ...state,
-        categorias: [...action.payload],
-      };
-
     case GET_DEPOSITOS:
       return {
         ...state,
         depositos: [...action.payload],
+      };
+
+    case GET_EMPRESAS:
+      return {
+        ...state,
+        empresas: [...action.payload],
       };
 
     /****************** DETAILS ******************/

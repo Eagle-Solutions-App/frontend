@@ -40,6 +40,10 @@ export default function Filtros() {
         <button>Panel de Productos</button>
       </Link>
 
+      <Link to="/empresas">
+        <button>Panel de Empresas</button>
+      </Link>
+
       <button onClick={(e) => recargaHandler(e)}>
         Recargar Todos los Productos
       </button>
