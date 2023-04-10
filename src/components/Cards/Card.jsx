@@ -6,6 +6,7 @@ import shopping from "../../img/shopping.png";
 import UserCard from "./UserCard";
 import DepositoCard from "./DepositoCard";
 import ProdCard from "./ProdCard";
+import EmpresaCard from "./EmpresaCard";
 
 export default function Card({
   nombre,
@@ -47,7 +48,7 @@ export default function Card({
             borrar={borrar}
             id={id}
           />
-        ) : (
+        ) : provincia ? (
           <DepositoCard
             nombre={nombre}
             pais={pais}
@@ -59,6 +60,8 @@ export default function Card({
             borrar={borrar}
             id={id}
           />
+        ) : (
+          <EmpresaCard nombre={nombre} email={email} id={id} />
         )}
       </div>
     </div>
