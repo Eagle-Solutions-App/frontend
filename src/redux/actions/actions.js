@@ -1,7 +1,7 @@
 import axios from "axios";
-export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 
@@ -60,11 +60,11 @@ export const getDepositos = () => {
   };
 };
 
-export const getCategorias = () => {
+export const getEmpresas = () => {
   return async function (dispatch) {
-    const response = await axios.get("/categorias");
+    const response = await axios.get("/empresas");
     return dispatch({
-      type: GET_CATEGORIAS,
+      type: GET_EMPRESAS,
       payload: response.data,
     });
   };
