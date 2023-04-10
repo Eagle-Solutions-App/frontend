@@ -3,32 +3,28 @@ import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
-import { getDetail, updateProd } from "../../redux/actions/actions";
+import { getDetailDepo, updateDepo } from "../../redux/actions/actions";
 
 export default function CreacionProducto() {
-  /*  const categs = useSelector((state) => state.categorias); */
-  const subCategs = useSelector((state) => state.subcategorias);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const detail = useSelector((state) => state.detail.resultado);
+  const detailDepo = useSelector((state) => state.detailDepo.resultado);
 
   const { id } = useParams();
 
   const [input, setInput] = useState({
     id,
     nombre: "",
-    categoria: "",
-    subcategoria: "",
-    codigo: "",
-    descripcion: "",
+    pais: "",
+    ciudad: "",
+    provincia: "",
+    calle: "",
+    altura: "",
   });
 
-  /*   const [nombreCateg, setNombreCateg] = useState("");
-  const [nombreSubC, setNombreSubC] = useState(""); */
-
   useEffect(() => {
-    dispatch(getDetail(id));
+    dispatch(getDetailDepo(id));
   }, [dispatch, id]);
 
   const handlerChange = (e) => {
@@ -47,61 +43,102 @@ export default function CreacionProducto() {
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
-    dispatch(updateProd(input, id));
-    alert("Producto editado satisfactoriamente! Se lo redirigirá al inicio...");
+    dispatch(updateDepo(input, id));
+    alert("Depósito editado exitosamente! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
-      categoria: "",
-      subcategora: "",
-      descripcion: "",
-      codigo: "",
+      pais: "",
+      ciudad: "",
+      provincia: "",
+      calle: "",
+      altura: "",
     });
     navigate("/productos");
   };
 
-  console.log(detail);
+  console.log(detailDepo);
 
   return (
     <div>
       <Navbar />
       <div className="container">
-        {detail && (
+        {detailDepo && (
           <>
-            <h2>Editando: {detail.nombre}</h2>
+            <h2>Editando: {detailDepo.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
               {/* edición del deposito */}
               <div className="editProd">
                 <div className="namecodedesc">
                   <div className="nameProd">
-                    <label>Nombre del producto: </label>
+                    <label>Nombre: </label>
                     <input
                       type="text"
                       name="nombre"
-                      value={[input.nombre || detail.nombre]}
+                      value={[input.nombre || detailDepo.nombre]}
                       onChange={(e) => handlerChange(e)}
                     ></input>
                   </div>
 
                   <div className="codeProd">
-                    <label>Código (ej: #3524): </label>
+                    <label>País: </label>
                     <input
                       type="text"
-                      name="codigo"
-                      value={[input.codigo || detail.codigo]}
+                      name="pais"
+                      value={[input.pais || detailDepo.pais]}
                       onChange={(e) => handlerChange(e)}
                     ></input>
                   </div>
 
-                  <div className="descProd">
+                  <div className="codeProd">
+                    <label>Provincia: </label>
+                    <input
+                      type="text"
+                      name="provincia"
+                      value={[input.provincia || detailDepo.provincia]}
+                      onChange={(e) => handlerChange(e)}
+                    ></input>
+                  </div>
+
+                  <div className="codeProd">
+                    <label>Ciudad: </label>
+                    <input
+                      type="text"
+                      name="ciudad"
+                      value={[input.ciudad || detailDepo.ciudad]}
+                      onChange={(e) => handlerChange(e)}
+                    ></input>
+                  </div>
+
+                  <div className="codeProd">
+                    <label>Calle: </label>
+                    <input
+                      type="text"
+                      name="calle"
+                      value={[input.calle || detailDepo.calle]}
+                      onChange={(e) => handlerChange(e)}
+                    ></input>
+                  </div>
+
+                  <div className="codeProd">
+                    <label>Altura: </label>
+                    <input
+                      type="text"
+                      name="altura"
+                      value={[input.altura || detailDepo.altura]}
+                      onChange={(e) => handlerChange(e)}
+                    ></input>
+                  </div>
+
+                  {/* <div className="descProd">
                     <label>Descripción: </label>
                     <textarea
                       type="text"
                       name="descripcion"
-                      value={[input.descripcion || detail.descripcion]}
+                      value={[input.descripcion || detailDepo.descripcion]}
                       onChange={(e) => handlerChange(e)}
                     ></textarea>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="editSubmit">

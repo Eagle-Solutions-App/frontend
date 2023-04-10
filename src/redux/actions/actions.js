@@ -3,16 +3,21 @@ export const GET_CATEGORIAS = "GET_CATEGORIAS";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const GET_DEPOSITOS = "GET_DEPOSITOS";
 export const GET_USUARIOS = "GET_USUARIOS";
-export const GET_DETAIL = "GET_DETAIL";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
-export const SEARCHxNAME = "SEARCHxNAME";
-export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
-export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
-export const CLEAN_DETAIL = "CLEAN_DETAIL";
-export const ADD_PAGINATE = "ADD_PAGINATE";
+
 export const DELETE_PROD = "DELETE_PROD";
 export const DELETE_USER = "DELETE_USER";
 export const DELETE_DEPO = "DELETE_DEPO";
+
+export const GET_DETAIL = "GET_DETAIL";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const GET_DETAIL_DEPO = "GET_DETAIL_DEPO";
+export const CLEAN_DETAIL_DEPO = "CLEAN_DETAIL_DEPO";
+
+export const SEARCHxNAME = "SEARCHxNAME";
+export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
+export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
+export const ADD_PAGINATE = "ADD_PAGINATE";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -102,6 +107,12 @@ export const updateUser = (data, id) => {
   };
 };
 
+export const updateDepo = (data, id) => {
+  return async function () {
+    await axios.put(`/depositos/${id}`, data);
+  };
+};
+
 /****************** DELETES ******************/
 export const deleteProd = (id) => {
   return async function (dispatch) {
@@ -125,6 +136,29 @@ export const deleteDepo = (id) => {
   };
 };
 
+/****************** DETAILS ******************/
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/productos/${id}`);
+    console.log(response.data);
+    return dispatch({
+      type: GET_DETAIL,
+      payload: response.data,
+    });
+  };
+};
+
+export const getDetailDepo = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/depositos/${id}`);
+    console.log(response.data);
+    return dispatch({
+      type: GET_DETAIL_DEPO,
+      payload: response.data,
+    });
+  };
+};
+
 /****************** EXTRAS ******************/
 export const searchXname = (nombre) => {
   return {
@@ -145,21 +179,6 @@ export const searchXsubcategoria = (subcategoria) => {
     type: SEARCHxSUBCATEGORIA,
     payload: subcategoria,
   };
-};
-
-export const getDetail = (id) => {
-  return async function (dispatch) {
-    const response = await axios.get(`/productos/${id}`);
-    console.log(response.data);
-    return dispatch({
-      type: GET_DETAIL,
-      payload: response.data,
-    });
-  };
-};
-
-export const cleanDetail = () => {
-  return { type: CLEAN_DETAIL };
 };
 
 export const addPaginate = (num) => {

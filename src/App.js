@@ -1,12 +1,13 @@
 import "./App.scss";
+import Landing from "./components/Landing";
 import Productos from "./components/Paneles/Productos";
+import Usuarios from "./components/Paneles/Usuarios";
+import Depositos from "./components/Paneles/Depositos";
 import CreacionProducto from "./components/Creacion/CreacionProducto";
 import CreacionDeposito from "./components/Creacion/CreacionDeposito";
 import CreacionUsuario from "./components/Creacion/CreacionUsuario";
-import Usuarios from "./components/Paneles/Usuarios";
-import Depositos from "./components/Paneles/Depositos";
 import EditarProducto from "./components/Edicion/EditarProducto";
-import Landing from "./components/Landing";
+import EditarDeposito from "./components/Edicion/EditarDeposito";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -17,13 +18,20 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Landing />} />
+
+        {/* ***************************LISTADOS*************************** */}
         <Route path="/productos" element={<Productos />} />
-        <Route path="/producto" element={<CreacionProducto />} />
-        <Route path="/editarProd/:id" element={<EditarProducto />} />
-        <Route path="/createDepositos" element={<CreacionDeposito />} />
-        <Route path="/createUsuario" element={<CreacionUsuario />} />
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/depositos" element={<Depositos />} />
+
+        {/* ***************************POSTEOS*************************** */}
+        <Route path="/producto" element={<CreacionProducto />} />
+        <Route path="/createDepositos" element={<CreacionDeposito />} />
+        <Route path="/createUsuario" element={<CreacionUsuario />} />
+
+        {/* ***************************EDICIONES*************************** */}
+        <Route path="/editarProd/:id" element={<EditarProducto />} />
+        <Route path="/editarDepo/:id" element={<EditarDeposito />} />
       </Routes>
     </div>
   );

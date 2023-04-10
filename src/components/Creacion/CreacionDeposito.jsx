@@ -47,7 +47,7 @@ export default function CreacionDeposito() {
           <div className="createProd">
             <div className="namecodedesc">
               <div className="nameProd">
-                <label>Nombre del depósito: </label>
+                <label>Nombre: </label>
                 <input
                   type="text"
                   name="nombre"

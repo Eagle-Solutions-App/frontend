@@ -5,7 +5,6 @@ import {
   SEARCHxCATEGORIA,
   SEARCHxSUBCATEGORIA,
   GET_DETAIL,
-  CLEAN_DETAIL,
   ADD_PAGINATE,
   GET_USUARIOS,
   GET_CATEGORIAS,
@@ -13,6 +12,7 @@ import {
   DELETE_USER,
   DELETE_DEPO,
   GET_DEPOSITOS,
+  GET_DETAIL_DEPO,
 } from "../actions/actions";
 
 const initialState = {
@@ -29,6 +29,7 @@ const initialState = {
     { id: 4, nombre: "Repuestos" },
   ],
   detail: [],
+  detailDepo: [],
   detailUser: [],
   roles: [
     "Administrador",
@@ -49,52 +50,49 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     /****************** GETS ******************/
-    case GET_PRODUCTOS: {
+    case GET_PRODUCTOS:
       return {
         ...state,
         productos: [...action.payload],
         productosHome: [...action.payload],
       };
-    }
 
-    case ALL_PRODUCTOS: {
+    case ALL_PRODUCTOS:
       return {
         ...state,
         productos: [...action.payload],
         productosHome: [...action.payload],
       };
-    }
 
-    case GET_USUARIOS: {
+    case GET_USUARIOS:
       return {
         ...state,
         usuarios: [...action.payload],
       };
-    }
 
-    case GET_CATEGORIAS: {
+    case GET_CATEGORIAS:
       return {
         ...state,
         categorias: [...action.payload],
       };
-    }
-    case GET_DEPOSITOS: {
+
+    case GET_DEPOSITOS:
       return {
         ...state,
         depositos: [...action.payload],
       };
-    }
 
+    /****************** DETAILS ******************/
     case GET_DETAIL:
       return {
         ...state,
         detail: action.payload,
       };
 
-    case CLEAN_DETAIL:
+    case GET_DETAIL_DEPO:
       return {
         ...state,
-        detail: [],
+        detailDepo: action.payload,
       };
 
     /****************** CREACIONES ******************/

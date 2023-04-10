@@ -24,8 +24,8 @@ export default function ModalProd({
           <div className="modalCats">
             <p>Ciudad(prov.): {`${ciudad}(${provincia})`}</p>
             <p>País: {pais}</p>
+            <p>Dirección: {`${calle} ${altura}`}</p>
           </div>
-          <p>Dirección: {`${calle} ${altura}`}</p>
           <div className="modalDesc">
             <p>Descripción:</p>
             <div className="descBox">{descripcion}</div>
@@ -33,7 +33,7 @@ export default function ModalProd({
         </div>
 
         <div className="modalBtns">
-          <Link to={`/editarDeposito/${id}`} style={{ textDecoration: "none" }}>
+          <Link to={`/editarDepo/${id}`} style={{ textDecoration: "none" }}>
             <button className="btnEdit">
               Editar Depósito
               <img src={editar} alt="editar" />
