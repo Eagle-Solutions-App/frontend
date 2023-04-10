@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
 import shopping from "../img/shopping.png";
 import { allProductos } from "../redux/actions/actions";
@@ -36,14 +36,18 @@ export default function Navbar() {
 
         <details className="menu">
           <summary className="menu-summary">
-            <i className="fa-regular fa-user fa-2xl"></i>
+            <i className="fa-regular fa-user fa-xl"></i>
           </summary>
           <div className="menu-content">
             <div className="menu-item">
-              <Link to="/profile">
+              <NavLink className="perfilBtn" to="/perfil">
                 <button>Perfil</button>
-              </Link>
-              <button>Cerrar sesión</button>
+              </NavLink>
+              <button
+                onClick={() => alert("Se cerrará la sesion de este usuario.")}
+              >
+                Cerrar sesión
+              </button>
             </div>
           </div>
         </details>
