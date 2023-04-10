@@ -53,7 +53,7 @@ export default function CreacionProducto() {
       calle: "",
       altura: "",
     });
-    navigate("/productos");
+    navigate("/depositos");
   };
 
   console.log(detailDepo);
