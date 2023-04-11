@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import perfil from "../img/perfil.jpg";
+import { Link } from "react-router-dom";
 
 export default function Perfil() {
   return (
@@ -14,6 +15,14 @@ export default function Perfil() {
             Usuario nuevo
           </span>
           <span>Email: emailprueba@gmail.com</span>
+          <span>Rol: Administrador</span>
+          <span>
+            <div className="filtCont">
+              <Link to="/usuarios">
+                <button>Cambio de contraseña</button>
+              </Link>
+            </div>
+          </span>
         </div>
       </div>
     </div>

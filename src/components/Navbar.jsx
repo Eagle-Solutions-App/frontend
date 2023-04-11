@@ -13,7 +13,7 @@ export default function Navbar() {
   const onCloseSession = () => {
     let res = window.confirm(`Está seguro de querer cerrar su sesión?`);
     if (res === true) {
-      /* dispatch(borrarProd(id)); */
+      /* dispatch(closeSession(id)); */
     }
   };
 

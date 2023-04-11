@@ -4,7 +4,7 @@ import { deleteProd } from "../../redux/actions/actions";
 import ModalProd from "../Modals/ModalProd";
 import modal from "../../img/modal.png";
 
-export default function UserCard({
+export default function ProdCard({
   nombre,
   categoria,
   editar,

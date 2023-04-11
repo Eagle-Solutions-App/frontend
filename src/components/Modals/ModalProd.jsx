@@ -27,7 +27,7 @@ export default function ModalProd({
           </div>
           <div className="modalDesc">
             <p>Descripción:</p>
-            <div className="descBox">{descripcion}</div>
+            <pre className="descBox">{descripcion}</pre>
           </div>
         </div>
 

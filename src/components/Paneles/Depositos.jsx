@@ -74,6 +74,7 @@ export default function Depósitos() {
                   ciudad={dep.ciudad}
                   id={dep.id}
                   provincia={dep.provincia}
+                  descripcion={dep.descripcion}
                   calle={dep.calle}
                   altura={dep.altura}
                   borrar={borrar}

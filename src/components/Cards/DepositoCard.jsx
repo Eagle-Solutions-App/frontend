@@ -4,7 +4,7 @@ import { deleteDepo } from "../../redux/actions/actions";
 import ModalDepo from "../Modals/ModalDepo";
 import modal from "../../img/modal.png";
 
-export default function UserCard({
+export default function DepositoCard({
   nombre,
   pais,
   editar,
@@ -13,6 +13,7 @@ export default function UserCard({
   borrar,
   calle,
   altura,
+  descripcion,
   id,
 }) {
   const dispatch = useDispatch();
@@ -75,6 +76,7 @@ export default function UserCard({
               altura={altura}
               provincia={provincia}
               editar={editar}
+              descripcion={descripcion}
               setShowModal={setShowModal}
             />
           </div>
