@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteUser } from "../../redux/actions/actions";
 import EditarUser from "../Edicion/EditarUser";
 
-export default function UserCard({
+export default function EmpresaCard({
   nombre,
   email,
   editar,
