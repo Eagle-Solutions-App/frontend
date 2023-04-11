@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
-import Card from "../Cards/Card";
+import UserCard from "../Cards/UserCard";
 import { getUsuarios, addPaginate } from "../../redux/actions/actions";
 import PaginadoUser from "../Paginados/PaginadoUsers";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ export default function Usuarios() {
 
     dispatch(addPaginate(nextPage));
   };
-
+  console.log(currentUsuarios);
   return (
     <div>
       <Navbar />
@@ -66,10 +66,12 @@ export default function Usuarios() {
           <div className="cards">
             {currentUsuarios.map((u) => (
               <div key={u.id}>
-                <Card
+                <UserCard
                   nombre={`${u.nombre} ${u.apellido}`}
                   email={u.email}
                   id={u.id}
+                  empresa={u.Empresa.nombre}
+                  rol={u.Rols[0].rol}
                 />
               </div>
             ))}

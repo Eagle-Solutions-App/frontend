@@ -2,15 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../../redux/actions/actions";
 import EditarUser from "../Edicion/EditarUser";
+import borrar from "../../img/trash.png";
+import editar from "../../img/edit.png";
+import bloqueo from "../../img/bloqueo.png";
 
-export default function UserCard({
-  nombre,
-  email,
-  editar,
-  borrar,
-  bloqueo,
-  id,
-}) {
+export default function UserCard({ nombre, email, empresa, rol, id }) {
   const dispatch = useDispatch();
 
   const onBlock = (id) => {
@@ -32,50 +28,59 @@ export default function UserCard({
   const handleEditar = () => {
     setShowModal(true);
   };
+  console.log(rol);
 
   return (
-    <>
-      <div className="cadaInfo">
-        <p className="nombre">
-          <b>Usuario: </b>
-          {nombre}
-        </p>
-      </div>
-      <div className="cadaInfo">
-        <p className="categoria">
-          <b>Email: </b>
-          {email}
-        </p>
-      </div>
-      <div className="cadaInfo">
-        <p className="categoria">
-          <b>Permiso Actual: </b>
-          ADMIN
-        </p>
-      </div>
+    <div className="card">
+      <div className="info">
+        <>
+          <div className="cadaInfo">
+            <p className="nombre">
+              <b>Usuario: </b>
+              {nombre}
+            </p>
+          </div>
+          <div className="cadaInfo">
+            <p className="categoria">
+              <b>Email: </b>
+              {email}
+            </p>
+          </div>
+          <div className="cadaInfo">
+            <p className="categoria">
+              <b>Rol: </b>
+              {rol}
+            </p>
+          </div>
 
-      <div className="imagenes">
-        <button onMouseDown={handleEditar}>
-          <img src={editar} alt="editar" />
-        </button>
+          <div className="imagenes">
+            <button onMouseDown={handleEditar}>
+              <img src={editar} alt="editar" />
+            </button>
 
-        <button onClick={() => onBlock(id)}>
-          <img src={bloqueo} alt="bloqueo" />
-        </button>
+            <button onClick={() => onBlock(id)}>
+              <img src={bloqueo} alt="bloqueo" />
+            </button>
 
-        <button onClick={() => onClose(id)}>
-          <img src={borrar} alt="borrar" />
-        </button>
+            <button onClick={() => onClose(id)}>
+              <img src={borrar} alt="borrar" />
+            </button>
+          </div>
+
+          <div
+            className="modal"
+            style={{ display: showModal ? "block" : "none" }}
+          >
+            <EditarUser
+              id={id}
+              nombre={nombre}
+              email={email}
+              rol={rol}
+              setShowModal={setShowModal}
+            />
+          </div>
+        </>
       </div>
-
-      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
-        <EditarUser
-          id={id}
-          nombre={nombre}
-          email={email}
-          setShowModal={setShowModal}
-        />
-      </div>
-    </>
+    </div>
   );
 }

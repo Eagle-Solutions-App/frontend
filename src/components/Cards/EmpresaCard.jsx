@@ -1,17 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteUser } from "../../redux/actions/actions";
-import EditarUser from "../Edicion/EditarUser";
 
-export default function EmpresaCard({
-  nombre,
-  email,
-  descripcion,
-  editar,
-  bloqueo,
-  borrar,
-  id,
-}) {
+export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
   const dispatch = useDispatch();
 
   const onBlock = (id) => {
@@ -28,11 +19,11 @@ export default function EmpresaCard({
     }
   };
 
-  const [showModal, setShowModal] = useState(false);
+  /*  const [showModal, setShowModal] = useState(false);
 
   const handleEditar = () => {
     setShowModal(true);
-  };
+  }; */
 
   return (
     <div className="card">
