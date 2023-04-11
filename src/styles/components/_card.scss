@@ -8,10 +8,10 @@
   border-radius: 15px;
   position: relative;
   .info {
-    width: 90%;
+    border: 1px solid red;
+    width: 100%;
     display: flex;
     justify-content: space-evenly;
-    margin-left: 45px;
     position: relative;
     .cadaInfo {
       display: flex;

@@ -122,34 +122,38 @@ export default function CreacionProducto() {
           {/* selección de subcategoría */}
           <p>Selecciona una Subcategoría!</p>
           <div className="selectSub">
-            {subCategs?.map((obj) => {
-              return (
-                <div key={obj.id}>
-                  <label htmlFor={obj.nombre} key={obj.id}>
-                    {obj.nombre}
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="subCateg"
-                        id={obj.id}
-                        value={[obj.nombre]}
-                        onChange={(e) => handlerSelectCateg(e)}
-                      />
-                      <button value={obj.id}>x</button>
-                    </div>
-                  </label>
-                </div>
-              );
-            })}
-            <select onChange={(e) => handlerSelectCateg(e)}>
+            <div className="check">
               {subCategs?.map((obj) => {
                 return (
-                  <option value={obj.nombre} key={obj.id}>
-                    {obj.nombre}
-                  </option>
+                  <div key={obj.id}>
+                    <label htmlFor={obj.nombre} key={obj.id}>
+                      {obj.nombre}
+                      <div>
+                        <input
+                          type="checkbox"
+                          name="subCateg"
+                          id={obj.id}
+                          value={[obj.nombre]}
+                          onChange={(e) => handlerSelectCateg(e)}
+                        />
+                        {/* <button value={obj.id}>x</button> */}
+                      </div>
+                    </label>
+                  </div>
                 );
               })}
-            </select>
+            </div>
+            <div className="sel">
+              <select onChange={(e) => handlerSelectCateg(e)}>
+                {subCategs?.map((obj) => {
+                  return (
+                    <option value={obj.nombre} key={obj.id}>
+                      {obj.nombre}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
 
           {/* creación del producto */}
