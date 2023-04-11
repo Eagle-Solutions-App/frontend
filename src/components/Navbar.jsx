@@ -2,13 +2,20 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
-import shopping from "../img/shopping.png";
+/* import shopping from "../img/shopping.png"; */
 import { allProductos } from "../redux/actions/actions";
 import Filtros from "./Filtros";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   const dispatch = useDispatch();
+
+  const onCloseSession = () => {
+    let res = window.confirm(`Está seguro de querer cerrar su sesión?`);
+    if (res === true) {
+      /* dispatch(borrarProd(id)); */
+    }
+  };
 
   const recargaHandler = (e) => {
     dispatch(allProductos());
@@ -43,11 +50,7 @@ export default function Navbar() {
               <NavLink className="perfilBtn" to="/perfil">
                 <button>Perfil</button>
               </NavLink>
-              <button
-                onClick={() => alert("Se cerrará la sesion de este usuario.")}
-              >
-                Cerrar sesión
-              </button>
+              <button onClick={() => onCloseSession()}>Cerrar sesión</button>
             </div>
           </div>
         </details>
