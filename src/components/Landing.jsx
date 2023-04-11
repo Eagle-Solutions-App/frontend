@@ -8,12 +8,18 @@ export default function Landing() {
         <div className="wrapper">
           <h1>Eagle Solutions</h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias
-            consectetur animi, quia magni null.
+            EAGLE SOLUTIONS pretende ser una herramienta de gestión para
+            empresas de construcción, servicios mineros y distintas actividades
+            conexas
           </p>
-          <NavLink to="/productos">
-            <button>Ingresar</button>
-          </NavLink>
+          <div className="buttonss">
+            <NavLink to="/productos">
+              <button>Iniciar Sesión</button>
+            </NavLink>
+            <NavLink to="/productos">
+              <button>Registrarse</button>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
