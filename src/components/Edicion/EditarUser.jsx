@@ -53,10 +53,10 @@ export default function CreacionProducto({
                 <p>Rol actual: {rol}</p>
                 <div className="selectModal">
                   <select>
-                    {roles?.map((obj, i) => {
+                    {roles?.map((obj) => {
                       return (
-                        <option value={obj} key={i}>
-                          {obj}
+                        <option value={obj.id} key={obj.id}>
+                          {obj.rol}
                         </option>
                       );
                     })}
