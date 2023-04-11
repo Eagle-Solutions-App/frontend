@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
-/* import shopping from "../img/shopping.png"; */
+import shopping from "../img/shopping.png";
 import { allProductos } from "../redux/actions/actions";
 import Filtros from "./Filtros";
 import SearchBar from "./SearchBar";
@@ -55,9 +55,9 @@ export default function Navbar() {
           </div>
         </details>
 
-        {/* <button className="shopping">
+        <button className="shopping">
           <img src={shopping} alt="shopping" />
-        </button> */}
+        </button>
       </div>
     </div>
   );
