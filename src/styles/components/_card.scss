@@ -8,7 +8,6 @@
   border-radius: 15px;
   position: relative;
   .info {
-    border: 1px solid red;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -16,6 +15,8 @@
     .cadaInfo {
       display: flex;
       width: 20%;
+
+      @include center;
       p {
         color: white;
       }

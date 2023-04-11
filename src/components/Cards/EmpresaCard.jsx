@@ -31,13 +31,15 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
         <>
           <div className="cadaInfo">
             <p className="nombre">
-              <b>Empresa: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Empresa: </b>
+              <br></br>
               {nombre}
             </p>
           </div>
           <div className="cadaInfo">
             <p className="categoria">
-              <b>Email: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Email: </b>
+              <br></br>
               {email}
             </p>
           </div>
