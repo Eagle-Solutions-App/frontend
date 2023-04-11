@@ -3,12 +3,19 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { updateProd } from "../../redux/actions/actions";
 
-export default function CreacionProducto({ setShowModal, id, nombre, email }) {
+export default function CreacionProducto({
+  setShowModal,
+  id,
+  nombre,
+  email,
+  empresa,
+  rol,
+}) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   /* const detail = useSelector((state) => state.detailUser); */
-  const rol = useSelector((state) => state.roles);
+  const roles = useSelector((state) => state.roles);
 
   const [input, setInput] = useState({
     id,
@@ -43,10 +50,10 @@ export default function CreacionProducto({ setShowModal, id, nombre, email }) {
               <div className="nameModal">
                 <p>Nombre del usuario: {nombre}</p>
                 <p>Correo del usuario: {email}</p>
-                <p>Rol actual: {rol[0]}</p>
+                <p>Rol actual: {rol}</p>
                 <div className="selectModal">
                   <select>
-                    {rol?.map((obj, i) => {
+                    {roles?.map((obj, i) => {
                       return (
                         <option value={obj} key={i}>
                           {obj}

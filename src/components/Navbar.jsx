@@ -10,6 +10,13 @@ import SearchBar from "./SearchBar";
 export default function Navbar() {
   const dispatch = useDispatch();
 
+  const onCloseSession = () => {
+    let res = window.confirm(`Está seguro de querer cerrar su sesión?`);
+    if (res === true) {
+      /* dispatch(closeSession(id)); */
+    }
+  };
+
   const recargaHandler = (e) => {
     dispatch(allProductos());
   };
@@ -43,18 +50,14 @@ export default function Navbar() {
               <NavLink className="perfilBtn" to="/perfil">
                 <button>Perfil</button>
               </NavLink>
-              <button
-                onClick={() => alert("Se cerrará la sesion de este usuario.")}
-              >
-                Cerrar sesión
-              </button>
+              <button onClick={() => onCloseSession()}>Cerrar sesión</button>
             </div>
           </div>
         </details>
 
-        {/* <button className="shopping">
+        <button className="shopping">
           <img src={shopping} alt="shopping" />
-        </button> */}
+        </button>
       </div>
     </div>
   );

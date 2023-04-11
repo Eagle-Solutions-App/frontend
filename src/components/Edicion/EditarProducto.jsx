@@ -35,14 +35,14 @@ export default function CreacionProducto() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handlerSelectCateg = (e) => {
+  /* const handlerSelectCateg = (e) => {
     if (!input.subcategoria.includes(e.target.value)) {
       setInput({
         ...input,
         subcategoria: [...input.subcategoria, e.target.value],
       });
     }
-  };
+  }; */
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
@@ -87,7 +87,7 @@ export default function CreacionProducto() {
                             name="subCateg"
                             id={obj.id}
                             value={[obj.nombre || detail.subcategoria]}
-                            onChange={(e) => handlerSelectCateg(e)}
+                            onChange
                           />
                           <button value={obj.id}>x</button>
                         </div>

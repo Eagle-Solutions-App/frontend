@@ -31,15 +31,6 @@ export default function CreacionProducto() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handlerSelectCateg = (e) => {
-    if (!input.subcategoria.includes(e.target.value)) {
-      setInput({
-        ...input,
-        subcategoria: [...input.subcategoria, e.target.value],
-      });
-    }
-  };
-
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);

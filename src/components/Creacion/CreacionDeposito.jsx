@@ -15,6 +15,7 @@ export default function CreacionDeposito() {
     ciudad: "",
     provincia: "",
     pais: "",
+    descripcion: "",
   });
 
   const handlerChange = (e) => {
@@ -33,6 +34,7 @@ export default function CreacionDeposito() {
       ciudad: "",
       provincia: "",
       pais: "",
+      descripcion: "",
     });
     navigate("/depositos");
   };
@@ -109,6 +111,18 @@ export default function CreacionDeposito() {
                   required
                   onChange={(e) => handlerChange(e)}
                 ></input>
+              </div>
+
+              <div className="descProd">
+                <label>Descripción: </label>
+                <textarea
+                  type="text"
+                  name="descripcion"
+                  cols="20"
+                  rows="4"
+                  value={input.descripcion}
+                  onChange={(e) => handlerChange(e)}
+                ></textarea>
               </div>
             </div>
 

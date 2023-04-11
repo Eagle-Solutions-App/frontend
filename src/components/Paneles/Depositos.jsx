@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
-import Card from "../Cards/Card";
+import borrar from "../../img/trash.png";
+import editar from "../../img/edit.png";
+import DepositoCard from "../Cards/DepositoCard";
 import { addPaginate, getDepositos } from "../../redux/actions/actions";
 import PaginadoDepositos from "../Paginados/PaginadoDepositos";
 
@@ -19,7 +21,8 @@ export default function Depósitos() {
 
   useEffect(() => {
     dispatch(getDepositos());
-  }, [dispatch]);
+    setCurrentPage(paginateNum);
+  }, [dispatch, paginateNum]);
 
   const fnPaginado = (page) => {
     setCurrentPage(page);
@@ -65,14 +68,17 @@ export default function Depósitos() {
           <div className="cards">
             {currentDepositos.map((dep) => (
               <div key={dep.id}>
-                <Card
+                <DepositoCard
                   nombre={dep.nombre}
                   pais={dep.pais}
                   ciudad={dep.ciudad}
                   id={dep.id}
                   provincia={dep.provincia}
+                  descripcion={dep.descripcion}
                   calle={dep.calle}
                   altura={dep.altura}
+                  borrar={borrar}
+                  editar={editar}
                 />
               </div>
             ))}

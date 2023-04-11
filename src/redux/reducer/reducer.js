@@ -13,6 +13,7 @@ import {
   GET_DEPOSITOS,
   GET_DETAIL_DEPO,
   GET_EMPRESAS,
+  GET_ROLES,
 } from "../actions/actions";
 
 const initialState = {
@@ -31,17 +32,7 @@ const initialState = {
   detail: [],
   detailDepo: [],
   detailUser: [],
-  roles: [
-    "Administrador",
-    "Gerente",
-    "Responsable de Compra",
-    "Responsable de Logística",
-    "Responsable de Depósito",
-    "Responsable de Administración",
-    "Jefe de Obra",
-    "Responsable de Transporte",
-    "Recursos Humanos",
-  ],
+  roles: [],
   usuarios: [],
   empresas: [],
   depositos: [],
@@ -83,6 +74,12 @@ function rootReducer(state = initialState, action) {
         empresas: [...action.payload],
       };
 
+    case GET_ROLES:
+      return {
+        ...state,
+        roles: [...action.payload],
+      };
+
     /****************** DETAILS ******************/
     case GET_DETAIL:
       return {
@@ -105,6 +102,7 @@ function rootReducer(state = initialState, action) {
     }
 
     case "POST_USUARIOS": {
+      console.log(action.payload);
       return {
         ...state,
         usuarios: action.payload,

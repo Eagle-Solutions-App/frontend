@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Cards/Card.jsx";
+import ProdCard from "../Cards/ProdCard";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar.jsx";
+import borrar from "../../img/trash.png";
+import editar from "../../img/edit.png";
+import shopping from "../../img/shopping.png";
 import { getProductos, addPaginate } from "../../redux/actions/actions.js";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginados/PaginadoProductos.jsx";
@@ -44,7 +47,7 @@ export default function Home() {
     <div>
       <Navbar />
       <div className="container">
-        <h2>Bienvenido! Usted es Administrador</h2>
+        <h2>Panel de Productos</h2>
 
         <div className="btnCrear">
           <Link to="/producto" style={{ textDecoration: "none" }}>
@@ -66,13 +69,16 @@ export default function Home() {
           <div className="cards">
             {currentProducts.map((card) => (
               <div key={card.id}>
-                <Card
+                <ProdCard
                   nombre={card.nombre}
                   categoria={card.categoria}
                   subcategoria={card.subcategoria}
                   descripcion={card.descripcion}
                   codigo={card.codigo}
                   id={card.id}
+                  editar={editar}
+                  borrar={borrar}
+                  shopping={shopping}
                 />
               </div>
             ))}

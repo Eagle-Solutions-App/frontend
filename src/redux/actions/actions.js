@@ -3,6 +3,7 @@ export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const GET_DEPOSITOS = "GET_DEPOSITOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
+export const GET_ROLES = "GET_ROLES";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 
 export const DELETE_PROD = "DELETE_PROD";
@@ -65,6 +66,16 @@ export const getEmpresas = () => {
     const response = await axios.get("/empresas");
     return dispatch({
       type: GET_EMPRESAS,
+      payload: response.data,
+    });
+  };
+};
+
+export const getRoles = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/roles");
+    return dispatch({
+      type: GET_ROLES,
       payload: response.data,
     });
   };

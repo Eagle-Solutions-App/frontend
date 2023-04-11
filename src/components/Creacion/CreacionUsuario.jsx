@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postUser } from "../../redux/actions/actions";
+import { getRoles, postUser } from "../../redux/actions/actions";
 import Navbar from "../Navbar";
 
 export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const rol = useSelector((state) => state.roles);
-
-  const numeroAleatorio = Math.floor(Math.random() * Math.pow(10, 5))
-    .toString()
-    .padStart(5, "0");
+  console.log(rol);
 
   const [input, setInput] = useState({
     nombre: "",
     apellido: "",
     email: "",
-    rol: "",
-    clave: numeroAleatorio,
+    rolID: "",
+    empresaID: 1,
   });
+
+  useEffect(() => {
+    dispatch(getRoles());
+  }, [dispatch]);
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
   const handlerSelectRol = (e) => {
-    if (!input.rol.includes(e.target.value)) {
-      setInput({ ...input, rol: e.target.value });
+    if (!input.rolID.includes(e.target.value)) {
+      setInput({ ...input, rolID: e.target.value });
     }
+    console.log(e.target.value);
   };
 
   const handlerSubmitForm = (e) => {
@@ -40,7 +42,8 @@ export default function CreacionDeposito() {
       nombre: "",
       apellido: "",
       email: "",
-      rol: "",
+      rolID: "",
+      empresaID: 1,
     });
     navigate("/usuarios");
   };
@@ -84,13 +87,15 @@ export default function CreacionDeposito() {
                 ></input>
               </div>
 
-              <div>
-                <select onSubmit={(e) => handlerSelectRol(e)}>
-                  {rol?.map((obj, i) => {
+              <div className="selectCat">
+                <select onChange={(e) => handlerSelectRol(e)}>
+                  {rol?.map((obj) => {
                     return (
-                      <option value={obj} key={i}>
-                        {obj}
-                      </option>
+                      <>
+                        <option value={obj.id} key={obj.id}>
+                          {obj.rol}
+                        </option>
+                      </>
                     );
                   })}
                 </select>
