@@ -37,19 +37,22 @@ export default function DepositoCard({
         <>
           <div className="cadaInfo">
             <p className="nombre">
-              <b>Nombre: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Nombre: </b>
+              <br></br>
               {nombre}
             </p>
           </div>
           <div className="cadaInfo">
             <p className="categoria">
-              <b>País: </b>
+              <b style={{ textDecoration: "underline 2px" }}>País: </b>
+              <br></br>
               {pais}
             </p>
           </div>
           <div className="cadaInfo">
             <p className="categoria">
-              <b>Ciudad: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Ciudad: </b>
+              <br></br>
               {ciudad}
             </p>
           </div>

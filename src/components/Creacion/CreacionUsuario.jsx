@@ -8,6 +8,7 @@ export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const rol = useSelector((state) => state.roles);
+  console.log(rol);
 
   const [input, setInput] = useState({
     nombre: "",
@@ -89,9 +90,11 @@ export default function CreacionDeposito() {
                 <select onChange={(e) => handlerSelectRol(e)}>
                   {rol?.map((obj) => {
                     return (
-                      <option value={obj.id} key={obj.id}>
-                        {obj.rol}
-                      </option>
+                      <>
+                        <option value={obj.id} key={obj.id}>
+                          {obj.rol}
+                        </option>
+                      </>
                     );
                   })}
                 </select>

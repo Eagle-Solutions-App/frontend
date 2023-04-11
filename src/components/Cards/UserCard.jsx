@@ -36,19 +36,22 @@ export default function UserCard({ nombre, email, empresa, rol, id }) {
         <>
           <div className="cadaInfo">
             <p className="nombre">
-              <b>Usuario: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Usuario: </b>
+              <br></br>
               {nombre}
             </p>
           </div>
           <div className="cadaInfo">
             <p className="categoria">
-              <b>Email: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Email: </b>
+              <br></br>
               {email}
             </p>
           </div>
           <div className="cadaInfo">
             <p className="categoria">
-              <b>Rol: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Rol: </b>
+              <br></br>
               {rol}
             </p>
           </div>

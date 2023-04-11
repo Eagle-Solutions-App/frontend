@@ -36,21 +36,24 @@ export default function ProdCard({
         <>
           <div className="cadaInfo">
             <p className="nombre">
-              <b>Producto: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Producto: </b>
+              <br></br>
               {nombre}({codigo})
             </p>
           </div>
 
           <div className="cadaInfo">
             <p className="categoria">
-              <b>Categoría: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Categoría: </b>
+              <br></br>
               {categoria || "Bien de Uso"}
             </p>
           </div>
 
           <div className="cadaInfo">
             <p className="subcategoria">
-              <b>Subcategoría: </b>
+              <b style={{ textDecoration: "underline 2px" }}>Subcategoría: </b>
+              <br></br>
               {subcategoria || "Materiales"}
             </p>
           </div>
