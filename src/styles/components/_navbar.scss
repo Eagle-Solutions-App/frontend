@@ -53,7 +53,7 @@
       padding: 8px;
       margin-left: -3rem;
       &:hover {
-        border: 1px solid whitesmoke;
+        border: 1px solid #666;
         transition: all 0.5s;
       }
 
@@ -115,22 +115,27 @@
       cursor: pointer;
     }
     .shopping {
-      margin-left: 7vh;
+      margin-left: 12vh;
       background-color: transparent;
       border: none;
       filter: invert(100%);
-      width: 40px;
-      height: 40px;
+      width: 5rem;
+      height: 3.5rem;
       cursor: pointer;
+      padding: 8px;
+      border-radius: 50px;
+      position: absolute;
+      border-radius: 4px 4px 0 0;
+
       img {
         width: 35px;
         height: 35px;
       }
-    }
 
-    img {
-      margin-left: 2rem;
-      width: 38%;
+      &:hover {
+        border: 1px solid #666;
+        transition: all 0.5s;
+      }
     }
   }
 }
