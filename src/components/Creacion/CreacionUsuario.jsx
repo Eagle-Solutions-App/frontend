@@ -8,7 +8,6 @@ export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const rol = useSelector((state) => state.roles);
-  console.log(rol);
 
   const [input, setInput] = useState({
     nombre: "",

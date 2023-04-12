@@ -14,6 +14,8 @@ import {
   GET_DETAIL_DEPO,
   GET_EMPRESAS,
   GET_ROLES,
+  BLOCK_USER,
+  UNBLOCK_USER,
 } from "../actions/actions";
 
 const initialState = {
@@ -34,6 +36,7 @@ const initialState = {
   detailUser: [],
   roles: [],
   usuarios: [],
+  usuariosBloqueados: [],
   empresas: [],
   depositos: [],
   paginate: 1,
@@ -169,6 +172,66 @@ function rootReducer(state = initialState, action) {
         ...state,
         paginate: action.payload,
       };
+
+    // case BLOCK_USER:
+    //   let newUser = state.usuarios.find((u) => u.id === action.payload);
+
+    //   let userBlocked = state.usuariosBloqueados.find(
+    //     (u) => u.id === newUser.id
+    //   );
+
+    //   if (!userBlocked) {
+    //     const newUserBlocked = { ...newUser, bloqueado: true };
+    //     return {
+    //       ...state,
+    //       usuariosBloqueados: [...state.usuariosBloqueados, newUserBlocked],
+    //     };
+    //   } else {
+    //     return {
+    //       ...state,
+    //     };
+    //   }
+    case BLOCK_USER:
+      const userId = action.payload;
+      const usuario = state.usuarios.find((u) => u.id === userId);
+
+      if (usuario) {
+        const newUserBlocked = { ...usuario, bloqueado: true };
+
+        return {
+          ...state,
+          usuariosBloqueados: [...state.usuariosBloqueados, newUserBlocked],
+          usuarios: state.usuarios.filter((u) => u.id !== userId),
+        };
+      }
+
+      return {
+        ...state,
+      };
+
+    case UNBLOCK_USER: {
+      const userToUnblock = state.usuariosBloqueados.find(
+        (user) => user.id === action.payload
+      );
+      if (userToUnblock) {
+        const updatedUsuariosBloqueados = state.usuariosBloqueados.filter(
+          (user) => user.id !== action.payload
+        );
+        const updatedUsuarios = state.usuarios.map((user) => {
+          if (user.id === action.payload) {
+            return { ...user, bloqueado: false };
+          }
+          return user;
+        });
+        return {
+          ...state,
+          usuarios: updatedUsuarios,
+          usuariosBloqueados: updatedUsuariosBloqueados,
+        };
+      } else {
+        return state;
+      }
+    }
 
     default:
       return {

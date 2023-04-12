@@ -49,7 +49,7 @@ export default function Home() {
       <div className="container">
         <h2>Panel de Productos</h2>
 
-        <div className="btnCrear">
+        <div className="btnsPanel">
           <Link to="/producto" style={{ textDecoration: "none" }}>
             <button className="crear">Crear Producto</button>
           </Link>

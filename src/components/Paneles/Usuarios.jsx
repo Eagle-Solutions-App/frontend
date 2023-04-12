@@ -40,15 +40,19 @@ export default function Usuarios() {
     dispatch(addPaginate(nextPage));
   };
   console.log(currentUsuarios);
+
   return (
     <div>
       <Navbar />
       <div className="container">
         <h2>Panel de Usuarios</h2>
 
-        <div className="btnCrear">
+        <div className="btnsPanel">
           <Link to="/createUsuario" style={{ textDecoration: "none" }}>
             <button className="crear">Crear Usuario</button>
+          </Link>
+          <Link to="/usuariosBloqueados" style={{ textDecoration: "none" }}>
+            <button className="crear">Ver usuarios bloqueados</button>
           </Link>
         </div>
 
@@ -72,6 +76,7 @@ export default function Usuarios() {
                   id={u.id}
                   empresa={u.Empresa.nombre}
                   rol={u.Rols[0].rol}
+                  bloqueado={u.bloqueado}
                 />
               </div>
             ))}
