@@ -127,6 +127,9 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: state.usuarios.filter((user) => user.id !== action.payload),
+        usuariosBloqueados: state.usuariosBloqueados.filter(
+          (user) => user.id !== action.payload
+        ),
       };
     }
     case DELETE_DEPO: {
