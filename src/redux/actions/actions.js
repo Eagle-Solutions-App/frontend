@@ -1,22 +1,44 @@
 import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
+export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const GET_EMPRESAS = "GET_EMPRESAS";
+export const GET_USUARIOS = "GET_USUARIOS";
+export const GET_ROLES = "GET_ROLES";
+export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
+
+export const DELETE_PROD = "DELETE_PROD";
+export const DELETE_USER = "DELETE_USER";
+export const DELETE_DEPO = "DELETE_DEPO";
+
+export const GET_DETAIL = "GET_DETAIL";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const GET_DETAIL_DEPO = "GET_DETAIL_DEPO";
+export const CLEAN_DETAIL_DEPO = "CLEAN_DETAIL_DEPO";
+
 export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
-/* import productos from "../../../productos.json"; */
-export const GET_DETAIL = "GET_DETAIL";
-export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_PAGINATE = "ADD_PAGINATE";
-export const GET_USUARIOS = "GET_USUARIOS";
-export const GET_CATEGORIAS = "GET_CATEGORIAS";
+export const BLOCK_USER = "BLOCK_USER";
+export const UNBLOCK_USER = "UNBLOCK_USER";
 
+/****************** GETS ******************/
 export const getProductos = () => {
   return async function (dispatch) {
     const response = await axios.get("/productos");
-    console.log(response);
     return dispatch({
       type: GET_PRODUCTOS,
-      payload: [response.data],
+      payload: response.data,
+    });
+  };
+};
+
+export const allProductos = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/productos");
+    return dispatch({
+      type: ALL_PRODUCTOS,
+      payload: response.data,
     });
   };
 };
@@ -24,25 +46,44 @@ export const getProductos = () => {
 export const getUsuarios = () => {
   return async function (dispatch) {
     const response = await axios.get("/usuarios");
-    console.log(response);
     return dispatch({
       type: GET_USUARIOS,
-      payload: [response.data],
+      payload: response.data.resultado,
     });
   };
 };
 
-export const getCategorias = () => {
+export const getDepositos = () => {
   return async function (dispatch) {
-    const response = await axios.get("/categorias");
-    console.log(response);
+    const response = await axios.get("/depositos");
     return dispatch({
-      type: GET_CATEGORIAS,
-      payload: [response.data],
+      type: GET_DEPOSITOS,
+      payload: response.data,
     });
   };
 };
 
+export const getEmpresas = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/empresas");
+    return dispatch({
+      type: GET_EMPRESAS,
+      payload: response.data,
+    });
+  };
+};
+
+export const getRoles = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/roles");
+    return dispatch({
+      type: GET_ROLES,
+      payload: response.data,
+    });
+  };
+};
+
+/****************** CREACIONES ******************/
 export const postProd = (payload) => {
   return async function () {
     const response = await axios.post("/productos", payload);
@@ -50,8 +91,24 @@ export const postProd = (payload) => {
   };
 };
 
+export const postDeposito = (payload) => {
+  return async function () {
+    const response = await axios.post("/depositos", payload);
+    return response;
+  };
+};
+
+export const postUser = (payload) => {
+  console.log(payload);
+  return async function () {
+    const response = await axios.post("/usuarios", payload);
+    return response;
+  };
+};
+
+/****************** EDICIONES ******************/
+
 export const updateProd = (data, id) => {
-  console.log(id);
   return async function () {
     await axios.put(`/productos/${id}`, data);
   };
@@ -63,6 +120,59 @@ export const updateUser = (data, id) => {
   };
 };
 
+export const updateDepo = (data, id) => {
+  return async function () {
+    await axios.put(`/depositos/${id}`, data);
+  };
+};
+
+/****************** DELETES ******************/
+export const deleteProd = (id) => {
+  return async function (dispatch) {
+    const body = { id: id };
+    await axios.delete("/productos", { data: body });
+    dispatch({ type: DELETE_PROD, payload: id });
+  };
+};
+
+export const deleteUser = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/usuarios/${id}`);
+    dispatch({ type: DELETE_USER, payload: id });
+  };
+};
+
+export const deleteDepo = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/depositos/${id}`);
+    dispatch({ type: DELETE_DEPO, payload: id });
+  };
+};
+
+/****************** DETAILS ******************/
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/productos/${id}`);
+    console.log(response.data);
+    return dispatch({
+      type: GET_DETAIL,
+      payload: response.data,
+    });
+  };
+};
+
+export const getDetailDepo = (id) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/depositos/${id}`);
+    console.log(response.data);
+    return dispatch({
+      type: GET_DETAIL_DEPO,
+      payload: response.data,
+    });
+  };
+};
+
+/****************** EXTRAS ******************/
 export const searchXname = (nombre) => {
   return {
     type: SEARCHxNAME,
@@ -84,24 +194,23 @@ export const searchXsubcategoria = (subcategoria) => {
   };
 };
 
-export const getDetail = (id) => {
-  return async function (dispatch) {
-    const response = await axios.get(`/productos/${id}`);
-    console.log(id);
-    return dispatch({
-      type: GET_DETAIL,
-      payload: response.data,
-    });
-  };
-};
-
-export const cleanDetail = () => {
-  return { type: CLEAN_DETAIL };
-};
-
 export const addPaginate = (num) => {
   return {
     type: ADD_PAGINATE,
     payload: num,
+  };
+};
+
+export const blockUser = (id) => {
+  return {
+    type: BLOCK_USER,
+    payload: id,
+  };
+};
+
+export const unblockUser = (id) => {
+  return {
+    type: UNBLOCK_USER,
+    payload: id,
   };
 };

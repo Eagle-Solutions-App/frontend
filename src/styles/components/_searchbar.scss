@@ -1,12 +1,11 @@
 .searchBar_container {
   font-family: "Poppins", sans-serif;
-  position: absolute;
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 370px;
+  width: 500px;
   z-index: 20;
-  top: 10%;
-  left: 40%;
 
   input {
     height: 25px;

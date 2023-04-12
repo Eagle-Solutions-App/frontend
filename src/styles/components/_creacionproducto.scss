@@ -116,6 +116,7 @@
     width: 32%;
     position: relative;
     padding: 10px;
+
     .selectCat {
       background-color: $azul3;
       border-radius: 10px;
@@ -126,6 +127,37 @@
       background-color: $azul3;
       border-radius: 10px;
       padding: 10px;
+
+      .check {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+      }
+      .sel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        select {
+          border: none;
+          padding: 10px 20px;
+          width: 50%;
+          height: 100%;
+          color: white;
+          background-color: $azul1;
+          font-size: 15px;
+          font-family: "Poppins", sans-serif;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            outline: 2px solid $azul2;
+          }
+        }
+      }
     }
 
     .createProd {
@@ -134,11 +166,32 @@
         margin-top: 20px;
         background-color: $azul3;
         border-radius: 10px;
-        height: 160px;
+        height: 42.5vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         padding-bottom: 20px;
+
+        select {
+          border: none;
+          padding: 10px 20px;
+          width: 100%;
+          height: 100%;
+          color: white;
+          background-color: $azul1;
+          font-size: 15px;
+          font-family: "Poppins", sans-serif;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          cursor: pointer;
+          border-radius: 5px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            outline: 2px solid $azul2;
+          }
+        }
 
         .nameProd {
           display: flex;
@@ -247,6 +300,10 @@
           height: 40px;
           padding: 5px 12px;
           cursor: pointer;
+          transition: 0.3s all;
+          &:hover {
+            box-shadow: 5px 5px 5px -5px;
+          }
         }
       }
     }

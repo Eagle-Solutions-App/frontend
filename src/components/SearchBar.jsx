@@ -20,7 +20,7 @@ export default function SearchBar() {
       <div className="searchBar_container">
         <input
           type="text"
-          placeholder="Buscar producto..."
+          placeholder="Buscar ..."
           onChange={fnState}
           value={state}
         />
