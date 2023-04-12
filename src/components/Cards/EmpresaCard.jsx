@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteUser } from "../../redux/actions/actions";
+import {
+  blockEmpresa,
+  deleteUser,
+  unblockEmpresa,
+} from "../../redux/actions/actions";
+import modal from "../../img/modal.png";
+import ModalEmpresa from "../Modals/ModalEmpresa";
 
 export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
   const dispatch = useDispatch();
@@ -8,7 +14,16 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
-      /* dispatch(borrarProd(id)); */
+      dispatch(blockEmpresa(id));
+    }
+  };
+
+  const onUnblock = (id) => {
+    let res = window.confirm(
+      `Está seguro de querer desbloquear a "${nombre}"?`
+    );
+    if (res === true) {
+      dispatch(unblockEmpresa(id));
     }
   };
 
@@ -19,11 +34,11 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
     }
   };
 
-  /*  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleEditar = () => {
     setShowModal(true);
-  }; */
+  };
 
   return (
     <div className="card">
@@ -51,9 +66,9 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
       </div> */}
 
           <div className="imagenes">
-            {/* <button onMouseDown={handleEditar}>
-              <img src={editar} alt="editar" />
-            </button> */}
+            <button onClick={handleEditar}>
+              <img src={modal} alt="modal" />
+            </button>
 
             <button onClick={() => onBlock(id)}>
               <img src={bloqueo} alt="bloqueo" />
@@ -64,17 +79,18 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
             </button>
           </div>
 
-          {/* <div
+          <div
             className="modal"
             style={{ display: showModal ? "block" : "none" }}
           >
-            <EditarUser
+            <ModalEmpresa
               id={id}
               nombre={nombre}
               email={email}
+              estadoPago={true}
               setShowModal={setShowModal}
             />
-          </div> */}
+          </div>
         </>
       </div>
     </div>

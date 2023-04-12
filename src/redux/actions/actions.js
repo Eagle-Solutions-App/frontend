@@ -20,7 +20,9 @@ export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 export const ADD_PAGINATE = "ADD_PAGINATE";
 export const BLOCK_USER = "BLOCK_USER";
+export const BLOCK_EMPRESA = "BLOCK_EMPRESA";
 export const UNBLOCK_USER = "UNBLOCK_USER";
+export const UNBLOCK_EMPRESA = "UNBLOCK_EMPRESA";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -211,6 +213,20 @@ export const blockUser = (id) => {
 export const unblockUser = (id) => {
   return {
     type: UNBLOCK_USER,
+    payload: id,
+  };
+};
+
+export const blockEmpresa = (id) => {
+  return {
+    type: BLOCK_EMPRESA,
+    payload: id,
+  };
+};
+
+export const unblockEmpresa = (id) => {
+  return {
+    type: UNBLOCK_EMPRESA,
     payload: id,
   };
 };

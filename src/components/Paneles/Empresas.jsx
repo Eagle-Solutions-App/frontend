@@ -7,6 +7,7 @@ import bloqueo from "../../img/bloqueo.png";
 import EmpresaCard from "../Cards/EmpresaCard";
 import { getEmpresas, addPaginate } from "../../redux/actions/actions";
 import PaginadoEmpresas from "../Paginados/PaginadoEmpresas";
+import { Link } from "react-router-dom";
 
 export default function Empresas() {
   const dispatch = useDispatch();
@@ -47,6 +48,12 @@ export default function Empresas() {
       <Navbar />
       <div className="container">
         <h2>Panel de Empresas</h2>
+
+        <div className="btnsPanel">
+          <Link to="/empresasBloqueadas" style={{ textDecoration: "none" }}>
+            <button className="crear">Ver empresas bloqueadas</button>
+          </Link>
+        </div>
 
         <PaginadoEmpresas
           empresasPerPage={empresasPerPage}
