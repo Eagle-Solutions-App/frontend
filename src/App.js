@@ -10,6 +10,7 @@ import CreacionDeposito from "./components/Creacion/CreacionDeposito";
 import CreacionUsuario from "./components/Creacion/CreacionUsuario";
 import EditarProducto from "./components/Edicion/EditarProducto";
 import EditarDeposito from "./components/Edicion/EditarDeposito";
+import UsuariosBloqueados from "./components/UsuariosBloqueados";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/depositos" element={<Depositos />} />
         <Route path="/empresas" element={<Empresas />} />
+        <Route path="/usuariosBloqueados" element={<UsuariosBloqueados />} />
 
         {/* *************************** POSTEOS *************************** */}
         <Route path="/producto" element={<CreacionProducto />} />

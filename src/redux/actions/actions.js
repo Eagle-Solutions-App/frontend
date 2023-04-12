@@ -19,6 +19,8 @@ export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 export const ADD_PAGINATE = "ADD_PAGINATE";
+export const BLOCK_USER = "BLOCK_USER";
+export const UNBLOCK_USER = "UNBLOCK_USER";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -196,5 +198,19 @@ export const addPaginate = (num) => {
   return {
     type: ADD_PAGINATE,
     payload: num,
+  };
+};
+
+export const blockUser = (id) => {
+  return {
+    type: BLOCK_USER,
+    payload: id,
+  };
+};
+
+export const unblockUser = (id) => {
+  return {
+    type: UNBLOCK_USER,
+    payload: id,
   };
 };

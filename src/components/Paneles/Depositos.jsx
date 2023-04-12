@@ -48,7 +48,7 @@ export default function Depósitos() {
       <div className="container">
         <h2>Panel de Depósitos</h2>
 
-        <div className="btnCrear">
+        <div className="btnsPanel">
           <Link to="/createDepositos" style={{ textDecoration: "none" }}>
             <button className="crear">Crear Depósito</button>
           </Link>
