@@ -93,9 +93,18 @@ export default function UserCard({
                 </button>
               </>
             ) : (
-              <button onClick={() => onUnblock(id)}>
-                <img src={unblock} alt="unblock" />
-              </button>
+              <>
+                <button onClick={() => onClose(id)}>
+                  <img src={borrar} alt="borrar" />
+                </button>
+                <button onClick={() => onUnblock(id)}>
+                  <img
+                    style={{ width: "45px", height: "45px" }}
+                    src={unblock}
+                    alt="unblock"
+                  />
+                </button>
+              </>
             )}
           </div>
 
