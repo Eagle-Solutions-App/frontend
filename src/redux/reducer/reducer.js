@@ -173,24 +173,6 @@ function rootReducer(state = initialState, action) {
         paginate: action.payload,
       };
 
-    // case BLOCK_USER:
-    //   let newUser = state.usuarios.find((u) => u.id === action.payload);
-
-    //   let userBlocked = state.usuariosBloqueados.find(
-    //     (u) => u.id === newUser.id
-    //   );
-
-    //   if (!userBlocked) {
-    //     const newUserBlocked = { ...newUser, bloqueado: true };
-    //     return {
-    //       ...state,
-    //       usuariosBloqueados: [...state.usuariosBloqueados, newUserBlocked],
-    //     };
-    //   } else {
-    //     return {
-    //       ...state,
-    //     };
-    //   }
     case BLOCK_USER:
       const userId = action.payload;
       const usuario = state.usuarios.find((u) => u.id === userId);
