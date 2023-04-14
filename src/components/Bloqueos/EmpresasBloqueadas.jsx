@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import { useSelector } from "react-redux";
-import UserCard from "../Cards/UserCard";
+import EmpresaCard from "../Cards/EmpresaCard";
 
 export default function EmpresasBloqueadas() {
   const bloqueados = useSelector((state) => state.empresasBloqueadas);
@@ -10,16 +10,16 @@ export default function EmpresasBloqueadas() {
     <div>
       <Navbar />
       <div className="container">
-        <h2>Usuarios Bloqueados</h2>
+        <h2>Empresas Bloqueadas</h2>
 
         <div className="cards">
           {bloqueados.map((u) => (
             <div key={u.id}>
-              <UserCard
+              <EmpresaCard
                 nombre={`${u.nombre} ${u.apellido}`}
                 email={u.email}
                 id={u.id}
-                rol={u.Rols[0].rol}
+                /* rol={u.Rols[0].rol} */
                 bloqueado={u.bloqueado}
               />
             </div>

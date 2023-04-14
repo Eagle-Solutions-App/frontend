@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   blockEmpresa,
   deleteUser,
-  unblockEmpresa,
+  /*  unblockEmpresa, */
 } from "../../redux/actions/actions";
 import modal from "../../img/modal.png";
 import ModalEmpresa from "../Modals/ModalEmpresa";
@@ -18,14 +18,14 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
     }
   };
 
-  const onUnblock = (id) => {
+  /* const onUnblock = (id) => {
     let res = window.confirm(
       `Está seguro de querer desbloquear a "${nombre}"?`
     );
     if (res === true) {
       dispatch(unblockEmpresa(id));
     }
-  };
+  }; */
 
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
