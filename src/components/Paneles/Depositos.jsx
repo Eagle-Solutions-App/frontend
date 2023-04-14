@@ -41,7 +41,7 @@ export default function Depósitos() {
 
     dispatch(addPaginate(nextPage));
   };
-  console.log(depositos);
+  console.log(currentDepositos);
   return (
     <div>
       <Navbar />
@@ -79,6 +79,7 @@ export default function Depósitos() {
                   altura={dep.altura}
                   borrar={borrar}
                   editar={editar}
+                  tipo={dep.tipo}
                 />
               </div>
             ))}

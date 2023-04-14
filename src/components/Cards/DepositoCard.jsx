@@ -15,6 +15,7 @@ export default function DepositoCard({
   altura,
   descripcion,
   id,
+  tipo,
 }) {
   const dispatch = useDispatch();
 
@@ -35,6 +36,13 @@ export default function DepositoCard({
     <div className="card">
       <div className="info">
         <>
+          <div className="cadaInfo">
+            <p className="categoria">
+              <b style={{ textDecoration: "underline 2px" }}>Tipo: </b>
+              <br></br>
+              {tipo}
+            </p>
+          </div>
           <div className="cadaInfo">
             <p className="nombre">
               <b style={{ textDecoration: "underline 2px" }}>Nombre: </b>

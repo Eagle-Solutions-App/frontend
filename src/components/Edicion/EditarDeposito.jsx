@@ -59,9 +59,9 @@ export default function CreacionProducto() {
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
               {/* edición del deposito */}
-              <div className="editProd">
+              <div className="editDepo">
                 <div className="namecodedesc">
-                  <div className="nameProd">
+                  <div className="nameDepo">
                     <label>Nombre: </label>
                     <input
                       type="text"
@@ -71,7 +71,7 @@ export default function CreacionProducto() {
                     ></input>
                   </div>
 
-                  <div className="codeProd">
+                  <div className="nameDepo">
                     <label>País: </label>
                     <input
                       type="text"
@@ -81,7 +81,7 @@ export default function CreacionProducto() {
                     ></input>
                   </div>
 
-                  <div className="codeProd">
+                  <div className="nameDepo">
                     <label>Provincia: </label>
                     <input
                       type="text"
@@ -91,7 +91,7 @@ export default function CreacionProducto() {
                     ></input>
                   </div>
 
-                  <div className="codeProd">
+                  <div className="nameDepo">
                     <label>Ciudad: </label>
                     <input
                       type="text"
@@ -101,7 +101,7 @@ export default function CreacionProducto() {
                     ></input>
                   </div>
 
-                  <div className="codeProd">
+                  <div className="nameDepo">
                     <label>Calle: </label>
                     <input
                       type="text"
@@ -111,7 +111,7 @@ export default function CreacionProducto() {
                     ></input>
                   </div>
 
-                  <div className="codeProd">
+                  <div className="nameDepo">
                     <label>Altura: </label>
                     <input
                       type="text"
@@ -119,6 +119,30 @@ export default function CreacionProducto() {
                       value={[input.altura || detailDepo.altura]}
                       onChange={(e) => handlerChange(e)}
                     ></input>
+                  </div>
+
+                  <div className="descProd">
+                    <label>Descripción: </label>
+                    <textarea
+                      type="text"
+                      name="descripcion"
+                      cols="20"
+                      rows="4"
+                      value={input.descripcion}
+                      onChange={(e) => handlerChange(e)}
+                    ></textarea>
+                  </div>
+
+                  <div className="obsProd">
+                    <label>Observaciones: </label>
+                    <textarea
+                      type="text"
+                      name="observaciones"
+                      cols="20"
+                      rows="4"
+                      value={input.observaciones}
+                      onChange={(e) => handlerChange(e)}
+                    ></textarea>
                   </div>
 
                   {/* <div className="descProd">

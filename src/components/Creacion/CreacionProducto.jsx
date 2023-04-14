@@ -16,6 +16,7 @@ export default function CreacionProducto() {
     subcategoria: "",
     descripcion: "",
     codigo: "",
+    URL: "",
   });
 
   /*   const [nombreCateg, setNombreCateg] = useState("");*/
@@ -143,7 +144,7 @@ export default function CreacionProducto() {
                 );
               })}
             </div>
-            <div className="sel">
+            {/* <div className="sel">
               <select onChange={(e) => handlerSelectCateg(e)}>
                 {subCategs?.map((obj) => {
                   return (
@@ -153,7 +154,7 @@ export default function CreacionProducto() {
                   );
                 })}
               </select>
-            </div>
+            </div> */}
           </div>
 
           {/* creación del producto */}
@@ -175,6 +176,15 @@ export default function CreacionProducto() {
                   type="text"
                   name="codigo"
                   value={input.codigo}
+                  onChange={(e) => handlerChange(e)}
+                ></input>
+              </div>
+
+              <div className="imgProd">
+                <label>Imagen: </label>
+                <input
+                  type="url"
+                  name="URL"
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>

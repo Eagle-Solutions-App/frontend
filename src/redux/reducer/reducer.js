@@ -16,6 +16,7 @@ import {
   GET_ROLES,
   BLOCK_USER,
   UNBLOCK_USER,
+  GET_TIPOS,
 } from "../actions/actions";
 
 const initialState = {
@@ -39,6 +40,7 @@ const initialState = {
   usuariosBloqueados: [],
   empresas: [],
   depositos: [],
+  tipos: [],
   paginate: 1,
 };
 
@@ -69,6 +71,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         depositos: [...action.payload],
+      };
+
+    case GET_TIPOS:
+      return {
+        ...state,
+        tipos: action.payload,
       };
 
     case GET_EMPRESAS:

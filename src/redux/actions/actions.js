@@ -1,6 +1,7 @@
 import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const GET_TIPOS = "GET_TIPOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_ROLES = "GET_ROLES";
@@ -59,6 +60,16 @@ export const getDepositos = () => {
     return dispatch({
       type: GET_DEPOSITOS,
       payload: response.data,
+    });
+  };
+};
+
+export const getTipos = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/depositos");
+    return dispatch({
+      type: GET_TIPOS,
+      payload: response.data.tipo,
     });
   };
 };

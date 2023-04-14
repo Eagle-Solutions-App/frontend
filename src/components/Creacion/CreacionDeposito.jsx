@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postDeposito } from "../../redux/actions/actions";
+import { postDeposito, getTipos } from "../../redux/actions/actions";
 import Navbar from "../Navbar";
+// import { Deposito } from "../../../../backend/src/models/Deposito";
 
 export default function CreacionDeposito() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export default function CreacionDeposito() {
     provincia: "",
     pais: "",
     descripcion: "",
+    observaciones: "",
+    tipo: "",
   });
 
   const handlerChange = (e) => {
@@ -35,10 +38,19 @@ export default function CreacionDeposito() {
       provincia: "",
       pais: "",
       descripcion: "",
+      observaciones: "",
+      tipo: "",
     });
     navigate("/depositos");
   };
 
+  useEffect(() => {
+    dispatch(getTipos());
+  }, [dispatch]);
+
+  const tipos = useSelector((state) => state.tipos);
+  // const tipos = Deposito.rawAttributes.tipo.values;
+  console.log(tipos);
   return (
     <div>
       <Navbar />
@@ -46,6 +58,31 @@ export default function CreacionDeposito() {
         <h2>Creación de Depósito</h2>
 
         <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
+          <p>Selecciona una tipo de Deposito!</p>
+          <div className="selectSub">
+            <div className="check">
+              {tipos?.map((tipo) => {
+                return (
+                  <div key={tipo}>
+                    <label htmlFor={tipo} key={tipo}>
+                      {tipo}
+                      <div>
+                        <input
+                          type="checkbox"
+                          name="tipo"
+                          id={tipo}
+                          value={tipo}
+                          onChange={(e) => handlerChange(e)}
+                        />
+                        {/* <button value={tipo.id}>x</button> */}
+                      </div>
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="createProd">
             <div className="namecodedesc">
               <div className="nameProd">
@@ -121,6 +158,18 @@ export default function CreacionDeposito() {
                   cols="20"
                   rows="4"
                   value={input.descripcion}
+                  onChange={(e) => handlerChange(e)}
+                ></textarea>
+              </div>
+
+              <div className="obsProd">
+                <label>Observaciones: </label>
+                <textarea
+                  type="text"
+                  name="observaciones"
+                  cols="20"
+                  rows="4"
+                  value={input.observaciones}
                   onChange={(e) => handlerChange(e)}
                 ></textarea>
               </div>

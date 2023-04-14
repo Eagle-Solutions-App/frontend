@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <div className="nav-container">
       <div className="logoNav">
-        <Link to="/productos">
+        <Link to="/">
           <button onClick={recargaHandler}>
             <img src={logo} alt="logo" />
           </button>
