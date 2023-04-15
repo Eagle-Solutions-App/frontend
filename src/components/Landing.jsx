@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import ModalRegister from "./Modals/ModalRegister"
 
 export default function Landing() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="landCont">
       <div className="landingContainer">
@@ -16,12 +27,16 @@ export default function Landing() {
             <NavLink to="/productos">
               <button>Iniciar Sesión</button>
             </NavLink>
-            <NavLink to="/productos">
-              <button>Registrarse</button>
-            </NavLink>
+
+            <button onClick={handleOpenModal}>Registrarse</button>
           </div>
         </div>
       </div>
+      {showModal && <ModalRegister onClose={handleCloseModal} />}
     </div>
   );
 }
+
+
+
+
