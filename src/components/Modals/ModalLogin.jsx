@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../img/logo.png";
 
 export default function ModalLogin({ onClose }) {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -38,7 +38,9 @@ export default function ModalLogin({ onClose }) {
                 />
               </label>
               <div className="modal-footer">
-                <button type="submit">Iniciar Sesión</button>
+                <Link to="/productos">
+                  <button type="submit">Iniciar Sesión</button>
+                </Link>
                 <button type="button" onClick={onClose}>
                   Cancelar
                 </button>
@@ -52,7 +54,7 @@ export default function ModalLogin({ onClose }) {
               pedidos, inventarios, sincronización de stock, control de
               empleados, etc.
             </p>
-            <img src={logo}></img>
+            <img src={logo} alt="logo"></img>
           </div>
         </div>
       </div>

@@ -61,7 +61,7 @@ export default function ModalRegister({ onClose }) {
               pedidos, inventarios, sincronización de stock, control de
               empleados, etc.
             </p>
-            <img src={logo}></img>
+            <img src={logo} alt="logo"></img>
           </div>
         </div>
         <div className="suscripciones">
