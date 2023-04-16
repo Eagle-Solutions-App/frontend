@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import ModalRegister from "./Modals/ModalRegister"
+import ModalRegister from "./Modals/ModalRegister";
+import ModalLogin from "./Modals/ModalLogin";
 
 export default function Landing() {
-  const [showModal, setShowModal] = useState(false);
+  const [showModalLogin, setShowModalLogin] = useState(false);
+  const [showModalRegister, setShowModalRegister] = useState(false);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
+  const handleOpenModalRegister = () => {
+    setShowModalRegister(true);
+  };
+
+  const handleOpenModalLogin = () => {
+    setShowModalLogin(true);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
+    setShowModalLogin(false);
+    setShowModalRegister(false);
   };
 
   return (
@@ -24,19 +30,13 @@ export default function Landing() {
             conexas
           </p>
           <div className="buttonss">
-            <NavLink to="/productos">
-              <button>Iniciar Sesión</button>
-            </NavLink>
-
-            <button onClick={handleOpenModal}>Registrarse</button>
+            <button onClick={handleOpenModalLogin}>Iniciar Sesión</button>
+            <button onClick={handleOpenModalRegister}>Registrarse</button>
           </div>
         </div>
       </div>
-      {showModal && <ModalRegister onClose={handleCloseModal} />}
+      {showModalLogin && <ModalLogin onClose={handleCloseModal} />}
+      {showModalRegister && <ModalRegister onClose={handleCloseModal} />}
     </div>
   );
 }
-
-
-
-
