@@ -21,7 +21,9 @@ export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 export const ADD_PAGINATE = "ADD_PAGINATE";
 export const BLOCK_USER = "BLOCK_USER";
+export const BLOCK_EMPRESA = "BLOCK_EMPRESA";
 export const UNBLOCK_USER = "UNBLOCK_USER";
+export const UNBLOCK_EMPRESA = "UNBLOCK_EMPRESA";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -66,10 +68,10 @@ export const getDepositos = () => {
 
 export const getTipos = () => {
   return async function (dispatch) {
-    const response = await axios.get("/depositos");
+    const response = await axios.get("/tipoDepositos");
     return dispatch({
       type: GET_TIPOS,
-      payload: response.data.tipo,
+      payload: response.data,
     });
   };
 };
@@ -222,6 +224,20 @@ export const blockUser = (id) => {
 export const unblockUser = (id) => {
   return {
     type: UNBLOCK_USER,
+    payload: id,
+  };
+};
+
+export const blockEmpresa = (id) => {
+  return {
+    type: BLOCK_EMPRESA,
+    payload: id,
+  };
+};
+
+export const unblockEmpresa = (id) => {
+  return {
+    type: UNBLOCK_EMPRESA,
     payload: id,
   };
 };

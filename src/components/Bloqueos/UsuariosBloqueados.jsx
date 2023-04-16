@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import { useSelector } from "react-redux";
-import UserCard from "./Cards/UserCard";
+import UserCard from "../Cards/UserCard";
 
 export default function UsuariosBloqueados() {
   const bloqueados = useSelector((state) => state.usuariosBloqueados);

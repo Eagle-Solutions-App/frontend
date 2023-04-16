@@ -18,7 +18,7 @@ export default function CreacionDeposito() {
     pais: "",
     descripcion: "",
     observaciones: "",
-    tipo: "",
+    tipoDepositoID: "",
   });
 
   const handlerChange = (e) => {
@@ -39,7 +39,7 @@ export default function CreacionDeposito() {
       pais: "",
       descripcion: "",
       observaciones: "",
-      tipo: "",
+      tipoDepositoID: "",
     });
     navigate("/depositos");
   };
@@ -49,8 +49,7 @@ export default function CreacionDeposito() {
   }, [dispatch]);
 
   const tipos = useSelector((state) => state.tipos);
-  // const tipos = Deposito.rawAttributes.tipo.values;
-  console.log(tipos);
+
   return (
     <div>
       <Navbar />
@@ -61,17 +60,17 @@ export default function CreacionDeposito() {
           <p>Selecciona una tipo de Deposito!</p>
           <div className="selectSub">
             <div className="check">
-              {tipos?.map((tipo) => {
+              {tipos?.map((obj) => {
                 return (
-                  <div key={tipo}>
-                    <label htmlFor={tipo} key={tipo}>
-                      {tipo}
+                  <div key={obj.id}>
+                    <label htmlFor={obj.tipo} key={obj.id}>
+                      {obj.tipo}
                       <div>
                         <input
                           type="checkbox"
                           name="tipo"
-                          id={tipo}
-                          value={tipo}
+                          id={obj.id}
+                          value={obj.tipo}
                           onChange={(e) => handlerChange(e)}
                         />
                         {/* <button value={tipo.id}>x</button> */}

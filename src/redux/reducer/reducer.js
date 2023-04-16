@@ -17,6 +17,8 @@ import {
   BLOCK_USER,
   UNBLOCK_USER,
   GET_TIPOS,
+  BLOCK_EMPRESA,
+  UNBLOCK_EMPRESA,
 } from "../actions/actions";
 
 const initialState = {
@@ -39,6 +41,7 @@ const initialState = {
   usuarios: [],
   usuariosBloqueados: [],
   empresas: [],
+  empresasBloqueadas: [],
   depositos: [],
   tipos: [],
   paginate: 1,
@@ -76,7 +79,7 @@ function rootReducer(state = initialState, action) {
     case GET_TIPOS:
       return {
         ...state,
-        tipos: action.payload,
+        tipos: [...action.payload],
       };
 
     case GET_EMPRESAS:
@@ -220,6 +223,48 @@ function rootReducer(state = initialState, action) {
           ...state,
           usuarios: updatedUsuarios,
           usuariosBloqueados: updatedUsuariosBloqueados,
+        };
+      } else {
+        return state;
+      }
+    }
+
+    case BLOCK_EMPRESA:
+      const empresaId = action.payload;
+      const empresa = state.empresas.find((e) => e.id === empresaId);
+
+      if (empresa) {
+        const newEmpresaBlocked = { ...empresa, bloqueado: true };
+
+        return {
+          ...state,
+          empresasBloqueadas: [...state.empresasBloqueadas, newEmpresaBlocked],
+          empresas: state.empresas.filter((e) => e.id !== empresaId),
+        };
+      }
+
+      return {
+        ...state,
+      };
+
+    case UNBLOCK_EMPRESA: {
+      const empresaToUnblock = state.empresasBloqueadas.find(
+        (empresa) => empresa.id === action.payload
+      );
+      if (empresaToUnblock) {
+        const updatedEmpresasBloqueadas = state.empresasBloqueadas.filter(
+          (empresa) => empresa.id !== action.payload
+        );
+        const updatedEmpresas = state.empresas.map((empresa) => {
+          if (empresa.id === action.payload) {
+            return { ...empresa, bloqueado: false };
+          }
+          return empresa;
+        });
+        return {
+          ...state,
+          empresas: updatedEmpresas,
+          empresasBloqueadas: updatedEmpresasBloqueadas,
         };
       } else {
         return state;

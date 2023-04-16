@@ -1,38 +1,36 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import { updateProd } from "../../redux/actions/actions";
+import React, { useEffect, useState } from "react";
+import { getRoles, updateUser } from "../../redux/actions/actions";
 
-export default function CreacionProducto({
-  setShowModal,
-  id,
-  nombre,
-  email,
-  empresa,
-  rol,
-}) {
+export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  /* const detail = useSelector((state) => state.detailUser); */
   const roles = useSelector((state) => state.roles);
+  useEffect(() => {
+    dispatch(getRoles());
+  }, [dispatch]);
 
   const [input, setInput] = useState({
     id,
-    nombre: "",
+    rolID: "",
   });
 
-  /*   const handlerChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
-  }; */
+  const handlerSelectRol = (e) => {
+    if (!input.rolID.includes(e.target.value)) {
+      setInput({ ...input, rolID: e.target.value });
+    }
+    console.log(e.target.value);
+  };
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
-    dispatch(updateProd(input, id));
+    dispatch(updateUser(input, id));
     alert("Usuario editado satisfactoriamente! Se lo redirigirá al inicio...");
     setInput({
-      nombre: "",
+      rolID: "",
     });
     navigate("/usuarios");
   };
@@ -50,9 +48,10 @@ export default function CreacionProducto({
               <div className="nameModal">
                 <p>Nombre del usuario: {nombre}</p>
                 <p>Correo del usuario: {email}</p>
-                <p>Rol actual: {rol}</p>
+                <p>Rol: {rol}</p>
+                <label>¿Desea cambiar el rol? Seleccione uno nuevo:</label>
                 <div className="selectModal">
-                  <select>
+                  <select onChange={(e) => handlerSelectRol(e)}>
                     {roles?.map((obj) => {
                       return (
                         <option value={obj.id} key={obj.id}>

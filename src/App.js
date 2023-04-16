@@ -10,9 +10,10 @@ import CreacionDeposito from "./components/Creacion/CreacionDeposito";
 import CreacionUsuario from "./components/Creacion/CreacionUsuario";
 import EditarProducto from "./components/Edicion/EditarProducto";
 import EditarDeposito from "./components/Edicion/EditarDeposito";
-import UsuariosBloqueados from "./components/UsuariosBloqueados";
+import UsuariosBloqueados from "./components/Bloqueos/UsuariosBloqueados";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
+import EmpresasBloqueadas from "./components/Bloqueos/EmpresasBloqueadas";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/depositos" element={<Depositos />} />
         <Route path="/empresas" element={<Empresas />} />
         <Route path="/usuariosBloqueados" element={<UsuariosBloqueados />} />
+        <Route path="/empresasBloqueadas" element={<EmpresasBloqueadas />} />
 
         {/* *************************** POSTEOS *************************** */}
         <Route path="/producto" element={<CreacionProducto />} />
