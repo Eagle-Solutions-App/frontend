@@ -16,6 +16,7 @@ export default function DepositoCard({
   descripcion,
   id,
   tipo,
+  observaciones,
 }) {
   const dispatch = useDispatch();
 
@@ -86,6 +87,7 @@ export default function DepositoCard({
           provincia={provincia}
           editar={editar}
           descripcion={descripcion}
+          observaciones={observaciones}
           setShowModal={setShowModal}
         />
       </div>

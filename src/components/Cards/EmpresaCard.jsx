@@ -93,9 +93,9 @@ export default function EmpresaCard({ nombre, email, bloqueo, id }) {
             <button onMouseDown={handleEditar}>
               <img src={editar} alt="editar" />
             </button>
-            <button onClick={() => onClose(id)}>
+            {/* <button onClick={() => onClose(id)}>
               <img src={borrar} alt="borrar" />
-            </button>
+            </button> */}
             <button onClick={() => onBlock(id)}>
               <img src={block} alt="bloqueo" />
             </button>
