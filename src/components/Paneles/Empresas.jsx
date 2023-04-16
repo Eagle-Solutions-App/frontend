@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
-import borrar from "../../img/trash.png";
-import editar from "../../img/edit.png";
-import bloqueo from "../../img/bloqueo.png";
 import EmpresaCard from "../Cards/EmpresaCard";
 import { getEmpresas, addPaginate } from "../../redux/actions/actions";
 import PaginadoEmpresas from "../Paginados/PaginadoEmpresas";
@@ -43,6 +40,8 @@ export default function Empresas() {
     dispatch(addPaginate(nextPage));
   };
 
+  console.log(currentEmpresas);
+
   return (
     <div>
       <Navbar />
@@ -74,9 +73,7 @@ export default function Empresas() {
                   email={e.email}
                   descripcion={e.descripcion}
                   id={e.id}
-                  editar={editar}
-                  borrar={borrar}
-                  bloqueo={bloqueo}
+                  bloqueo={e.bloqueo}
                 />
               </div>
             ))}

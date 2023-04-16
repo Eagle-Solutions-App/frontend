@@ -10,6 +10,7 @@ export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 export const DELETE_PROD = "DELETE_PROD";
 export const DELETE_USER = "DELETE_USER";
 export const DELETE_DEPO = "DELETE_DEPO";
+export const DELETE_EMPRESA = "DELETE_EMPRESA";
 
 export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
@@ -159,6 +160,13 @@ export const deleteDepo = (id) => {
   return async function (dispatch) {
     await axios.delete(`/depositos/${id}`);
     dispatch({ type: DELETE_DEPO, payload: id });
+  };
+};
+
+export const deleteEmpresa = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/empresas/${id}`);
+    dispatch({ type: DELETE_EMPRESA, payload: id });
   };
 };
 

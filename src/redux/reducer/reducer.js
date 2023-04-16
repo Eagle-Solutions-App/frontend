@@ -10,6 +10,7 @@ import {
   DELETE_PROD,
   DELETE_USER,
   DELETE_DEPO,
+  DELETE_EMPRESA,
   GET_DEPOSITOS,
   GET_DETAIL_DEPO,
   GET_EMPRESAS,
@@ -143,10 +144,21 @@ function rootReducer(state = initialState, action) {
         ),
       };
     }
+
     case DELETE_DEPO: {
       return {
         ...state,
         depositos: state.depositos.filter((depo) => depo.id !== action.payload),
+      };
+    }
+
+    case DELETE_EMPRESA: {
+      return {
+        ...state,
+        empresas: state.empresas.filter((emp) => emp.id !== action.payload),
+        empresasBloqueadas: state.empresasBloqueadas.filter(
+          (emp) => emp.id !== action.payload
+        ),
       };
     }
 
@@ -192,7 +204,7 @@ function rootReducer(state = initialState, action) {
       const usuario = state.usuarios.find((u) => u.id === userId);
 
       if (usuario) {
-        const newUserBlocked = { ...usuario, bloqueado: true };
+        const newUserBlocked = { ...usuario, bloqueo: true };
 
         return {
           ...state,
@@ -215,7 +227,7 @@ function rootReducer(state = initialState, action) {
         );
         const updatedUsuarios = state.usuarios.map((user) => {
           if (user.id === action.payload) {
-            return { ...user, bloqueado: false };
+            return { ...user, bloqueo: false };
           }
           return user;
         });
@@ -234,7 +246,7 @@ function rootReducer(state = initialState, action) {
       const empresa = state.empresas.find((e) => e.id === empresaId);
 
       if (empresa) {
-        const newEmpresaBlocked = { ...empresa, bloqueado: true };
+        const newEmpresaBlocked = { ...empresa, bloqueo: true };
 
         return {
           ...state,
@@ -257,7 +269,7 @@ function rootReducer(state = initialState, action) {
         );
         const updatedEmpresas = state.empresas.map((empresa) => {
           if (empresa.id === action.payload) {
-            return { ...empresa, bloqueado: false };
+            return { ...empresa, bloqueo: false };
           }
           return empresa;
         });

@@ -5,6 +5,7 @@ import EmpresaCard from "../Cards/EmpresaCard";
 
 export default function EmpresasBloqueadas() {
   const bloqueados = useSelector((state) => state.empresasBloqueadas);
+  console.log(bloqueados);
 
   return (
     <div>
@@ -20,7 +21,7 @@ export default function EmpresasBloqueadas() {
                 email={u.email}
                 id={u.id}
                 /* rol={u.Rols[0].rol} */
-                bloqueado={u.bloqueado}
+                bloqueo={u.bloqueo}
               />
             </div>
           ))}

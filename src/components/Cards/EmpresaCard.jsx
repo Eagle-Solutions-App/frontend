@@ -1,36 +1,45 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   blockEmpresa,
-  deleteUser,
-  /*  unblockEmpresa, */
+  deleteEmpresa,
+  unblockEmpresa,
 } from "../../redux/actions/actions";
 import modal from "../../img/modal.png";
 import ModalEmpresa from "../Modals/ModalEmpresa";
+import borrar from "../../img/trash.png";
+import editar from "../../img/edit.png";
+import block from "../../img/bloqueo.png";
+import unblock from "../../img/unblock.png";
 
-export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
+export default function EmpresaCard({ nombre, email, bloqueo, id }) {
   const dispatch = useDispatch();
+
+  // const [bloqueado, setBloqueado] = useState(bloqueo);
+  // console.log(bloqueado);
 
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
       dispatch(blockEmpresa(id));
+      // setBloqueado(true);
     }
   };
 
-  /* const onUnblock = (id) => {
+  const onUnblock = (id) => {
     let res = window.confirm(
       `Está seguro de querer desbloquear a "${nombre}"?`
     );
     if (res === true) {
       dispatch(unblockEmpresa(id));
+      // setBloqueado(false);
     }
-  }; */
+  };
 
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
-      dispatch(deleteUser(id));
+      dispatch(deleteEmpresa(id));
     }
   };
 
@@ -65,7 +74,7 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
       </div> */}
       </div>
 
-      <div className="imagenes">
+      {/* <div className="imagenes">
         <button onClick={handleEditar}>
           <img src={modal} alt="modal" />
         </button>
@@ -77,6 +86,34 @@ export default function EmpresaCard({ nombre, email, bloqueo, borrar, id }) {
         <button onClick={() => onClose(id)}>
           <img src={borrar} alt="borrar" />
         </button>
+      </div> */}
+      <div className="imagenes">
+        {bloqueo === false ? (
+          <>
+            <button onMouseDown={handleEditar}>
+              <img src={editar} alt="editar" />
+            </button>
+            <button onClick={() => onClose(id)}>
+              <img src={borrar} alt="borrar" />
+            </button>
+            <button onClick={() => onBlock(id)}>
+              <img src={block} alt="bloqueo" />
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => onClose(id)}>
+              <img src={borrar} alt="borrar" />
+            </button>
+            <button onClick={() => onUnblock(id)}>
+              <img
+                style={{ width: "45px", height: "45px" }}
+                src={unblock}
+                alt="unblock"
+              />
+            </button>
+          </>
+        )}
       </div>
 
       <div className="modal" style={{ display: showModal ? "block" : "none" }}>

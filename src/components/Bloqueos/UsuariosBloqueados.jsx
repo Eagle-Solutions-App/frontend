@@ -5,6 +5,7 @@ import UserCard from "../Cards/UserCard";
 
 export default function UsuariosBloqueados() {
   const bloqueados = useSelector((state) => state.usuariosBloqueados);
+  console.log(bloqueados);
 
   return (
     <div>
@@ -20,7 +21,7 @@ export default function UsuariosBloqueados() {
                 email={u.email}
                 id={u.id}
                 rol={u.Rols[0].rol}
-                bloqueado={u.bloqueado}
+                bloqueo={u.bloqueo}
               />
             </div>
           ))}

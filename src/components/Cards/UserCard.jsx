@@ -8,18 +8,14 @@ import {
 import EditarUser from "../Edicion/EditarUser";
 import borrar from "../../img/trash.png";
 import editar from "../../img/edit.png";
-import bloqueo from "../../img/bloqueo.png";
+import block from "../../img/bloqueo.png";
 import unblock from "../../img/unblock.png";
 
-export default function UserCard({
-  nombre,
-  email,
-  empresa,
-  rol,
-  id,
-  bloqueado,
-}) {
+export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const dispatch = useDispatch();
+
+  const [bloqueado, setBloqueado] = useState(bloqueo);
+  console.log(bloqueado);
 
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
@@ -36,9 +32,6 @@ export default function UserCard({
       dispatch(unblockUser(id));
     }
   };
-
-  const bloqueados = useSelector((state) => state.usuariosBloqueados);
-  console.log(bloqueados);
 
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
@@ -79,7 +72,7 @@ export default function UserCard({
         </div>
       </div>
       <div className="imagenes">
-        {!bloqueado ? (
+        {!bloqueo ? (
           <>
             <button onMouseDown={handleEditar}>
               <img src={editar} alt="editar" />
@@ -88,7 +81,7 @@ export default function UserCard({
               <img src={borrar} alt="borrar" />
             </button>
             <button onClick={() => onBlock(id)}>
-              <img src={bloqueo} alt="bloqueo" />
+              <img src={block} alt="bloqueo" />
             </button>
           </>
         ) : (

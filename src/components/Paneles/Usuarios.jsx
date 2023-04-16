@@ -76,7 +76,7 @@ export default function Usuarios() {
                   id={u.id}
                   empresa={u.Empresa.nombre}
                   rol={u.Rols[0].rol}
-                  bloqueado={u.bloqueado}
+                  bloqueo={u.bloqueo}
                 />
               </div>
             ))}
