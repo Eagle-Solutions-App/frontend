@@ -21,10 +21,6 @@ export const SEARCHxNAME = "SEARCHxNAME";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 export const ADD_PAGINATE = "ADD_PAGINATE";
-export const BLOCK_USER = "BLOCK_USER";
-export const BLOCK_EMPRESA = "BLOCK_EMPRESA";
-export const UNBLOCK_USER = "UNBLOCK_USER";
-export const UNBLOCK_EMPRESA = "UNBLOCK_EMPRESA";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -128,6 +124,13 @@ export const updateProd = (data, id) => {
   };
 };
 
+export const blockEmpresa = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/empresas/${id}`, data);
+    dispatch(getEmpresas());
+  };
+};
+
 export const updateUser = (data, id) => {
   return async function () {
     await axios.put(`/usuarios/${id}`, data);
@@ -182,6 +185,17 @@ export const getDetail = (id) => {
   };
 };
 
+// export const getDetailEmpresa = (id) => {
+//   return async function (dispatch) {
+//     const response = await axios.get(`/empresas/${id}`);
+//     console.log(response.data);
+//     return dispatch({
+//       type: GET_DETAIL,
+//       payload: response.data,
+//     });
+//   };
+// };
+
 export const getDetailDepo = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/depositos/${id}`);
@@ -222,30 +236,30 @@ export const addPaginate = (num) => {
   };
 };
 
-export const blockUser = (id) => {
-  return {
-    type: BLOCK_USER,
-    payload: id,
-  };
-};
+// export const blockUser = (id) => {
+//   return {
+//     type: BLOCK_USER,
+//     payload: id,
+//   };
+// };
 
-export const unblockUser = (id) => {
-  return {
-    type: UNBLOCK_USER,
-    payload: id,
-  };
-};
+// export const unblockUser = (id) => {
+//   return {
+//     type: UNBLOCK_USER,
+//     payload: id,
+//   };
+// };
 
-export const blockEmpresa = (id) => {
-  return {
-    type: BLOCK_EMPRESA,
-    payload: id,
-  };
-};
+// export const blockEmpresa = (id) => {
+//   return {
+//     type: BLOCK_EMPRESA,
+//     payload: id,
+//   };
+// };
 
-export const unblockEmpresa = (id) => {
-  return {
-    type: UNBLOCK_EMPRESA,
-    payload: id,
-  };
-};
+// export const unblockEmpresa = (id) => {
+//   return {
+//     type: UNBLOCK_EMPRESA,
+//     payload: id,
+//   };
+// };

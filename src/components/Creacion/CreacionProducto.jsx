@@ -16,7 +16,7 @@ export default function CreacionProducto() {
     subcategoria: "",
     descripcion: "",
     codigo: "",
-    URL: "",
+    imagen: "",
   });
 
   /*   const [nombreCateg, setNombreCateg] = useState("");*/
@@ -50,6 +50,7 @@ export default function CreacionProducto() {
       subcategora: "",
       descripcion: "",
       codigo: "",
+      imagen: "",
     });
     navigate("/productos");
   };
@@ -184,7 +185,8 @@ export default function CreacionProducto() {
                 <label>Imagen: </label>
                 <input
                   type="url"
-                  name="URL"
+                  name="imagen"
+                  value={input.imagen}
                   onChange={(e) => handlerChange(e)}
                 ></input>
               </div>

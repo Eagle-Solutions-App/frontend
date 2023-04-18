@@ -4,8 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 40%;
   z-index: 20;
+
+  &.open {
+    position: absolute;
+    width: 60%;
+    bottom: 0;
+
+    input {
+      height: 20px;
+    }
+  }
 
   input {
     height: 25px;

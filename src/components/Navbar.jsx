@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../img/logo.png";
@@ -21,8 +21,13 @@ export default function Navbar() {
     dispatch(allProductos());
   };
 
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="nav-container">
+      <div className="burger" onClick={() => setOpen(!open)}>
+        <i className="fa-solid fa-bars"></i>
+      </div>
       <div className="logoNav">
         <Link to="/">
           <button onClick={recargaHandler}>
@@ -31,16 +36,12 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="searchFilters">
-        <SearchBar />
-        <Filtros />
+      <div className={`searchFilters ${open ? "open" : ""}`}>
+        <SearchBar open={open} />
+        <Filtros open={open} />
       </div>
 
       <div className="btns">
-        {/* <button className="user">
-          <i className="fa-regular fa-user fa-2xl"></i>
-        </button> */}
-
         <details className="menu">
           <summary className="menu-summary">
             <i className="fa-regular fa-user fa-xl"></i>

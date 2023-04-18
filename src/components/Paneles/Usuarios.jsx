@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
 import UserCard from "../Cards/UserCard";
-import { getUsuarios, addPaginate } from "../../redux/actions/actions";
+import {
+  getUsuarios,
+  addPaginate,
+  getRoles,
+} from "../../redux/actions/actions";
 import PaginadoUser from "../Paginados/PaginadoUsers";
 import { Link } from "react-router-dom";
 
 export default function Usuarios() {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios);
+  const roles = useSelector((state) => state.roles);
   let paginateNum = useSelector((state) => state.paginate);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,6 +24,7 @@ export default function Usuarios() {
 
   useEffect(() => {
     dispatch(getUsuarios());
+    dispatch(getRoles());
     setCurrentPage(paginateNum);
   }, [dispatch, paginateNum]);
 
@@ -40,6 +46,7 @@ export default function Usuarios() {
     dispatch(addPaginate(nextPage));
   };
   console.log(currentUsuarios);
+  console.log(roles);
 
   return (
     <div>
@@ -75,7 +82,7 @@ export default function Usuarios() {
                   email={u.email}
                   id={u.id}
                   empresa={u.Empresa.nombre}
-                  rol={u.Rols[0].rol}
+                  rol={u.Rol.rol}
                   bloqueo={u.bloqueo}
                 />
               </div>

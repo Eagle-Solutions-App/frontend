@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 import EmpresaCard from "../Cards/EmpresaCard";
 
 export default function EmpresasBloqueadas() {
-  const bloqueados = useSelector((state) => state.empresasBloqueadas);
-  console.log(bloqueados);
+  let empresas = useSelector((state) => state.empresas);
 
   return (
     <div>
@@ -14,17 +13,19 @@ export default function EmpresasBloqueadas() {
         <h2>Empresas Bloqueadas</h2>
 
         <div className="cards">
-          {bloqueados.map((u) => (
-            <div key={u.id}>
-              <EmpresaCard
-                nombre={`${u.nombre} ${u.apellido}`}
-                email={u.email}
-                id={u.id}
-                /* rol={u.Rols[0].rol} */
-                bloqueo={u.bloqueo}
-              />
-            </div>
-          ))}
+          {empresas
+            .filter((e) => e.bloqueo === true)
+            .map((u) => (
+              <div key={u.id}>
+                <EmpresaCard
+                  nombre={`${u.nombre} ${u.apellido}`}
+                  email={u.email}
+                  id={u.id}
+                  /* rol={u.Rols[0].rol} */
+                  bloqueo={u.bloqueo}
+                />
+              </div>
+            ))}
         </div>
       </div>
     </div>

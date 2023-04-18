@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteUser,
-  blockUser,
-  unblockUser,
-} from "../../redux/actions/actions";
+import { deleteUser } from "../../redux/actions/actions";
 import EditarUser from "../Edicion/EditarUser";
 import borrar from "../../img/trash.png";
 import editar from "../../img/edit.png";
@@ -20,7 +16,6 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
-      dispatch(blockUser(id));
     }
   };
 
@@ -29,7 +24,6 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
       `Está seguro de querer desbloquear a "${nombre}"?`
     );
     if (res === true) {
-      dispatch(unblockUser(id));
     }
   };
 
@@ -45,6 +39,8 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const handleEditar = () => {
     setShowModal(true);
   };
+
+  console.log(rol);
 
   return (
     <div className="card">

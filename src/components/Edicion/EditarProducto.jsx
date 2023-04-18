@@ -52,7 +52,7 @@ export default function CreacionProducto() {
     setInput({
       nombre: "",
       categoria: "",
-      subcategora: "",
+      subcategoria: "",
       descripcion: "",
       codigo: "",
     });

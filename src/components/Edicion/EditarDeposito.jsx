@@ -21,6 +21,8 @@ export default function CreacionProducto() {
     provincia: "",
     calle: "",
     altura: "",
+    descripcion: "",
+    observaciones: "",
   });
 
   useEffect(() => {
@@ -43,6 +45,8 @@ export default function CreacionProducto() {
       provincia: "",
       calle: "",
       altura: "",
+      descripcion: "",
+      observaciones: "",
     });
     navigate("/depositos");
   };
@@ -128,7 +132,7 @@ export default function CreacionProducto() {
                       name="descripcion"
                       cols="20"
                       rows="4"
-                      value={input.descripcion}
+                      value={input.descripcion || detailDepo.descripcion}
                       onChange={(e) => handlerChange(e)}
                     ></textarea>
                   </div>
@@ -140,7 +144,7 @@ export default function CreacionProducto() {
                       name="observaciones"
                       cols="20"
                       rows="4"
-                      value={input.observaciones}
+                      value={input.observaciones || detailDepo.observaciones}
                       onChange={(e) => handlerChange(e)}
                     ></textarea>
                   </div>

@@ -22,12 +22,22 @@ export default function ModalProd({
       <div className="formModal">
         <div className="infoModal">
           <div className="modalCats">
-            <p>Categoría: Bien de uso</p>
-            <p>Subcategoría: Materiales</p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Categoría:</b>
+              <br></br> Bien de uso
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Subcategoría:</b>
+              <br></br> Materiales
+            </p>
           </div>
-          <div className="modalDesc">
-            <p>Descripción:</p>
-            <pre className="descBox">{descripcion}</pre>
+          <div className="descObs">
+            <div className="modalDesc">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>Descripción:</b>
+              </p>
+              <pre className="descBox">{descripcion}</pre>
+            </div>
           </div>
         </div>
 

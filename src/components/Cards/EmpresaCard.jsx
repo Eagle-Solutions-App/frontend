@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  blockEmpresa,
-  deleteEmpresa,
-  unblockEmpresa,
-} from "../../redux/actions/actions";
+import { blockEmpresa, deleteEmpresa } from "../../redux/actions/actions";
 import modal from "../../img/modal.png";
 import ModalEmpresa from "../Modals/ModalEmpresa";
 import borrar from "../../img/trash.png";
@@ -12,29 +8,17 @@ import editar from "../../img/edit.png";
 import block from "../../img/bloqueo.png";
 import unblock from "../../img/unblock.png";
 
-export default function EmpresaCard({ nombre, email, bloqueo, id }) {
+export default function EmpresaCard({ nombre, email, bloqueo, id, onBlock }) {
   const dispatch = useDispatch();
 
-  // const [bloqueado, setBloqueado] = useState(bloqueo);
-  // console.log(bloqueado);
-
-  const onBlock = (id) => {
-    let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
-    if (res === true) {
-      dispatch(blockEmpresa(id));
-      // setBloqueado(true);
-    }
-  };
-
-  const onUnblock = (id) => {
-    let res = window.confirm(
-      `Está seguro de querer desbloquear a "${nombre}"?`
-    );
-    if (res === true) {
-      dispatch(unblockEmpresa(id));
-      // setBloqueado(false);
-    }
-  };
+  // const onUnblock = (id) => {
+  //   let res = window.confirm(
+  //     `Está seguro de querer desbloquear a "${nombre}"?`
+  //   );
+  //   if (res === true) {
+  //     // dispatch(unblockEmpresa(id));
+  //   }
+  // };
 
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
@@ -88,32 +72,17 @@ export default function EmpresaCard({ nombre, email, bloqueo, id }) {
         </button>
       </div> */}
       <div className="imagenes">
-        {bloqueo === false ? (
-          <>
-            <button onMouseDown={handleEditar}>
-              <img src={editar} alt="editar" />
-            </button>
-            {/* <button onClick={() => onClose(id)}>
-              <img src={borrar} alt="borrar" />
-            </button> */}
-            <button onClick={() => onBlock(id)}>
-              <img src={block} alt="bloqueo" />
-            </button>
-          </>
-        ) : (
-          <>
-            <button onClick={() => onClose(id)}>
-              <img src={borrar} alt="borrar" />
-            </button>
-            <button onClick={() => onUnblock(id)}>
-              <img
-                style={{ width: "45px", height: "45px" }}
-                src={unblock}
-                alt="unblock"
-              />
-            </button>
-          </>
-        )}
+        <button onMouseDown={handleEditar}>
+          <img src={editar} alt="editar" />
+        </button>
+
+        <button onClick={() => onBlock(id, bloqueo, nombre)}>
+          <img src={bloqueo === false ? block : unblock} alt="bloqueo" />
+        </button>
+
+        <button onClick={() => onClose(id)}>
+          <img src={borrar} alt="borrar" />
+        </button>
       </div>
 
       <div className="modal" style={{ display: showModal ? "block" : "none" }}>

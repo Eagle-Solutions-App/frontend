@@ -8,7 +8,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function Filtros() {
+export default function Filtros({ open }) {
   const categs = useSelector((state) => state.categorias);
   const subCategs = useSelector((state) => state.subcategorias);
 
@@ -27,7 +27,7 @@ export default function Filtros() {
   };
 
   return (
-    <div className="filtCont">
+    <div className={`filtCont ${open ? "open" : ""}`}>
       <Link to="/usuarios">
         <button>Panel de Usuarios</button>
       </Link>
@@ -44,9 +44,9 @@ export default function Filtros() {
         <button>Panel de Empresas</button>
       </Link>
 
-      <button onClick={(e) => recargaHandler(e)}>
+      {/* <button onClick={(e) => recargaHandler(e)}>
         Recargar Todos los Productos
-      </button>
+      </button> */}
 
       <div className="select-container">
         <select className="select-box" onChange={(e) => fn(e)}>
