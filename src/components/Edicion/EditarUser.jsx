@@ -21,7 +21,6 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
     if (!input.rolID.includes(e.target.value)) {
       setInput({ ...input, rolID: e.target.value });
     }
-    console.log(e.target.value);
   };
 
   const handlerSubmitForm = (e) => {

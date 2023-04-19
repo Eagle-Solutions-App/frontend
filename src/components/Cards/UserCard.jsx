@@ -11,7 +11,7 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const dispatch = useDispatch();
 
   const [bloqueado, setBloqueado] = useState(bloqueo);
-  console.log(bloqueado);
+  /*   console.log(bloqueado); */
 
   const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
@@ -39,8 +39,6 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const handleEditar = () => {
     setShowModal(true);
   };
-
-  console.log(rol);
 
   return (
     <div className="card">

@@ -15,11 +15,7 @@ import {
   GET_DETAIL_DEPO,
   GET_EMPRESAS,
   GET_ROLES,
-  BLOCK_USER,
-  UNBLOCK_USER,
   GET_TIPOS,
-  BLOCK_EMPRESA,
-  UNBLOCK_EMPRESA,
 } from "../actions/actions";
 
 const initialState = {
@@ -107,22 +103,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         detailDepo: action.payload,
       };
-
-    /****************** CREACIONES ******************/
-    case "POST_PROD": {
-      return {
-        ...state,
-        productos: action.payload,
-      };
-    }
-
-    case "POST_USUARIOS": {
-      console.log(action.payload);
-      return {
-        ...state,
-        usuarios: action.payload,
-      };
-    }
 
     /****************** DELETES ******************/
     case DELETE_PROD: {

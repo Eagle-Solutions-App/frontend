@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 export default function Usuarios() {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios);
-  const roles = useSelector((state) => state.roles);
+  /*   const roles = useSelector((state) => state.roles); */
   let paginateNum = useSelector((state) => state.paginate);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -45,8 +45,6 @@ export default function Usuarios() {
 
     dispatch(addPaginate(nextPage));
   };
-  console.log(currentUsuarios);
-  console.log(roles);
 
   return (
     <div>

@@ -7,7 +7,6 @@ export default function ModalEmpresa({
   email,
   estadoPago,
 }) {
-  // console.log({ estadoPago });
   return (
     <div className="modalProd">
       <span className="close" onClick={() => setShowModal(false)}>
