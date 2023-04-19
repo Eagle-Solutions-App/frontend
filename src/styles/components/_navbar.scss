@@ -25,9 +25,7 @@
       justify-content: center;
       align-items: center;
       img {
-        width: 100px;
-        filter: invert(100%);
-        margin-left: 2%;
+        width: 200px;
         transition: all 0.3s;
 
         &:hover {
@@ -51,9 +49,12 @@
     }
   }
   .btns {
-    width: 100px;
-    height: 40px;
-    @include center;
+    width: 10%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     .menu {
       z-index: 100;
@@ -61,12 +62,10 @@
       height: 2.5rem;
       color: white;
       border-radius: 50px;
-      position: absolute;
-      text-align: left;
-      /* top: 30px; */
+      position: relative;
       border-radius: 4px 4px 0 0;
       padding: 8px;
-      margin-left: -3rem;
+
       &:hover {
         border: 1px solid #666;
         transition: all 0.5s;
@@ -81,7 +80,7 @@
         top: 0;
         left: 0;
         i {
-          margin-top: 1.5rem;
+          margin-top: 1.76rem;
           margin-left: 0.8rem;
         }
       }
@@ -122,7 +121,6 @@
     }
 
     .shopping {
-      margin-left: 12vh;
       background-color: transparent;
       border: none;
       filter: invert(100%);
@@ -131,7 +129,7 @@
       cursor: pointer;
       padding: 8px;
       border-radius: 50px;
-      position: absolute;
+      // position: absolute;
       border-radius: 4px 4px 0 0;
 
       img {

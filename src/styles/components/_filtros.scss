@@ -31,7 +31,7 @@
       width: 100%;
       height: 100%;
       color: white;
-      background-color: $azul3;
+      background-color: $tomate;
       font-size: 15px;
       font-family: "Poppins", sans-serif;
       text-overflow: ellipsis;
@@ -42,7 +42,7 @@
       transition: all 0.3s ease-in-out;
 
       &:hover {
-        outline: 2px solid $azul2;
+        outline: 2px solid $tomate;
       }
     }
   }

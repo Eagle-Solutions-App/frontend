@@ -131,6 +131,13 @@ export const blockEmpresa = (data, id) => {
   };
 };
 
+export const unblockEmpresa = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/empresas/${id}`, data);
+    dispatch(getEmpresas());
+  };
+};
+
 export const updateUser = (data, id) => {
   return async function () {
     await axios.put(`/usuarios/${id}`, data);

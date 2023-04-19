@@ -21,18 +21,6 @@ export default function Empresas() {
   const firstIndex = lastIndex - empresasPerPage;
   let currentEmpresas = empresas.slice(firstIndex, lastIndex);
 
-  // useEffect(() => {
-  //   console.log("actualizado");
-  // }, [empresas]);
-
-  // useEffect(() => {
-  //   setCurrentPage(paginateNum);
-  // }, [paginateNum]);
-
-  // useEffect(() => {
-  //   dispatch(getEmpresas());
-  // }, [dispatch]);
-
   useEffect(() => {
     dispatch(getEmpresas());
     setCurrentPage(paginateNum);
@@ -57,18 +45,6 @@ export default function Empresas() {
   };
 
   console.log(currentEmpresas);
-
-  const onBlock = (id, bloqueo, nombre) => {
-    let res = window.confirm(
-      `Está seguro de querer ${
-        bloqueo === false ? "desbloquear" : "bloquear"
-      } a "${nombre}"?`
-    );
-    if (res === true) {
-      dispatch(blockEmpresa({ bloqueo: !bloqueo }, id));
-      // dispatch(getEmpresas());
-    }
-  };
 
   return (
     <div>
@@ -104,7 +80,7 @@ export default function Empresas() {
                     descripcion={e.descripcion}
                     id={e.id}
                     bloqueo={e.bloqueo}
-                    onBlock={onBlock}
+                    // onBlock={onBlock}
                   />
                 </div>
               ))}
