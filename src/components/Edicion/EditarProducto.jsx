@@ -59,8 +59,6 @@ export default function CreacionProducto() {
     navigate("/productos");
   };
 
-  console.log(detail);
-
   return (
     <div>
       <Navbar />

@@ -206,17 +206,6 @@ export const getDetail = (id) => {
   };
 };
 
-// export const getDetailEmpresa = (id) => {
-//   return async function (dispatch) {
-//     const response = await axios.get(`/empresas/${id}`);
-//     console.log(response.data);
-//     return dispatch({
-//       type: GET_DETAIL,
-//       payload: response.data,
-//     });
-//   };
-// };
-
 export const getDetailDepo = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/depositos/${id}`);

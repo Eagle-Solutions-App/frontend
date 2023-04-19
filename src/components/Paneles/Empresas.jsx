@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
 import EmpresaCard from "../Cards/EmpresaCard";
-import {
-  getEmpresas,
-  addPaginate,
-  blockEmpresa,
-} from "../../redux/actions/actions";
+import { getEmpresas, addPaginate } from "../../redux/actions/actions";
 import PaginadoEmpresas from "../Paginados/PaginadoEmpresas";
 import { Link } from "react-router-dom";
 
@@ -43,8 +39,6 @@ export default function Empresas() {
 
     dispatch(addPaginate(nextPage));
   };
-
-  console.log(currentEmpresas);
 
   return (
     <div>

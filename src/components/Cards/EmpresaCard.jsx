@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   blockEmpresa,
   unblockEmpresa,
   deleteEmpresa,
-  getEmpresas,
+  /* getEmpresas, */
 } from "../../redux/actions/actions";
-import modal from "../../img/modal.png";
+/* import modal from "../../img/modal.png"; */
 import ModalEmpresa from "../Modals/ModalEmpresa";
 import borrar from "../../img/trash.png";
 import editar from "../../img/edit.png";
@@ -23,14 +23,14 @@ export default function EmpresaCard({ nombre, email, bloqueo, id }) {
     }
   };
 
-  const onBlock = (id, bloqueo, nombre) => {
+  const onBlock = (id, nombre) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
       dispatch(blockEmpresa({ bloqueo: "true" }, id));
     }
   };
 
-  const onUnblock = (id, bloqueo, nombre) => {
+  const onUnblock = (id, nombre) => {
     let res = window.confirm(
       `Está seguro de querer desbloquear a "${nombre}"?`
     );

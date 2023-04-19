@@ -51,8 +51,6 @@ export default function CreacionProducto() {
     navigate("/depositos");
   };
 
-  console.log(detailDepo);
-
   return (
     <div>
       <Navbar />

@@ -29,7 +29,6 @@ export default function CreacionDeposito() {
     if (!input.rolID.includes(e.target.value)) {
       setInput({ ...input, rolID: e.target.value });
     }
-    console.log(e.target.value);
   };
 
   const handlerSubmitForm = (e) => {
