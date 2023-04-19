@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser } from "../../redux/actions/actions";
+import {
+  deleteUser,
+  blockUsuario,
+  unblockUsuario,
+} from "../../redux/actions/actions";
 import EditarUser from "../Edicion/EditarUser";
 import borrar from "../../img/trash.png";
 import editar from "../../img/edit.png";
@@ -13,17 +17,19 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const [bloqueado, setBloqueado] = useState(bloqueo);
   console.log(bloqueado);
 
-  const onBlock = (id) => {
+  const onBlock = (id, bloqueo, nombre) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
+      dispatch(blockUsuario({ bloqueo: "true" }, id));
     }
   };
 
-  const onUnblock = (id) => {
+  const onUnblock = (id, bloqueo, nombre) => {
     let res = window.confirm(
       `Está seguro de querer desbloquear a "${nombre}"?`
     );
     if (res === true) {
+      dispatch(unblockUsuario({ bloqueo: "false" }, id));
     }
   };
 
@@ -76,7 +82,7 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
             <button onClick={() => onClose(id)}>
               <img src={borrar} alt="borrar" />
             </button>
-            <button onClick={() => onBlock(id)}>
+            <button onClick={() => onBlock(id, bloqueo, nombre)}>
               <img src={block} alt="bloqueo" />
             </button>
           </>
@@ -85,7 +91,7 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
             <button onClick={() => onClose(id)}>
               <img src={borrar} alt="borrar" />
             </button>
-            <button onClick={() => onUnblock(id)}>
+            <button onClick={() => onUnblock(id, bloqueo, nombre)}>
               <img
                 style={{ width: "45px", height: "45px" }}
                 src={unblock}

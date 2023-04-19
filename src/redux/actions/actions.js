@@ -118,12 +118,6 @@ export const postUser = (payload) => {
 
 /****************** EDICIONES ******************/
 
-export const updateProd = (data, id) => {
-  return async function () {
-    await axios.put(`/productos/${id}`, data);
-  };
-};
-
 export const blockEmpresa = (data, id) => {
   return async function (dispatch) {
     await axios.put(`/empresas/${id}`, data);
@@ -135,6 +129,26 @@ export const unblockEmpresa = (data, id) => {
   return async function (dispatch) {
     await axios.put(`/empresas/${id}`, data);
     dispatch(getEmpresas());
+  };
+};
+
+export const blockUsuario = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/usuarios/${id}`, data);
+    dispatch(getUsuarios());
+  };
+};
+
+export const unblockUsuario = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/usuarios/${id}`, data);
+    dispatch(getUsuarios());
+  };
+};
+
+export const updateProd = (data, id) => {
+  return async function () {
+    await axios.put(`/productos/${id}`, data);
   };
 };
 

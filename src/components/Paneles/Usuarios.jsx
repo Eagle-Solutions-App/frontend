@@ -46,7 +46,6 @@ export default function Usuarios() {
     dispatch(addPaginate(nextPage));
   };
   console.log(currentUsuarios);
-  console.log(roles);
 
   return (
     <div>
@@ -75,18 +74,20 @@ export default function Usuarios() {
 
         {usuarios.length > 0 && (
           <div className="cards">
-            {currentUsuarios.map((u) => (
-              <div key={u.id}>
-                <UserCard
-                  nombre={`${u.nombre} ${u.apellido}`}
-                  email={u.email}
-                  id={u.id}
-                  empresa={u.Empresa.nombre}
-                  rol={u.Rol.rol}
-                  bloqueo={u.bloqueo}
-                />
-              </div>
-            ))}
+            {currentUsuarios
+              .filter((user) => user.bloqueo === false)
+              .map((u) => (
+                <div key={u.id}>
+                  <UserCard
+                    nombre={`${u.nombre} ${u.apellido}`}
+                    email={u.email}
+                    id={u.id}
+                    empresa={u.Empresa.nombre}
+                    rol={u.Rol.rol}
+                    bloqueo={u.bloqueo}
+                  />
+                </div>
+              ))}
           </div>
         )}
 
