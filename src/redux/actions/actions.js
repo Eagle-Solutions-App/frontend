@@ -5,6 +5,7 @@ export const GET_TIPOS = "GET_TIPOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_ROLES = "GET_ROLES";
+export const GET_CATEG = "GET_CATEG";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 
 export const DELETE_PROD = "DELETE_PROD";
@@ -88,6 +89,16 @@ export const getRoles = () => {
     const response = await axios.get("/roles");
     return dispatch({
       type: GET_ROLES,
+      payload: response.data,
+    });
+  };
+};
+
+export const getCateg = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/categorias");
+    return dispatch({
+      type: GET_CATEG,
       payload: response.data,
     });
   };

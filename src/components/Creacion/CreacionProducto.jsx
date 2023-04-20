@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postProd } from "../../redux/actions/actions";
+import { getCateg, getDepositos, postProd } from "../../redux/actions/actions";
 import Navbar from "../Navbar";
 
 export default function CreacionProducto() {
-  /*  const categs = useSelector((state) => state.categorias); */
-  const subCategs = useSelector((state) => state.subcategorias);
+  const categs = useSelector((state) => state.categorias);
+  const depos = useSelector((state) => state.depositos);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [input, setInput] = useState({
     id: "",
     nombre: "",
@@ -19,18 +21,16 @@ export default function CreacionProducto() {
     imagen: "",
   });
 
-  /*   const [nombreCateg, setNombreCateg] = useState("");*/
-  /*  const [nombreSubC, setNombreSubC] = useState(""); */
-
-  /*   useEffect(() => {
-    dispatch(getCategorias());
-  }, [dispatch]); */
+  useEffect(() => {
+    dispatch(getCateg());
+    dispatch(getDepositos());
+  }, [dispatch]);
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handlerSelectCateg = (e) => {
+  const handlerSelectSubcateg = (e) => {
     if (!input.subcategoria.includes(e.target.value)) {
       setInput({
         ...input,
@@ -54,108 +54,58 @@ export default function CreacionProducto() {
     });
     navigate("/productos");
   };
-
+  console.log(categs);
   return (
     <div>
       <Navbar />
       <div className="container">
-        {/* <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="inicioBtn">Inicio</button>
-        </Link> */}
-
         <h2>Creación de Producto</h2>
-        {/* creacion de categoría */}
-        {/* <form className="formCat">
-          <div>
-            <label>Nueva Categoría: </label>
-            <input type="text" name="nombre" value={nombreCateg}></input>
 
-            <div>
-              <button type="submit" disabled={!nombreCateg}>
-                Crear categoría!
-              </button>
-            </div>
-          </div>
-        </form> */}
-
-        {/* creación de subcategoría */}
-        {/*  <form className="formSub">
-          <div>
-            <label>Nueva Subcategoría: </label>
-            <input type="text" name="nombre" value={nombreSubC}></input>
-
-            <div>
-              <button type="submit" disabled={!nombreSubC}>
-                Crear Subcategoría!
-              </button>
-            </div>
-          </div>
-        </form> */}
-
-        {/* selección de categoría */}
         <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
-          {/* <p>Selecciona una categoría!</p>
-          <div className="selectCat">
-            {categs?.map((obj) => {
-              return (
-                <div key={obj[0].id}>
-                  <label
-                    className="containerr"
-                    htmlFor={obj[0].nombre}
-                    key={obj[0].id}
-                  >
-                    {obj[0].nombre}
-                    <div>
+          {/* selección de subcategoría */}
+          <p>Selecciona una Categoría!</p>
+          <div className="check">
+            {categs?.map((obj) =>
+              obj.Subcategoria.map((sub) => {
+                return (
+                  <div key={sub.id}>
+                    <label htmlFor={sub.nombre} key={sub.id}>
+                      {sub.nombre}
                       <input
                         type="checkbox"
-                        name="categ"
-                        id={obj[0].id}
-                        value={obj[0].nombre}
+                        name="subCateg"
+                        id={sub.id}
+                        value={[sub.nombre]}
+                        onChange={(e) => handlerSelectSubcateg(e)}
                       />
+                      {/* <button value={sub.id}>x</button> */}
+                    </label>
+                  </div>
+                );
+              })
+            )}
+          </div>
 
-                      <button value={obj[0].id}>x</button>
-                    </div>
+          {/* selección de depósito */}
+          <p>Selecciona un depósito!</p>
+          <div className="check">
+            {depos?.map((depo) => {
+              return (
+                <div key={depo.id}>
+                  <label htmlFor={depo.nombre} key={depo.id}>
+                    {depo.nombre}
+                    <input
+                      type="checkbox"
+                      name="depoCateg"
+                      id={depo.id}
+                      value={[depo.nombre]}
+                      onChange={(e) => handlerSelectSubcateg(e)}
+                    />
+                    {/* <button value={sub.id}>x</button> */}
                   </label>
                 </div>
               );
             })}
-          </div> */}
-
-          {/* selección de subcategoría */}
-          <p>Selecciona una Subcategoría!</p>
-          <div className="selectSub">
-            <div className="check">
-              {subCategs?.map((obj) => {
-                return (
-                  <div key={obj.id}>
-                    <label htmlFor={obj.nombre} key={obj.id}>
-                      {obj.nombre}
-                      <div>
-                        <input
-                          type="checkbox"
-                          name="subCateg"
-                          id={obj.id}
-                          value={[obj.nombre]}
-                          onChange={(e) => handlerSelectCateg(e)}
-                        />
-                        {/* <button value={obj.id}>x</button> */}
-                      </div>
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-            {/* <div className="sel">
-              <select onChange={(e) => handlerSelectCateg(e)}>
-                {subCategs?.map((obj) => {
-                  return (
-                    <option value={obj.nombre} key={obj.id}>
-                      {obj.nombre}
-                    </option>
-                  );
-                })}
-              </select>
-            </div> */}
           </div>
 
           {/* creación del producto */}

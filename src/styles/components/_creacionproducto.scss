@@ -117,47 +117,21 @@
     position: relative;
     padding: 10px;
 
-    .selectCat {
+    .check {
       background-color: $azul3;
       border-radius: 10px;
-      padding: 10px;
-    }
-
-    .selectSub {
-      background-color: $azul3;
-      border-radius: 10px;
-      padding: 10px;
       @include center;
-
-      .check {
+      align-items: center;
+      justify-content: space-evenly;
+      display: grid;
+      grid-template-columns: 150px 150px 150px;
+      width: 100%;
+      div {
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
         display: flex;
-        justify-content: space-between;
-        width: 90%;
-      }
-      .sel {
-        display: flex;
-        align-items: center;
         justify-content: center;
-        select {
-          border: none;
-          padding: 10px 20px;
-          width: 50%;
-          height: 100%;
-          color: white;
-          background-color: $azul1;
-          font-size: 15px;
-          font-family: "Poppins", sans-serif;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          cursor: pointer;
-          border-radius: 5px;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            outline: 2px solid $azul2;
-          }
-        }
+        align-items: center;
       }
     }
 

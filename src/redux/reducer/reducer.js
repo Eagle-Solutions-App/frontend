@@ -16,29 +16,20 @@ import {
   GET_EMPRESAS,
   GET_ROLES,
   GET_TIPOS,
+  GET_CATEG,
 } from "../actions/actions";
 
 const initialState = {
   productos: [],
   productosHome: [],
-  categorias: [
-    { id: 1, nombre: "Bien de uso" },
-    { id: 2, nombre: "Bien de consumo" },
-  ],
-  subcategorias: [
-    { id: 1, nombre: "Equipos" },
-    { id: 2, nombre: "Maquinas" },
-    { id: 3, nombre: "Materiales" },
-    { id: 4, nombre: "Repuestos" },
-  ],
+  categorias: [],
+  subcategorias: [],
   detail: [],
   detailDepo: [],
   detailUser: [],
   roles: [],
   usuarios: [],
-  // usuariosBloqueados: [],
   empresas: [],
-  // empresasBloqueadas: [],
   depositos: [],
   tipos: [],
   paginate: 1,
@@ -89,6 +80,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         roles: [...action.payload],
+      };
+
+    case GET_CATEG:
+      return {
+        ...state,
+        categorias: [...action.payload],
       };
 
     /****************** DETAILS ******************/
