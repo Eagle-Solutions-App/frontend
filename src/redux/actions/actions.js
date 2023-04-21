@@ -6,6 +6,7 @@ export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
 export const GET_ROLES = "GET_ROLES";
 export const GET_CATEG = "GET_CATEG";
+export const GET_SUBCATEG = "GET_SUBCATEG";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 
 export const DELETE_PROD = "DELETE_PROD";
@@ -100,6 +101,16 @@ export const getCateg = () => {
     return dispatch({
       type: GET_CATEG,
       payload: response.data,
+    });
+  };
+};
+
+export const getSubcategs = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/subcategorias");
+    return dispatch({
+      type: GET_SUBCATEG,
+      payload: response.data.resultado,
     });
   };
 };

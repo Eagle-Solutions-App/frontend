@@ -5,7 +5,11 @@ import Navbar from "../Navbar.jsx";
 import borrar from "../../img/trash.png";
 import editar from "../../img/edit.png";
 import shopping from "../../img/shopping.png";
-import { getProductos, addPaginate } from "../../redux/actions/actions.js";
+import {
+  getProductos,
+  addPaginate,
+  getCateg,
+} from "../../redux/actions/actions.js";
 import { Link } from "react-router-dom";
 import Paginado from "../Paginados/PaginadoProductos.jsx";
 
@@ -13,6 +17,7 @@ export default function Home() {
   const dispatch = useDispatch();
   let todosLosProds = useSelector((state) => state.productosHome);
   let paginateNum = useSelector((state) => state.paginate);
+  let categorias = useSelector((state) => state.categorias);
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 6;
@@ -22,6 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getProductos());
+    dispatch(getCateg());
     setCurrentPage(paginateNum);
   }, [dispatch, paginateNum]);
 
@@ -42,8 +48,6 @@ export default function Home() {
 
     dispatch(addPaginate(nextPage));
   };
-
-  console.log(currentProducts);
 
   return (
     <div>
@@ -73,8 +77,10 @@ export default function Home() {
               <div key={card.id}>
                 <ProdCard
                   nombre={card.nombre}
-                  categoria={card.categoria}
-                  subcategoria={card.subcategoria}
+                  categoria={categorias.filter(
+                    (categ) => categ === card.Subcategoria[0].id
+                  )}
+                  subcategoria={card.Subcategoria[0].nombre}
                   descripcion={card.descripcion}
                   codigo={card.codigo}
                   id={card.id}

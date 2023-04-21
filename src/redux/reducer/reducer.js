@@ -17,6 +17,7 @@ import {
   GET_ROLES,
   GET_TIPOS,
   GET_CATEG,
+  GET_SUBCATEG,
 } from "../actions/actions";
 
 const initialState = {
@@ -86,6 +87,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         categorias: [...action.payload],
+      };
+
+    case GET_SUBCATEG:
+      return {
+        ...state,
+        subcategorias: [...action.payload],
       };
 
     /****************** DETAILS ******************/

@@ -41,7 +41,7 @@ export default function Depósitos() {
 
     dispatch(addPaginate(nextPage));
   };
-  console.log(currentDepositos);
+  /* console.log(currentDepositos); */
   return (
     <div>
       <Navbar />
