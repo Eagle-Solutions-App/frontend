@@ -120,18 +120,30 @@
     .check {
       background-color: $azul3;
       border-radius: 10px;
-      @include center;
-      align-items: center;
-      justify-content: space-evenly;
       display: grid;
-      grid-template-columns: 150px 150px 150px;
+      grid-template-columns: 160px 160px 160px;
+      justify-content: space-evenly;
       width: 100%;
+
       div {
-        margin-top: 0.4rem;
-        margin-bottom: 0.4rem;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        label {
+          width: 100%;
+          display: flex;
+          position: relative;
+          align-items: center;
+
+          input {
+            position: absolute;
+            right: 0;
+            border-radius: 20px;
+          }
+        }
       }
     }
 

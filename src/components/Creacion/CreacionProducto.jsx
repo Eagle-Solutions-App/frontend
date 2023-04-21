@@ -78,6 +78,7 @@ export default function CreacionProducto() {
                         value={[sub.nombre]}
                         onChange={(e) => handlerSelectSubcateg(e)}
                       />
+                      <span className="checkmark"></span>
                       {/* <button value={sub.id}>x</button> */}
                     </label>
                   </div>
