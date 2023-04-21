@@ -220,7 +220,6 @@ export const deleteEmpresa = (id) => {
 export const getDetail = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/productos/${id}`);
-    console.log(response.data);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
@@ -231,7 +230,6 @@ export const getDetail = (id) => {
 export const getDetailDepo = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/depositos/${id}`);
-    console.log(response.data);
     return dispatch({
       type: GET_DETAIL_DEPO,
       payload: response.data,
