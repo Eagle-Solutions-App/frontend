@@ -79,7 +79,7 @@ export default function Depósitos() {
                   altura={dep.altura}
                   borrar={borrar}
                   editar={editar}
-                  tipo={dep.tipo}
+                  tipo={dep.TipoDeposito.tipo}
                   observaciones={dep.observaciones}
                 />
               </div>
