@@ -4,9 +4,8 @@
   &.open {
     flex-direction: column;
     position: absolute;
-    left: 0;
+    left: 10%;
     top: 120px;
-    background-color: white;
     z-index: 100;
     padding: 10px;
     transition: all 0.3s;
@@ -17,8 +16,7 @@
     border-radius: 5px;
     height: 40px;
     cursor: pointer;
-    background-color: $tomate;
-    color: white;
+    background-color: white;
     border: none;
     font-size: 15px;
   }

@@ -12,6 +12,7 @@
     @include center;
     display: none;
     cursor: pointer;
+    text-align: center;
     i {
       filter: invert(100%);
       font-size: 45px;
@@ -45,12 +46,22 @@
     justify-content: space-around;
 
     &.open {
+      flex-direction: column;
+      position: absolute;
+      left: 0;
+      top: 120px;
+      background-color: $grisoscuro;
+      z-index: 100;
+      padding: 10px;
+      transition: all 0.3s;
+      width: 200px;
+      height: 100vh;
+      align-items: center;
     }
   }
   .btns {
     width: 10%;
     height: 100%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -156,9 +167,14 @@
     }
 
     .searchFilters {
+      position: absolute;
+      left: -1000px;
     }
 
     .btns {
+      flex-direction: column-reverse;
+
+      margin-right: 1%;
     }
   }
 }
