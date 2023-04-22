@@ -15,7 +15,7 @@ export default function ModalDepo({
   observaciones,
 }) {
   return (
-    <div className="modalProd">
+    <div className="modalDepo">
       <span className="close" onClick={() => setShowModal(false)}>
         &times;
       </span>

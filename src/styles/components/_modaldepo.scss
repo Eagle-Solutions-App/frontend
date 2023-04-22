@@ -1,4 +1,4 @@
-.modalProd {
+.modalDepo {
   color: white;
   width: 70%;
   height: 70vh;
@@ -135,10 +135,12 @@
 }
 
 @media (max-width: 768px) {
-  .modalProd {
+  .modalDepo {
     width: 85%;
-    height: 70vh;
+    height: 80vh;
+    max-height: 100%;
     overflow-y: scroll;
+    padding-top: 130px;
 
     .formModal {
       .infoModal {
