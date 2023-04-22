@@ -1,5 +1,8 @@
 .container {
   color: white;
+  h2 {
+    text-align: center;
+  }
   .inicioBtn {
     font-family: "Poppins", sans-serif;
     border-radius: 5px;
@@ -269,6 +272,15 @@
           }
         }
 
+        .selectCat {
+          @include center;
+          select {
+            width: 70%;
+            background-color: white;
+            color: black;
+          }
+        }
+
         .imgProd {
           display: flex;
           position: relative;
@@ -424,6 +436,7 @@
   .container {
     .formSelect {
       font-size: 14px;
+
       .check {
         grid-template-columns: repeat(2, 40%);
         div {

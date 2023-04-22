@@ -2,19 +2,64 @@
   color: white;
 
   .formEdit {
-    width: 30%;
+    width: 55vw;
     position: relative;
     padding: 10px;
 
+    .check {
+      background-color: $azul3;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+      justify-content: space-evenly;
+      width: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        height: 30px;
+
+        label {
+          width: 80%;
+          height: 100%;
+          display: flex;
+          position: absolute;
+          align-items: center;
+
+          span {
+            height: 100%;
+            width: 80%;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+          }
+
+          input {
+            position: absolute;
+            right: 0;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+
     .editDepo {
-      @include centerCol;
       .namecodedesc {
         padding: 10px;
-        margin-top: 5px;
+        margin-top: 20px;
         background-color: $azul3;
         border-radius: 10px;
         height: 65vh;
-        width: 50vw;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -189,25 +234,24 @@
 @media (max-width: 768px) {
   .container {
     .formEdit {
+      width: 75vw;
       .editDepo {
         .namecodedesc {
-          width: 75vw;
-
           .nameDepo {
             input {
-              margin-right: 1%;
+              margin-right: 10%;
             }
           }
 
           .descProd {
             textarea {
-              margin-right: 1%;
+              margin-right: 10%;
             }
           }
 
           .obsProd {
             textarea {
-              margin-right: 1%;
+              margin-right: 10%;
             }
           }
         }

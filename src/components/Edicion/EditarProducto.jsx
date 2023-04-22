@@ -3,46 +3,60 @@ import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
-import { getDetail, updateProd } from "../../redux/actions/actions";
+import {
+  getDepositos,
+  getDetail,
+  getSubcategs,
+  updateProd,
+} from "../../redux/actions/actions";
 
-export default function CreacionProducto() {
-  /*  const categs = useSelector((state) => state.categorias); */
+export default function EditarProducto() {
   const subCategs = useSelector((state) => state.subcategorias);
+  const depos = useSelector((state) => state.depositos);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const detail = useSelector((state) => state.detail.resultado);
-
+  console.log(detail);
   const { id } = useParams();
 
   const [input, setInput] = useState({
-    id,
     nombre: "",
     categoria: "",
-    subcategoria: "",
-    codigo: "",
+    subcategoriaID: "",
     descripcion: "",
+    depositoID: "",
+    codigo: "",
+    imagen: "",
   });
-
-  /*   const [nombreCateg, setNombreCateg] = useState("");
-  const [nombreSubC, setNombreSubC] = useState(""); */
 
   useEffect(() => {
     dispatch(getDetail(id));
+    dispatch(getSubcategs());
+    dispatch(getDepositos());
   }, [dispatch, id]);
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  /* const handlerSelectCateg = (e) => {
-    if (!input.subcategoria.includes(e.target.value)) {
+  const handlerSelectSubcateg = (e) => {
+    if (!input.subcategoriaID.includes(e.target.value)) {
       setInput({
         ...input,
-        subcategoria: [...input.subcategoria, e.target.value],
+        subcategoriaID: e.target.value,
       });
     }
-  }; */
+  };
+
+  const handlerSelectDepo = (e) => {
+    if (!input.depositoID.includes(e.target.value)) {
+      setInput({
+        ...input,
+        depositoID: e.target.value,
+      });
+    }
+  };
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
@@ -52,9 +66,11 @@ export default function CreacionProducto() {
     setInput({
       nombre: "",
       categoria: "",
-      subcategoria: "",
+      subcategoriaID: "",
       descripcion: "",
+      depositoID: "",
       codigo: "",
+      imagen: "",
     });
     navigate("/productos");
   };
@@ -68,27 +84,43 @@ export default function CreacionProducto() {
             <h2>Editando: {detail.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
-              {detail.subcategoria ? (
-                <p>{`Subcategoría previa: ${detail.subcategoria}`}</p>
-              ) : (
-                <p>Sin subcategoría previa! Seleccione una:</p>
-              )}
-              <div className="editSub">
-                {subCategs?.map((obj) => {
+              {/* selección de subcategoría */}
+              <p>Selecciona una Subcategoría!</p>
+              <div className="check">
+                {subCategs?.map((sub) => {
                   return (
-                    <div key={obj.id}>
-                      <label htmlFor={obj.nombre} key={obj.id}>
-                        {obj.nombre}
-                        <div>
-                          <input
-                            type="checkbox"
-                            name="subCateg"
-                            id={obj.id}
-                            value={[obj.nombre || detail.subcategoria]}
-                            onChange
-                          />
-                          <button value={obj.id}>x</button>
-                        </div>
+                    <div key={sub.id}>
+                      <label htmlFor={sub.nombre} key={sub.id}>
+                        <span>{sub.nombre}</span>
+                        <input
+                          type="radio"
+                          name="subcategoriaID"
+                          id={sub.id || detail.Subcategoria[0].id}
+                          value={[sub.id]}
+                          onChange={(e) => handlerSelectSubcateg(e)}
+                        />
+                        <span className="checkmark"></span>
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* selección de depósito */}
+              <p>Selecciona un depósito!</p>
+              <div className="check">
+                {depos?.map((depo) => {
+                  return (
+                    <div key={depo.id}>
+                      <label htmlFor={depo.nombre} key={depo.id}>
+                        {depo.nombre}
+                        <input
+                          type="radio"
+                          name="depositoID"
+                          id={depo.id || detail.Deposito.id}
+                          value={[depo.id]}
+                          onChange={(e) => handlerSelectDepo(e)}
+                        />
                       </label>
                     </div>
                   );

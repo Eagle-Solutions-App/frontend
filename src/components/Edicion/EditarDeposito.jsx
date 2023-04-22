@@ -3,31 +3,47 @@ import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar";
-import { getDetailDepo, updateDepo } from "../../redux/actions/actions";
+import {
+  getDetailDepo,
+  getTipos,
+  updateDepo,
+} from "../../redux/actions/actions";
 
 export default function CreacionProducto() {
+  const tipos = useSelector((state) => state.tipos);
+  const detailDepo = useSelector((state) => state.detailDepo.resultado);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const detailDepo = useSelector((state) => state.detailDepo.resultado);
 
   const { id } = useParams();
 
   const [input, setInput] = useState({
-    id,
     nombre: "",
-    pais: "",
-    ciudad: "",
-    provincia: "",
     calle: "",
     altura: "",
+    ciudad: "",
+    provincia: "",
+    pais: "",
     descripcion: "",
     observaciones: "",
+    tipoDepositoID: "",
+    empresaID: 1,
   });
 
   useEffect(() => {
+    dispatch(getTipos());
     dispatch(getDetailDepo(id));
   }, [dispatch, id]);
+
+  const handlerSelectTipo = (e) => {
+    if (!input.tipoDepositoID.includes(e.target.value)) {
+      setInput({
+        ...input,
+        tipoDepositoID: e.target.value,
+      });
+    }
+  };
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -40,13 +56,15 @@ export default function CreacionProducto() {
     alert("Depósito editado exitosamente! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
-      pais: "",
-      ciudad: "",
-      provincia: "",
       calle: "",
       altura: "",
+      ciudad: "",
+      provincia: "",
+      pais: "",
       descripcion: "",
       observaciones: "",
+      tipoDepositoID: "",
+      empresaID: 1,
     });
     navigate("/depositos");
   };
@@ -60,6 +78,28 @@ export default function CreacionProducto() {
             <h2>Editando: {detailDepo.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
+              <p>Selecciona una tipo de Deposito!</p>
+
+              <div className="check">
+                {tipos?.map((tipo) => {
+                  return (
+                    <div key={tipo.id}>
+                      <label htmlFor={tipo.tipo} key={tipo.id}>
+                        <span>{tipo.tipo}</span>
+
+                        <input
+                          type="radio"
+                          name="tipo"
+                          id={tipo.id}
+                          value={tipo.id}
+                          onChange={(e) => handlerSelectTipo(e)}
+                        />
+                      </label>
+                    </div>
+                  );
+                })}
+              </div>
+
               {/* edición del deposito */}
               <div className="editDepo">
                 <div className="namecodedesc">

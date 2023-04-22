@@ -6,10 +6,12 @@ import Navbar from "../Navbar";
 // import { Deposito } from "../../../../backend/src/models/Deposito";
 
 export default function CreacionDeposito() {
+  const tipos = useSelector((state) => state.tipos);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [input, setInput] = useState({
-    id: "",
     nombre: "",
     calle: "",
     altura: "",
@@ -19,7 +21,21 @@ export default function CreacionDeposito() {
     descripcion: "",
     observaciones: "",
     tipoDepositoID: "",
+    empresaID: 1,
   });
+
+  useEffect(() => {
+    dispatch(getTipos());
+  }, [dispatch]);
+
+  const handlerSelectTipo = (e) => {
+    if (!input.tipoDepositoID.includes(e.target.value)) {
+      setInput({
+        ...input,
+        tipoDepositoID: e.target.value,
+      });
+    }
+  };
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -40,15 +56,10 @@ export default function CreacionDeposito() {
       descripcion: "",
       observaciones: "",
       tipoDepositoID: "",
+      empresaID: 1,
     });
     navigate("/depositos");
   };
-
-  useEffect(() => {
-    dispatch(getTipos());
-  }, [dispatch]);
-
-  const tipos = useSelector((state) => state.tipos);
 
   return (
     <div>
@@ -60,18 +71,18 @@ export default function CreacionDeposito() {
           <p>Selecciona una tipo de Deposito!</p>
           <div className="selectSub">
             <div className="check">
-              {tipos?.map((obj) => {
+              {tipos?.map((tipo) => {
                 return (
-                  <div key={obj.id}>
-                    <label htmlFor={obj.tipo} key={obj.id}>
-                      {obj.tipo}
+                  <div key={tipo.id}>
+                    <label htmlFor={tipo.tipo} key={tipo.id}>
+                      {tipo.tipo}
 
                       <input
-                        type="checkbox"
+                        type="radio"
                         name="tipo"
-                        id={obj.id}
-                        value={obj.tipo}
-                        onChange={(e) => handlerChange(e)}
+                        id={tipo.id}
+                        value={tipo.id}
+                        onChange={(e) => handlerSelectTipo(e)}
                       />
                     </label>
                   </div>

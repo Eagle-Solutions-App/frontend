@@ -45,7 +45,7 @@ export default function ProdCard({
           <p className="categoria">
             <b style={{ textDecoration: "underline 2px" }}>Categoría: </b>
             <br></br>
-            {categoria || "Bien de Uso"}
+            {categoria}
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function ProdCard({
           <p className="subcategoria">
             <b style={{ textDecoration: "underline 2px" }}>Subcategoría: </b>
             <br></br>
-            {subcategoria || "Materiales"}
+            {subcategoria}
           </p>
         </div>
       </div>

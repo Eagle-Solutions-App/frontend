@@ -1,6 +1,6 @@
 .modalProd {
   color: white;
-  width: 50%;
+  width: 70%;
   height: 70%;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   align-items: center;
   margin: auto;
   margin-top: 20vh;
-  background-color: $azul2;
+  background-color: $grisoscuro;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   h2 {
@@ -98,6 +98,7 @@
     .modalBtns {
       @include center;
       gap: 10%;
+
       .btnCart {
         @include center;
         width: 150px;
@@ -127,6 +128,58 @@
 
         img {
           width: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .modalProd {
+    width: 80%;
+    height: 95%;
+
+    .formModal {
+      .infoModal {
+        .descObs {
+          flex-direction: column;
+          .modalDesc {
+            width: 70%;
+
+            .descBox {
+              width: 100%;
+            }
+          }
+
+          .modalObs {
+            width: 70%;
+
+            .obsBox {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .modalBtns {
+        .btnCart {
+          width: 150px;
+
+          padding: 5px 10px;
+
+          img {
+            width: 30px;
+          }
+        }
+
+        .btnEdit {
+          width: 150px;
+
+          padding: 5px 10px;
+
+          img {
+            width: 30px;
+          }
         }
       }
     }
