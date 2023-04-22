@@ -235,6 +235,9 @@
   .container {
     .formEdit {
       width: 75vw;
+      .check {
+        grid-template-columns: repeat(2, 45%);
+      }
       .editDepo {
         .namecodedesc {
           .nameDepo {
