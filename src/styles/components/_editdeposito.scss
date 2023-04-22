@@ -7,26 +7,31 @@
     padding: 10px;
 
     .editDepo {
+      @include centerCol;
       .namecodedesc {
         padding: 10px;
         margin-top: 5px;
         background-color: $azul3;
         border-radius: 10px;
         height: 65vh;
+        width: 50vw;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        gap: 3%;
         padding-bottom: 20px;
 
         .nameDepo {
           display: flex;
           position: relative;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           input {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 5px;
             padding: 10px;
             border-radius: 12px;
@@ -34,6 +39,7 @@
             outline: none;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -85,11 +91,16 @@
           margin-top: 20px;
           position: relative;
           height: 50px;
+          display: flex;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           textarea {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 40px;
             padding: 10px;
             border-radius: 12px;
@@ -99,6 +110,7 @@
             box-shadow: 0px 0px 20px -18px;
             resize: none;
             font-family: "Poppins", sans-serif;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -119,11 +131,16 @@
           margin-top: 20px;
           position: relative;
           height: 50px;
+          display: flex;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           textarea {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 40px;
             padding: 10px;
             border-radius: 12px;
@@ -133,6 +150,7 @@
             box-shadow: 0px 0px 20px -18px;
             resize: none;
             font-family: "Poppins", sans-serif;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -162,6 +180,42 @@
           padding: 5px 12px;
 
           cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .formEdit {
+      .editDepo {
+        .namecodedesc {
+          width: 75vw;
+
+          .nameDepo {
+            input {
+              margin-right: 1%;
+            }
+          }
+
+          .descProd {
+            textarea {
+              margin-right: 1%;
+            }
+          }
+
+          .obsProd {
+            textarea {
+              margin-right: 1%;
+            }
+          }
+        }
+
+        .editSubmit {
+          button {
+            width: 170px;
+          }
         }
       }
     }

@@ -113,7 +113,7 @@
   }
 
   .formSelect {
-    width: 32%;
+    width: 55vw;
     position: relative;
     padding: 10px;
 
@@ -121,9 +121,11 @@
       background-color: $azul3;
       border-radius: 10px;
       display: grid;
-      grid-template-columns: 160px 160px 160px;
+      grid-template-columns: repeat(3, 30%);
       justify-content: space-evenly;
       width: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
 
       div {
         display: flex;
@@ -131,12 +133,27 @@
         align-items: center;
         margin-top: 10px;
         margin-bottom: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        height: 30px;
 
         label {
-          width: 100%;
+          width: 80%;
+          height: 100%;
           display: flex;
-          position: relative;
+          position: absolute;
           align-items: center;
+
+          span {
+            height: 100%;
+            width: 80%;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+          }
 
           input {
             position: absolute;
@@ -153,7 +170,7 @@
         margin-top: 20px;
         background-color: $azul3;
         border-radius: 10px;
-        height: 42.5vh;
+        height: 46.5vh;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -183,11 +200,15 @@
         .nameProd {
           display: flex;
           position: relative;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           input {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 5px;
             padding: 10px;
             border-radius: 12px;
@@ -195,6 +216,7 @@
             outline: none;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -214,11 +236,15 @@
         .codeProd {
           display: flex;
           position: relative;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           input {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 5px;
             padding: 10px;
             border-radius: 12px;
@@ -226,6 +252,7 @@
             outline: none;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -245,11 +272,15 @@
         .imgProd {
           display: flex;
           position: relative;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           input {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 5px;
             padding: 10px;
             border-radius: 12px;
@@ -257,6 +288,7 @@
             outline: none;
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -277,11 +309,16 @@
           margin-top: 20px;
           position: relative;
           height: 50px;
+          display: flex;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           textarea {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 40px;
             padding: 10px;
             border-radius: 12px;
@@ -290,6 +327,7 @@
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
             resize: none;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -310,11 +348,16 @@
           margin-top: 20px;
           position: relative;
           height: 50px;
+          display: flex;
+          justify-content: space-evenly;
+
+          label {
+            width: 50%;
+            text-align: center;
+          }
 
           textarea {
-            position: absolute;
-            right: 40px;
-            width: 270px;
+            width: 50%;
             height: 40px;
             padding: 10px;
             border-radius: 12px;
@@ -323,6 +366,7 @@
             transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
             box-shadow: 0px 0px 20px -18px;
             resize: none;
+            margin-right: 10%;
 
             &:hover {
               border: 2px solid lightgrey;
@@ -356,6 +400,42 @@
             box-shadow: 5px 5px 5px -5px;
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .formSelect {
+      width: 75vw;
+
+      .check {
+        grid-template-columns: repeat(2, 45%);
+      }
+
+      .createProd {
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    .formSelect {
+      font-size: 14px;
+      .check {
+        grid-template-columns: repeat(2, 40%);
+        div {
+          position: relative;
+          label {
+            width: 100%;
+            position: absolute;
+          }
+        }
+      }
+
+      .createProd {
       }
     }
   }

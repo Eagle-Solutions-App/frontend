@@ -70,7 +70,7 @@ export default function CreacionProducto() {
                 return (
                   <div key={sub.id}>
                     <label htmlFor={sub.nombre} key={sub.id}>
-                      {sub.nombre}
+                      <span>{sub.nombre}</span>
                       <input
                         type="checkbox"
                         name="subCateg"
@@ -78,8 +78,6 @@ export default function CreacionProducto() {
                         value={[sub.nombre]}
                         onChange={(e) => handlerSelectSubcateg(e)}
                       />
-                      <span className="checkmark"></span>
-                      {/* <button value={sub.id}>x</button> */}
                     </label>
                   </div>
                 );
@@ -94,7 +92,7 @@ export default function CreacionProducto() {
               return (
                 <div key={depo.id}>
                   <label htmlFor={depo.nombre} key={depo.id}>
-                    {depo.nombre}
+                    <span>{depo.nombre}</span>
                     <input
                       type="checkbox"
                       name="depoCateg"
@@ -102,7 +100,6 @@ export default function CreacionProducto() {
                       value={[depo.nombre]}
                       onChange={(e) => handlerSelectSubcateg(e)}
                     />
-                    {/* <button value={sub.id}>x</button> */}
                   </label>
                 </div>
               );

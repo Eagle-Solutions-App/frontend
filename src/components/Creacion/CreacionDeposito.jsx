@@ -65,16 +65,14 @@ export default function CreacionDeposito() {
                   <div key={obj.id}>
                     <label htmlFor={obj.tipo} key={obj.id}>
                       {obj.tipo}
-                      <div>
-                        <input
-                          type="checkbox"
-                          name="tipo"
-                          id={obj.id}
-                          value={obj.tipo}
-                          onChange={(e) => handlerChange(e)}
-                        />
-                        {/* <button value={tipo.id}>x</button> */}
-                      </div>
+
+                      <input
+                        type="checkbox"
+                        name="tipo"
+                        id={obj.id}
+                        value={obj.tipo}
+                        onChange={(e) => handlerChange(e)}
+                      />
                     </label>
                   </div>
                 );

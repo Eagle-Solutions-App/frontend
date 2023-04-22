@@ -19,6 +19,7 @@
     background-color: white;
     border: none;
     font-size: 15px;
+    line-height: 1.1;
   }
 
   .select-container {
@@ -54,5 +55,8 @@
   .filtCont {
     position: absolute;
     left: -1000px;
+    button {
+      width: 90%;
+    }
   }
 }
