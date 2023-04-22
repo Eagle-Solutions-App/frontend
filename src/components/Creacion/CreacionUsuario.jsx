@@ -88,11 +88,9 @@ export default function CreacionDeposito() {
                 <select onChange={(e) => handlerSelectRol(e)}>
                   {rol?.map((obj) => {
                     return (
-                      <>
-                        <option value={obj.id} key={obj.id}>
-                          {obj.rol}
-                        </option>
-                      </>
+                      <option value={obj.id} key={obj.id}>
+                        {obj.rol}
+                      </option>
                     );
                   })}
                 </select>
