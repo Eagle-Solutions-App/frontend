@@ -83,6 +83,7 @@ export default function Home() {
                   subcategoria={card.Subcategoria[0].nombre}
                   descripcion={card.descripcion}
                   codigo={card.codigo}
+                  cantidad={card.cantidad}
                   id={card.id}
                   editar={editar}
                   borrar={borrar}

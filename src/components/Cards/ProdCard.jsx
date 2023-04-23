@@ -13,6 +13,7 @@ export default function ProdCard({
   codigo,
   shopping,
   borrar,
+  cantidad,
   id,
 }) {
   const dispatch = useDispatch();
@@ -56,6 +57,14 @@ export default function ProdCard({
             {subcategoria}
           </p>
         </div>
+
+        <div className="cadaInfo">
+          <p className="subcategoria">
+            <b style={{ textDecoration: "underline 2px" }}>Cantidad: </b>
+            <br></br>
+            {cantidad}
+          </p>
+        </div>
       </div>
       <div className="imagenes">
         <button onClick={() => onClose(id)}>
@@ -71,7 +80,9 @@ export default function ProdCard({
         <ModalProd
           id={id}
           nombre={nombre}
+          categoria={categoria}
           subcategoria={subcategoria}
+          cantidad={cantidad}
           descripcion={descripcion}
           codigo={codigo}
           shopping={shopping}

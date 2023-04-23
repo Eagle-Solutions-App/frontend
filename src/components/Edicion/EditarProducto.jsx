@@ -28,6 +28,7 @@ export default function EditarProducto() {
     depositoID: "",
     codigo: "",
     imagen: "",
+    cantidad: "",
   });
 
   useEffect(() => {
@@ -71,6 +72,7 @@ export default function EditarProducto() {
       depositoID: "",
       codigo: "",
       imagen: "",
+      cantidad: "",
     });
     navigate("/productos");
   };
@@ -137,6 +139,7 @@ export default function EditarProducto() {
                       name="nombre"
                       value={[input.nombre || detail.nombre]}
                       onChange={(e) => handlerChange(e)}
+                      required
                     ></input>
                   </div>
 
@@ -147,6 +150,29 @@ export default function EditarProducto() {
                       name="codigo"
                       value={[input.codigo || detail.codigo]}
                       onChange={(e) => handlerChange(e)}
+                      required
+                    ></input>
+                  </div>
+
+                  <div className="codeProd">
+                    <label>Cantidad: </label>
+                    <input
+                      type="text"
+                      name="cantidad"
+                      value={[input.cantidad || detail.cantidad]}
+                      onChange={(e) => handlerChange(e)}
+                      required
+                    ></input>
+                  </div>
+
+                  <div className="imgProd">
+                    <label>Imagen: </label>
+                    <input
+                      type="url"
+                      name="imagen"
+                      value={input.imagen}
+                      onChange={(e) => handlerChange(e)}
+                      required
                     ></input>
                   </div>
 
@@ -157,6 +183,7 @@ export default function EditarProducto() {
                       name="descripcion"
                       value={[input.descripcion || detail.descripcion]}
                       onChange={(e) => handlerChange(e)}
+                      required
                     ></textarea>
                   </div>
                 </div>

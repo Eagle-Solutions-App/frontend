@@ -7,9 +7,11 @@ export default function ModalProd({
   nombre,
   codigo,
   descripcion,
+  categoria,
   subcategoria,
   shopping,
   editar,
+  cantidad,
 }) {
   return (
     <div className="modalProd">
@@ -24,11 +26,15 @@ export default function ModalProd({
           <div className="modalCats">
             <p>
               <b style={{ textDecoration: "underline 2px" }}> Categoría:</b>
-              <br></br> Bien de uso
+              <br></br> {categoria}
             </p>
             <p>
               <b style={{ textDecoration: "underline 2px" }}> Subcategoría:</b>
-              <br></br> Materiales
+              <br></br> {subcategoria}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Cantidad:</b>
+              <br></br> {cantidad}
             </p>
           </div>
           <div className="descObs">

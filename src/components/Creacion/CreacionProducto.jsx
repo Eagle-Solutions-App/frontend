@@ -23,6 +23,7 @@ export default function CreacionProducto() {
     depositoID: "",
     codigo: "",
     imagen: "",
+    cantidad: "",
   });
 
   useEffect(() => {
@@ -65,6 +66,7 @@ export default function CreacionProducto() {
       depositoID: "",
       codigo: "",
       imagen: "",
+      cantidad: "",
     });
     navigate("/productos");
   };
@@ -128,6 +130,7 @@ export default function CreacionProducto() {
                   name="nombre"
                   value={input.nombre}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></input>
               </div>
 
@@ -136,8 +139,20 @@ export default function CreacionProducto() {
                 <input
                   type="text"
                   name="codigo"
-                  value={input.codigo}
+                  value={input.codigo || "#"}
                   onChange={(e) => handlerChange(e)}
+                  required
+                ></input>
+              </div>
+
+              <div className="codeProd">
+                <label>Cantidad: </label>
+                <input
+                  type="text"
+                  name="cantidad"
+                  value={input.cantidad}
+                  onChange={(e) => handlerChange(e)}
+                  required
                 ></input>
               </div>
 
@@ -148,6 +163,7 @@ export default function CreacionProducto() {
                   name="imagen"
                   value={input.imagen}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></input>
               </div>
 
@@ -160,6 +176,7 @@ export default function CreacionProducto() {
                   rows="4"
                   value={input.descripcion}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></textarea>
               </div>
             </div>
