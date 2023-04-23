@@ -68,7 +68,7 @@ export default function CreacionProducto() {
     });
     navigate("/depositos");
   };
-
+  console.log(detailDepo);
   return (
     <div>
       <Navbar />
@@ -92,6 +92,7 @@ export default function CreacionProducto() {
                           name="tipo"
                           id={tipo.id}
                           value={tipo.id}
+                          checked={tipo.id === detailDepo.TipoDepositoId}
                           onChange={(e) => handlerSelectTipo(e)}
                         />
                       </label>
