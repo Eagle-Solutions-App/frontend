@@ -1,10 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { getRoles, updateUser } from "../../redux/actions/actions";
+import { getRoles, getUsuarios, updateUser } from "../../redux/actions/actions";
 
 export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const roles = useSelector((state) => state.roles);
@@ -23,15 +21,23 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
     }
   };
 
+  const onChange = () => {
+    let res = window.confirm(
+      `¿Está seguro de querer cambiarle el rol de ${nombre}?`
+    );
+    if (res === true) {
+      dispatch(getUsuarios());
+    }
+  };
+
   const handlerSubmitForm = (e) => {
     e.preventDefault();
     console.log(input);
     dispatch(updateUser(input, id));
-    alert("Usuario editado satisfactoriamente! Se lo redirigirá al inicio...");
+    onChange();
     setInput({
       rolID: "",
     });
-    navigate("/usuarios");
   };
 
   return (
@@ -46,9 +52,10 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
             <p>Nombre del usuario: {nombre}</p>
             <p>Correo del usuario: {email}</p>
             <p>Rol: {rol}</p>
-            <label>¿Desea cambiar el rol? Seleccione uno nuevo:</label>
+            <label>¿Desea cambiar el rol?</label>
             <div className="selectModal">
               <select onChange={(e) => handlerSelectRol(e)}>
+                <option hidden>Seleccione un nuevo rol...</option>
                 {roles?.map(
                   (rol) =>
                     rol.id !== 1 && (

@@ -76,7 +76,7 @@ export default function EditarProducto() {
     });
     navigate("/productos");
   };
-
+  console.log(detail);
   return (
     <div>
       <Navbar />
@@ -97,8 +97,9 @@ export default function EditarProducto() {
                         <input
                           type="radio"
                           name="subcategoriaID"
-                          id={sub.id || detail.Subcategoria[0].id}
+                          id={sub.id}
                           value={[sub.id]}
+                          checked={sub.id === detail.Subcategorium.id}
                           onChange={(e) => handlerSelectSubcateg(e)}
                         />
                         <span className="checkmark"></span>
@@ -119,8 +120,9 @@ export default function EditarProducto() {
                         <input
                           type="radio"
                           name="depositoID"
-                          id={depo.id || detail.Deposito.id}
+                          id={depo.id}
                           value={[depo.id]}
+                          checked={depo.id === detail.Deposito.id}
                           onChange={(e) => handlerSelectDepo(e)}
                         />
                       </label>
