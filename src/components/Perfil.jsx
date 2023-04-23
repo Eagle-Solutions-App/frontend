@@ -16,13 +16,12 @@ export default function Perfil() {
           </span>
           <span>Email: emailprueba@gmail.com</span>
           <span>Rol: Administrador</span>
-          <span>
-            <div className="filtCont">
-              <Link to="/usuarios">
-                <button>Cambio de contraseña</button>
-              </Link>
-            </div>
-          </span>
+
+          <div className="password">
+            <Link to="/usuarios">
+              <button>Cambio de contraseña</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

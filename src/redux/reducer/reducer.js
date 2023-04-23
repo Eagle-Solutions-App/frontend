@@ -140,9 +140,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         empresas: state.empresas.filter((emp) => emp.id !== action.payload),
-        empresasBloqueadas: state.empresasBloqueadas.filter(
-          (emp) => emp.id !== action.payload
-        ),
+        empresas: state.empresas.filter((emp) => emp.id !== action.payload),
       };
     }
 

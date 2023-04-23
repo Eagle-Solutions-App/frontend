@@ -159,7 +159,7 @@ export default function CreacionProducto() {
               <div className="imgProd">
                 <label>Imagen: </label>
                 <input
-                  type="url"
+                  type="file"
                   name="imagen"
                   value={input.imagen}
                   onChange={(e) => handlerChange(e)}
