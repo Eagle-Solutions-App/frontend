@@ -140,7 +140,8 @@
         border-radius: 10px;
         padding: 10px;
         position: relative;
-        height: 30px;
+        height: 35px;
+        border: 2px solid green;
 
         label {
           width: 80%;
@@ -151,11 +152,13 @@
 
           span {
             height: 100%;
-            width: 80%;
+            width: 75%;
             padding-left: 10px;
             display: flex;
             align-items: center;
             font-size: 15px;
+            border: 1px solid yellow;
+            line-height: 1;
           }
 
           input {

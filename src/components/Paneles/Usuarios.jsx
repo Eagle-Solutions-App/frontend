@@ -46,6 +46,7 @@ export default function Usuarios() {
     dispatch(addPaginate(nextPage));
   };
 
+  console.log(currentUsuarios);
   return (
     <div>
       <Navbar />
