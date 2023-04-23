@@ -1,7 +1,8 @@
 import {
   GET_PRODUCTOS,
   ALL_PRODUCTOS,
-  SEARCHxNAME,
+  SEARCHxNAME_PROD,
+  SEARCHxNAME_EMPR,
   SEARCHxCATEGORIA,
   SEARCHxSUBCATEGORIA,
   GET_DETAIL,
@@ -18,6 +19,8 @@ import {
   GET_TIPOS,
   GET_CATEG,
   GET_SUBCATEG,
+  SEARCHxNAME_DEPO,
+  SEARCHxNAME_USERS,
 } from "../actions/actions";
 
 const initialState = {
@@ -141,13 +144,40 @@ function rootReducer(state = initialState, action) {
     }
 
     /****************** OTROS ******************/
-    case SEARCHxNAME: {
+    case SEARCHxNAME_PROD: {
       const productsFilter = state.productos.filter((e) =>
         e.nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,
         productosHome: [...productsFilter],
+      };
+    }
+    case SEARCHxNAME_EMPR: {
+      const empresasFilter = state.empresas.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        empresas: [...empresasFilter],
+      };
+    }
+    case SEARCHxNAME_DEPO: {
+      const deposFilter = state.depositos.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        depositos: [...deposFilter],
+      };
+    }
+    case SEARCHxNAME_USERS: {
+      const deposFilter = state.depositos.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        depositos: [...deposFilter],
       };
     }
 

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchXname } from "../redux/actions/actions";
+import {
+  searchXnameDepo,
+  searchXnameEmpr,
+  searchXnameProd,
+  searchXnameUsers,
+} from "../redux/actions/actions";
 
 export default function SearchBar({ open }) {
   const [state, setState] = useState("");
@@ -11,7 +16,10 @@ export default function SearchBar({ open }) {
   };
 
   const limpiarState = () => {
-    dispatch(searchXname(state));
+    dispatch(searchXnameProd(state));
+    dispatch(searchXnameEmpr(state));
+    dispatch(searchXnameDepo(state));
+    dispatch(searchXnameUsers(state));
     setState("");
   };
 

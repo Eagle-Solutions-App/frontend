@@ -19,7 +19,10 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const GET_DETAIL_DEPO = "GET_DETAIL_DEPO";
 export const CLEAN_DETAIL_DEPO = "CLEAN_DETAIL_DEPO";
 
-export const SEARCHxNAME = "SEARCHxNAME";
+export const SEARCHxNAME_PROD = "SEARCHxNAME_PROD";
+export const SEARCHxNAME_EMPR = "SEARCHxNAME_EMPR";
+export const SEARCHxNAME_DEPO = "SEARCHxNAME_DEPO";
+export const SEARCHxNAME_USERS = "SEARCHxNAME_USERS";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
 export const ADD_PAGINATE = "ADD_PAGINATE";
@@ -238,9 +241,28 @@ export const getDetailDepo = (id) => {
 };
 
 /****************** EXTRAS ******************/
-export const searchXname = (nombre) => {
+export const searchXnameProd = (nombre) => {
   return {
-    type: SEARCHxNAME,
+    type: SEARCHxNAME_PROD,
+    payload: nombre,
+  };
+};
+export const searchXnameEmpr = (nombre) => {
+  return {
+    type: SEARCHxNAME_EMPR,
+    payload: nombre,
+  };
+};
+
+export const searchXnameDepo = (nombre) => {
+  return {
+    type: SEARCHxNAME_DEPO,
+    payload: nombre,
+  };
+};
+export const searchXnameUsers = (nombre) => {
+  return {
+    type: SEARCHxNAME_USERS,
     payload: nombre,
   };
 };
