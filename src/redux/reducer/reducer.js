@@ -123,9 +123,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: state.usuarios.filter((user) => user.id !== action.payload),
-        usuariosBloqueados: state.usuariosBloqueados.filter(
-          (user) => user.id !== action.payload
-        ),
       };
     }
 
@@ -139,7 +136,6 @@ function rootReducer(state = initialState, action) {
     case DELETE_EMPRESA: {
       return {
         ...state,
-        empresas: state.empresas.filter((emp) => emp.id !== action.payload),
         empresas: state.empresas.filter((emp) => emp.id !== action.payload),
       };
     }
