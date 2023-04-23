@@ -15,6 +15,7 @@ export default function ProdCard({
   borrar,
   cantidad,
   id,
+  imagen,
 }) {
   const dispatch = useDispatch();
 
@@ -88,6 +89,7 @@ export default function ProdCard({
           shopping={shopping}
           editar={editar}
           setShowModal={setShowModal}
+          imagen={imagen}
         />
       </div>
     </div>

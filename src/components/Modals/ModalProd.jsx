@@ -12,6 +12,7 @@ export default function ModalProd({
   shopping,
   editar,
   cantidad,
+  imagen,
 }) {
   return (
     <div className="modalProd">
@@ -23,6 +24,9 @@ export default function ModalProd({
       </h2>
       <div className="formModal">
         <div className="infoModal">
+          <div className="imgModal">
+            <img src={imagen} alt="" />
+          </div>
           <div className="modalCats">
             <p>
               <b style={{ textDecoration: "underline 2px" }}> Categoría:</b>

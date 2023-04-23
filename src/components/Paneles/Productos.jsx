@@ -90,6 +90,7 @@ export default function Home() {
                   editar={editar}
                   borrar={borrar}
                   shopping={shopping}
+                  imagen={card.imagen}
                 />
               </div>
             ))}
