@@ -48,7 +48,7 @@ export default function Home() {
 
     dispatch(addPaginate(nextPage));
   };
-
+  console.log(categorias);
   return (
     <div>
       <Navbar />
@@ -71,16 +71,18 @@ export default function Home() {
           key={todosLosProds.id}
         ></Paginado>
 
-        {todosLosProds.length > 0 && (
+        {todosLosProds.length > 0 && categorias.length && (
           <div className="cards">
             {currentProducts.map((card) => (
               <div key={card.id}>
                 <ProdCard
                   nombre={card.nombre}
-                  categoria={categorias.filter(
-                    (categ) => categ === card.Subcategoria[0].id
-                  )}
-                  subcategoria={card.Subcategoria[0].nombre}
+                  categoria={
+                    categorias[0].Subcategoria[0].id === card.Subcategorium.id
+                      ? categorias[0].nombre
+                      : categorias[1].nombre
+                  }
+                  subcategoria={card.Subcategorium.nombre}
                   descripcion={card.descripcion}
                   codigo={card.codigo}
                   cantidad={card.cantidad}

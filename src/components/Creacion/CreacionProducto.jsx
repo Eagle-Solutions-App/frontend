@@ -148,7 +148,7 @@ export default function CreacionProducto() {
               <div className="codeProd">
                 <label>Cantidad: </label>
                 <input
-                  type="text"
+                  type="number"
                   name="cantidad"
                   value={input.cantidad}
                   onChange={(e) => handlerChange(e)}

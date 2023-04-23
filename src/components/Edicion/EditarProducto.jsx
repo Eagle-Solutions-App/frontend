@@ -170,7 +170,7 @@ export default function EditarProducto() {
                     <input
                       type="url"
                       name="imagen"
-                      value={input.imagen}
+                      value={input.imagen || detail.imagen}
                       onChange={(e) => handlerChange(e)}
                       required
                     ></input>
