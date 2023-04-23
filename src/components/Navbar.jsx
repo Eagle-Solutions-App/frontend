@@ -29,7 +29,7 @@ export default function Navbar() {
         <i className="fa-solid fa-bars"></i>
       </div>
       <div className="logoNav">
-        <Link to="/">
+        <Link to="/productos">
           <button onClick={recargaHandler}>
             <img src={logo} alt="logo" />
           </button>

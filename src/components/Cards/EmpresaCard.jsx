@@ -13,7 +13,7 @@ import editar from "../../img/edit.png";
 import block from "../../img/bloqueo.png";
 import unblock from "../../img/unblock.png";
 
-export default function EmpresaCard({ nombre, email, bloqueo, id }) {
+export default function EmpresaCard({ nombre, email, bloqueo, id, imagen }) {
   const dispatch = useDispatch();
 
   const onClose = (id) => {
@@ -119,6 +119,7 @@ export default function EmpresaCard({ nombre, email, bloqueo, id }) {
           id={id}
           nombre={nombre}
           email={email}
+          imagen={imagen}
           estadoPago={true}
           setShowModal={setShowModal}
         />
