@@ -51,13 +51,14 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
                 <label>¿Desea cambiar el rol? Seleccione uno nuevo:</label>
                 <div className="selectModal">
                   <select onChange={(e) => handlerSelectRol(e)}>
-                    {roles?.map((obj) => {
-                      return (
-                        <option value={obj.id} key={obj.id}>
-                          {obj.rol}
-                        </option>
-                      );
-                    })}
+                    {roles?.map(
+                      (rol) =>
+                        rol.id !== 1 && (
+                          <option value={rol.id} key={rol.id}>
+                            {rol.rol}
+                          </option>
+                        )
+                    )}
                   </select>
                 </div>
               </div>

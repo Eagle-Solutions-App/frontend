@@ -7,7 +7,7 @@ import Navbar from "../Navbar";
 export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const rol = useSelector((state) => state.roles);
+  const roles = useSelector((state) => state.roles);
 
   const [input, setInput] = useState({
     nombre: "",
@@ -86,13 +86,14 @@ export default function CreacionDeposito() {
 
               <div className="selectCat">
                 <select onChange={(e) => handlerSelectRol(e)}>
-                  {rol?.map((obj) => {
-                    return (
-                      <option value={obj.id} key={obj.id}>
-                        {obj.rol}
-                      </option>
-                    );
-                  })}
+                  {roles?.map(
+                    (rol) =>
+                      rol.id !== 1 && (
+                        <option value={rol.id} key={rol.id}>
+                          {rol.rol}
+                        </option>
+                      )
+                  )}
                 </select>
               </div>
             </div>
