@@ -19,5 +19,19 @@
         border-radius: 50%;
       }
     }
+
+    .password {
+      @include center;
+      button {
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+        height: 40px;
+        cursor: pointer;
+        background-color: white;
+        border: none;
+        font-size: 15px;
+        line-height: 1.1;
+      }
+    }
   }
 }

@@ -42,26 +42,22 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
         </span>
         <h2>Editando: {nombre}</h2>
         <form className="formModal" onSubmit={(e) => handlerSubmitForm(e)}>
-          <div className="editModal">
-            <div className="infoModal">
-              <div className="nameModal">
-                <p>Nombre del usuario: {nombre}</p>
-                <p>Correo del usuario: {email}</p>
-                <p>Rol: {rol}</p>
-                <label>¿Desea cambiar el rol? Seleccione uno nuevo:</label>
-                <div className="selectModal">
-                  <select onChange={(e) => handlerSelectRol(e)}>
-                    {roles?.map(
-                      (rol) =>
-                        rol.id !== 1 && (
-                          <option value={rol.id} key={rol.id}>
-                            {rol.rol}
-                          </option>
-                        )
-                    )}
-                  </select>
-                </div>
-              </div>
+          <div className="infoModal">
+            <p>Nombre del usuario: {nombre}</p>
+            <p>Correo del usuario: {email}</p>
+            <p>Rol: {rol}</p>
+            <label>¿Desea cambiar el rol? Seleccione uno nuevo:</label>
+            <div className="selectModal">
+              <select onChange={(e) => handlerSelectRol(e)}>
+                {roles?.map(
+                  (rol) =>
+                    rol.id !== 1 && (
+                      <option value={rol.id} key={rol.id}>
+                        {rol.rol}
+                      </option>
+                    )
+                )}
+              </select>
             </div>
           </div>
 
