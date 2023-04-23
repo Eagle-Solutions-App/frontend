@@ -70,6 +70,10 @@ export default function CreacionProducto() {
     });
     navigate("/productos");
   };
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  console.log(selectedImage);
+
   return (
     <div>
       <Navbar />
@@ -156,7 +160,7 @@ export default function CreacionProducto() {
                 ></input>
               </div>
 
-              <div className="imgProd">
+              {/* <div className="imgProd">
                 <label>Imagen: </label>
                 <input
                   type="file"
@@ -165,6 +169,30 @@ export default function CreacionProducto() {
                   onChange={(e) => handlerChange(e)}
                   required
                 ></input>
+              </div> */}
+              <div className="imgProd">
+                <label>Imagen: </label>
+                <input
+                  type="text"
+                  name="imagen"
+                  value={selectedImage ? selectedImage.name : ""}
+                  readOnly
+                  required
+                />
+                <input
+                  type="file"
+                  id="inputImage"
+                  style={{ display: "none" }}
+                  onChange={(e) => setSelectedImage(e.target.files[0])}
+                  accept="image/*"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => document.getElementById("inputImage").click()}
+                >
+                  Examinar
+                </button>
               </div>
 
               <div className="descProd">

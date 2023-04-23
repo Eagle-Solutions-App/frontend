@@ -172,12 +172,12 @@ function rootReducer(state = initialState, action) {
       };
     }
     case SEARCHxNAME_USERS: {
-      const deposFilter = state.depositos.filter((e) =>
+      const ususariosFilter = state.usuarios.filter((e) =>
         e.nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
       return {
         ...state,
-        depositos: [...deposFilter],
+        usuarios: [...ususariosFilter],
       };
     }
 
