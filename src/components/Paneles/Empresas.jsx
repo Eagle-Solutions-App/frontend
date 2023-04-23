@@ -40,8 +40,6 @@ export default function Empresas() {
     dispatch(addPaginate(nextPage));
   };
 
-  console.log(currentEmpresas);
-
   return (
     <div>
       <Navbar />
@@ -76,7 +74,9 @@ export default function Empresas() {
                     descripcion={e.descripcion}
                     id={e.id}
                     bloqueo={e.bloqueo}
-                    imagen={e.Usuarios[0].imagen}
+                    fechaSuscrip={e.suscripcionFecha}
+                    tiempoSuscrip={e.suscripcionTiempo}
+                    /* imagen={e.Usuarios[0].imagen} */
                   />
                 </div>
               ))}

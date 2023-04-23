@@ -5,8 +5,10 @@ export default function ModalEmpresa({
   id,
   nombre,
   email,
-  imagen,
+  /* imagen, */
   estadoPago,
+  fechaSuscrip,
+  tiempoSuscrip,
 }) {
   return (
     <div className="modalEmpresa">
@@ -16,12 +18,18 @@ export default function ModalEmpresa({
       <h2>{nombre}</h2>
       <div className="formModal">
         <div className="infoModal">
-          <img src={imagen} alt="" />
+          <img
+            src="https://logodownload.org/wp-content/uploads/2014/04/ge-general-electric-logo-0.png"
+            alt=""
+          />
           <p>Nombre: {nombre}</p>
           <p>Email: {email}</p>
+          <p>Suscripto desde: {fechaSuscrip.split("T")[0]}</p>
           <p>
             Estado de pago:{" "}
-            {estadoPago === true && "Último pago depositado correctamente ✔️"}
+            {tiempoSuscrip === true
+              ? "Último pago depositado correctamente ✔️"
+              : "Pago no realizado, cuota vencida ❌"}
           </p>
         </div>
       </div>
