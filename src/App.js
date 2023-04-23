@@ -10,6 +10,7 @@ import CreacionDeposito from "./components/Creacion/CreacionDeposito";
 import CreacionUsuario from "./components/Creacion/CreacionUsuario";
 import EditarProducto from "./components/Edicion/EditarProducto";
 import EditarDeposito from "./components/Edicion/EditarDeposito";
+import Carrito from "./components/Paneles/Carrito";
 import UsuariosBloqueados from "./components/Bloqueos/UsuariosBloqueados";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/perfil" element={<Perfil />} />
+        <Route path="/carrito" element={<Carrito />} />
 
         {/* *************************** PANELES *************************** */}
         <Route path="/productos" element={<Productos />} />

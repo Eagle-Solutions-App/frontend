@@ -56,9 +56,11 @@ export default function Navbar() {
           </div>
         </details>
 
-        <button className="shopping">
-          <img src={shopping} alt="shopping" />
-        </button>
+        <Link className="perfilBtn" to="/carrito">
+          <button className="shopping">
+            <img src={shopping} alt="shopping" />
+          </button>
+        </Link>
       </div>
     </div>
   );
