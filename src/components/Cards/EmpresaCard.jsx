@@ -23,14 +23,14 @@ export default function EmpresaCard({ nombre, email, bloqueo, id }) {
     }
   };
 
-  const onBlock = (id, nombre) => {
+  const onBlock = (id) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
     if (res === true) {
       dispatch(blockEmpresa({ bloqueo: "true" }, id));
     }
   };
 
-  const onUnblock = (id, nombre) => {
+  const onUnblock = (id) => {
     let res = window.confirm(
       `Está seguro de querer desbloquear a "${nombre}"?`
     );
