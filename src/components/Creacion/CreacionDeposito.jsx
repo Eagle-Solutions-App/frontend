@@ -62,7 +62,7 @@ export default function CreacionDeposito() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Creación de Depósito</h2>
