@@ -24,7 +24,7 @@ export default function ModalEmpresa({
           />
           <p>Nombre: {nombre}</p>
           <p>Email: {email}</p>
-          <p>Suscripto desde: {fechaSuscrip.split("T")[0]}</p>
+          <p>Suscripto desde: {fechaSuscrip.slice(0, 10)}</p>
           <p>
             Estado de pago:{" "}
             {tiempoSuscrip === true

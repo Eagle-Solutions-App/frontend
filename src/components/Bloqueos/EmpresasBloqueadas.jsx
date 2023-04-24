@@ -25,11 +25,13 @@ export default function EmpresasBloqueadas() {
             .map((u) => (
               <div key={u.id}>
                 <EmpresaCard
-                  nombre={`${u.nombre}`}
+                  nombre={u.nombre}
                   email={u.email}
+                  descripcion={u.descripcion}
                   id={u.id}
-                  /* rol={u.Rols[0].rol} */
                   bloqueo={u.bloqueo}
+                  fechaSuscrip={u.suscripcionFecha}
+                  tiempoSuscrip={u.suscripcionTiempo}
                 />
               </div>
             ))}

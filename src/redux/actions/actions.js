@@ -4,6 +4,7 @@ export const GET_DEPOSITOS = "GET_DEPOSITOS";
 export const GET_TIPOS = "GET_TIPOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
+export const GET_USER_ACTUAL = "GET_USER_ACTUAL";
 export const GET_ROLES = "GET_ROLES";
 export const GET_CATEG = "GET_CATEG";
 export const GET_SUBCATEG = "GET_SUBCATEG";
@@ -53,6 +54,16 @@ export const getUsuarios = () => {
     const response = await axios.get("/usuarios");
     return dispatch({
       type: GET_USUARIOS,
+      payload: response.data.resultado,
+    });
+  };
+};
+
+export const getUserActual = (email, clave) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/usuarios?email=${email}&clave=${clave}`);
+    return dispatch({
+      type: GET_USER_ACTUAL,
       payload: response.data.resultado,
     });
   };
@@ -134,9 +145,17 @@ export const postDeposito = (payload) => {
 };
 
 export const postUser = (payload) => {
-  console.log(payload);
   return async function () {
     const response = await axios.post("/usuarios", payload);
+    return response;
+  };
+};
+
+export const postEmpresa = (payload) => {
+  console.log(payload);
+  return async function () {
+    const response = await axios.post("/empresas", payload);
+    console.log(response.data);
     return response;
   };
 };

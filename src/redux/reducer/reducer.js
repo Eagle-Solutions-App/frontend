@@ -21,6 +21,7 @@ import {
   GET_SUBCATEG,
   SEARCHxNAME_DEPO,
   SEARCHxNAME_USERS,
+  GET_USER_ACTUAL,
 } from "../actions/actions";
 
 const initialState = {
@@ -31,6 +32,7 @@ const initialState = {
   detail: [],
   detailDepo: [],
   detailUser: [],
+  userActual: [],
   roles: [],
   usuarios: [],
   empresas: [],
@@ -60,6 +62,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: [...action.payload],
+      };
+
+    case GET_USER_ACTUAL:
+      return {
+        ...state,
+        userActual: action.payload,
       };
 
     case GET_DEPOSITOS:

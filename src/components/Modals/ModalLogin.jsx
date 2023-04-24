@@ -1,14 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../../img/logo.png";
+import { getUserActual } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
 
 export default function ModalLogin({ onClose }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [input, setInput] = useState({
+    email: "",
+    clave: "",
+  });
+
+  const handlerChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí se puede agregar la lógica de registro
+    dispatch(getUserActual(input.email, input.clave));
+    setInput({
+      email: "",
+      clave: "",
+    });
+    navigate("/usuarios");
   };
 
   return (
@@ -25,22 +40,24 @@ export default function ModalLogin({ onClose }) {
                 Correo electrónico:
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  value={input.email}
+                  onChange={(e) => handlerChange(e)}
+                  required
                 />
               </label>
               <label>
                 Contraseña:
                 <input
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  name="clave"
+                  value={input.clave}
+                  onChange={(e) => handlerChange(e)}
+                  required
                 />
               </label>
               <div className="modal-footer">
-                <Link to="/productos">
-                  <button type="submit">Iniciar Sesión</button>
-                </Link>
+                <button type="submit">Iniciar Sesión</button>
                 <button type="button" onClick={onClose}>
                   Cancelar
                 </button>

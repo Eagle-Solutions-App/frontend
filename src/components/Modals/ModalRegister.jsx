@@ -1,14 +1,36 @@
 import React, { useState } from "react";
 import logo from "../../img/logo.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { postEmpresa } from "../../redux/actions/actions";
 
 export default function ModalRegister({ onClose }) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [input, setInput] = useState({
+    nombre: "",
+    email: "",
+    descripcion: "descripcion de la empresa",
+    clave: "",
+    tipoSuscripcionID: "1",
+  });
+
+  const handlerChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí se puede agregar la lógica de registro
+    console.log(input);
+    dispatch(postEmpresa(input));
+    setInput({
+      email: "",
+      clave: "",
+      nombre: "",
+      descripcion: "descripcion de la empresa",
+      tipoSuscripcionID: "1",
+    });
+    navigate("/usuarios");
   };
 
   return (
@@ -25,8 +47,9 @@ export default function ModalRegister({ onClose }) {
                 Nombre de empresa:
                 <input
                   type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  name="nombre"
+                  value={input.nombre}
+                  onChange={(e) => handlerChange(e)}
                   autoFocus
                 />
               </label>
@@ -34,18 +57,30 @@ export default function ModalRegister({ onClose }) {
                 Correo electrónico:
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  value={input.email}
+                  onChange={(e) => handlerChange(e)}
                 />
               </label>
               <label>
                 Contraseña:
                 <input
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  name="clave"
+                  value={input.clave}
+                  onChange={(e) => handlerChange(e)}
                 />
               </label>
+              <div className="suscripciones">
+                <div>
+                  <h3>Suscripción Mensual</h3>
+                  <h1>$$$</h1>
+                </div>
+                <div>
+                  <h3>Suscripción Anual</h3>
+                  <h1>$$$</h1>
+                </div>
+              </div>
               <div className="modal-footer">
                 <button type="submit">Registrarse</button>
                 <button type="button" onClick={onClose}>
@@ -62,16 +97,6 @@ export default function ModalRegister({ onClose }) {
               empleados, etc.
             </p>
             <img src={logo} alt="logo"></img>
-          </div>
-        </div>
-        <div className="suscripciones">
-          <div>
-            <h3>Suscripción Mensual</h3>
-            <h1>$$$</h1>
-          </div>
-          <div>
-            <h3>Suscripción Anual</h3>
-            <h1>$$$</h1>
           </div>
         </div>
       </div>
