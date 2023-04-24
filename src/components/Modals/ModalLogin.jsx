@@ -18,7 +18,7 @@ export default function ModalLogin({ onClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getUserActual(input.email, input.clave));
+    dispatch(getUserActual(input.email, input.clave.toString()));
     setInput({
       email: "",
       clave: "",

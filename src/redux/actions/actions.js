@@ -62,6 +62,7 @@ export const getUsuarios = () => {
 export const getUserActual = (email, clave) => {
   return async function (dispatch) {
     const response = await axios.get(`/usuarios?email=${email}&clave=${clave}`);
+    console.log(response.data, email, clave);
     return dispatch({
       type: GET_USER_ACTUAL,
       payload: response.data.resultado,
@@ -152,7 +153,6 @@ export const postUser = (payload) => {
 };
 
 export const postEmpresa = (payload) => {
-  console.log(payload);
   return async function () {
     const response = await axios.post("/empresas", payload);
     console.log(response.data);
