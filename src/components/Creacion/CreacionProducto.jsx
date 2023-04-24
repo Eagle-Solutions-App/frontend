@@ -75,7 +75,7 @@ export default function CreacionProducto() {
   console.log(selectedImage);
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Creación de Producto</h2>
