@@ -1,5 +1,7 @@
 .perfilContainer {
   @include centerCol;
+  height: 100vh;
+  border: 2px solid yellow;
 
   h2 {
     color: white;

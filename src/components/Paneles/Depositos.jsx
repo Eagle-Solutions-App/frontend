@@ -43,7 +43,7 @@ export default function Depósitos() {
   };
   /* console.log(currentDepositos); */
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Depósitos</h2>

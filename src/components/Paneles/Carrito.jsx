@@ -16,9 +16,9 @@ export default function Carrito() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="carritoContainer">
       <Navbar />
-      <div className="perfilContainer">
+      <div className="carritoPanel">
         <h2>Carrito de pedidos</h2>
         <div className="cards">
           {productos.length &&

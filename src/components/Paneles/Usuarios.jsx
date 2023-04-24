@@ -48,7 +48,7 @@ export default function Usuarios() {
 
   console.log(currentUsuarios);
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Usuarios</h2>

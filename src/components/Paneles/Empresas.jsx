@@ -41,7 +41,7 @@ export default function Empresas() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Empresas</h2>
