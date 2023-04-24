@@ -22,7 +22,7 @@ export default function Landing() {
 
   return (
     <div className="landCont">
-      <img src={logo} alt="logo" />
+      <img className="imgLand" src={logo} alt="logo" />
       <div className="landingContainer">
         <div className="wrapper">
           <h1>Eagle Solutions</h1>
