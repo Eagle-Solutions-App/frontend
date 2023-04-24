@@ -49,7 +49,7 @@ export default function Usuarios() {
   console.log(userActual);
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Usuarios</h2>

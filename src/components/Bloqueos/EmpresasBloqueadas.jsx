@@ -14,7 +14,7 @@ export default function EmpresasBloqueadas() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Empresas Bloqueadas</h2>

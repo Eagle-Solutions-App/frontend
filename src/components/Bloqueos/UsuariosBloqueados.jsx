@@ -13,7 +13,7 @@ export default function UsuariosBloqueados() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Usuarios Bloqueados</h2>
