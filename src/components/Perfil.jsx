@@ -20,7 +20,7 @@ export default function Perfil() {
           </span>
           <span>Email: {userActual.email}</span>
 
-          <span>Rol: {userActual.Rol.rol}</span>
+          {/* <span>Rol: {userActual.Rol.rol}</span> */}
 
           <div className="password">
             <Link to="/usuarios">

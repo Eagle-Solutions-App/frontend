@@ -70,7 +70,7 @@ export default function CreacionProducto() {
   };
   console.log(detailDepo);
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         {detailDepo && (

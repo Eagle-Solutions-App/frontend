@@ -1,356 +1,358 @@
-.container {
-  color: white;
-  h2 {
-    text-align: center;
-  }
-  .inicioBtn2 {
-    font-family: "Poppins", sans-serif;
-    border-radius: 5px;
-    height: 40px;
-    padding: 5px 12px;
-    margin-top: 30px;
-    cursor: pointer;
-  }
-
-  .formCat2 {
-    width: 30%;
-    position: relative;
-    padding: 10px;
-    background-color: $azul3;
-    border-radius: 10px;
-    margin-bottom: 10px;
-
-    label {
-      margin-left: 20px;
+.mainContainer {
+  .container {
+    color: white;
+    h2 {
+      text-align: center;
     }
-
-    button {
-      margin-left: 20px;
-    }
-
-    input {
-      position: absolute;
-      right: 70px;
-      top: 24px;
-      width: 270px;
-      height: 13px;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1.5px solid lightgrey;
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-      box-shadow: 0px 0px 20px -18px;
-
-      &:hover {
-        border: 2px solid lightgrey;
-        box-shadow: 0px 0px 20px -17px;
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
-
-      &:focus {
-        border: 2px solid grey;
-      }
-    }
-
-    button {
+    .inicioBtn2 {
       font-family: "Poppins", sans-serif;
       border-radius: 5px;
       height: 40px;
-      padding: 1px 10px;
+      padding: 5px 12px;
+      margin-top: 30px;
       cursor: pointer;
     }
-  }
 
-  .formSub2 {
-    width: 30%;
-    position: relative;
-    padding: 10px;
-    background-color: $azul3;
-    border-radius: 10px;
-
-    label {
-      margin-left: 20px;
-    }
-
-    button {
-      margin-left: 20px;
-    }
-
-    input {
-      position: absolute;
-      right: 70px;
-      top: 24px;
-      width: 270px;
-      height: 13px;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1.5px solid lightgrey;
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-      box-shadow: 0px 0px 20px -18px;
-
-      &:hover {
-        border: 2px solid lightgrey;
-        box-shadow: 0px 0px 20px -17px;
-      }
-
-      &:active {
-        transform: scale(0.95);
-      }
-
-      &:focus {
-        border: 2px solid grey;
-      }
-    }
-
-    button {
-      font-family: "Poppins", sans-serif;
-      border-radius: 5px;
-      height: 40px;
-      padding: 1px 10px;
-      cursor: pointer;
-    }
-  }
-
-  .formEdit {
-    width: 55vw;
-    position: relative;
-    padding: 10px;
-
-    .check {
+    .formCat2 {
+      width: 30%;
+      position: relative;
+      padding: 10px;
       background-color: $azul3;
       border-radius: 10px;
-      display: grid;
-      grid-template-columns: repeat(3, 30%);
-      justify-content: space-evenly;
-      width: 100%;
-      padding-top: 1%;
-      padding-bottom: 1%;
+      margin-bottom: 10px;
 
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
-        border-radius: 10px;
-        padding: 10px;
-        position: relative;
-        height: 30px;
+      label {
+        margin-left: 20px;
+      }
 
-        label {
-          width: 80%;
-          height: 100%;
-          display: flex;
-          position: absolute;
-          align-items: center;
+      button {
+        margin-left: 20px;
+      }
 
-          span {
-            height: 100%;
-            width: 80%;
-            padding-left: 10px;
-            display: flex;
-            align-items: center;
-            font-size: 15px;
-          }
+      input {
+        position: absolute;
+        right: 70px;
+        top: 24px;
+        width: 270px;
+        height: 13px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1.5px solid lightgrey;
+        outline: none;
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: 0px 0px 20px -18px;
 
-          input {
-            position: absolute;
-            right: 0;
-            border-radius: 20px;
-          }
+        &:hover {
+          border: 2px solid lightgrey;
+          box-shadow: 0px 0px 20px -17px;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &:focus {
+          border: 2px solid grey;
         }
       }
+
+      button {
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+        height: 40px;
+        padding: 1px 10px;
+        cursor: pointer;
+      }
     }
-    .editCat {
-      background-color: $azul3;
-      border-radius: 10px;
+
+    .formSub2 {
+      width: 30%;
+      position: relative;
       padding: 10px;
-    }
-
-    .editSub {
       background-color: $azul3;
       border-radius: 10px;
+
+      label {
+        margin-left: 20px;
+      }
+
+      button {
+        margin-left: 20px;
+      }
+
+      input {
+        position: absolute;
+        right: 70px;
+        top: 24px;
+        width: 270px;
+        height: 13px;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1.5px solid lightgrey;
+        outline: none;
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: 0px 0px 20px -18px;
+
+        &:hover {
+          border: 2px solid lightgrey;
+          box-shadow: 0px 0px 20px -17px;
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &:focus {
+          border: 2px solid grey;
+        }
+      }
+
+      button {
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+        height: 40px;
+        padding: 1px 10px;
+        cursor: pointer;
+      }
     }
 
-    .editProd {
-      .namecodedesc {
-        padding: 10px;
-        margin-top: 20px;
+    .formEdit {
+      width: 55vw;
+      position: relative;
+      padding: 10px;
+
+      .check {
         background-color: $azul3;
         border-radius: 10px;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        gap: 7%;
-        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        justify-content: space-evenly;
+        width: 100%;
+        padding-top: 1%;
+        padding-bottom: 1%;
 
-        .nameProd {
+        div {
           display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+          border-radius: 10px;
+          padding: 10px;
           position: relative;
-          justify-content: space-evenly;
+          height: 30px;
 
           label {
-            width: 50%;
-            text-align: center;
-          }
+            width: 80%;
+            height: 100%;
+            display: flex;
+            position: absolute;
+            align-items: center;
 
-          input {
-            width: 50%;
-            height: 5px;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1.5px solid lightgrey;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0px 0px 20px -18px;
-            margin-right: 10%;
-
-            &:hover {
-              border: 2px solid lightgrey;
-              box-shadow: 0px 0px 20px -17px;
+            span {
+              height: 100%;
+              width: 80%;
+              padding-left: 10px;
+              display: flex;
+              align-items: center;
+              font-size: 15px;
             }
 
-            &:active {
-              transform: scale(0.95);
-            }
-
-            &:focus {
-              border: 2px solid grey;
-            }
-          }
-        }
-
-        .codeProd {
-          display: flex;
-          position: relative;
-          justify-content: space-evenly;
-
-          label {
-            width: 50%;
-            text-align: center;
-          }
-
-          input {
-            width: 50%;
-            height: 5px;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1.5px solid lightgrey;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0px 0px 20px -18px;
-            margin-right: 10%;
-
-            &:hover {
-              border: 2px solid lightgrey;
-              box-shadow: 0px 0px 20px -17px;
-            }
-
-            &:active {
-              transform: scale(0.95);
-            }
-
-            &:focus {
-              border: 2px solid grey;
-            }
-          }
-        }
-
-        .imgProd {
-          display: flex;
-          position: relative;
-          justify-content: space-evenly;
-
-          label {
-            width: 50%;
-            text-align: center;
-          }
-
-          input {
-            width: 50%;
-            height: 5px;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1.5px solid lightgrey;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0px 0px 20px -18px;
-            margin-right: 10%;
-
-            &:hover {
-              border: 2px solid lightgrey;
-              box-shadow: 0px 0px 20px -17px;
-            }
-
-            &:active {
-              transform: scale(0.95);
-            }
-
-            &:focus {
-              border: 2px solid grey;
-            }
-          }
-        }
-
-        .descProd {
-          margin-top: 20px;
-          position: relative;
-          height: 50px;
-          display: flex;
-          justify-content: space-evenly;
-
-          label {
-            width: 50%;
-            text-align: center;
-          }
-
-          textarea {
-            width: 50%;
-            height: 40px;
-            padding: 10px;
-            border-radius: 12px;
-            border: 1.5px solid lightgrey;
-            outline: none;
-            transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-            box-shadow: 0px 0px 20px -18px;
-            resize: none;
-            font-family: "Poppins", sans-serif;
-            margin-right: 10%;
-
-            &:hover {
-              border: 2px solid lightgrey;
-              box-shadow: 0px 0px 20px -17px;
-            }
-
-            &:active {
-              transform: scale(0.95);
-            }
-
-            &:focus {
-              border: 2px solid grey;
+            input {
+              position: absolute;
+              right: 0;
+              border-radius: 20px;
             }
           }
         }
       }
-
-      .editSubmit {
+      .editCat {
+        background-color: $azul3;
+        border-radius: 10px;
         padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        button {
-          font-family: "Poppins", sans-serif;
-          border-radius: 5px;
-          height: 40px;
-          padding: 5px 12px;
+      }
 
-          cursor: pointer;
+      .editSub {
+        background-color: $azul3;
+        border-radius: 10px;
+      }
+
+      .editProd {
+        .namecodedesc {
+          padding: 10px;
+          margin-top: 20px;
+          background-color: $azul3;
+          border-radius: 10px;
+          height: 250px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          gap: 7%;
+          padding-bottom: 20px;
+
+          .nameProd {
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+
+            label {
+              width: 50%;
+              text-align: center;
+            }
+
+            input {
+              width: 50%;
+              height: 5px;
+              padding: 10px;
+              border-radius: 12px;
+              border: 1.5px solid lightgrey;
+              outline: none;
+              transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+              box-shadow: 0px 0px 20px -18px;
+              margin-right: 10%;
+
+              &:hover {
+                border: 2px solid lightgrey;
+                box-shadow: 0px 0px 20px -17px;
+              }
+
+              &:active {
+                transform: scale(0.95);
+              }
+
+              &:focus {
+                border: 2px solid grey;
+              }
+            }
+          }
+
+          .codeProd {
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+
+            label {
+              width: 50%;
+              text-align: center;
+            }
+
+            input {
+              width: 50%;
+              height: 5px;
+              padding: 10px;
+              border-radius: 12px;
+              border: 1.5px solid lightgrey;
+              outline: none;
+              transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+              box-shadow: 0px 0px 20px -18px;
+              margin-right: 10%;
+
+              &:hover {
+                border: 2px solid lightgrey;
+                box-shadow: 0px 0px 20px -17px;
+              }
+
+              &:active {
+                transform: scale(0.95);
+              }
+
+              &:focus {
+                border: 2px solid grey;
+              }
+            }
+          }
+
+          .imgProd {
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+
+            label {
+              width: 50%;
+              text-align: center;
+            }
+
+            input {
+              width: 50%;
+              height: 5px;
+              padding: 10px;
+              border-radius: 12px;
+              border: 1.5px solid lightgrey;
+              outline: none;
+              transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+              box-shadow: 0px 0px 20px -18px;
+              margin-right: 10%;
+
+              &:hover {
+                border: 2px solid lightgrey;
+                box-shadow: 0px 0px 20px -17px;
+              }
+
+              &:active {
+                transform: scale(0.95);
+              }
+
+              &:focus {
+                border: 2px solid grey;
+              }
+            }
+          }
+
+          .descProd {
+            margin-top: 20px;
+            position: relative;
+            height: 50px;
+            display: flex;
+            justify-content: space-evenly;
+
+            label {
+              width: 50%;
+              text-align: center;
+            }
+
+            textarea {
+              width: 50%;
+              height: 40px;
+              padding: 10px;
+              border-radius: 12px;
+              border: 1.5px solid lightgrey;
+              outline: none;
+              transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+              box-shadow: 0px 0px 20px -18px;
+              resize: none;
+              font-family: "Poppins", sans-serif;
+              margin-right: 10%;
+
+              &:hover {
+                border: 2px solid lightgrey;
+                box-shadow: 0px 0px 20px -17px;
+              }
+
+              &:active {
+                transform: scale(0.95);
+              }
+
+              &:focus {
+                border: 2px solid grey;
+              }
+            }
+          }
+        }
+
+        .editSubmit {
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          button {
+            font-family: "Poppins", sans-serif;
+            border-radius: 5px;
+            height: 40px;
+            padding: 5px 12px;
+
+            cursor: pointer;
+          }
         }
       }
     }
@@ -373,22 +375,24 @@
 }
 
 @media (max-width: 1000px) {
-  .container {
-    .formEdit {
-      font-size: 14px;
+  .mainContainer {
+    .container {
+      .formEdit {
+        font-size: 14px;
 
-      .check {
-        grid-template-columns: repeat(2, 40%);
-        div {
-          position: relative;
-          label {
-            width: 100%;
-            position: absolute;
+        .check {
+          grid-template-columns: repeat(2, 40%);
+          div {
+            position: relative;
+            label {
+              width: 100%;
+              position: absolute;
+            }
           }
         }
-      }
 
-      .createProd {
+        .createProd {
+        }
       }
     }
   }
