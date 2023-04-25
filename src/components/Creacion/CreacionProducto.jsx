@@ -170,7 +170,7 @@ export default function CreacionProducto() {
                   required
                 ></input>
               </div> */}
-              <div className="imgProd">
+              {/* <div className="imgProd">
                 <label>Imagen: </label>
                 <input
                   type="text"
@@ -193,7 +193,7 @@ export default function CreacionProducto() {
                 >
                   Examinar
                 </button>
-              </div>
+              </div> */}
 
               <div className="descProd">
                 <label>Descripción: </label>

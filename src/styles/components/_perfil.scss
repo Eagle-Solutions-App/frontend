@@ -1,38 +1,41 @@
-.perfilContainer {
-  @include centerCol;
-  height: 100vh;
-  border: 2px solid yellow;
+.mainContainer {
+  .perfilContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 
-  h2 {
-    color: white;
-    font-size: 30px;
-    margin-bottom: 4rem;
-  }
-
-  .perfilInfo {
-    span {
-      font-size: 20px;
+    h2 {
       color: white;
-      @include center;
-      gap: 10px;
-      margin-bottom: 20px;
-      img {
-        width: 75px;
-        border-radius: 50%;
-      }
+      font-size: 30px;
+      margin-bottom: 4rem;
     }
 
-    .password {
-      @include center;
-      button {
-        font-family: "Poppins", sans-serif;
-        border-radius: 5px;
-        height: 40px;
-        cursor: pointer;
-        background-color: white;
-        border: none;
-        font-size: 15px;
-        line-height: 1.1;
+    .perfilInfo {
+      span {
+        font-size: 20px;
+        color: white;
+        @include center;
+        gap: 10px;
+        margin-bottom: 20px;
+        img {
+          width: 75px;
+          border-radius: 50%;
+        }
+      }
+
+      .password {
+        @include center;
+        button {
+          font-family: "Poppins", sans-serif;
+          border-radius: 5px;
+          height: 40px;
+          cursor: pointer;
+          background-color: white;
+          border: none;
+          font-size: 15px;
+          line-height: 1.1;
+        }
       }
     }
   }

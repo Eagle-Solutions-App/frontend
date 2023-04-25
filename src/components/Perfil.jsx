@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Perfil() {
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="perfilContainer">
         <h2>Perfil</h2>
@@ -15,6 +15,7 @@ export default function Perfil() {
             Usuario nuevo
           </span>
           <span>Email: emailprueba@gmail.com</span>
+          <span>Celular: 999999999999</span>
           <span>Rol: Administrador</span>
 
           <div className="password">

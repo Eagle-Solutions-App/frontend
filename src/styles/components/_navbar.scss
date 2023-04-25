@@ -63,7 +63,7 @@
     width: 10%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     .menu {
@@ -175,6 +175,14 @@
       flex-direction: column-reverse;
 
       margin-right: 1%;
+    }
+  }
+}
+
+@media (max-width: 1345px) {
+  .nav-container {
+    .btns {
+      flex-direction: column-reverse;
     }
   }
 }
