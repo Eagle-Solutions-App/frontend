@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export default function Usuarios() {
   const dispatch = useDispatch();
-  const usuarios = useSelector((state) => state.usuarios);
+  const usuarios = useSelector((state) => state.usuariosHome);
   let paginateNum = useSelector((state) => state.paginate);
   let userActual = useSelector((state) => state.userActual);
 
@@ -47,6 +47,7 @@ export default function Usuarios() {
   };
 
   console.log(userActual);
+  console.log(currentUsuarios);
 
   return (
     <div className="mainContainer">

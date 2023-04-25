@@ -49,6 +49,8 @@ export default function Home() {
     dispatch(addPaginate(nextPage));
   };
 
+  console.log(currentProducts);
+
   return (
     <div className="mainContainer">
       <Navbar />

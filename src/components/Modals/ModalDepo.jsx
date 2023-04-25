@@ -13,6 +13,7 @@ export default function ModalDepo({
   ciudad,
   editar,
   observaciones,
+  productos,
 }) {
   return (
     <div className="modalDepo">
@@ -37,7 +38,7 @@ export default function ModalDepo({
               <br></br> {`${calle} ${altura}`}
             </p>
           </div>
-          <div className="descObs">
+          <div className="descObsProds">
             <div className="modalDesc">
               <p>
                 <b style={{ textDecoration: "underline 2px" }}>Descripción:</b>
@@ -51,6 +52,20 @@ export default function ModalDepo({
                 </b>
               </p>
               <div className="obsBox">{observaciones}</div>
+            </div>
+            <div className="modalProds">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>
+                  Productos disponibles:
+                </b>
+              </p>
+              <div className="prodsBox">
+                {productos?.map((p) => (
+                  <div key={p.id}>
+                    <p>{p.nombre}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

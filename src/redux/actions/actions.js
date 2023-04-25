@@ -26,6 +26,8 @@ export const SEARCHxNAME_DEPO = "SEARCHxNAME_DEPO";
 export const SEARCHxNAME_USERS = "SEARCHxNAME_USERS";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
+export const SEARCHxROL = "SEARCHxROL";
+export const SEARCHxTIPO = "SEARCHxTIPO";
 export const ADD_PAGINATE = "ADD_PAGINATE";
 
 /****************** GETS ******************/
@@ -293,10 +295,24 @@ export const searchXcategoria = (categoria) => {
   };
 };
 
-export const searchXsubcategoria = (subcategoria) => {
+export const searchXsubcategoria = (Subcategorium) => {
   return {
     type: SEARCHxSUBCATEGORIA,
-    payload: subcategoria,
+    payload: Subcategorium,
+  };
+};
+
+export const searchXrol = (rol) => {
+  return {
+    type: SEARCHxROL,
+    payload: rol,
+  };
+};
+
+export const searchXtipo = (tipo) => {
+  return {
+    type: SEARCHxTIPO,
+    payload: tipo,
   };
 };
 
@@ -306,31 +322,3 @@ export const addPaginate = (num) => {
     payload: num,
   };
 };
-
-// export const blockUser = (id) => {
-//   return {
-//     type: BLOCK_USER,
-//     payload: id,
-//   };
-// };
-
-// export const unblockUser = (id) => {
-//   return {
-//     type: UNBLOCK_USER,
-//     payload: id,
-//   };
-// };
-
-// export const blockEmpresa = (id) => {
-//   return {
-//     type: BLOCK_EMPRESA,
-//     payload: id,
-//   };
-// };
-
-// export const unblockEmpresa = (id) => {
-//   return {
-//     type: UNBLOCK_EMPRESA,
-//     payload: id,
-//   };
-// };

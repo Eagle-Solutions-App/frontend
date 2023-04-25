@@ -7,10 +7,12 @@
   justify-content: center;
   align-items: center;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 10vh;
   background-color: $grisoscuro;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow-y: scroll;
+  padding-top: 250px;
   h2 {
     text-align: center;
   }
@@ -51,10 +53,11 @@
         }
       }
 
-      .descObs {
+      .descObsProds {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         .modalDesc {
           display: flex;
           flex-direction: column;
@@ -90,6 +93,28 @@
             padding: 1vh;
             word-wrap: break-word;
             font-family: "Poppins", sans-serif;
+          }
+        }
+
+        .modalProds {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 50%;
+
+          .prodsBox {
+            white-space: pre-wrap;
+            overflow: auto;
+            width: 80%;
+            height: 180px;
+            background-color: $azul3;
+            border-radius: 10px;
+            padding: 1vh;
+            word-wrap: break-word;
+            font-family: "Poppins", sans-serif;
+            p {
+              font-size: 15px;
+            }
           }
         }
       }
@@ -137,17 +162,17 @@
 @media (max-width: 768px) {
   .modalDepo {
     width: 85%;
-    height: 80vh;
+    height: 70vh;
     max-height: 100%;
     overflow-y: scroll;
-    padding-top: 130px;
+    padding-top: 370px;
 
     .formModal {
       .infoModal {
         .modalCats {
           flex-direction: column;
         }
-        .descObs {
+        .descObsProds {
           flex-direction: column;
           .modalDesc {
             width: 70%;
@@ -161,6 +186,15 @@
             width: 70%;
 
             .obsBox {
+              width: 100%;
+            }
+          }
+
+          .modalProds {
+            width: 70%;
+            margin-bottom: 20px;
+
+            .prodsBox {
               width: 100%;
             }
           }

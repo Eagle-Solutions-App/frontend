@@ -21,6 +21,8 @@ import {
   GET_SUBCATEG,
   SEARCHxNAME_DEPO,
   SEARCHxNAME_USERS,
+  SEARCHxROL,
+  SEARCHxTIPO,
   GET_USER_ACTUAL,
 } from "../actions/actions";
 
@@ -35,8 +37,10 @@ const initialState = {
   userActual: [],
   roles: [],
   usuarios: [],
+  usuariosHome: [],
   empresas: [],
   depositos: [],
+  depositosHome: [],
   tipos: [],
   paginate: 1,
 };
@@ -62,6 +66,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: [...action.payload],
+        usuariosHome: [...action.payload],
       };
 
     case GET_USER_ACTUAL:
@@ -74,6 +79,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         depositos: [...action.payload],
+        depositosHome: [...action.payload],
       };
 
     case GET_TIPOS:
@@ -190,9 +196,10 @@ function rootReducer(state = initialState, action) {
     }
 
     case SEARCHxCATEGORIA: {
-      let prodFilter = state.productos.filter(
-        (e) => e.categoria === action.payload
-      );
+      let prodFilter =
+        action.payload === "todas"
+          ? state.productos
+          : state.productos.filter((e) => e.categoria === action.payload);
       return {
         ...state,
         productosHome: prodFilter,
@@ -200,12 +207,39 @@ function rootReducer(state = initialState, action) {
     }
 
     case SEARCHxSUBCATEGORIA: {
-      let prodFilter = state.productos.filter(
-        (e) => e.subcategoria === action.payload
-      );
+      let prodFilter =
+        action.payload === "todas"
+          ? state.productos
+          : state.productos.filter(
+              (e) => e.Subcategorium.nombre === action.payload
+            );
       return {
         ...state,
         productosHome: prodFilter,
+      };
+    }
+
+    case SEARCHxROL: {
+      let userFilter =
+        action.payload === "todos"
+          ? state.usuarios
+          : state.usuarios.filter((e) => e.Rol.rol === action.payload);
+      return {
+        ...state,
+        usuariosHome: userFilter,
+      };
+    }
+
+    case SEARCHxTIPO: {
+      let depoFilter =
+        action.payload === "todos"
+          ? state.depositos
+          : state.depositos.filter(
+              (e) => e.TipoDeposito.tipo === action.payload
+            );
+      return {
+        ...state,
+        depositosHome: depoFilter,
       };
     }
 
@@ -214,90 +248,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         paginate: action.payload,
       };
-
-    // case BLOCK_USER:
-    //   const userId = action.payload;
-    //   const usuario = state.usuarios.find((u) => u.id === userId);
-
-    //   if (usuario) {
-    //     const newUserBlocked = { ...usuario, bloqueo: true };
-
-    //     return {
-    //       ...state,
-    //       usuariosBloqueados: [...state.usuariosBloqueados, newUserBlocked],
-    //       usuarios: state.usuarios.filter((u) => u.id !== userId),
-    //     };
-    //   }
-
-    //   return {
-    //     ...state,
-    //   };
-
-    // case UNBLOCK_USER: {
-    //   const userToUnblock = state.usuariosBloqueados.find(
-    //     (user) => user.id === action.payload
-    //   );
-    //   if (userToUnblock) {
-    //     const updatedUsuariosBloqueados = state.usuariosBloqueados.filter(
-    //       (user) => user.id !== action.payload
-    //     );
-    //     const updatedUsuarios = state.usuarios.map((user) => {
-    //       if (user.id === action.payload) {
-    //         return { ...user, bloqueo: false };
-    //       }
-    //       return user;
-    //     });
-    //     return {
-    //       ...state,
-    //       usuarios: updatedUsuarios,
-    //       usuariosBloqueados: updatedUsuariosBloqueados,
-    //     };
-    //   } else {
-    //     return state;
-    //   }
-    // }
-
-    // case BLOCK_EMPRESA:
-    //   const empresaId = action.payload;
-    //   const empresa = state.empresas.find((e) => e.id === empresaId);
-
-    //   if (empresa) {
-    //     const newEmpresaBlocked = { ...empresa, bloqueo: true };
-
-    //     return {
-    //       ...state,
-    //       empresasBloqueadas: [...state.empresasBloqueadas, newEmpresaBlocked],
-    //       empresas: state.empresas.filter((e) => e.id !== empresaId),
-    //     };
-    //   }
-
-    //   return {
-    //     ...state,
-    //   };
-
-    // case UNBLOCK_EMPRESA: {
-    //   const empresaToUnblock = state.empresasBloqueadas.find(
-    //     (empresa) => empresa.id === action.payload
-    //   );
-    //   if (empresaToUnblock) {
-    //     const updatedEmpresasBloqueadas = state.empresasBloqueadas.filter(
-    //       (empresa) => empresa.id !== action.payload
-    //     );
-    //     const updatedEmpresas = state.empresas.map((empresa) => {
-    //       if (empresa.id === action.payload) {
-    //         return { ...empresa, bloqueo: false };
-    //       }
-    //       return empresa;
-    //     });
-    //     return {
-    //       ...state,
-    //       empresas: updatedEmpresas,
-    //       empresasBloqueadas: updatedEmpresasBloqueadas,
-    //     };
-    //   } else {
-    //     return state;
-    //   }
-    // }
 
     default:
       return {
