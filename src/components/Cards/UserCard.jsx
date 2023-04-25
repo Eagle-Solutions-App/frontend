@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   deleteUser,
   blockUsuario,
   unblockUsuario,
+  getUsuarios,
 } from "../../redux/actions/actions";
 import EditarUser from "../Edicion/EditarUser";
 import borrar from "../../img/trash.png";
@@ -13,9 +14,6 @@ import unblock from "../../img/unblock.png";
 
 export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const dispatch = useDispatch();
-
-  const [bloqueado, setBloqueado] = useState(bloqueo);
-  /*   console.log(bloqueado); */
 
   const onBlock = (id, bloqueo, nombre) => {
     let res = window.confirm(`Está seguro de querer bloquear a "${nombre}"?`);
@@ -36,7 +34,7 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
-      dispatch(deleteUser(id));
+      dispatch(deleteUser(id)).then(() => dispatch(getUsuarios()));
     }
   };
 

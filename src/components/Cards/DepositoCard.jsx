@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteDepo } from "../../redux/actions/actions";
+import { deleteDepo, getDepositos } from "../../redux/actions/actions";
 import ModalDepo from "../Modals/ModalDepo";
 import modal from "../../img/modal.png";
 import maquinaria from "../../img/maquinaria.png";
@@ -27,7 +27,7 @@ export default function DepositoCard({
   const onClose = (id) => {
     let res = window.confirm(`Está seguro de querer borrar "${nombre}"?`);
     if (res === true) {
-      dispatch(deleteDepo(id));
+      dispatch(deleteDepo(id)).then(() => dispatch(getDepositos()));
     }
   };
 

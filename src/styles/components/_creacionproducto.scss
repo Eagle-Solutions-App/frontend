@@ -288,12 +288,12 @@
             display: flex;
             position: relative;
             justify-content: space-evenly;
-            border: 1px solid wheat;
+            /*  border: 1px solid wheat; */
 
             label {
               width: 50%;
               text-align: center;
-              border: 1px solid skyblue;
+              /*  border: 1px solid skyblue; */
             }
 
             input {
@@ -301,7 +301,7 @@
               height: 5px;
               padding: 20px;
               border-radius: 12px;
-              border: 2px solid yellow;
+              border: 1.5px solid lightgrey;
 
               outline: none;
               transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
