@@ -76,7 +76,7 @@ export default function EditarProducto() {
     });
     navigate("/productos");
   };
-  console.log(detail);
+
   return (
     <div className="mainContainer">
       <Navbar />
@@ -100,6 +100,9 @@ export default function EditarProducto() {
                           id={sub.id}
                           value={[sub.id]}
                           checked={sub.id === detail.Subcategorium.id}
+                          onClick={(e) =>
+                            (detail.Subcategorium.id = parseInt(e.target.value))
+                          }
                           onChange={(e) => handlerSelectSubcateg(e)}
                         />
                         <span className="checkmark"></span>
@@ -123,6 +126,9 @@ export default function EditarProducto() {
                           id={depo.id}
                           value={[depo.id]}
                           checked={depo.id === detail.Deposito.id}
+                          onClick={(e) =>
+                            (detail.Deposito.id = parseInt(e.target.value))
+                          }
                           onChange={(e) => handlerSelectDepo(e)}
                         />
                       </label>

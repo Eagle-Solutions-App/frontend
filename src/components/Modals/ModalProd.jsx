@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getDepositos, getDetailDepo } from "../../redux/actions/actions";
 
 export default function ModalProd({
   setShowModal,
@@ -13,6 +15,7 @@ export default function ModalProd({
   editar,
   cantidad,
   imagen,
+  deposito,
 }) {
   return (
     <div className="modalProd">
@@ -39,6 +42,12 @@ export default function ModalProd({
             <p>
               <b style={{ textDecoration: "underline 2px" }}> Cantidad:</b>
               <br></br> {cantidad}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}>
+                Depósito Actual:
+              </b>
+              <br></br> {deposito}
             </p>
           </div>
           <div className="descObs">

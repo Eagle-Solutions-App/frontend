@@ -68,6 +68,7 @@ export default function CreacionProducto() {
     });
     navigate("/depositos");
   };
+
   return (
     <div className="mainContainer">
       <Navbar />
@@ -79,26 +80,33 @@ export default function CreacionProducto() {
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
               <p>Selecciona una tipo de Deposito!</p>
 
-              <div className="check">
-                {tipos?.map((tipo) => {
-                  return (
-                    <div key={tipo.id}>
-                      <label htmlFor={tipo.tipo} key={tipo.id}>
-                        <span>{tipo.tipo}</span>
+              {
+                <div className="check">
+                  {tipos?.map((tipo) => {
+                    return (
+                      <div key={tipo.id}>
+                        <label htmlFor={tipo.tipo} key={tipo.id}>
+                          <span>{tipo.tipo}</span>
 
-                        <input
-                          type="radio"
-                          name="tipoDepositoID"
-                          id={tipo.id}
-                          value={tipo.id}
-                          /* checked={tipo.id === detailDepo.TipoDepositoId} */
-                          onChange={(e) => handlerSelectTipo(e)}
-                        />
-                      </label>
-                    </div>
-                  );
-                })}
-              </div>
+                          <input
+                            type="radio"
+                            name="tipoDepositoID"
+                            /* id={tipo.id} */
+                            value={tipo.id}
+                            checked={tipo.id === detailDepo.TipoDepositoId}
+                            onClick={(e) =>
+                              (detailDepo.TipoDepositoId = parseInt(
+                                e.target.value
+                              ))
+                            }
+                            onChange={(e) => handlerSelectTipo(e)}
+                          />
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+              }
 
               {/* edición del deposito */}
               <div className="editDepo">

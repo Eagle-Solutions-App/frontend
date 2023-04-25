@@ -93,6 +93,7 @@ export default function Home() {
                   borrar={borrar}
                   shopping={shopping}
                   imagen={card.imagen}
+                  depositoId={card.DepositoId}
                 />
               </div>
             ))}
