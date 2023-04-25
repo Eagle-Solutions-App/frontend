@@ -16,10 +16,10 @@ export default function SearchBar({ open }) {
   };
 
   const limpiarState = () => {
-    dispatch(searchXnameProd(state));
-    dispatch(searchXnameEmpr(state));
     dispatch(searchXnameDepo(state));
     dispatch(searchXnameUsers(state));
+    dispatch(searchXnameProd(state));
+    dispatch(searchXnameEmpr(state));
     setState("");
   };
 

@@ -78,7 +78,7 @@ export default function EditarProducto() {
   };
   console.log(detail);
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         {detail && (

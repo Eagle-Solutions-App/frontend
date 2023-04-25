@@ -184,7 +184,7 @@ function rootReducer(state = initialState, action) {
       );
       return {
         ...state,
-        depositos: [...deposFilter],
+        depositosHome: [...deposFilter],
       };
     }
     case SEARCHxNAME_USERS: {
@@ -193,7 +193,7 @@ function rootReducer(state = initialState, action) {
       );
       return {
         ...state,
-        usuarios: [...ususariosFilter],
+        usuariosHome: [...ususariosFilter],
       };
     }
 
@@ -201,7 +201,9 @@ function rootReducer(state = initialState, action) {
       let prodFilter =
         action.payload === "todas"
           ? state.productos
-          : state.productos.filter((e) => e.categoria === action.payload);
+          : action.payload === "Bienes de Consumo"
+          ? state.productos.filter((prod) => prod.Subcategorium.id === 1)
+          : state.productos.filter((prod) => prod.Subcategorium.id > 1);
       return {
         ...state,
         productosHome: prodFilter,

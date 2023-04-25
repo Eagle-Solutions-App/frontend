@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  allProductos,
+  /* allProductos, */
   searchXcategoria,
   searchXsubcategoria,
   searchXrol,
@@ -45,9 +45,9 @@ export default function Filtros({ open }) {
     console.log(e.target.value);
   };
 
-  const recargaHandler = (e) => {
+  /* const recargaHandler = (e) => {
     dispatch(allProductos());
-  };
+  }; */
 
   return (
     <div className={`filtCont ${open ? "open" : ""}`}>

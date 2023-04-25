@@ -68,13 +68,13 @@ export default function CreacionProducto() {
     });
     navigate("/depositos");
   };
-  console.log(detailDepo);
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         {detailDepo && (
           <>
+            {console.log(detailDepo.TipoDepositoId)}
             <h2>Editando: {detailDepo.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
@@ -89,8 +89,8 @@ export default function CreacionProducto() {
 
                         <input
                           type="radio"
-                          name="tipo"
-                          id={tipo.id}
+                          name="tipoDepositoID"
+                          /* id={tipo.id} */
                           value={tipo.id}
                           checked={tipo.id === detailDepo.TipoDepositoId}
                           onChange={(e) => handlerSelectTipo(e)}
