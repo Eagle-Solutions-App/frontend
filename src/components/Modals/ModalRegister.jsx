@@ -32,7 +32,7 @@ export default function ModalRegister({ onClose }) {
       descripcion: "descripcion de la empresa",
       tipoSuscripcionID: "1",
     });
-    navigate("/usuarios");
+    navigate("/perfil");
   };
 
   return (

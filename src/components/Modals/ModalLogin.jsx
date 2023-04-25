@@ -25,7 +25,7 @@ export default function ModalLogin({ onClose }) {
       email: "",
       clave: "",
     });
-    navigate("/usuarios");
+    navigate("/perfil");
   };
 
   return (
