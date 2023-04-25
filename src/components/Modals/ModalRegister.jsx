@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../../img/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postEmpresa } from "../../redux/actions/actions";
+import { getUserActual, postEmpresa } from "../../redux/actions/actions";
 
 export default function ModalRegister({ onClose }) {
   const navigate = useNavigate();
@@ -19,10 +19,12 @@ export default function ModalRegister({ onClose }) {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(input);
-    dispatch(postEmpresa(input));
+    console.log(input.email, input.clave);
+    dispatch(postEmpresa(input)).then(() =>
+      dispatch(getUserActual(input.email, input.clave))
+    );
     setInput({
       email: "",
       clave: "",
@@ -67,7 +69,7 @@ export default function ModalRegister({ onClose }) {
                 <input
                   type="password"
                   name="clave"
-                  value={input.clave}
+                  value={input.clave.toString()}
                   onChange={(e) => handlerChange(e)}
                 />
               </label>
