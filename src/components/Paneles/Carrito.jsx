@@ -19,7 +19,7 @@ export default function Carrito() {
     <div className="carritoContainer">
       <Navbar />
       <div className="carritoPanel">
-        <h2>Carrito de pedidos</h2>
+        <h2>Pedidos Pendientes</h2>
         <div className="cards">
           {productos.length &&
             categorias.length &&

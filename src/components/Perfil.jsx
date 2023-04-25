@@ -19,8 +19,8 @@ export default function Perfil() {
             {userActual.nombre}
           </span>
           <span>Email: {userActual.email}</span>
-
-          <span>Rol: {userActual.Rol.rol}</span>
+          <span>Rol: Super Administrador</span>
+          {/* <span>Rol: {userActual.Rol.rol}</span> */}
 
           <div className="password">
             <Link to="/usuarios">
