@@ -74,7 +74,6 @@ export default function CreacionProducto() {
       <div className="container">
         {detailDepo && (
           <>
-            {console.log(detailDepo.TipoDepositoId)}
             <h2>Editando: {detailDepo.nombre}</h2>
 
             <form className="formEdit" onSubmit={(e) => handlerSubmitForm(e)}>
@@ -90,9 +89,9 @@ export default function CreacionProducto() {
                         <input
                           type="radio"
                           name="tipoDepositoID"
-                          /* id={tipo.id} */
+                          id={tipo.id}
                           value={tipo.id}
-                          checked={tipo.id === detailDepo.TipoDepositoId}
+                          /* checked={tipo.id === detailDepo.TipoDepositoId} */
                           onChange={(e) => handlerSelectTipo(e)}
                         />
                       </label>
