@@ -2,8 +2,12 @@ import React from "react";
 import Navbar from "./Navbar";
 import perfil from "../img/perfil.jpg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Perfil() {
+  const userActual = useSelector((state) => state.userActual);
+  console.log(userActual);
+
   return (
     <div className="mainContainer">
       <Navbar />
@@ -12,11 +16,11 @@ export default function Perfil() {
         <div className="perfilInfo">
           <span>
             <img src={perfil} alt=""></img>
-            Usuario nuevo
+            {userActual.nombre}
           </span>
-          <span>Email: emailprueba@gmail.com</span>
-          <span>Celular: 999999999999</span>
-          <span>Rol: Administrador</span>
+          <span>Email: {userActual.email}</span>
+
+          <span>Rol: {userActual.Rol.rol}</span>
 
           <div className="password">
             <Link to="/usuarios">

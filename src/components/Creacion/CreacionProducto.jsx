@@ -160,17 +160,17 @@ export default function CreacionProducto() {
                 ></input>
               </div>
 
-              {/* <div className="imgProd">
+              <div className="imgProd">
                 <label>Imagen: </label>
                 <input
-                  type="file"
+                  type="url"
                   name="imagen"
                   value={input.imagen}
                   onChange={(e) => handlerChange(e)}
                   required
                 ></input>
-              </div> */}
-              {/* <div className="imgProd">
+              </div>
+              {/*  <div className="imgProd">
                 <label>Imagen: </label>
                 <input
                   type="text"
