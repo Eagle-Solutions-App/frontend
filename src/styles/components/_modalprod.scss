@@ -57,6 +57,7 @@
 
         p {
           text-align: center;
+          width: 20%;
         }
       }
 
@@ -159,6 +160,10 @@
         }
         .modalCats {
           flex-direction: column;
+          align-items: center;
+          p {
+            width: 50%;
+          }
         }
         .descObs {
           flex-direction: column;
