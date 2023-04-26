@@ -7,7 +7,7 @@ import ReactPlayer from "react-player";
 
 export default function Perfil() {
   const userActual = useSelector((state) => state.userActual);
-
+console.log(userActual)
   return (
     userActual && (
       <div className="mainContainer">
@@ -20,9 +20,7 @@ export default function Perfil() {
               {userActual.nombre}
             </span>
             <span>Email: {userActual.email}</span>
-            <span>Rol: Administrador</span>
-            {/* <span>Rol: {userActual.Rol.rol}</span> */}
-
+            <span>Rol: {userActual.Rol.rol}</span>
             <div className="password">
               <Link to="/usuarios">
                 <button>Cambio de contraseña</button>
