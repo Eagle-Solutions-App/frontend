@@ -17,7 +17,8 @@ import axios from "axios";
 import EmpresasBloqueadas from "./components/Bloqueos/EmpresasBloqueadas";
 /* import { useSelector } from "react-redux"; */
 
-axios.defaults.baseURL = "http://localhost:3001";
+//axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://backeagle.onrender.com";
 
 function App() {
   /* const userActual = useSelector((state) => state.userActual); */
