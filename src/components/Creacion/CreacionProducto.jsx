@@ -55,7 +55,6 @@ export default function CreacionProducto() {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(postProd(input));
     alert("Producto creado satisfactoriamente! Se lo redirigirá al inicio...");
     setInput({
@@ -71,8 +70,8 @@ export default function CreacionProducto() {
     navigate("/productos");
   };
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  console.log(selectedImage);
+  /*   const [selectedImage, setSelectedImage] = useState(null); */
+  /* console.log(selectedImage); */
 
   return (
     <div className="mainContainer">

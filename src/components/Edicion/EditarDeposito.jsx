@@ -51,7 +51,6 @@ export default function CreacionProducto() {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(updateDepo(input, id));
     alert("Depósito editado exitosamente! Se lo redirigirá al inicio...");
     setInput({

@@ -70,8 +70,6 @@ function rootReducer(state = initialState, action) {
       };
 
     case GET_USER_ACTUAL:
-      console.log(action.payload);
-
       return {
         ...state,
         userActual: action.payload,

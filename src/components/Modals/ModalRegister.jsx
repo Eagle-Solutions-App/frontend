@@ -21,7 +21,6 @@ export default function ModalRegister({ onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(input.email, input.clave);
     dispatch(postEmpresa(input)).then(() =>
       dispatch(getUserActual(input.email, input.clave))
     );

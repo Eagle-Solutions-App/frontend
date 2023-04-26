@@ -43,7 +43,6 @@ export default function CreacionDeposito() {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(postDeposito(input));
     alert("Depósito creado con éxito! Se lo redirigirá al inicio...");
     setInput({

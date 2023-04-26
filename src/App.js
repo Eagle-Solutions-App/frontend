@@ -15,12 +15,12 @@ import UsuariosBloqueados from "./components/Bloqueos/UsuariosBloqueados";
 import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 import EmpresasBloqueadas from "./components/Bloqueos/EmpresasBloqueadas";
-import { useSelector } from "react-redux";
+/* import { useSelector } from "react-redux"; */
 
 axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
-  const userActual = useSelector((state) => state.userActual);
+  /* const userActual = useSelector((state) => state.userActual); */
 
   return (
     <div className="App">

@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../img/logo.png";
-import { getUserActual } from "../../redux/actions/actions";
-import { useDispatch } from "react-redux";
+import { getUserActual, getUsuarios } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ModalLogin({ onClose }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const usuarios = useSelector((state) => state.usuarios);
+
+  useEffect(() => {
+    dispatch(getUsuarios());
+  }, [dispatch]);
+
   const [input, setInput] = useState({
     email: "",
     clave: "",
@@ -21,11 +27,24 @@ export default function ModalLogin({ onClose }) {
     dispatch(getUserActual(input.email, input.clave)).then(() =>
       dispatch(getUserActual(input.email, input.clave))
     );
-    setInput({
-      email: "",
-      clave: "",
-    });
-    navigate("/perfil");
+
+    const userExists = usuarios.find(
+      (user) => user.email.toLowerCase() === input.email.toLowerCase()
+    );
+    if (userExists) {
+      dispatch(getUserActual(input.email, input.clave)).then(() =>
+        dispatch(getUserActual(input.email, input.clave))
+      );
+
+      setInput({
+        email: "",
+        clave: "",
+      });
+      navigate("/perfil");
+    } else {
+      // Si el correo electrónico no existe, mostrar un mensaje de error
+      alert("El correo electrónico ingresado no está registrado.");
+    }
   };
 
   return (

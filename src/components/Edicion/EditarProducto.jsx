@@ -17,7 +17,6 @@ export default function EditarProducto() {
   const dispatch = useDispatch();
 
   const detail = useSelector((state) => state.detail.resultado);
-  console.log(detail);
   const { id } = useParams();
 
   const [input, setInput] = useState({
@@ -61,7 +60,6 @@ export default function EditarProducto() {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(updateProd(input, id));
     alert("Producto editado satisfactoriamente! Se lo redirigirá al inicio...");
     setInput({

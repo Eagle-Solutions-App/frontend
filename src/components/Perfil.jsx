@@ -7,39 +7,37 @@ import ReactPlayer from "react-player";
 
 export default function Perfil() {
   const userActual = useSelector((state) => state.userActual);
-  console.log(userActual);
 
   return (
-    <div className="mainContainer">
-      <Navbar />
-      <div className="perfilContainer">
-        <h2>Perfil</h2>
-        <div className="perfilInfo">
-          <span>
-            <img src={perfil} alt=""></img>
-            {userActual.nombre}
-          </span>
-          <span>Email: {userActual.email}</span>
-          <span>Rol: Administrador</span>
-          {/* <span>Rol: {userActual.Rol.rol}</span> */}
+    userActual && (
+      <div className="mainContainer">
+        <Navbar />
+        <div className="perfilContainer">
+          <h2>Perfil</h2>
+          <div className="perfilInfo">
+            <span>
+              <img src={perfil} alt=""></img>
+              {userActual.nombre}
+            </span>
+            <span>Email: {userActual.email}</span>
+            <span>Rol: Administrador</span>
+            {/* <span>Rol: {userActual.Rol.rol}</span> */}
 
-          <div className="password">
-            <Link to="/usuarios">
-              <button>Cambio de contraseña</button>
-            </Link>
+            <div className="password">
+              <Link to="/usuarios">
+                <button>Cambio de contraseña</button>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="ayuda">
-          <h2>Ayuda</h2>
-          <p>Video instructivo de la pagina:</p>
-          <div className="video">
-            <ReactPlayer
-              url="https://www.youtube.com/watch?v=ugp2hjSycmk&ab_channel=TechRiders-Espa%C3%B1a-"
-              controls
-            />
+          <div className="ayuda">
+            <h2>Ayuda</h2>
+            <p>Video instructivo de la pagina:</p>
+            <div className="video">
+              <ReactPlayer url="https://youtu.be/11LXZLx-FWg" controls />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    )
   );
 }

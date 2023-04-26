@@ -14,7 +14,6 @@ export default function Usuarios() {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuariosHome);
   let paginateNum = useSelector((state) => state.paginate);
-  let userActual = useSelector((state) => state.userActual);
 
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 6;
@@ -45,9 +44,6 @@ export default function Usuarios() {
 
     dispatch(addPaginate(nextPage));
   };
-
-  console.log(userActual);
-  console.log(currentUsuarios);
 
   return (
     <div className="mainContainer">

@@ -32,7 +32,6 @@ export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(updateUser(input, id));
     onChange();
     setInput({

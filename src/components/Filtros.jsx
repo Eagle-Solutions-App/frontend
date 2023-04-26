@@ -42,7 +42,6 @@ export default function Filtros({ open }) {
 
   const fn4 = (e) => {
     dispatch(searchXtipo(e.target.value));
-    console.log(e.target.value);
   };
 
   /* const recargaHandler = (e) => {
