@@ -24,6 +24,7 @@ import {
   SEARCHxROL,
   SEARCHxTIPO,
   GET_USER_ACTUAL,
+  CLEAN_USER_ACTUAL,
 } from "../actions/actions";
 
 const initialState = {
@@ -73,6 +74,11 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         userActual: action.payload,
+      };
+    case CLEAN_USER_ACTUAL:
+      return {
+        ...state,
+        userActual: [],
       };
 
     case GET_DEPOSITOS:
