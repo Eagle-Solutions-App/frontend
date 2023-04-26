@@ -1,47 +1,49 @@
 .landCont {
-  width: 100%;
-  height: 100%;
-  background-color: white;
   position: relative;
-  /* background-image: url("../../img/background.jpg");
-  background-position: center;
-  background-size: cover; */
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; */
-  /*  border: 0.5px solid black; */
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+  //  border: 10px solid black;
 
-  .imgLand {
-    width: 10vw;
-    position: absolute;
-    left: 5vw;
-    filter: drop-shadow(0 0 0.75rem black);
-  }
-
-  .back {
-    object-fit: contain;
+   
+   .backDiv {
+     position: relative;
+     position: relative;
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+    }
+    
+    .back {
+      object-fit: cover;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .imgDiv {
+      position: absolute;
+    width: 30%;
+    height: 30%;
+      // border: 2px solid red;
+    }
+    
+    .imgLand {
+      overflow: hidden; 
+    position: relative;
     width: 100%;
     height: 100%;
-    background-size: cover;
-  }
+    /* top: 0; */
+    /* left: 0; */
+    object-fit: contain;
+    display: flex;
+      filter: drop-shadow(0 0 0.75rem black);
+    }
 
-  .imgDiv {
-    position: relative;
-    border: 2px solid red;
-  }
-
-  .backDiv {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    border: 2px solid green;
-  }
-
-  .landingContainer {
+    .landingContainer {
     position: absolute;
     top: 25%;
-    padding: 5% 20px;
+    //padding: 5% 20px;
     -webkit-transform: skewY(-5deg);
     -moz-transform: skewY(-5deg);
     -ms-transform: skewY(-5deg);
@@ -58,9 +60,8 @@
       transform: skewY(5deg);
       background-color: transparent;
       color: white;
-      padding-left: 10%;
-      padding-right: 10%;
-
+      padding: 5%;
+ 
       h1 {
         font-size: 45px;
       }
