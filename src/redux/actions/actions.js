@@ -4,7 +4,6 @@ export const GET_DEPOSITOS = "GET_DEPOSITOS";
 export const GET_TIPOS = "GET_TIPOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
-export const GET_USER_ACTUAL = "GET_USER_ACTUAL";
 export const GET_ROLES = "GET_ROLES";
 export const GET_CATEG = "GET_CATEG";
 export const GET_SUBCATEG = "GET_SUBCATEG";
@@ -15,8 +14,9 @@ export const DELETE_USER = "DELETE_USER";
 export const DELETE_DEPO = "DELETE_DEPO";
 export const DELETE_EMPRESA = "DELETE_EMPRESA";
 
+export const GET_USER_ACTUAL = "GET_USER_ACTUAL";
+export const CLEAN_USER_ACTUAL = "CLEAN_USER_ACTUAL";
 export const GET_DETAIL = "GET_DETAIL";
-export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const GET_DETAIL_DEPO = "GET_DETAIL_DEPO";
 export const CLEAN_DETAIL_DEPO = "CLEAN_DETAIL_DEPO";
 
@@ -260,6 +260,12 @@ export const getDetailDepo = (id) => {
 };
 
 /****************** EXTRAS ******************/
+export function cleanUserActual(id) {
+  return {
+    type: CLEAN_USER_ACTUAL,
+  };
+}
+
 export const searchXnameProd = (nombre) => {
   return {
     type: SEARCHxNAME_PROD,

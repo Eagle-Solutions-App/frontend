@@ -1,20 +1,23 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../img/logo2.png";
 import shopping from "../img/shopping.png";
-import { allProductos } from "../redux/actions/actions";
+import { allProductos, cleanUserActual } from "../redux/actions/actions";
 import Filtros from "./Filtros";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userActual = useSelector((state) => state.userActual);
 
   const onCloseSession = () => {
     let res = window.confirm(`Está seguro de querer cerrar su sesión?`);
     if (res === true) {
-      /* dispatch(closeSession(id)); */
+      dispatch(cleanUserActual(userActual.id));
     }
+    navigate("/");
   };
 
   const recargaHandler = (e) => {

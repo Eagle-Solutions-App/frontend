@@ -9,6 +9,9 @@ export default function ModalLogin({ onClose }) {
   const dispatch = useDispatch();
   const usuarios = useSelector((state) => state.usuarios);
 
+  const userActual = useSelector((state) => state.userActual);
+  console.log(userActual);
+
   useEffect(() => {
     dispatch(getUsuarios());
   }, [dispatch]);
