@@ -7,7 +7,7 @@ import ReactPlayer from "react-player";
 
 export default function Perfil() {
   const userActual = useSelector((state) => state.userActual);
-  console.log(userActual);
+
   return (
     userActual && (
       <div className="mainContainer">

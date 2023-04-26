@@ -73,7 +73,7 @@ export default function Usuarios() {
         {usuarios.length > 0 && (
           <div className="cards">
             {currentUsuarios
-              .filter((user) => user.bloqueo === false)
+              .filter((user) => user.bloqueo === false && user.Rol.id !== 1)
               .map((u) => (
                 <div key={u.id}>
                   <UserCard
