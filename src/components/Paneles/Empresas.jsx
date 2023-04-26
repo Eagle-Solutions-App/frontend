@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
-import borrar from "../../img/trash.png";
-import editar from "../../img/edit.png";
-import bloqueo from "../../img/bloqueo.png";
 import EmpresaCard from "../Cards/EmpresaCard";
 import { getEmpresas, addPaginate } from "../../redux/actions/actions";
 import PaginadoEmpresas from "../Paginados/PaginadoEmpresas";
+import { Link } from "react-router-dom";
 
 export default function Empresas() {
   const dispatch = useDispatch();
-  const empresas = useSelector((state) => state.empresas);
+  let empresas = useSelector((state) => state.empresas);
   let paginateNum = useSelector((state) => state.paginate);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,10 +41,16 @@ export default function Empresas() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Empresas</h2>
+
+        <div className="btnsPanel">
+          <Link to="/empresasBloqueadas" style={{ textDecoration: "none" }}>
+            <button className="crear">Ver empresas bloqueadas</button>
+          </Link>
+        </div>
 
         <PaginadoEmpresas
           empresasPerPage={empresasPerPage}
@@ -60,19 +64,22 @@ export default function Empresas() {
 
         {empresas.length > 0 && (
           <div className="cards">
-            {currentEmpresas.map((e) => (
-              <div key={e.id}>
-                <EmpresaCard
-                  nombre={e.nombre}
-                  email={e.email}
-                  descripcion={e.descripcion}
-                  id={e.id}
-                  editar={editar}
-                  borrar={borrar}
-                  bloqueo={bloqueo}
-                />
-              </div>
-            ))}
+            {currentEmpresas
+              .filter((c) => c.bloqueo === false)
+              .map((e) => (
+                <div key={e.id}>
+                  <EmpresaCard
+                    nombre={e.nombre}
+                    email={e.email}
+                    descripcion={e.descripcion}
+                    id={e.id}
+                    bloqueo={e.bloqueo}
+                    fechaSuscrip={e.suscripcionFecha}
+                    tiempoSuscrip={e.suscripcionTiempo}
+                    /* imagen={e.Usuarios[0].imagen} */
+                  />
+                </div>
+              ))}
           </div>
         )}
 

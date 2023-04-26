@@ -7,7 +7,7 @@ import Navbar from "../Navbar";
 export default function CreacionDeposito() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const rol = useSelector((state) => state.roles);
+  const roles = useSelector((state) => state.roles);
 
   const [input, setInput] = useState({
     nombre: "",
@@ -29,12 +29,10 @@ export default function CreacionDeposito() {
     if (!input.rolID.includes(e.target.value)) {
       setInput({ ...input, rolID: e.target.value });
     }
-    console.log(e.target.value);
   };
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(postUser(input));
     alert("Usuario creado con éxito! Se lo redirigirá al inicio...");
     setInput({
@@ -48,7 +46,7 @@ export default function CreacionDeposito() {
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Creación de Usuario</h2>
@@ -88,15 +86,14 @@ export default function CreacionDeposito() {
 
               <div className="selectCat">
                 <select onChange={(e) => handlerSelectRol(e)}>
-                  {rol?.map((obj) => {
-                    return (
-                      <>
-                        <option value={obj.id} key={obj.id}>
-                          {obj.rol}
+                  {roles?.map(
+                    (rol) =>
+                      rol.id !== 1 && (
+                        <option value={rol.id} key={rol.id}>
+                          {rol.rol}
                         </option>
-                      </>
-                    );
-                  })}
+                      )
+                  )}
                 </select>
               </div>
             </div>

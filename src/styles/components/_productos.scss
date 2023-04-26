@@ -1,35 +1,48 @@
-.container {
-  background-color: $azul2;
-  position: absolute;
-  top: 120px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-
-  h2 {
-    color: white;
-    font-size: 30px;
-    margin-bottom: 2rem;
-  }
-
-  .btnsPanel {
-    width: 100%;
+.mainContainer {
+  height: 100vh;
+  overflow: auto;
+  .container {
+    background-color: $gris;
+    position: absolute;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 1%;
+    flex-direction: column;
+    width: 100%;
 
-    .crear {
-      font-family: "Poppins", sans-serif;
-      border-radius: 5px;
-      height: 40px;
-      margin-bottom: 30px;
-      cursor: pointer;
+    h2 {
+      color: white;
+      font-size: 30px;
+      margin-bottom: 2rem;
+    }
+
+    .btnsPanel {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1%;
+
+      .crear {
+        font-family: "Poppins", sans-serif;
+        border-radius: 5px;
+        height: 40px;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+    }
+
+    .cards {
+      width: 75%;
     }
   }
+}
 
-  .cards {
-    width: 75%;
+@media (max-width: 768px) {
+  .mainContainer {
+    .container {
+      .cards {
+        width: 85%;
+      }
+    }
   }
 }

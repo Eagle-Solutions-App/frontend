@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar";
 import UserCard from "../Cards/UserCard";
-import { getUsuarios, addPaginate } from "../../redux/actions/actions";
+import {
+  getUsuarios,
+  addPaginate,
+  getRoles,
+} from "../../redux/actions/actions";
 import PaginadoUser from "../Paginados/PaginadoUsers";
 import { Link } from "react-router-dom";
 
 export default function Usuarios() {
   const dispatch = useDispatch();
-  const usuarios = useSelector((state) => state.usuarios);
+  const usuarios = useSelector((state) => state.usuariosHome);
   let paginateNum = useSelector((state) => state.paginate);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,6 +23,7 @@ export default function Usuarios() {
 
   useEffect(() => {
     dispatch(getUsuarios());
+    dispatch(getRoles());
     setCurrentPage(paginateNum);
   }, [dispatch, paginateNum]);
 
@@ -39,10 +44,9 @@ export default function Usuarios() {
 
     dispatch(addPaginate(nextPage));
   };
-  console.log(currentUsuarios);
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Usuarios</h2>
@@ -68,18 +72,20 @@ export default function Usuarios() {
 
         {usuarios.length > 0 && (
           <div className="cards">
-            {currentUsuarios.map((u) => (
-              <div key={u.id}>
-                <UserCard
-                  nombre={`${u.nombre} ${u.apellido}`}
-                  email={u.email}
-                  id={u.id}
-                  empresa={u.Empresa.nombre}
-                  rol={u.Rols[0].rol}
-                  bloqueado={u.bloqueado}
-                />
-              </div>
-            ))}
+            {currentUsuarios
+              .filter((user) => user.bloqueo === false)
+              .map((u) => (
+                <div key={u.id}>
+                  <UserCard
+                    nombre={`${u.nombre} ${u.apellido}`}
+                    email={u.email}
+                    id={u.id}
+                    empresa={u.Empresa.nombre}
+                    rol={u.Rol.rol}
+                    bloqueo={u.bloqueo}
+                  />
+                </div>
+              ))}
           </div>
         )}
 

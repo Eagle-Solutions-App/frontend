@@ -1,26 +1,34 @@
 import axios from "axios";
 export const GET_PRODUCTOS = "GET_PRODUCTOS";
 export const GET_DEPOSITOS = "GET_DEPOSITOS";
+export const GET_TIPOS = "GET_TIPOS";
 export const GET_EMPRESAS = "GET_EMPRESAS";
 export const GET_USUARIOS = "GET_USUARIOS";
+export const GET_USER_ACTUAL = "GET_USER_ACTUAL";
 export const GET_ROLES = "GET_ROLES";
+export const GET_CATEG = "GET_CATEG";
+export const GET_SUBCATEG = "GET_SUBCATEG";
 export const ALL_PRODUCTOS = "ALL_PRODUCTOS";
 
 export const DELETE_PROD = "DELETE_PROD";
 export const DELETE_USER = "DELETE_USER";
 export const DELETE_DEPO = "DELETE_DEPO";
+export const DELETE_EMPRESA = "DELETE_EMPRESA";
 
 export const GET_DETAIL = "GET_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const GET_DETAIL_DEPO = "GET_DETAIL_DEPO";
 export const CLEAN_DETAIL_DEPO = "CLEAN_DETAIL_DEPO";
 
-export const SEARCHxNAME = "SEARCHxNAME";
+export const SEARCHxNAME_PROD = "SEARCHxNAME_PROD";
+export const SEARCHxNAME_EMPR = "SEARCHxNAME_EMPR";
+export const SEARCHxNAME_DEPO = "SEARCHxNAME_DEPO";
+export const SEARCHxNAME_USERS = "SEARCHxNAME_USERS";
 export const SEARCHxCATEGORIA = "SEARCHxCATEGORIA";
 export const SEARCHxSUBCATEGORIA = "SEARCHxSUBCATEGORIA";
+export const SEARCHxROL = "SEARCHxROL";
+export const SEARCHxTIPO = "SEARCHxTIPO";
 export const ADD_PAGINATE = "ADD_PAGINATE";
-export const BLOCK_USER = "BLOCK_USER";
-export const UNBLOCK_USER = "UNBLOCK_USER";
 
 /****************** GETS ******************/
 export const getProductos = () => {
@@ -53,11 +61,31 @@ export const getUsuarios = () => {
   };
 };
 
+export const getUserActual = (email, clave) => {
+  return async function (dispatch) {
+    const response = await axios.get(`/usuarios?email=${email}&clave=${clave}`);
+    return dispatch({
+      type: GET_USER_ACTUAL,
+      payload: response.data.resultado,
+    });
+  };
+};
+
 export const getDepositos = () => {
   return async function (dispatch) {
     const response = await axios.get("/depositos");
     return dispatch({
       type: GET_DEPOSITOS,
+      payload: response.data,
+    });
+  };
+};
+
+export const getTipos = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/tipoDepositos");
+    return dispatch({
+      type: GET_TIPOS,
       payload: response.data,
     });
   };
@@ -83,6 +111,26 @@ export const getRoles = () => {
   };
 };
 
+export const getCateg = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/categorias");
+    return dispatch({
+      type: GET_CATEG,
+      payload: response.data,
+    });
+  };
+};
+
+export const getSubcategs = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/subcategorias");
+    return dispatch({
+      type: GET_SUBCATEG,
+      payload: response.data.resultado,
+    });
+  };
+};
+
 /****************** CREACIONES ******************/
 export const postProd = (payload) => {
   return async function () {
@@ -99,14 +147,48 @@ export const postDeposito = (payload) => {
 };
 
 export const postUser = (payload) => {
-  console.log(payload);
   return async function () {
     const response = await axios.post("/usuarios", payload);
     return response;
   };
 };
 
+export const postEmpresa = (payload) => {
+  return async function () {
+    const response = await axios.post("/empresas", payload);
+    return response;
+  };
+};
+
 /****************** EDICIONES ******************/
+
+export const blockEmpresa = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/empresas/${id}`, data);
+    dispatch(getEmpresas());
+  };
+};
+
+export const unblockEmpresa = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/empresas/${id}`, data);
+    dispatch(getEmpresas());
+  };
+};
+
+export const blockUsuario = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/usuarios/${id}`, data);
+    dispatch(getUsuarios());
+  };
+};
+
+export const unblockUsuario = (data, id) => {
+  return async function (dispatch) {
+    await axios.put(`/usuarios/${id}`, data);
+    dispatch(getUsuarios());
+  };
+};
 
 export const updateProd = (data, id) => {
   return async function () {
@@ -149,11 +231,17 @@ export const deleteDepo = (id) => {
   };
 };
 
+export const deleteEmpresa = (id) => {
+  return async function (dispatch) {
+    await axios.delete(`/empresas/${id}`);
+    dispatch({ type: DELETE_EMPRESA, payload: id });
+  };
+};
+
 /****************** DETAILS ******************/
 export const getDetail = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/productos/${id}`);
-    console.log(response.data);
     return dispatch({
       type: GET_DETAIL,
       payload: response.data,
@@ -164,7 +252,6 @@ export const getDetail = (id) => {
 export const getDetailDepo = (id) => {
   return async function (dispatch) {
     const response = await axios.get(`/depositos/${id}`);
-    console.log(response.data);
     return dispatch({
       type: GET_DETAIL_DEPO,
       payload: response.data,
@@ -173,9 +260,28 @@ export const getDetailDepo = (id) => {
 };
 
 /****************** EXTRAS ******************/
-export const searchXname = (nombre) => {
+export const searchXnameProd = (nombre) => {
   return {
-    type: SEARCHxNAME,
+    type: SEARCHxNAME_PROD,
+    payload: nombre,
+  };
+};
+export const searchXnameEmpr = (nombre) => {
+  return {
+    type: SEARCHxNAME_EMPR,
+    payload: nombre,
+  };
+};
+
+export const searchXnameDepo = (nombre) => {
+  return {
+    type: SEARCHxNAME_DEPO,
+    payload: nombre,
+  };
+};
+export const searchXnameUsers = (nombre) => {
+  return {
+    type: SEARCHxNAME_USERS,
     payload: nombre,
   };
 };
@@ -187,10 +293,24 @@ export const searchXcategoria = (categoria) => {
   };
 };
 
-export const searchXsubcategoria = (subcategoria) => {
+export const searchXsubcategoria = (Subcategorium) => {
   return {
     type: SEARCHxSUBCATEGORIA,
-    payload: subcategoria,
+    payload: Subcategorium,
+  };
+};
+
+export const searchXrol = (rol) => {
+  return {
+    type: SEARCHxROL,
+    payload: rol,
+  };
+};
+
+export const searchXtipo = (tipo) => {
+  return {
+    type: SEARCHxTIPO,
+    payload: tipo,
   };
 };
 
@@ -198,19 +318,5 @@ export const addPaginate = (num) => {
   return {
     type: ADD_PAGINATE,
     payload: num,
-  };
-};
-
-export const blockUser = (id) => {
-  return {
-    type: BLOCK_USER,
-    payload: id,
-  };
-};
-
-export const unblockUser = (id) => {
-  return {
-    type: UNBLOCK_USER,
-    payload: id,
   };
 };

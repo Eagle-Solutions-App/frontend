@@ -7,9 +7,13 @@ export default function ModalProd({
   nombre,
   codigo,
   descripcion,
+  categoria,
   subcategoria,
   shopping,
   editar,
+  cantidad,
+  imagen,
+  deposito,
 }) {
   return (
     <div className="modalProd">
@@ -21,13 +25,36 @@ export default function ModalProd({
       </h2>
       <div className="formModal">
         <div className="infoModal">
-          <div className="modalCats">
-            <p>Categoría: Bien de uso</p>
-            <p>Subcategoría: Materiales</p>
+          <div className="imgModal">
+            <img src={imagen} alt="" />
           </div>
-          <div className="modalDesc">
-            <p>Descripción:</p>
-            <pre className="descBox">{descripcion}</pre>
+          <div className="modalCats">
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Categoría:</b>
+              <br></br> {categoria}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Subcategoría:</b>
+              <br></br> {subcategoria}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}> Cantidad:</b>
+              <br></br> {cantidad}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}>
+                Depósito Actual:
+              </b>
+              <br></br> {deposito}
+            </p>
+          </div>
+          <div className="descObs">
+            <div className="modalDesc">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>Descripción:</b>
+              </p>
+              <pre className="descBox">{descripcion}</pre>
+            </div>
           </div>
         </div>
 

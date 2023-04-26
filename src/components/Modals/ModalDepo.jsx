@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ModalProd({
+export default function ModalDepo({
   setShowModal,
   id,
   nombre,
@@ -12,9 +12,11 @@ export default function ModalProd({
   altura,
   ciudad,
   editar,
+  observaciones,
+  productos,
 }) {
   return (
-    <div className="modalProd">
+    <div className="modalDepo">
       <span className="close" onClick={() => setShowModal(false)}>
         &times;
       </span>
@@ -22,13 +24,49 @@ export default function ModalProd({
       <div className="formModal">
         <div className="infoModal">
           <div className="modalCats">
-            <p>Ciudad(prov.): {`${ciudad}(${provincia})`}</p>
-            <p>País: {pais}</p>
-            <p>Dirección: {`${calle} ${altura}`}</p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}>Ciudad(prov.):</b>{" "}
+              <br></br>
+              {`${ciudad}(${provincia})`}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}>País:</b>
+              <br></br> {pais}
+            </p>
+            <p>
+              <b style={{ textDecoration: "underline 2px" }}>Dirección:</b>
+              <br></br> {`${calle} ${altura}`}
+            </p>
           </div>
-          <div className="modalDesc">
-            <p>Descripción:</p>
-            <div className="descBox">{descripcion}</div>
+          <div className="descObsProds">
+            <div className="modalDesc">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>Descripción:</b>
+              </p>
+              <div className="descBox">{descripcion}</div>
+            </div>
+            <div className="modalObs">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>
+                  Observaciones:
+                </b>
+              </p>
+              <div className="obsBox">{observaciones}</div>
+            </div>
+            <div className="modalProds">
+              <p>
+                <b style={{ textDecoration: "underline 2px" }}>
+                  Productos disponibles:
+                </b>
+              </p>
+              <div className="prodsBox">
+                {productos?.map((p) => (
+                  <div key={p.id}>
+                    <p>{p.nombre}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 

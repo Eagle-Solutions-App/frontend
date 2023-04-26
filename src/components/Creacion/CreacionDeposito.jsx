@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postDeposito } from "../../redux/actions/actions";
+import { postDeposito, getTipos } from "../../redux/actions/actions";
 import Navbar from "../Navbar";
+// import { Deposito } from "../../../../backend/src/models/Deposito";
 
 export default function CreacionDeposito() {
+  const tipos = useSelector((state) => state.tipos);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [input, setInput] = useState({
-    id: "",
     nombre: "",
     calle: "",
     altura: "",
@@ -16,7 +19,23 @@ export default function CreacionDeposito() {
     provincia: "",
     pais: "",
     descripcion: "",
+    observaciones: "",
+    tipoDepositoID: "",
+    empresaID: 1,
   });
+
+  useEffect(() => {
+    dispatch(getTipos());
+  }, [dispatch]);
+
+  const handlerSelectTipo = (e) => {
+    if (!input.tipoDepositoID.includes(e.target.value)) {
+      setInput({
+        ...input,
+        tipoDepositoID: e.target.value,
+      });
+    }
+  };
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -24,7 +43,6 @@ export default function CreacionDeposito() {
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(postDeposito(input));
     alert("Depósito creado con éxito! Se lo redirigirá al inicio...");
     setInput({
@@ -35,17 +53,43 @@ export default function CreacionDeposito() {
       provincia: "",
       pais: "",
       descripcion: "",
+      observaciones: "",
+      tipoDepositoID: "",
+      empresaID: 1,
     });
     navigate("/depositos");
   };
 
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Creación de Depósito</h2>
 
         <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
+          <p>Selecciona una tipo de Deposito!</p>
+          <div className="selectSub">
+            <div className="check">
+              {tipos?.map((tipo) => {
+                return (
+                  <div key={tipo.id}>
+                    <label htmlFor={tipo.tipo} key={tipo.id}>
+                      {tipo.tipo}
+
+                      <input
+                        type="radio"
+                        name="tipo"
+                        id={tipo.id}
+                        value={tipo.id}
+                        onChange={(e) => handlerSelectTipo(e)}
+                      />
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
           <div className="createProd">
             <div className="namecodedesc">
               <div className="nameProd">
@@ -121,6 +165,18 @@ export default function CreacionDeposito() {
                   cols="20"
                   rows="4"
                   value={input.descripcion}
+                  onChange={(e) => handlerChange(e)}
+                ></textarea>
+              </div>
+
+              <div className="obsProd">
+                <label>Observaciones: </label>
+                <textarea
+                  type="text"
+                  name="observaciones"
+                  cols="20"
+                  rows="4"
+                  value={input.observaciones}
                   onChange={(e) => handlerChange(e)}
                 ></textarea>
               </div>

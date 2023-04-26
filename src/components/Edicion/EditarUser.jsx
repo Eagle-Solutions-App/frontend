@@ -1,40 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import { updateProd } from "../../redux/actions/actions";
+import React, { useEffect, useState } from "react";
+import { getRoles, getUsuarios, updateUser } from "../../redux/actions/actions";
 
-export default function CreacionProducto({
-  setShowModal,
-  id,
-  nombre,
-  email,
-  empresa,
-  rol,
-}) {
-  const navigate = useNavigate();
+export default function EditarUser({ setShowModal, id, nombre, email, rol }) {
   const dispatch = useDispatch();
 
-  /* const detail = useSelector((state) => state.detailUser); */
   const roles = useSelector((state) => state.roles);
+  useEffect(() => {
+    dispatch(getRoles());
+  }, [dispatch]);
 
   const [input, setInput] = useState({
     id,
-    nombre: "",
+    rolID: "",
   });
 
-  /*   const handlerChange = (e) => {
-    setInput({ ...input, [e.target.name]: e.target.value });
-  }; */
+  const handlerSelectRol = (e) => {
+    if (!input.rolID.includes(e.target.value)) {
+      setInput({ ...input, rolID: e.target.value });
+    }
+  };
+
+  const onChange = () => {
+    let res = window.confirm(
+      `¿Está seguro de querer cambiarle el rol de ${nombre}?`
+    );
+    if (res === true) {
+      dispatch(getUsuarios());
+    }
+  };
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
-    dispatch(updateProd(input, id));
-    alert("Usuario editado satisfactoriamente! Se lo redirigirá al inicio...");
+    dispatch(updateUser(input, id));
+    onChange();
     setInput({
-      nombre: "",
+      rolID: "",
     });
-    navigate("/usuarios");
   };
 
   return (
@@ -45,24 +47,23 @@ export default function CreacionProducto({
         </span>
         <h2>Editando: {nombre}</h2>
         <form className="formModal" onSubmit={(e) => handlerSubmitForm(e)}>
-          <div className="editModal">
-            <div className="infoModal">
-              <div className="nameModal">
-                <p>Nombre del usuario: {nombre}</p>
-                <p>Correo del usuario: {email}</p>
-                <p>Rol actual: {rol}</p>
-                <div className="selectModal">
-                  <select>
-                    {roles?.map((obj) => {
-                      return (
-                        <option value={obj.id} key={obj.id}>
-                          {obj.rol}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              </div>
+          <div className="infoModal">
+            <p>Nombre del usuario: {nombre}</p>
+            <p>Correo del usuario: {email}</p>
+            <p>Rol: {rol}</p>
+            <label>¿Desea cambiar el rol?</label>
+            <div className="selectModal">
+              <select onChange={(e) => handlerSelectRol(e)}>
+                <option hidden>Seleccione un nuevo rol...</option>
+                {roles?.map(
+                  (rol) =>
+                    rol.id !== 1 && (
+                      <option value={rol.id} key={rol.id}>
+                        {rol.rol}
+                      </option>
+                    )
+                )}
+              </select>
             </div>
           </div>
 

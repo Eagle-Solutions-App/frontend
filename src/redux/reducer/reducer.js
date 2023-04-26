@@ -1,7 +1,8 @@
 import {
   GET_PRODUCTOS,
   ALL_PRODUCTOS,
-  SEARCHxNAME,
+  SEARCHxNAME_PROD,
+  SEARCHxNAME_EMPR,
   SEARCHxCATEGORIA,
   SEARCHxSUBCATEGORIA,
   GET_DETAIL,
@@ -10,35 +11,37 @@ import {
   DELETE_PROD,
   DELETE_USER,
   DELETE_DEPO,
+  DELETE_EMPRESA,
   GET_DEPOSITOS,
   GET_DETAIL_DEPO,
   GET_EMPRESAS,
   GET_ROLES,
-  BLOCK_USER,
-  UNBLOCK_USER,
+  GET_TIPOS,
+  GET_CATEG,
+  GET_SUBCATEG,
+  SEARCHxNAME_DEPO,
+  SEARCHxNAME_USERS,
+  SEARCHxROL,
+  SEARCHxTIPO,
+  GET_USER_ACTUAL,
 } from "../actions/actions";
 
 const initialState = {
   productos: [],
   productosHome: [],
-  categorias: [
-    { id: 1, nombre: "Bien de uso" },
-    { id: 2, nombre: "Bien de consumo" },
-  ],
-  subcategorias: [
-    { id: 1, nombre: "Equipos" },
-    { id: 2, nombre: "Maquinas" },
-    { id: 3, nombre: "Materiales" },
-    { id: 4, nombre: "Repuestos" },
-  ],
+  categorias: [],
+  subcategorias: [],
   detail: [],
   detailDepo: [],
   detailUser: [],
+  userActual: [],
   roles: [],
   usuarios: [],
-  usuariosBloqueados: [],
+  usuariosHome: [],
   empresas: [],
   depositos: [],
+  depositosHome: [],
+  tipos: [],
   paginate: 1,
 };
 
@@ -63,12 +66,26 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         usuarios: [...action.payload],
+        usuariosHome: [...action.payload],
+      };
+
+    case GET_USER_ACTUAL:
+      return {
+        ...state,
+        userActual: action.payload,
       };
 
     case GET_DEPOSITOS:
       return {
         ...state,
         depositos: [...action.payload],
+        depositosHome: [...action.payload],
+      };
+
+    case GET_TIPOS:
+      return {
+        ...state,
+        tipos: [...action.payload],
       };
 
     case GET_EMPRESAS:
@@ -83,6 +100,18 @@ function rootReducer(state = initialState, action) {
         roles: [...action.payload],
       };
 
+    case GET_CATEG:
+      return {
+        ...state,
+        categorias: [...action.payload],
+      };
+
+    case GET_SUBCATEG:
+      return {
+        ...state,
+        subcategorias: [...action.payload],
+      };
+
     /****************** DETAILS ******************/
     case GET_DETAIL:
       return {
@@ -95,22 +124,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         detailDepo: action.payload,
       };
-
-    /****************** CREACIONES ******************/
-    case "POST_PROD": {
-      return {
-        ...state,
-        productos: action.payload,
-      };
-    }
-
-    case "POST_USUARIOS": {
-      console.log(action.payload);
-      return {
-        ...state,
-        usuarios: action.payload,
-      };
-    }
 
     /****************** DELETES ******************/
     case DELETE_PROD: {
@@ -129,6 +142,7 @@ function rootReducer(state = initialState, action) {
         usuarios: state.usuarios.filter((user) => user.id !== action.payload),
       };
     }
+
     case DELETE_DEPO: {
       return {
         ...state,
@@ -136,8 +150,15 @@ function rootReducer(state = initialState, action) {
       };
     }
 
+    case DELETE_EMPRESA: {
+      return {
+        ...state,
+        empresas: state.empresas.filter((emp) => emp.id !== action.payload),
+      };
+    }
+
     /****************** OTROS ******************/
-    case SEARCHxNAME: {
+    case SEARCHxNAME_PROD: {
       const productsFilter = state.productos.filter((e) =>
         e.nombre.toLowerCase().includes(action.payload.toLowerCase())
       );
@@ -146,11 +167,41 @@ function rootReducer(state = initialState, action) {
         productosHome: [...productsFilter],
       };
     }
+    case SEARCHxNAME_EMPR: {
+      const empresasFilter = state.empresas.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        empresas: [...empresasFilter],
+      };
+    }
+    case SEARCHxNAME_DEPO: {
+      const deposFilter = state.depositos.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        depositosHome: [...deposFilter],
+      };
+    }
+    case SEARCHxNAME_USERS: {
+      const ususariosFilter = state.usuarios.filter((e) =>
+        e.nombre.toLowerCase().includes(action.payload.toLowerCase())
+      );
+      return {
+        ...state,
+        usuariosHome: [...ususariosFilter],
+      };
+    }
 
     case SEARCHxCATEGORIA: {
-      let prodFilter = state.productos.filter(
-        (e) => e.categoria === action.payload
-      );
+      let prodFilter =
+        action.payload === "todas"
+          ? state.productos
+          : action.payload === "Bienes de Consumo"
+          ? state.productos.filter((prod) => prod.Subcategorium.id === 1)
+          : state.productos.filter((prod) => prod.Subcategorium.id > 1);
       return {
         ...state,
         productosHome: prodFilter,
@@ -158,12 +209,39 @@ function rootReducer(state = initialState, action) {
     }
 
     case SEARCHxSUBCATEGORIA: {
-      let prodFilter = state.productos.filter(
-        (e) => e.subcategoria === action.payload
-      );
+      let prodFilter =
+        action.payload === "todas"
+          ? state.productos
+          : state.productos.filter(
+              (e) => e.Subcategorium.nombre === action.payload
+            );
       return {
         ...state,
         productosHome: prodFilter,
+      };
+    }
+
+    case SEARCHxROL: {
+      let userFilter =
+        action.payload === "todos"
+          ? state.usuarios
+          : state.usuarios.filter((e) => e.Rol.rol === action.payload);
+      return {
+        ...state,
+        usuariosHome: userFilter,
+      };
+    }
+
+    case SEARCHxTIPO: {
+      let depoFilter =
+        action.payload === "todos"
+          ? state.depositos
+          : state.depositos.filter(
+              (e) => e.TipoDeposito.tipo === action.payload
+            );
+      return {
+        ...state,
+        depositosHome: depoFilter,
       };
     }
 
@@ -172,48 +250,6 @@ function rootReducer(state = initialState, action) {
         ...state,
         paginate: action.payload,
       };
-
-    case BLOCK_USER:
-      const userId = action.payload;
-      const usuario = state.usuarios.find((u) => u.id === userId);
-
-      if (usuario) {
-        const newUserBlocked = { ...usuario, bloqueado: true };
-
-        return {
-          ...state,
-          usuariosBloqueados: [...state.usuariosBloqueados, newUserBlocked],
-          usuarios: state.usuarios.filter((u) => u.id !== userId),
-        };
-      }
-
-      return {
-        ...state,
-      };
-
-    case UNBLOCK_USER: {
-      const userToUnblock = state.usuariosBloqueados.find(
-        (user) => user.id === action.payload
-      );
-      if (userToUnblock) {
-        const updatedUsuariosBloqueados = state.usuariosBloqueados.filter(
-          (user) => user.id !== action.payload
-        );
-        const updatedUsuarios = state.usuarios.map((user) => {
-          if (user.id === action.payload) {
-            return { ...user, bloqueado: false };
-          }
-          return user;
-        });
-        return {
-          ...state,
-          usuarios: updatedUsuarios,
-          usuariosBloqueados: updatedUsuariosBloqueados,
-        };
-      } else {
-        return state;
-      }
-    }
 
     default:
       return {

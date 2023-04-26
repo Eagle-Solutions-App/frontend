@@ -4,8 +4,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 400px;
   z-index: 20;
+
+  &.open {
+    position: absolute;
+    width: 90%;
+    top: 3%;
+
+    input {
+      height: 20px;
+    }
+  }
 
   input {
     height: 25px;
@@ -27,7 +37,7 @@
     cursor: pointer;
     position: absolute;
     right: 1.5%;
-    background-color: $azul2;
+    background-color: $tomate;
     color: white;
     font-size: 18px;
     outline: none;

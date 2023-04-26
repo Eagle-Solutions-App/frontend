@@ -1,159 +1,126 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postProd } from "../../redux/actions/actions";
+import {
+  getDepositos,
+  getSubcategs,
+  postProd,
+} from "../../redux/actions/actions";
 import Navbar from "../Navbar";
 
 export default function CreacionProducto() {
-  /*  const categs = useSelector((state) => state.categorias); */
   const subCategs = useSelector((state) => state.subcategorias);
+  const depos = useSelector((state) => state.depositos);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [input, setInput] = useState({
-    id: "",
     nombre: "",
     categoria: "",
-    subcategoria: "",
+    subcategoriaID: "",
     descripcion: "",
+    depositoID: "",
     codigo: "",
+    imagen: "",
+    cantidad: "",
   });
 
-  /*   const [nombreCateg, setNombreCateg] = useState("");*/
-  /*  const [nombreSubC, setNombreSubC] = useState(""); */
-
-  /*   useEffect(() => {
-    dispatch(getCategorias());
-  }, [dispatch]); */
+  useEffect(() => {
+    dispatch(getSubcategs());
+    dispatch(getDepositos());
+  }, [dispatch]);
 
   const handlerChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const handlerSelectCateg = (e) => {
-    if (!input.subcategoria.includes(e.target.value)) {
+  const handlerSelectSubcateg = (e) => {
+    if (!input.subcategoriaID.includes(e.target.value)) {
       setInput({
         ...input,
-        subcategoria: [...input.subcategoria, e.target.value],
+        subcategoriaID: e.target.value,
+      });
+    }
+  };
+
+  const handlerSelectDepo = (e) => {
+    if (!input.depositoID.includes(e.target.value)) {
+      setInput({
+        ...input,
+        depositoID: e.target.value,
       });
     }
   };
 
   const handlerSubmitForm = (e) => {
     e.preventDefault();
-    console.log(input);
     dispatch(postProd(input));
     alert("Producto creado satisfactoriamente! Se lo redirigirá al inicio...");
     setInput({
       nombre: "",
       categoria: "",
-      subcategora: "",
+      subcategoriaID: "",
       descripcion: "",
+      depositoID: "",
       codigo: "",
+      imagen: "",
+      cantidad: "",
     });
     navigate("/productos");
   };
 
+  /*   const [selectedImage, setSelectedImage] = useState(null); */
+  /* console.log(selectedImage); */
+
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
-        {/* <Link to="/" style={{ textDecoration: "none" }}>
-          <button className="inicioBtn">Inicio</button>
-        </Link> */}
-
         <h2>Creación de Producto</h2>
-        {/* creacion de categoría */}
-        {/* <form className="formCat">
-          <div>
-            <label>Nueva Categoría: </label>
-            <input type="text" name="nombre" value={nombreCateg}></input>
 
-            <div>
-              <button type="submit" disabled={!nombreCateg}>
-                Crear categoría!
-              </button>
-            </div>
-          </div>
-        </form> */}
-
-        {/* creación de subcategoría */}
-        {/*  <form className="formSub">
-          <div>
-            <label>Nueva Subcategoría: </label>
-            <input type="text" name="nombre" value={nombreSubC}></input>
-
-            <div>
-              <button type="submit" disabled={!nombreSubC}>
-                Crear Subcategoría!
-              </button>
-            </div>
-          </div>
-        </form> */}
-
-        {/* selección de categoría */}
         <form className="formSelect" onSubmit={(e) => handlerSubmitForm(e)}>
-          {/* <p>Selecciona una categoría!</p>
-          <div className="selectCat">
-            {categs?.map((obj) => {
+          {/* selección de subcategoría */}
+          <p>Selecciona una Subcategoría!</p>
+          <div className="check">
+            {subCategs?.map((sub) => {
               return (
-                <div key={obj[0].id}>
-                  <label
-                    className="containerr"
-                    htmlFor={obj[0].nombre}
-                    key={obj[0].id}
-                  >
-                    {obj[0].nombre}
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="categ"
-                        id={obj[0].id}
-                        value={obj[0].nombre}
-                      />
-
-                      <button value={obj[0].id}>x</button>
-                    </div>
+                <div key={sub.id}>
+                  <label htmlFor={sub.nombre} key={sub.id}>
+                    <span>{sub.nombre}</span>
+                    <input
+                      type="radio"
+                      name="subcategoriaID"
+                      id={sub.id}
+                      value={[sub.id]}
+                      onChange={(e) => handlerSelectSubcateg(e)}
+                    />
+                    <span className="checkmark"></span>
                   </label>
                 </div>
               );
             })}
-          </div> */}
+          </div>
 
-          {/* selección de subcategoría */}
-          <p>Selecciona una Subcategoría!</p>
-          <div className="selectSub">
-            <div className="check">
-              {subCategs?.map((obj) => {
-                return (
-                  <div key={obj.id}>
-                    <label htmlFor={obj.nombre} key={obj.id}>
-                      {obj.nombre}
-                      <div>
-                        <input
-                          type="checkbox"
-                          name="subCateg"
-                          id={obj.id}
-                          value={[obj.nombre]}
-                          onChange={(e) => handlerSelectCateg(e)}
-                        />
-                        {/* <button value={obj.id}>x</button> */}
-                      </div>
-                    </label>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="sel">
-              <select onChange={(e) => handlerSelectCateg(e)}>
-                {subCategs?.map((obj) => {
-                  return (
-                    <option value={obj.nombre} key={obj.id}>
-                      {obj.nombre}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
+          {/* selección de depósito */}
+          <p>Selecciona un depósito!</p>
+          <div className="check">
+            {depos?.map((depo) => {
+              return (
+                <div key={depo.id}>
+                  <label htmlFor={depo.nombre} key={depo.id}>
+                    <span>{depo.nombre}</span>
+                    <input
+                      type="radio"
+                      name="depositoID"
+                      id={depo.id}
+                      value={[depo.id]}
+                      onChange={(e) => handlerSelectDepo(e)}
+                    />
+                  </label>
+                </div>
+              );
+            })}
           </div>
 
           {/* creación del producto */}
@@ -166,6 +133,7 @@ export default function CreacionProducto() {
                   name="nombre"
                   value={input.nombre}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></input>
               </div>
 
@@ -174,10 +142,57 @@ export default function CreacionProducto() {
                 <input
                   type="text"
                   name="codigo"
-                  value={input.codigo}
+                  value={input.codigo || "#"}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></input>
               </div>
+
+              <div className="codeProd">
+                <label>Cantidad: </label>
+                <input
+                  type="number"
+                  name="cantidad"
+                  value={input.cantidad}
+                  onChange={(e) => handlerChange(e)}
+                  required
+                ></input>
+              </div>
+
+              <div className="imgProd">
+                <label>Imagen: </label>
+                <input
+                  type="url"
+                  name="imagen"
+                  value={input.imagen}
+                  onChange={(e) => handlerChange(e)}
+                  required
+                ></input>
+              </div>
+              {/*  <div className="imgProd">
+                <label>Imagen: </label>
+                <input
+                  type="text"
+                  name="imagen"
+                  value={selectedImage ? selectedImage.name : ""}
+                  readOnly
+                  required
+                />
+                <input
+                  type="file"
+                  id="inputImage"
+                  style={{ display: "none" }}
+                  onChange={(e) => setSelectedImage(e.target.files[0])}
+                  accept="image/*"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => document.getElementById("inputImage").click()}
+                >
+                  Examinar
+                </button>
+              </div> */}
 
               <div className="descProd">
                 <label>Descripción: </label>
@@ -188,6 +203,7 @@ export default function CreacionProducto() {
                   rows="4"
                   value={input.descripcion}
                   onChange={(e) => handlerChange(e)}
+                  required
                 ></textarea>
               </div>
             </div>

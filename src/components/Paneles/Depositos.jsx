@@ -10,7 +10,7 @@ import PaginadoDepositos from "../Paginados/PaginadoDepositos";
 
 export default function Depósitos() {
   const dispatch = useDispatch();
-  const depositos = useSelector((state) => state.depositos);
+  const depositos = useSelector((state) => state.depositosHome);
   let paginateNum = useSelector((state) => state.paginate);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,9 +41,9 @@ export default function Depósitos() {
 
     dispatch(addPaginate(nextPage));
   };
-  console.log(depositos);
+
   return (
-    <div>
+    <div className="mainContainer">
       <Navbar />
       <div className="container">
         <h2>Panel de Depósitos</h2>
@@ -79,6 +79,9 @@ export default function Depósitos() {
                   altura={dep.altura}
                   borrar={borrar}
                   editar={editar}
+                  tipo={dep.TipoDeposito.tipo}
+                  observaciones={dep.observaciones}
+                  productos={dep.Productos}
                 />
               </div>
             ))}

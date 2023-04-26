@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { searchXname } from "../redux/actions/actions";
+import {
+  searchXnameDepo,
+  searchXnameEmpr,
+  searchXnameProd,
+  searchXnameUsers,
+} from "../redux/actions/actions";
 
-export default function SearchBar() {
+export default function SearchBar({ open }) {
   const [state, setState] = useState("");
   const dispatch = useDispatch();
 
@@ -11,23 +16,24 @@ export default function SearchBar() {
   };
 
   const limpiarState = () => {
-    dispatch(searchXname(state));
+    dispatch(searchXnameDepo(state));
+    dispatch(searchXnameUsers(state));
+    dispatch(searchXnameProd(state));
+    dispatch(searchXnameEmpr(state));
     setState("");
   };
 
   return (
-    <div>
-      <div className="searchBar_container">
-        <input
-          type="text"
-          placeholder="Buscar ..."
-          onChange={fnState}
-          value={state}
-        />
-        <button className="search-btn" onClick={limpiarState}>
-          <i className="fas fa-search"></i>
-        </button>
-      </div>
+    <div className={`searchBar_container ${open ? "open" : ""}`}>
+      <input
+        type="text"
+        placeholder="Buscar ..."
+        onChange={fnState}
+        value={state}
+      />
+      <button className="search-btn" onClick={limpiarState}>
+        <i className="fas fa-search"></i>
+      </button>
     </div>
   );
 }
