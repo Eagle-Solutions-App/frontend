@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import perfil from "../img/perfil.jpg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ReactPlayer from "react-player";
 
 export default function Perfil() {
   const userActual = useSelector((state) => state.userActual);
@@ -26,6 +27,16 @@ export default function Perfil() {
             <Link to="/usuarios">
               <button>Cambio de contraseña</button>
             </Link>
+          </div>
+        </div>
+        <div className="ayuda">
+          <h2>Ayuda</h2>
+          <p>Video instructivo de la pagina:</p>
+          <div className="video">
+            <ReactPlayer
+              url="https://www.youtube.com/watch?v=ugp2hjSycmk&ab_channel=TechRiders-Espa%C3%B1a-"
+              controls
+            />
           </div>
         </div>
       </div>

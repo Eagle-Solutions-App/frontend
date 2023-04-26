@@ -38,5 +38,23 @@
         }
       }
     }
+
+    .ayuda {
+      width: 100%;
+      margin-top: 5%;
+      h2 {
+        text-align: center;
+      }
+
+      p {
+        color: white;
+        margin-left: 10px;
+        font-size: 18px;
+      }
+
+      .video {
+        @include center;
+      }
+    }
   }
 }
