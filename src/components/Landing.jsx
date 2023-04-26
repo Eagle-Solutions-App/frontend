@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ModalRegister from "./Modals/ModalRegister";
 import ModalLogin from "./Modals/ModalLogin";
 import logo from "../img/logo2.png";
+import background from "../img/background.jpg";
 
 export default function Landing() {
   const [showModalLogin, setShowModalLogin] = useState(false);
@@ -22,7 +23,12 @@ export default function Landing() {
 
   return (
     <div className="landCont">
-      <img className="imgLand" src={logo} alt="logo" />
+      <div className="backDiv">
+        <img className="back" src={background} alt="fondo" />
+      </div>
+      <div className="imgDiv">
+        <img className="imgLand" src={logo} alt="logo" />
+      </div>
       <div className="landingContainer">
         <div className="wrapper">
           <h1>Eagle Solutions</h1>
