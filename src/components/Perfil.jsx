@@ -9,7 +9,7 @@ export default function Perfil() {
   const userActual = useSelector((state) => state.userActual);
 
   return (
-    userActual && (
+    Object.keys(userActual).length > 0 && (
       <div className="mainContainer">
         <Navbar />
         <div className="perfilContainer">

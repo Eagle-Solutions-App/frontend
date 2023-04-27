@@ -37,6 +37,13 @@ export default function DepositoCard({
     setShowModal(true);
   };
 
+  function handleCloseModal(event) {
+    if (event.target === event.currentTarget) {
+      // Si el evento es el modal, ciérralo.
+      setShowModal(false);
+    }
+  }
+
   return (
     <div className="card">
       <div className="info">
@@ -95,7 +102,11 @@ export default function DepositoCard({
         </button>
       </div>
 
-      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
+      <div
+        className="modal"
+        style={{ display: showModal ? "block" : "none" }}
+        onClick={handleCloseModal}
+      >
         <ModalDepo
           id={id}
           nombre={nombre}
