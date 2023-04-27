@@ -38,6 +38,13 @@ export default function ProdCard({
     setShowModal(true);
   };
 
+  function handleCloseModal(event) {
+    if (event.target === event.currentTarget) {
+      // Si el evento es el modal, ciérralo.
+      setShowModal(false);
+    }
+  }
+
   return (
     deposito && (
       <div className="card">
@@ -87,6 +94,7 @@ export default function ProdCard({
         <div
           className="modal"
           style={{ display: showModal ? "block" : "none" }}
+          onClick={handleCloseModal}
         >
           <ModalProd
             id={id}

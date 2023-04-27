@@ -44,6 +44,13 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
     setShowModal(true);
   };
 
+  function handleCloseModal(event) {
+    if (event.target === event.currentTarget) {
+      // Si el evento es el modal, ciérralo.
+      setShowModal(false);
+    }
+  }
+
   return (
     <div className="card">
       <div className="info">
@@ -98,7 +105,11 @@ export default function UserCard({ nombre, email, empresa, rol, id, bloqueo }) {
         )}
       </div>
 
-      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
+      <div
+        className="modal"
+        style={{ display: showModal ? "block" : "none" }}
+        onClick={handleCloseModal}
+      >
         <EditarUser
           id={id}
           nombre={nombre}

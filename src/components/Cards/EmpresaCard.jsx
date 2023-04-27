@@ -53,6 +53,13 @@ export default function EmpresaCard({
     setShowModal(true);
   };
 
+  function handleCloseModal(event) {
+    if (event.target === event.currentTarget) {
+      // Si el evento es el modal, ciérralo.
+      setShowModal(false);
+    }
+  }
+
   return (
     <div className="card">
       <div className="info">
@@ -122,7 +129,11 @@ export default function EmpresaCard({
         )}
       </div>
 
-      <div className="modal" style={{ display: showModal ? "block" : "none" }}>
+      <div
+        className="modal"
+        style={{ display: showModal ? "block" : "none" }}
+        onClick={handleCloseModal}
+      >
         <ModalEmpresa
           id={id}
           nombre={nombre}
